@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<svg viewBox="-180 -180 360 360" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:v="http://www.w3.org/1999/xhtml/vocab#" viewport-fill="#ffc">
+
+<title>animation of content</title>
+<desc> 
+Test if the animation of a content attribute of the metadata element can be used as a 
+syncbase-value to begin a fill animation of the shape and to deactivate the 
+tooltip role of the title and desc of the shape for the 10s the fill is changed. 
+The animation begins with a click or activate of the shape.
+</desc>
+
+<path xml:id="path" fill="#ccc" stroke="#00f" stroke-width="20" stroke-opacity="0.75" d="M-40,-40C120,-200 -120,-200 40,-40    200,120 200,-120 40,40    -120,200 120,200 -40,40  -200,-120 -200,120 -40,-40z">
+
+<title xml:id="title" role="tooltip">Loop  Shape</title>
+<desc xml:id="desc" role="tooltip">
+A closed cubic shape with 90 degree rotation symmetry and four loops: top, bottom, left, right.
+
+While the shape is filled blue, the tooltip role of title and desc of the shape are deactivated.
+</desc>
+<metadata xml:id="metadata" about="#path" property="v:tooltip" role="tooltip" content="Click or activate the shape to change the fill for 10s to blue."/>
+<set xml:id="set" xlink:href="#metadata" attributeName="content" to="Restart animation while running with a click or activate." dur="10s" begin="path.click; path.activate"/>
+<set xlink:href="#title" attributeName="role" to="presentation" dur="10s" begin="set.begin"/>
+<set xlink:href="#desc" attributeName="role" to="presentation" dur="10s" begin="set.begin"/>
+<animate attributeName="fill" values="#ccf;#008;#ccf" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.2 1; 1 0.8 0.5 1" dur="10s" begin="set.begin"/>
+
+</path>
+
+ 
+</svg>

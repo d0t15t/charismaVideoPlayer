@@ -1,0 +1,40 @@
+
+#scene-wrapper {
+  position: relative;
+  min-height: 360px;
+  margin-bottom: 50px;
+}
+#video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid red;
+}
+.scene-elements {
+  position: relative;
+}
+.scene-element {
+  float: left;
+  position: absolute;
+  /* opacity: 0; */
+}
+.scene-element > * {
+  width: 100%;
+  height: auto;
+  /* background-color: rgba(255, 255, 255, 0.6); */
+}
+
+
+.video-info table {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+table tr td, table tr th {
+  padding: 10px;
+}
+table tr td {
+  border: 1px solid #aaa;
+}
+table tr th {
+  background-color: #ccc;
+}

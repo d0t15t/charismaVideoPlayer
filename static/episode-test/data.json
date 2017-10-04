@@ -1,0 +1,58 @@
+{
+  "episodeId": "episode-test",
+  "videoId": 235966439,
+  "dev": true,
+  "sceneElements": [
+    {
+      "id": "watermelon",
+      "fileName": "watermelon.svg",
+      "position": {
+        "x": 460,
+        "y": 180
+      },
+      "time": {
+        "in": 0.453,
+        "out":3.8765
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "test-video-1"
+    },
+    {
+      "id": "spiral",
+      "fileName": "spiral.svg",
+      "position": {
+        "x": 30,
+        "y": -25
+      },
+      "time": {
+        "in": 3.325,
+        "out":6.76
+      },
+      "size": {
+        "w": 220,
+        "h": 75
+      },
+      "target": "test-video-2"
+    },
+    {
+      "id": "pumpkin",
+      "fileName": "pumpkin.svg",
+      "position": {
+        "x": 100,
+        "y": 175
+      },
+      "time": {
+        "in": 2.325,
+        "out":4.76
+      },
+      "size": {
+        "w": 180,
+        "h": 75
+      },
+      "target": "test-video-3 "
+    }
+  ]
+}
