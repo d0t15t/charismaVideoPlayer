@@ -11,8 +11,25 @@
         "y": 180
       },
       "time": {
-        "in": 0.453,
-        "out":3.8765
+        "in": 0.75,
+        "out": 3.1
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "test-video-1"
+    },
+    {
+      "id": "bell",
+      "fileName": "bell.svg",
+      "position": {
+        "x": 180,
+        "y": 230
+      },
+      "time": {
+        "in": 0.11,
+        "out": 7.1
       },
       "size": {
         "w": 150,
@@ -29,13 +46,13 @@
       },
       "time": {
         "in": 3.325,
-        "out":6.76
+        "out": 4
       },
       "size": {
-        "w": 220,
-        "h": 75
+        "w": 150,
+        "h": null
       },
-      "target": "test-video-2"
+      "targetId": "test-video-1"
     },
     {
       "id": "pumpkin",
@@ -45,7 +62,7 @@
         "y": 175
       },
       "time": {
-        "in": 2.325,
+        "in": 4.325,
         "out":4.76
       },
       "size": {

@@ -1,3 +1,4 @@
+var timeOuts = [];
 /**
  *  @params
  *  1. css wrapper id for video player
@@ -28,31 +29,73 @@ function videoPlayer(jsonPath, playerId, elementsId, infoId) {
       portrait: false,
       title: false,
     };
-    // Dev settings.
-    if (d.dev == true)
-      options.autoplay = true;
     // Initialize main player.
     var player = new Vimeo.Player(d.playerId, options);
     var curTime = 0;
     // More Dev settings.
-    if (d.dev == true)
+    if (d.dev == true) {
       player.setVolume(0);
+      player.play()
+      // player.setCurrentTime(curTime);
+    }
 
-    // Set up listeners & actions.
+    //
+    // Playback Sequence
     player.on('play', function(playbackData) {
       player.getCurrentTime().then(function(curTime) {
         // Playback sequence
-        var sceneElement = getCurrentSE(d, curTime);
-        // var playbackOffset
-        var asfd = 1;
+        playbackSequence(d, curTime);
       });
 
     });
 
-
-
-
   });
+}
+
+function playbackSequence(d, curTime) {
+  $.each(timeOuts, function(i, e){
+    clearTimeout(e);
+  });
+  var sEcur  = getCurrentSE(d, curTime);
+  var sEnext = getNextSE(d, curTime, sEcur);
+
+  // play current with offset stop time
+  if (sEcur != null) {
+    var timeOffset = sEcur.time.out - curTime;
+    toggleElement(sEcur);
+    var tO = setTimeout(function(){
+      toggleElement(sEcur);
+    }, timeOffset * 1000);
+    timeOuts.push(tO);
+  }
+  // Play sequence
+  var i = sEcur ? sEcur.sceneIndex + 1 : 0;
+  var asf = 1;
+  $.each(d.sceneElements, function(i, e){
+    var el = d.sceneElements[i];
+    var timeOffsetStart = el.time.in - curTime;
+    var timeOffsetEnd = el.time.out - curTime;
+    var tO = setTimeout(function(){
+      toggleElement(el);
+    }, timeOffsetStart * 1000);
+    timeOuts.push(tO);
+    var tO = setTimeout(function(){
+      toggleElement(el);
+    }, timeOffsetEnd * 1000);
+    timeOuts.push(tO);
+  });
+  // var playbackOffset
+
+}
+
+/**
+ * Toggle class active on scene element.
+ * @param {*} el
+ * @param {*} toggle
+ */
+function toggleElement(el) {
+  $('#' + el.id).toggleClass('active');
+  var asdf = 1;
 }
 
 /**
@@ -63,12 +106,39 @@ function videoPlayer(jsonPath, playerId, elementsId, infoId) {
  * @param {*} curTime
  */
 function getCurrentSE(d, curTime) {
-  $.each(d.sceneElements, function(i, e){
-    if (e.time.in < curTime && e.time.out > curTime)
-      return e;
-  });
+  for (i = 0 ;d.sceneElements[i];) {
+    if (d.sceneElements[i].time.in <= curTime && d.sceneElements[i].time.out > curTime)
+      return d.sceneElements[i];
+    i++;
+  }
 }
 
+/**
+ * Get next scene element.
+ * @param {*} d
+ * @param {*} curTime
+ * @param {*} sEcur
+ */
+function getNextSE(d, curTime, sEcur) {
+  // If current scene element is set, return next element.
+  if (sEcur != null && sEcur.length > 0 && sEcur.sceneIndex.length > 0)
+    return sEcur.sceneIndex.length + 1;
+  else {
+    // if no current element is set, calculate next element based on current time
+    // var i = 0;
+    for (i = 0 ;d.sceneElements[i];) {
+      if (d.sceneElements[i].time.in >= curTime && d.sceneElements[i].time.out > curTime) {
+        return d.sceneElements[i];
+      }
+      i++;
+    }
+  }
+}
+
+/**
+ * Set element indices.
+ * @param {*} d
+ */
 function sElementsIndexing(d) {
   $.each(d.sceneElements, function(i, e){
     d.sceneElements[i].sceneIndex = i;
