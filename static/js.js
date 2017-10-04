@@ -1,10 +1,20 @@
-var timeOuts = [];
 /**
  *  @params
- *  1. css wrapper id for video player
- *  2. css wrapper id for scene elements
- *  3. path to json file
+ *  1. path to json file
+ *  2. css wrapper id for video player
+ *  3. css wrapper id for scene elements
  *  4. css wrapper id for video info
+ */
+var player = videoPlayer('/episode-test/data.json', 'video-player', 'scene-elements', 'video-info');
+
+var timeOuts = [];
+
+/**
+ *  Initiate video player.
+ * @param {*} jsonPath
+ * @param {*} playerId
+ * @param {*} elementsId
+ * @param {*} infoId
  */
 function videoPlayer(jsonPath, playerId, elementsId, infoId) {
 // $.playerInit = function(jsonPath, playerId, elementsId, infoId) {
@@ -39,34 +49,50 @@ function videoPlayer(jsonPath, playerId, elementsId, infoId) {
       // player.setCurrentTime(curTime);
     }
 
-    //
-    // Playback Sequence
+    // Player on listener.
     player.on('play', function(playbackData) {
       player.getCurrentTime().then(function(curTime) {
         // Playback sequence
         playbackSequence(d, curTime);
       });
-
+    });
+    // Player pause listener.
+    player.on('pause', function(playbackData){
+      $.each(timeOuts, function(i, e){
+        clearTimeout(e);
+      });
     });
 
   });
 }
 
+/**
+ * Playback sequence.
+ * @param {*} d
+ * @param {*} curTime
+ */
 function playbackSequence(d, curTime) {
   $.each(timeOuts, function(i, e){
     clearTimeout(e);
   });
+  $.each(d.sceneElements, function(i, e){
+    hideElement(e);
+  });
   var sEcur  = getCurrentSE(d, curTime);
-  var sEnext = getNextSE(d, curTime, sEcur);
+  // var sEnext = getNextSE(d, curTime, sEcur);
 
   // play current with offset stop time
-  if (sEcur != null) {
-    var timeOffset = sEcur.time.out - curTime;
-    toggleElement(sEcur);
-    var tO = setTimeout(function(){
-      toggleElement(sEcur);
-    }, timeOffset * 1000);
-    timeOuts.push(tO);
+  if (sEcur != null && sEcur.length > 0) {
+    $.each(sEcur, function(i,e){
+      var timeOffset = e.time.out - curTime;
+      console.log(e.id);
+      console.log(timeOffset);
+      showElement(e);
+      // var tO = setTimeout(function(){
+      //   toggleElement(e);
+      // }, timeOffset * 1000);
+      // timeOuts.push(tO);
+    });
   }
   // Play sequence
   var i = sEcur ? sEcur.sceneIndex + 1 : 0;
@@ -91,11 +117,25 @@ function playbackSequence(d, curTime) {
 /**
  * Toggle class active on scene element.
  * @param {*} el
- * @param {*} toggle
  */
 function toggleElement(el) {
   $('#' + el.id).toggleClass('active');
-  var asdf = 1;
+}
+
+/**
+ * Hide scene element.
+ * @param {*} el
+ */
+function hideElement(el) {
+  $('#' + el.id).removeClass('active');
+}
+
+/**
+ * Show scene element.
+ * @param {*} el
+ */
+function showElement(el) {
+  $('#' + el.id).addClass('active');
 }
 
 /**
@@ -106,11 +146,13 @@ function toggleElement(el) {
  * @param {*} curTime
  */
 function getCurrentSE(d, curTime) {
+  var array = [];
   for (i = 0 ;d.sceneElements[i];) {
     if (d.sceneElements[i].time.in <= curTime && d.sceneElements[i].time.out > curTime)
-      return d.sceneElements[i];
+      array.push(d.sceneElements[i]);
     i++;
   }
+  return array;
 }
 
 /**
@@ -119,21 +161,21 @@ function getCurrentSE(d, curTime) {
  * @param {*} curTime
  * @param {*} sEcur
  */
-function getNextSE(d, curTime, sEcur) {
-  // If current scene element is set, return next element.
-  if (sEcur != null && sEcur.length > 0 && sEcur.sceneIndex.length > 0)
-    return sEcur.sceneIndex.length + 1;
-  else {
-    // if no current element is set, calculate next element based on current time
-    // var i = 0;
-    for (i = 0 ;d.sceneElements[i];) {
-      if (d.sceneElements[i].time.in >= curTime && d.sceneElements[i].time.out > curTime) {
-        return d.sceneElements[i];
-      }
-      i++;
-    }
-  }
-}
+// function getNextSE(d, curTime, sEcur) {
+//   // If current scene element is set, return next element.
+//   if (sEcur != null && sEcur.length > 0 && sEcur.sceneIndex.length > 0)
+//     return sEcur.sceneIndex.length + 1;
+//   else {
+//     // if no current element is set, calculate next element based on current time
+//     // var i = 0;
+//     for (i = 0 ;d.sceneElements[i];) {
+//       if (d.sceneElements[i].time.in >= curTime && d.sceneElements[i].time.out > curTime) {
+//         return d.sceneElements[i];
+//       }
+//       i++;
+//     }
+//   }
+// }
 
 /**
  * Set element indices.
@@ -199,11 +241,3 @@ function formatTime(t) {
   return t * 1000;
 }
 
-/**
- *  @params
- *  1. path to json file
- *  2. css wrapper id for video player
- *  3. css wrapper id for scene elements
- *  4. css wrapper id for video info
- */
-var player = videoPlayer('/episode-test/data.json', 'video-player', 'scene-elements', 'video-info');

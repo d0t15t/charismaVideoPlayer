@@ -4,15 +4,15 @@
   "dev": true,
   "sceneElements": [
     {
-      "id": "watermelon",
-      "fileName": "watermelon.svg",
+      "id": "s1e1",
+      "fileName": "s1e1.svg",
       "position": {
-        "x": 460,
-        "y": 180
+        "x": 480,
+        "y": 95
       },
       "time": {
         "in": 0.75,
-        "out": 3.1
+        "out": 13.1
       },
       "size": {
         "w": 150,
@@ -21,18 +21,18 @@
       "targetId": "test-video-1"
     },
     {
-      "id": "bell",
-      "fileName": "bell.svg",
+      "id": "s1e2",
+      "fileName": "s1e2.svg",
       "position": {
-        "x": 180,
-        "y": 230
+        "x": 200,
+        "y": 0
       },
       "time": {
-        "in": 0.11,
-        "out": 7.1
+        "in": 16,
+        "out": 18
       },
       "size": {
-        "w": 150,
+        "w": null,
         "h": null
       },
       "targetId": "test-video-1"
