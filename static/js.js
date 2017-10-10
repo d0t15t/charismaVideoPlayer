@@ -6,7 +6,6 @@
  *  4. css wrapper id for video info
  */
 var player = videoPlayer('/episode-test/data.json', 'video-player', 'scene-elements', 'video-info');
-
 var timeOuts = [];
 
 /**
@@ -41,7 +40,6 @@ function videoPlayer(jsonPath, playerId, elementsId, infoId) {
     };
     // Initialize main player.
     var player = new Vimeo.Player(d.playerId, options);
-    var curTime = 0;
     // More Dev settings.
     if (d.dev == true) {
       player.setVolume(0);
@@ -49,18 +47,68 @@ function videoPlayer(jsonPath, playerId, elementsId, infoId) {
       // player.setCurrentTime(curTime);
     }
 
-    // Player on listener.
-    player.on('play', function(playbackData) {
+    // Initialize cuepoints.
+  //   player.addCuePoint(15, {
+  //     customKey: 'customValue'
+  // }).then(function(id) {
+  //     // cue point was added successfully
+  // }).catch(function(error) {
+  //     switch (error.name) {
+  //         case 'UnsupportedError':
+  //             // cue points are not supported with the current player or browser
+  //             break;
+
+  //         case 'RangeError':
+  //             // the time was less than 0 or greater than the video’s duration
+  //             break;
+
+  //         default:
+  //             // some other error occurred
+  //             break;
+  //     }
+  // });
+  //     player.getCuePoints().then(function(cuePoints) {
+  //     console.log(cuePoints);
+  //     var asdf = 1;
+  //   }).catch(function(error){
+  //     var asdf = 1;
+
+  //   });
+    $.each(d.sceneElements, function(i, e){
+      player.addCuePoint(e.time.in, {
+        action: 'showElement',
+        id: e.id,
+      });
+      player.addCuePoint(e.time.out, {
+        action: 'hideElement',
+        id: e.id,
+      });
+    });
+    // Gather cuepoints.
+    player.getCuePoints().then(function(cuePoints) {
+      // console.log(cuePoints);
+      var asdf = 1;
+    }).catch(function(error){
+      var asdf = 1;
+
+    });
+
+    // 'play' listener.
+    player.on('play', function(data) {
       player.getCurrentTime().then(function(curTime) {
         // Playback sequence
         playbackSequence(d, curTime);
       });
     });
-    // Player pause listener.
-    player.on('pause', function(playbackData){
+    // 'pause' listener.
+    player.on('pause', function(data){
       $.each(timeOuts, function(i, e){
-        clearTimeout(e);
+        // clearTimeout(e);
       });
+    });
+    // 'cuepoint' listener.
+    player.on('cuepoint', function(data){
+      $('#' + data.data.id).toggleClass('active');
     });
 
   });
@@ -72,45 +120,42 @@ function videoPlayer(jsonPath, playerId, elementsId, infoId) {
  * @param {*} curTime
  */
 function playbackSequence(d, curTime) {
-  $.each(timeOuts, function(i, e){
-    clearTimeout(e);
-  });
   $.each(d.sceneElements, function(i, e){
     hideElement(e);
   });
   var sEcur  = getCurrentSE(d, curTime);
   // var sEnext = getNextSE(d, curTime, sEcur);
 
-  // play current with offset stop time
-  if (sEcur != null && sEcur.length > 0) {
-    $.each(sEcur, function(i,e){
-      var timeOffset = e.time.out - curTime;
-      console.log(e.id);
-      console.log(timeOffset);
-      showElement(e);
-      // var tO = setTimeout(function(){
-      //   toggleElement(e);
-      // }, timeOffset * 1000);
-      // timeOuts.push(tO);
-    });
-  }
-  // Play sequence
-  var i = sEcur ? sEcur.sceneIndex + 1 : 0;
-  var asf = 1;
-  $.each(d.sceneElements, function(i, e){
-    var el = d.sceneElements[i];
-    var timeOffsetStart = el.time.in - curTime;
-    var timeOffsetEnd = el.time.out - curTime;
-    var tO = setTimeout(function(){
-      toggleElement(el);
-    }, timeOffsetStart * 1000);
-    timeOuts.push(tO);
-    var tO = setTimeout(function(){
-      toggleElement(el);
-    }, timeOffsetEnd * 1000);
-    timeOuts.push(tO);
-  });
-  // var playbackOffset
+  // // play current with offset stop time
+  // if (sEcur != null && sEcur.length > 0) {
+  //   $.each(sEcur, function(i,e){
+  //     var timeOffset = e.time.out - curTime;
+  //     console.log(e.id);
+  //     console.log(timeOffset);
+  //     showElement(e);
+  //     // var tO = setTimeout(function(){
+  //     //   toggleElement(e);
+  //     // }, timeOffset * 1000);
+  //     // timeOuts.push(tO);
+  //   });
+  // }
+  // // Play sequence
+  // var i = sEcur ? sEcur.sceneIndex + 1 : 0;
+  // var asf = 1;
+  // $.each(d.sceneElements, function(i, e){
+  //   var el = d.sceneElements[i];
+  //   var timeOffsetStart = el.time.in - curTime;
+  //   var timeOffsetEnd = el.time.out - curTime;
+  //   var tO = setTimeout(function(){
+  //     toggleElement(el);
+  //   }, timeOffsetStart * 1000);
+  //   timeOuts.push(tO);
+  //   var tO = setTimeout(function(){
+  //     toggleElement(el);
+  //   }, timeOffsetEnd * 1000);
+  //   timeOuts.push(tO);
+  // });
+  // // var playbackOffset
 
 }
 
