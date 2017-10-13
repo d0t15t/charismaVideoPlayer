@@ -2,6 +2,7 @@
   "episodeId": "episode-test",
   "videoId": 235966439,
   "dev": true,
+  "autoplay": false,
   "sceneElements": [
     {
       "id": "s1e1",
@@ -11,8 +12,8 @@
         "y": 95
       },
       "time": {
-        "in": 0.75,
-        "out": 13.1
+        "in": 0.1,
+        "out": 15.1
       },
       "size": {
         "w": 150,

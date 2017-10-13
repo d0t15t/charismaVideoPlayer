@@ -1,8 +1,11 @@
-
+h1 {
+  float: right;
+}
 #scene-wrapper {
   position: relative;
-  min-height: 360px;
-  margin-bottom: 50px;
+  height: 475px;
+  width: 642px;
+  /* float: left; */
 }
 #video-player {
   position: absolute;
@@ -28,10 +31,20 @@
   /* background-color: rgba(255, 255, 255, 0.6); */
 }
 
-
-.video-info table {
-  width: 100%;
-  border: 1px solid #ccc;
+#scene-wrapper {
+  margin-right: 20px;
+}
+#scene-wrapper, #video-info {
+  display: inline-block;
+  vertical-align: top;
+  /* float: left; */
+}
+#video-info {
+  float: right;
+  border: 1px solid pink;
+  width: 260px;
+  height: 100px;
+  position: relative;
 }
 table tr td, table tr th {
   padding: 10px;
@@ -41,4 +54,51 @@ table tr td {
 }
 table tr th {
   background-color: #ccc;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+#video-info table tr#edits td {
+  display: none;
+}
+#video-info table tr#edits.active td {
+  display: table-cell;
+  background-color: mintcream;
+}
+
+tr#actions td#play-scene {
+  background-color: lightskyblue;
+}
+tr#actions td#play-scene:hover {
+  background-color: darkblue;
+}
+tr#actions td.calc {
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+tr#actions td.calc a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  text-align: center;
+  background-color: #aaa;
+  font-size: 16px;
+}
+tr#actions td.calc a:hover {
+  background-color: lightpink;
+}
+tr#actions td#play-scene a {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+tr#actions td.calc a:first-child {
+  border-bottom: 1px solid #ccc;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
