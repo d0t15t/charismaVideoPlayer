@@ -13,7 +13,7 @@
       },
       "time": {
         "in": 0.1,
-        "out": 15.1
+        "out": 15.5
       },
       "size": {
         "w": 150,
@@ -25,12 +25,12 @@
       "id": "s1e2",
       "fileName": "s1e2.svg",
       "position": {
-        "x": 200,
+        "x": 270,
         "y": 0
       },
       "time": {
         "in": 16,
-        "out": 18
+        "out": 18.10
       },
       "size": {
         "w": null,
@@ -39,15 +39,15 @@
       "targetId": "test-video-1"
     },
     {
-      "id": "spiral",
-      "fileName": "spiral.svg",
+      "id": "s1e3",
+      "fileName": "s1e1.svg",
       "position": {
-        "x": 30,
-        "y": -25
+        "x": 480,
+        "y": 95
       },
       "time": {
-        "in": 3.325,
-        "out": 4
+        "in": 18.5,
+        "out": 21.5
       },
       "size": {
         "w": 150,
@@ -56,21 +56,72 @@
       "targetId": "test-video-1"
     },
     {
-      "id": "pumpkin",
-      "fileName": "pumpkin.svg",
+      "id": "s1e4",
+      "fileName": "s1e2.svg",
       "position": {
-        "x": 100,
-        "y": 175
+        "x": 270,
+        "y": 0
       },
       "time": {
-        "in": 4.325,
-        "out":4.76
+        "in": 22,
+        "out": 26.10
       },
       "size": {
-        "w": 180,
-        "h": 75
+        "w": null,
+        "h": null
       },
-      "target": "test-video-3 "
+      "targetId": "test-video-1"
+    },
+    {
+      "id": "s1e5",
+      "fileName": "s1e1.svg",
+      "position": {
+        "x": 480,
+        "y": 95
+      },
+      "time": {
+        "in": 27,
+        "out": 32.5
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "test-video-1"
+    },
+    {
+      "id": "s1e6",
+      "fileName": "s1e2.svg",
+      "position": {
+        "x": 270,
+        "y": 0
+      },
+      "time": {
+        "in": 33,
+        "out": 42
+      },
+      "size": {
+        "w": null,
+        "h": null
+      },
+      "targetId": "test-video-1"
+    },
+    {
+      "id": "s1e7",
+      "fileName": "s1e1.svg",
+      "position": {
+        "x": 480,
+        "y": 95
+      },
+      "time": {
+        "in": 43,
+        "out": 46
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "test-video-1"
     }
   ]
 }

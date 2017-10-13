@@ -41,9 +41,9 @@ h1 {
 }
 #video-info {
   float: right;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
   width: 260px;
-  height: 100px;
+  height: 500px;
   position: relative;
 }
 table tr td, table tr th {
@@ -64,12 +64,43 @@ table tr th {
   display: table-cell;
   background-color: mintcream;
 }
-
+tr.active.scene td {
+  background: orange;
+  border-right: 1px solid white;
+}
+tr.scene img {
+  width: 20px;
+  height: auto;
+}
+tr.active.scene td:last-child {
+  border-right: 1px solid #aaa;
+}
 tr#actions td#play-scene {
   background-color: lightskyblue;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
 }
-tr#actions td#play-scene:hover {
+tr#actions td#play-scene a.playback {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+tr#actions td#play-scene a.playback.active {
+  display: block;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-top: 25%;
+}
+tr#actions td#play-scene a.playback.playing {
+  background-color: darkcyan;
+}
+tr#actions td#play-scene a:hover {
   background-color: darkblue;
+}
+tr#actions .time {
+  text-align: center;
 }
 tr#actions td.calc {
   padding: 0 !important;
@@ -101,4 +132,9 @@ tr#actions td.calc a:first-child {
 a:hover {
   text-decoration: none;
   cursor: pointer;
+}
+
+.container {
+  clear: both;
+  margin-bottom: 100px;
 }
