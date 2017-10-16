@@ -19,7 +19,7 @@
         "w": 150,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
     },
     {
       "id": "s1e2",
@@ -36,7 +36,7 @@
         "w": null,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
     },
     {
       "id": "s1e3",
@@ -53,7 +53,7 @@
         "w": 150,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
     },
     {
       "id": "s1e4",
@@ -70,7 +70,7 @@
         "w": null,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
     },
     {
       "id": "s1e5",
@@ -87,7 +87,7 @@
         "w": 150,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
     },
     {
       "id": "s1e6",
@@ -97,14 +97,14 @@
         "y": 0
       },
       "time": {
-        "in": 33,
+        "in": 33.5,
         "out": 42
       },
       "size": {
         "w": null,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
     },
     {
       "id": "s1e7",
@@ -121,7 +121,17 @@
         "w": 150,
         "h": null
       },
-      "targetId": "test-video-1"
+      "targetId": "t1e1"
+    }
+  ],
+  "targetElements": [
+    {
+      "id": "t1e1",
+      "videoId": 235966439,
+      "position": {
+        "x": 480,
+        "y": 95
+      }
     }
   ]
 }
