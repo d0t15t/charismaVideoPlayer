@@ -1,4 +1,4 @@
-baseURL = "http://charisma.gearhostpreview.com/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Charisma Enriched Media"
 theme = "charismaUi"
