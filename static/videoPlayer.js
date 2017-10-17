@@ -79,7 +79,23 @@ $(document).ready(function(){
   player.on('play', function(data) {
     player.getCurrentTime().then(function(curTime) {
       // Playback sequence
-      playbackSequence(d, curTime);
+      // playbackSequence(d, curTime);
+      var functionOne = function() {
+         var r = $.Deferred();
+         // Do your whiz bang jQuery stuff here
+         hideElements(d.sceneElements);
+         console.log('hide Elements');
+         return r;
+       };
+       var functionTwo = function() {
+         // Do your whiz bang jQuery stuff here
+         showElements(getCurrentSE(d, curTime));
+         console.log('Show current elements');
+         console.log(getCurrentSE(d, curTime));
+       };
+       // Now call the functions one after the other using the done method
+       functionOne().done( functionTwo() );
+
     });
   });
 
@@ -109,21 +125,26 @@ $(document).ready(function(){
     }
   });
 
+  //
   // Editor controls.
+  //
   var form = $('#scene-edit-form');
-  function editFormSwitchActiveRow(target) {
-    $.each(target.siblings(), function(i, e) {
-      $(e).removeClass('active');
+
+  /**
+   * Prevent links default.
+   */
+  form.find('a').each(function(){
+    $(this).click(function(event){
+      event.preventDefault();
     });
-    target.addClass('active');
-    target.find('input').attr('checked', 'checked');
-    $('#edits #posX').html(target.find('#posX').html())
-    $('#edits #posX').attr('value', target.find('#posX').html())
-    $('#edits #posY').html(target.find('#posY').html())
-    $('#edits #posY').attr('value', target.find('#posY').html())
-  }
-  // switch active rows on click.
+  });
+
+  /**
+   * Switch active rows on click.
+   */
   form.find('input[name="scene-selector"]').click(function(){
+    // target = Scene Element, which is synced to the video
+    // & has identical id attribute.
     var target = $(this).parents('.' + $(this).attr('target'));
     editFormSwitchActiveRow(target);
     var id = target.attr('id');
@@ -136,17 +157,33 @@ $(document).ready(function(){
       }
     });
   });
-  //prevent links default
-  form.find('a').each(function(){
-    $(this).click(function(event){
-      event.preventDefault();
-    });
-  });
 
-  // Play single scene.
+
+  /**
+   * When selecting an active row in the Editor form, perform actions which
+   * update the editor with values for the new active row.
+   *
+   * @param {*} target
+   */
+  function editFormSwitchActiveRow(target) {
+    player.pause();
+    $.each(target.siblings(), function(i, e) {
+      $(e).removeClass('active');
+    });
+    target.addClass('active');
+    target.find('input').attr('checked', 'checked');
+    $('#edits #posX').html(target.find('#posX').html())
+    $('#edits #posX').attr('value', target.find('#posX').html())
+    $('#edits #posY').html(target.find('#posY').html())
+    $('#edits #posY').attr('value', target.find('#posY').html())
+  }
+
+  /**
+   * Play single scene.
+   */
   $('#scene-edit-form #play-scene a#play').click(function(event){
     var activeId = form.find('tr.active input[checked="checked"]').attr('value');
-    console.log(activeId);
+    console.log('active id = ' + activeId);
     d.single = activeId;
     d.playthrough = false;
     player.getCuePoints().then(function(cuePoints) {
@@ -157,13 +194,15 @@ $(document).ready(function(){
         ) {
           player.setCurrentTime(e.time);
           player.play();
-          playbackSequence(d, e.time);
+          // playbackSequence(d, e.time);
         }
       });
     });
   });
 
-
+  /**
+   * Scene time click set.
+   */
   $('#scene-edit-form a.time').click(function(event){
     var link = $(this);
     var activeId = form.find('tr.active input[checked="checked"]').attr('value');
@@ -174,12 +213,14 @@ $(document).ready(function(){
           curTime = e.time.in;
         if (link.attr('id') == 'time-out')
           curTime = e.time.out;
-        player.setCurrentTime(setTimeout);
+        player.setCurrentTime(curTime);
       }
     });
   });
 
-  // Edit scene element position.
+  /**
+   * Edit scene element position.
+   */
   $('#scene-edit-form td.calc a').click(function(event){
     console.log('click')
     var link = $(this);
@@ -228,16 +269,16 @@ $(document).ready(function(){
 
 });
 
-/**
- * Playback sequence.
- * @param {*} d
- * @param {*} curTime
- */
-function playbackSequence(d, curTime) {
-  console.log('playback sequence function');
-  hideElements(d.sceneElements);
-  showElements(getCurrentSE(d, curTime));
-}
+// /**
+//  * Playback sequence.
+//  * @param {*} d
+//  * @param {*} curTime
+//  */
+// function playbackSequence(d, curTime) {
+//   console.log('playback sequence function');
+//   hideElements(d.sceneElements);
+//   showElements(getCurrentSE(d, curTime));
+// }
 
 /**
  * Toggle class active on scene element.
