@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en-us">
-	<head>
+<html lang="en-us"><head>
 		<title> Charisma Enriched Media </title>
 
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.26">
 
 
-<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -19,12 +17,18 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="/css/nix.css">
-<link rel="stylesheet" href="/css/charismaUi.css">
+<link rel="stylesheet" href="//localhost:50325/css/nix.css">
+<link rel="stylesheet" href="//localhost:50325/css/charismaUi.css">
 
 
 <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto|Montserrat|Concert+One" rel="stylesheet">
 
+
+
+
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script src="/videoPlayer.js"></script>
 	</head>
 	<body>
 		<header>
@@ -37,14 +41,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" id="green-terminal" href=/>@ ~ $</a>
+			<a class="navbar-brand" id="green-terminal" href="//localhost:50325/">@ ~ $</a>
 		</div>
 
 
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="/">/home/</a>
+					<a href="//localhost:50325/">/home/</a>
 				</li>
 
 
@@ -56,42 +60,26 @@
 
 		<div class="container wrapper">
 			<div class="row">
-				<div class="col-sm-3 col-centered">
-					<img alt="profile-picture" class="img-responsive img-circle user-picture" src="">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 user-profile text-center">
-
-					<h1 id="user-name"></h1>
-
-				</div>
-			</div>
-			<div class="row">
 				<div class="col-xs-12 user-social text-center">
 
 
-
-
-
-
-
-
-
-
+						<div id="scene-wrapper">
+								<div id="video-player" data-vimeo-initialized="true"><iframe src="https://player.vimeo.com/video/235966439?title=0&amp;byline=0&amp;portrait=0&amp;loop=1" width="640" height="468" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-ready="true"></iframe></div>
+								<div id="scene-elements"><div class="scene-element" id="s1e1" style="left: 480px; top: 95px; width: 150px;"><img src="/episode-test/files/s1e1.svg"></div><div class="scene-element" id="s1e2" style="left: 270px; top: 0px;"><img src="/episode-test/files/s1e2.svg"></div><div class="scene-element" id="s1e3" style="left: 480px; top: 95px; width: 150px;"><img src="/episode-test/files/s1e1.svg"></div><div class="scene-element" id="s1e4" style="left: 270px; top: 0px;"><img src="/episode-test/files/s1e2.svg"></div><div class="scene-element" id="s1e5" style="left: 480px; top: 95px; width: 150px;"><img src="/episode-test/files/s1e1.svg"></div><div class="scene-element" id="s1e6" style="left: 270px; top: 0px;"><img src="/episode-test/files/s1e2.svg"></div><div class="scene-element" id="s1e7" style="left: 480px; top: 95px; width: 150px;"><img src="/episode-test/files/s1e1.svg"></div></div>
+						</div>
+						<div id="video-info"><form id="scene-edit-form"><table><tbody><tr><th>ID</th><th>X</th><th>Y</th><th>In</th><th>Out</th></tr><tr class="scene" id="s1e1"><td><input type="radio" name="scene-selector" target="scene" value="s1e1" null="">s1e1</td><td id="posX">480</td><td id="posY">95</td><td>0.1</td><td>15.5</td><td><img src="/episode-test/files/s1e1.svg"></td></tr><tr class="scene" id="s1e2"><td><input type="radio" name="scene-selector" target="scene" value="s1e2" null="">s1e2</td><td id="posX">270</td><td id="posY">0</td><td>16</td><td>18.1</td><td><img src="/episode-test/files/s1e2.svg"></td></tr><tr class="scene active" id="s1e3"><td><input type="radio" name="scene-selector" target="scene" value="s1e3" null="" checked="checked">s1e3</td><td id="posX">480</td><td id="posY">95</td><td>18.5</td><td>21.5</td><td><img src="/episode-test/files/s1e1.svg"></td></tr><tr class="scene" id="s1e4"><td><input type="radio" name="scene-selector" target="scene" value="s1e4" null="" checked="checked">s1e4</td><td id="posX">270</td><td id="posY">0</td><td>22</td><td>26.1</td><td><img src="/episode-test/files/s1e2.svg"></td></tr><tr class="scene" id="s1e5"><td><input type="radio" name="scene-selector" target="scene" value="s1e5" null="">s1e5</td><td id="posX">480</td><td id="posY">95</td><td>27</td><td>32.5</td><td><img src="/episode-test/files/s1e1.svg"></td></tr><tr class="scene" id="s1e6"><td><input type="radio" name="scene-selector" target="scene" value="s1e6" null="">s1e6</td><td id="posX">270</td><td id="posY">0</td><td>33.5</td><td>42</td><td><img src="/episode-test/files/s1e2.svg"></td></tr><tr class="scene" id="s1e7"><td><input type="radio" name="scene-selector" target="scene" value="s1e7" null="">s1e7</td><td id="posX">480</td><td id="posY">95</td><td>43</td><td>46.2</td><td><img src="/episode-test/files/s1e1.svg"></td></tr><tr id="actions"><td id="play-scene"><a id="play" class="playback active">Play</a><a id="pause" class="playback playing">Pause</a></td><td id="posX" class="calc"><a id="plus" value="1" target="left">+</a><a id="minus" value="-1" target="left">—</a></td><td id="posY" class="calc"><a id="plus" value="1" target="top">+</a><a id="minus" value="-1" target="top">—</a></td><td class="time"><a id="time-in" class="time">←</a></td><td class="time"><a id="time-out" class="time">→</a></td></tr><tr id="edits"><td id="editId">Edits</td><td id="posX" value="480">480</td><td id="posY" value="95">95</td></tr></tbody></table></form></div>
 
 
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 col-md-offset-4 user-description text-center">
-					<p></p>
-				</div>
+
+
 			</div>
 			<div class="push"></div>
 		</div>
 		<footer class="footer text-center">
-<p>Copyright &copy; 2017  -
+<p>Copyright © 2017  -
 <span class="credit">
 	Powered by
 	<a target="_blank" href="https://gohugo.io">Hugo</a>
@@ -101,5 +89,6 @@
 </p>
 </footer>
 
-	</body>
-</html>
+	<script data-no-instant="">document.write('<script src="/livereload.js?port=50325&mindelay=10"></' + 'script>')</script><script src="/livereload.js?port=50325&amp;mindelay=10"></script>
+
+</body></html>
