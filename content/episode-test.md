@@ -1,5 +1,5 @@
 ---
-title: "Test Video"
+title: "Episode Test"
 date: 2017-09-23T14:40:29+02:00
 draft: true
 ---
