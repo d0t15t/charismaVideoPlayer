@@ -1,0 +1,137 @@
+{
+  "episodeId": "episode-test",
+  "videoId": 235966439,
+  "dev": true,
+  "autoplay": false,
+  "sceneElements": [
+    {
+      "id": "s1e1",
+      "fileName": "s1e1.svg",
+      "position": {
+        "x": 480,
+        "y": 95
+      },
+      "time": {
+        "in": 0.1,
+        "out": 15.5
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "t1e1"
+    },
+    {
+      "id": "s1e2",
+      "fileName": "s1e2.svg",
+      "position": {
+        "x": 270,
+        "y": 0
+      },
+      "time": {
+        "in": 16,
+        "out": 18.10
+      },
+      "size": {
+        "w": null,
+        "h": null
+      },
+      "targetId": "t1e1"
+    },
+    {
+      "id": "s1e3",
+      "fileName": "s1e1.svg",
+      "position": {
+        "x": 480,
+        "y": 95
+      },
+      "time": {
+        "in": 18.5,
+        "out": 21.5
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "t1e1"
+    },
+    {
+      "id": "s1e4",
+      "fileName": "s1e2.svg",
+      "position": {
+        "x": 270,
+        "y": 0
+      },
+      "time": {
+        "in": 22,
+        "out": 26.10
+      },
+      "size": {
+        "w": null,
+        "h": null
+      },
+      "targetId": "t1e1"
+    },
+    {
+      "id": "s1e5",
+      "fileName": "s1e1.svg",
+      "position": {
+        "x": 480,
+        "y": 95
+      },
+      "time": {
+        "in": 27,
+        "out": 32.5
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "t1e1"
+    },
+    {
+      "id": "s1e6",
+      "fileName": "s1e2.svg",
+      "position": {
+        "x": 270,
+        "y": 0
+      },
+      "time": {
+        "in": 33.5,
+        "out": 42
+      },
+      "size": {
+        "w": null,
+        "h": null
+      },
+      "targetId": "t1e1"
+    },
+    {
+      "id": "s1e7",
+      "fileName": "s1e1.svg",
+      "position": {
+        "x": 480,
+        "y": 95
+      },
+      "time": {
+        "in": 43,
+        "out": 46.2
+      },
+      "size": {
+        "w": 150,
+        "h": null
+      },
+      "targetId": "t1e1"
+    }
+  ],
+  "targetElements": [
+    {
+      "id": "t1e1",
+      "videoId": 235966439,
+      "position": {
+        "x": 480,
+        "y": 95
+      }
+    }
+  ]
+}
