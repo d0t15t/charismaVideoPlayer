@@ -1,4 +1,25 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Charisma Enriched Media"
-theme = "charismaUi"
+theme = "lithium_charismaUi"
+googleAnalytics = ""
+disqusShortname = ""
+
+
+[permalinks]
+    post = "/:year/:month/:day/:title/"
+    page = "/:title/"
+
+[[menu.main]]
+    name = "Test Ep. v2"
+    url = "episode-test-2"
+
+[params]
+    description = ""
+
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+
