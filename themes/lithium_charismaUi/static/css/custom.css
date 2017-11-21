@@ -1,0 +1,18 @@
+.content {
+  max-width: 1000px;
+}
+.vPlayer {
+  width: inherit;
+  border: 5px solid green;
+  width: 300px;
+  height: 150px;
+  display: inline-block;
+}
+.vPlayer iframe {
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  clear: both;
+}

@@ -30,22 +30,33 @@ $(document).ready(function(){
     return json;
   })();
 
-  d.playerId = playerId;
-  d.elementsId = elementsId;
-  d.infoId = infoId;
-  d.playthrough = true;
+  // Prepare scene elements
+  var sE = d.sceneElements;
+  var $wrapper = $('#grid-wrapper');
+  var append = '<div class="vPlayer"><div class="thumbnail"></div></div>';
 
-  // Init player.
-  var options = {
-    id: d.videoId,
-    width: 640,
-    loop: true,
-    byline: false,
-    portrait: false,
-    title: false,
-    autoplay: (d.autoplay == true)
-  };
-  player = new Vimeo.Player(d.playerId, options);
+  for (var i = 0; i < sE.length; i++) {
+    el = sE[i];
+    $wrapper.append(append);
+    $wrapper.children().last()
+      .attr('id', el.videoId)
+      .attr('vIndex', i);
+    $wrapper.css({
+      'background-image': el.thumbnail
+    });
+
+    var options = {
+      id: el.videoId,
+      width: 640,
+      loop: true,
+      byline: false,
+      portrait: false,
+      title: false,
+    };
+    player = new Vimeo.Player(el.videoId, options);
+
+  }
+
 
 
 });

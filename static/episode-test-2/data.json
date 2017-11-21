@@ -1,137 +1,52 @@
 {
-  "episodeId": "episode-test",
-  "videoId": 235966439,
+  "episodeId": "episode-test-2",
   "dev": true,
   "autoplay": false,
   "sceneElements": [
     {
-      "id": "s1e1",
-      "fileName": "s1e1.svg",
-      "position": {
-        "x": 480,
-        "y": 95
-      },
-      "time": {
-        "in": 0.1,
-        "out": 15.5
-      },
-      "size": {
-        "w": 150,
-        "h": null
-      },
-      "targetId": "t1e1"
+      "name": "e01s01",
+      "videoId": "243426602",
+      "thumbnail": "Telemundo-Alternate-782x436.jpg"
     },
     {
-      "id": "s1e2",
-      "fileName": "s1e2.svg",
-      "position": {
-        "x": 270,
-        "y": 0
-      },
-      "time": {
-        "in": 16,
-        "out": 18.10
-      },
-      "size": {
-        "w": null,
-        "h": null
-      },
-      "targetId": "t1e1"
+      "name": "e01s02",
+      "videoId": "207403447",
+      "thumbnail": "maxresdefault.jpg"
     },
     {
-      "id": "s1e3",
-      "fileName": "s1e1.svg",
-      "position": {
-        "x": 480,
-        "y": 95
-      },
-      "time": {
-        "in": 18.5,
-        "out": 21.5
-      },
-      "size": {
-        "w": 150,
-        "h": null
-      },
-      "targetId": "t1e1"
+      "name": "e01s03",
+      "videoId": "75721119",
+      "thumbnail": "soap_opera_playlist_thumbnail.jpg"
     },
     {
-      "id": "s1e4",
-      "fileName": "s1e2.svg",
-      "position": {
-        "x": 270,
-        "y": 0
-      },
-      "time": {
-        "in": 22,
-        "out": 26.10
-      },
-      "size": {
-        "w": null,
-        "h": null
-      },
-      "targetId": "t1e1"
+      "name": "e01s04",
+      "videoId": "163993774",
+      "thumbnail": "686220ec798285ce88b4b7899c7101caefff15e5bc8b543216c844fbb201e28a_large.jpg"
     },
     {
-      "id": "s1e5",
-      "fileName": "s1e1.svg",
-      "position": {
-        "x": 480,
-        "y": 95
-      },
-      "time": {
-        "in": 27,
-        "out": 32.5
-      },
-      "size": {
-        "w": 150,
-        "h": null
-      },
-      "targetId": "t1e1"
+      "name": "e01s05",
+      "videoId": "22254428",
+      "thumbnail": "checkmate1.jpg"
     },
     {
-      "id": "s1e6",
-      "fileName": "s1e2.svg",
-      "position": {
-        "x": 270,
-        "y": 0
-      },
-      "time": {
-        "in": 33.5,
-        "out": 42
-      },
-      "size": {
-        "w": null,
-        "h": null
-      },
-      "targetId": "t1e1"
+      "name": "e01s06",
+      "videoId": "81378005",
+      "thumbnail": "mg_8471_web.jpg"
     },
     {
-      "id": "s1e7",
-      "fileName": "s1e1.svg",
-      "position": {
-        "x": 480,
-        "y": 95
-      },
-      "time": {
-        "in": 43,
-        "out": 46.2
-      },
-      "size": {
-        "w": 150,
-        "h": null
-      },
-      "targetId": "t1e1"
-    }
-  ],
-  "targetElements": [
+      "name": "e01s07",
+      "videoId": "4267015",
+      "thumbnail": "Sadkorea.gif"
+    },
     {
-      "id": "t1e1",
-      "videoId": 235966439,
-      "position": {
-        "x": 480,
-        "y": 95
-      }
+      "name": "e01s08",
+      "videoId": "127449723",
+      "thumbnail": "crywind.jpg"
+    },
+    {
+      "name": "e01s09",
+      "videoId": "161943105",
+      "thumbnail": "hbo-sopranos.png"
     }
   ]
 }
