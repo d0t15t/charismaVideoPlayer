@@ -60,6 +60,45 @@ $(document).ready(function(){
         'background-repeat': 'no-repeat',
         'cursor': 'pointer'
       });
+      // Animation - testing
+      var canvasHeight = $(window).height();
+      var floatingBanners = $el
+      var imageHeight = floatingBanners.height();
+      var lowerBound = canvasHeight - (imageHeight * 2) ;
+      console.log('el id: ' + $el.attr('id') + ' lower: ' + lowerBound);
+
+      function duration() {
+        return Math.floor(Math.random() * 5000) + 3000;
+      }
+      function bannerMoveDown($el){
+        $el.animate({top:lowerBound}, duration(), 'swing', function(){
+          bannerMoveUp($el);
+        });
+        $el.hover(function(){
+          $el.stop(true);
+        }, function(){
+          bannerMoveDown($el);
+        });
+      }
+      function bannerMoveUp($el){
+        $el.animate({top:0}, duration(), 'swing', function(){
+          bannerMoveDown($el);
+        });
+        $el.hover(function(){
+          $el.stop(true);
+        }, function(){
+          bannerMoveUp($el);
+        });
+      }
+      if (i % 2 == 0) {
+        bannerMoveDown($el);
+      }
+      else {
+        bannerMoveUp($el);
+      }
+      $el.hover(function(){
+        $el.stop(true);
+      });
     }
 
     // Init target data.
@@ -77,6 +116,7 @@ $(document).ready(function(){
 
   // Click init & play for target videos.
   $('.video-trigger').click(function(){
+    $('#master-video-player').addClass('active');
     var vid = $(this).attr('vid');
     // Pause any active videos
     $.each(players, function(i,e){
@@ -88,18 +128,22 @@ $(document).ready(function(){
   });
 
 
-  // $wrapper.find('.video-controls .close').click(function(){
-  //   player.pause();
-  //   $wrapper.removeClass('active');
-  // });
+  $('.video-controls .close').click(function(){
+    $.each(players, function(i,e){
+      e.pause();
+    });
+    var $active = $('#master-video-player .target-video.active');
+    $('#' + $active.attr('id')).removeClass('active');
+    $('#master-video-player').removeClass('active');
+  });
 
 
   // Controller jquery.
-  // $('.video-controls').hover(function(){
-  //   $( this ).toggleClass('hover');
-  // }, function() {
-  //   $( this ).toggleClass('hover');
-  // });
+  $('#master-video-player').hover(function(){
+    $( this ).toggleClass('hover');
+  }, function() {
+    $( this ).toggleClass('hover');
+  });
 
 
 });
