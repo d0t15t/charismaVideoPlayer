@@ -16,47 +16,123 @@ $(document).ready(function(){
   var infoId = 'video-info';
 
   // Load json data.
-  var d = (function () {
-    var json = null;
-    $.ajax({
-        'async': false,
-        'global': false,
-        'url': jsonPath,
-        'dataType': "json",
-        'success': function (data) {
-            json = data;
-        }
-    });
-    return json;
-  })();
+  // var d = (function () {
+  //   var json = null;
+  //   $.ajax({
+  //       'async': false,
+  //       'global': false,
+  //       'url': jsonPath,
+  //       'dataType': "json",
+  //       'success': function (data) {
+  //           json = data;
+  //       }
+  //   });
+  //   return json;
+  // })();
 
   // Prepare scene elements
-  var sE = d.sceneElements;
-  var $wrapper = $('#grid-wrapper');
-  var append = '<div class="vPlayer"><div class="thumbnail"></div></div>';
+  var data = episodeData();
+  var sE = data.sceneElements;
+  var players = {};
+  var $wrapper = $('#scene-elements');
+  var append = '<div class="scene-element"></div>';
 
   for (var i = 0; i < sE.length; i++) {
-    el = sE[i];
+    var data = sE[i];
+    // insert data container
     $wrapper.append(append);
     $wrapper.children().last()
-      .attr('id', el.videoId)
-      .attr('vIndex', i);
-    $wrapper.css({
-      'background-image': el.thumbnail
-    });
+      .attr('id', data.name)
+      .attr('sIndex', i)
+      .addClass(data.type);
 
-    var options = {
-      id: el.videoId,
-      width: 640,
-      loop: true,
-      byline: false,
-      portrait: false,
-      title: false,
-    };
-    player = new Vimeo.Player(el.videoId, options);
+    var $el = $('#' + data.name);
 
+    // Inline styles.
+    if ('styles' in data) {
+      $el.css(data.styles);
+    }
+    // Thumbnail.
+    if ('thumbnail' in data) {
+      $el.css({
+        'background-image':'url("files/' + data.thumbnail + '")',
+        'background-size': 'cover',
+        'background-repeat': 'no-repeat',
+        'cursor': 'pointer'
+      });
+    }
+
+    // Init target data.
+    if ('target' in data) {
+      switch (data.target.type) {
+        case 'video':
+          var player = initMasterVideo(data.target);
+          players[data.target.videoId] = player;
+          $el.attr('vid', data.target.videoId)
+          $el.addClass('video-trigger');
+          break;
+      }
+    }
   }
 
+  // Click init & play for target videos.
+  $('.video-trigger').click(function(){
+    var vid = $(this).attr('vid');
+    // Pause any active videos
+    $.each(players, function(i,e){
+      e.pause();
+      $('#' + i).removeClass('active');
+    });
+    $('#' + vid).addClass('active');
+    players[vid].play();
+  });
+
+
+  // $wrapper.find('.video-controls .close').click(function(){
+  //   player.pause();
+  //   $wrapper.removeClass('active');
+  // });
+
+
+  // Controller jquery.
+  // $('.video-controls').hover(function(){
+  //   $( this ).toggleClass('hover');
+  // }, function() {
+  //   $( this ).toggleClass('hover');
+  // });
 
 
 });
+
+
+function initMasterVideo(data, container = 'master-video-player') {
+  var $container = $('#' + container);
+  var init = document.getElementById(data.videoId);
+  if (init == null) {
+    $container.append('<div></div>');
+    $container.children().last()
+      .attr('id', data.videoId)
+      .addClass('target-video');
+  }
+  var $wrapper = $('#' + data.videoId);
+  var id = data.videoId;
+  var options = {
+    id: data.videoId,
+    width: 640,
+    loop: false,
+    autoplay: false,
+  };
+  player = new Vimeo.Player(id, options);
+
+  if ('volume' in data) {
+    player.setVolume(data.volume);
+  }
+
+    // On finish, remove iframe
+  player.on('ended', function(){
+    $wrapper.removeClass('active');
+  });
+
+  return player;
+}
+

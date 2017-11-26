@@ -12,7 +12,7 @@ disqusShortname = ""
 
 [[menu.main]]
     name = "Test Ep. v2"
-    url = "episode-test-2"
+    url = "/episode-test-2"
 
 [params]
     description = ""
