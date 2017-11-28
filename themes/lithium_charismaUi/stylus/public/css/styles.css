@@ -1,0 +1,32 @@
+.promo_item {
+  border: 2px dashed #00f;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ff0;
+}
+.promo_item-white {
+  background-color: #fff;
+  color: #111;
+}
+.promo_item-green {
+  background-color: #008000;
+  color: #eee;
+}
+body {
+  background: #333;
+}
+.promo_block {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(120,120,120,0.5);
+}
+.promo_block__title {
+  color: #f00;
+  font-size: 24pt;
+  margin-right: 100px;
+}
+body {
+  display: inherit;
+}
