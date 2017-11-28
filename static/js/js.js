@@ -37,6 +37,7 @@ $(document).ready(function(){
   var $wrapper = $('#scene-elements');
   var append = '<div class="scene-element"></div>';
 
+  if (data.enable !== true) return;
   for (var i = 0; i < sE.length; i++) {
     var data = sE[i];
     // insert data container
@@ -60,45 +61,7 @@ $(document).ready(function(){
         'background-repeat': 'no-repeat',
         'cursor': 'pointer'
       });
-      // Animation - testing
-      var canvasHeight = $(window).height();
-      var floatingBanners = $el
-      var imageHeight = floatingBanners.height();
-      var lowerBound = canvasHeight - (imageHeight * 2) ;
-      console.log('el id: ' + $el.attr('id') + ' lower: ' + lowerBound);
 
-      function duration() {
-        return Math.floor(Math.random() * 5000) + 3000;
-      }
-      function bannerMoveDown($el){
-        $el.animate({top:lowerBound}, duration(), 'swing', function(){
-          bannerMoveUp($el);
-        });
-        $el.hover(function(){
-          $el.stop(true);
-        }, function(){
-          bannerMoveDown($el);
-        });
-      }
-      function bannerMoveUp($el){
-        $el.animate({top:0}, duration(), 'swing', function(){
-          bannerMoveDown($el);
-        });
-        $el.hover(function(){
-          $el.stop(true);
-        }, function(){
-          bannerMoveUp($el);
-        });
-      }
-      if (i % 2 == 0) {
-        bannerMoveDown($el);
-      }
-      else {
-        bannerMoveUp($el);
-      }
-      $el.hover(function(){
-        $el.stop(true);
-      });
     }
 
     // Init target data.

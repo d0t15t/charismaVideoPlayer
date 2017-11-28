@@ -1,6 +1,7 @@
 function episodeData() {
   return {
     "episodeId": "episode-test-2",
+    "enable": false,
     "dev": true,
     "autoplay": false,
     "sceneElements": [

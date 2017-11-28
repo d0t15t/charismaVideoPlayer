@@ -72,3 +72,7 @@ iframe {
   height: 35px;
   cursor: pointer;
 }
+
+header {
+  display: none;
+}
