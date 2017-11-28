@@ -12,9 +12,9 @@ function makeNewPosition(){
 }
 
 function animateDiv($el){
-  var timeout = Math.floor(Math.random() * 3000) + 1;
+  var timeout = Math.floor(Math.random() * 6000) + 1;
   setTimeout(function(){
-    var duration = Math.floor(Math.random() * 3000) + 1;
+    var duration = Math.floor(Math.random() * 6000) + 1;
     var newq = makeNewPosition();
     var easing = 'swing';
     $el.animate({ top: newq[0], left: newq[1] }, duration, easing, function(){
