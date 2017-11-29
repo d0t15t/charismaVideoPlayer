@@ -1,20 +1,30 @@
 {{ partial "header.html" . }}
 
+<header class="header home">
+  <nav class="nav">
+    <ul class="nav-links" id="grid-ctrl">
+        <li id="grid-button" status="active">
+          <form id="grid-check">
+            <input type="checkbox" name="grid-activate" value="1">
+            <label></label>
+          </form>
+        </li>
+      </ul>
+
+    {{ partial "nav.html" . }}
+  </nav>
+</header>
+
 <main class="content" role="main">
 
-  <div class="archive">
-    {{ range (where .Data.Pages "Type" "post").GroupByDate "2006" }}
-    <h2 class="archive-title">{{ .Key }}</h2>
-    {{ range .Pages }}
-    <article class="archive-item">
-      <a href="{{ .Permalink }}" class="archive-item-link">{{ .Title }}</a>
-      <span class="archive-item-date">
-        {{ .Date.Format "January 2, 2006" }}
-      </span>
-    </article>
-    {{ end }}
-    {{ end }}
-  </div>
+    <div id="scene-elements"></div>
+    <div id="master-video-player"><div class="master-controls video-controls"><div class="close"></div></div></div>
+    <!-- <div id="grid-wrapper"></div> -->
+
+    <script src="/episode-test-2/episode-2-data.js"></script>
+    <script src="/js/animation.js"></script>
+    <script src="/js/grid.js"></script>
+    <script src="/js/thumbnails.js"></script>
 
 </main>
 
