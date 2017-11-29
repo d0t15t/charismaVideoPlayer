@@ -17,7 +17,8 @@ function gridData() {
   return {
     'dev' : true,
     'id' : 'grid-wrapper',
-    'segments': 20,
+    'steps': 21,
+    'segments': 3
   };
 }
 
@@ -115,7 +116,8 @@ $(document).ready(function(){
     });
 
     // insertDiv segments
-    var steps = g.segments;
+    var steps = g.steps;
+    var segments = g.segments;
     var percentageStep = ((100) / steps) / 100;
     var scale = 1;
     var insertDiv = '<div></div>';
@@ -138,6 +140,9 @@ $(document).ready(function(){
       var n = l - (l * percentageStep) * 2;
       offset += (l - n) / 2;
       l = n;
+
+
+
       // if u want to use scale.
       // scale -= percentageStep;
       // 'transform': 'scale(' + scale + ')'
@@ -158,9 +163,11 @@ $(document).ready(function(){
     /**
      * Offset Scaling
      */
-    var offsetScaling = 1.2;
+    var offsetScaling = 1.13;
+    var offsetTranslate = winSize.h * -0.1;
     $wrapper.css({
-      'transform': 'scale(' + offsetScaling + ')'
+      'transform': 'translate(0, ' + offsetTranslate + 'px)'
+      // 'transform': 'scale(' + offsetScaling + ') translate(0, -70px)'
     });
 
     // Animate grid

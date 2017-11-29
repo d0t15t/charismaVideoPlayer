@@ -1,36 +1,11 @@
-
 /**
- * Interface
+ * Scene elements - thumbnails & videos.
  */
 $(document).ready(function(){
-  /**
-   *  @params
-   *  1. path to json file
-   *  2. css wrapper id for video player
-   *  3. css wrapper id for scene elements
-   *  4. css wrapper id for video info
-   */
-  var jsonPath = '/episode-test-2/data.json';
+
   var playerId = 'video-player';
   var elementsId = 'scene-elements';
-  var infoId = 'video-info';
 
-  // Load json data.
-  // var d = (function () {
-  //   var json = null;
-  //   $.ajax({
-  //       'async': false,
-  //       'global': false,
-  //       'url': jsonPath,
-  //       'dataType': "json",
-  //       'success': function (data) {
-  //           json = data;
-  //       }
-  //   });
-  //   return json;
-  // })();
-
-  // Prepare scene elements
   var data = episodeData();
   var sE = data.sceneElements;
   var players = {};
@@ -46,7 +21,7 @@ $(document).ready(function(){
     $wrapper.children().last()
       .attr('id', data.name)
       .attr('sIndex', i)
-      .addClass(data.type);
+      .addClass(data.type + ' scene-element');
 
     var $el = $('#' + data.name);
 
@@ -60,21 +35,19 @@ $(document).ready(function(){
         'background-image':'url("files/' + data.thumbnail + '")',
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
-        'cursor': 'pointer'
+        'cursor': 'pointer',
+        'width': '100px',
+        'height': '200px',
       });
 
     }
 
     // Init target data.
-    if ('target' in data) {
-      switch (data.target.type) {
-        case 'video':
-          var player = initMasterVideo(data.target);
-          players[data.target.videoId] = player;
-          $el.attr('vid', data.target.videoId)
-          $el.addClass('video-trigger');
-          break;
-      }
+    if ('videoId' in data) {
+      var player = initMasterVideo(data, data.videoId);
+      players[data.videoId] = player;
+      $el.attr('vid', data.videoId);
+      $el.addClass('video-trigger');
     }
   }
 
@@ -113,16 +86,8 @@ $(document).ready(function(){
 });
 
 
-function initMasterVideo(data, container = 'master-video-player') {
-  var $container = $('#' + container);
-  var init = document.getElementById(data.videoId);
-  if (init == null) {
-    $container.append('<div></div>');
-    $container.children().last()
-      .attr('id', data.videoId)
-      .addClass('target-video');
-  }
-  var $wrapper = $('#' + data.videoId);
+function initMasterVideo(data, wrapper) {
+  var $container = $('#' + wrapper);
   var id = data.videoId;
   var options = {
     id: data.videoId,
