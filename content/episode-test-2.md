@@ -7,5 +7,6 @@ date: 2017-09-23T14:40:29+02:00
 
 
 <script src="/episode-test-2/episode-2-data.js"></script>
-<script src="/animation.js"></script>
-<script src="/js.js"></script>
+<script src="/js/animation.js"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/js.js"></script>
