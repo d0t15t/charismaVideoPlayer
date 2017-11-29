@@ -1,0 +1,37 @@
+nav
+  padding 10px 0 0 30px
+  ul
+    display inline
+    margin 0
+    padding 0
+    li
+      display inline
+      list-style: none
+
+gridSide = 20px
+
+.nav-links
+  &#grid-ctrl
+    font-family Arial, Helvetica, sans-serif
+    margin: -3px 10px 0 0
+    form
+      display inline-block
+      position: relative
+      width gridSide
+      height gridSide
+      > *
+        display inline-block
+        position: absolute
+        width gridSide
+        height gridSide
+        transition background-color 100ms
+        top: 0
+        left: 0
+      label
+        border 1px solid COLOR_DARK_BLACK;
+      input[type=checkbox]
+        z-index 1
+        opacity 0
+        cursor pointer
+        &:checked+label
+          background-color: COLOR_DARK_BLACK

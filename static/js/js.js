@@ -38,6 +38,7 @@ $(document).ready(function(){
   var append = '<div class="scene-element"></div>';
 
   if (data.enable !== true) return;
+
   for (var i = 0; i < sE.length; i++) {
     var data = sE[i];
     // insert data container

@@ -1,14 +1,23 @@
 <nav class="nav">
-  <a href="{{ .Site.BaseURL }}" class="nav-logo">
+  <!-- <a href="{{ .Site.BaseURL }}" class="nav-logo">
     <img src="{{ .Site.BaseURL }}images/{{ .Site.Params.logo.url }}"
          width="{{ .Site.Params.logo.width }}"
          height="{{ .Site.Params.logo.height }}"
          alt="{{ .Site.Params.logo.alt }}">
-  </a>
-  <ul class="nav-links">
-    <li><h1 class="article-title">{{ .Title }}</h1></li>
+  </a> -->
+  <ul class="nav-links" id="grid-ctrl">
+    <li id="grid-button" status="active">
+      <form id="grid-check">
+        <input type="checkbox" name="grid-activate" value="1">
+        <label></label>
+      </form>
+    </li>
+  </ul>
+  <ul class="nav-links" id="lang-ctrl">
+    <li id="de" status="active"><a href="#">DE</a></li>
+    <li id="en" status><a href="#">EN</a></li>
     {{ range .Site.Menus.main }}
-    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    <!-- <li><a href="{{ .URL }}">{{ .Name }}</a></li> -->
     {{ end }}
   </ul>
 </nav>
