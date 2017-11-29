@@ -76,3 +76,11 @@ iframe {
 header {
   display: none;
 }
+
+#grid-wrapper {
+  position: absolute;
+  top:0;
+  left:0;
+  border: 5px solid red;
+  box-sizing: border-box;
+}

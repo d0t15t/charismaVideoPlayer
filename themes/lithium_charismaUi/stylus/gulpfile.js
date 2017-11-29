@@ -2,12 +2,12 @@ var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var concat = require('gulp-concat');
 
-
 gulp.task('stylus', function() {
   return gulp.src('src/stylus/index.styl')
     .pipe(stylus())
     .pipe(concat('styles.css'))
-    .pipe(gulp.dest('public/css/'));
+    .pipe(gulp.dest('public/css/'))
+    .pipe(gulp.dest('../static/css/')); // Copy files to hugo.
 });
 
 gulp.task('build', ['stylus']);
