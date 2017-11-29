@@ -130,11 +130,6 @@ nav ul li {
 header.home #main-menu #home {
   display: none;
 }
-.center-page {
-  width: 375px;
-  text-align: center;
-  margin: 0 auto;
-}
 body {
   display: inherit;
 }
