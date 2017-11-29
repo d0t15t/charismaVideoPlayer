@@ -8,27 +8,10 @@ body {
   overflow: hidden;
 }
 
-body {
-  font-family: 'Merriweather', serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-}
 
 ul, li
   margin 0
   padding 0
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Lato', sans-serif;
-  color: #222;
-}
 
 
 .hidden
@@ -36,4 +19,20 @@ h6 {
   width 0
   height 0
   position: absolute
-  // display none
+
+button
+  background transparent
+  border-radius 0
+  padding 0
+  margin 0
+
+button > *
+  display: block
+  font-family 'Geo'
+  font-size 2em
+  padding 10px 40px
+  border-radius 0
+  background transparent
+  border 1px solid COLOR_DARK_BLACK
+  &:hover
+    background-color COLOR_GREY
