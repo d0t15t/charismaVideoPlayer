@@ -28,9 +28,6 @@ h6 {
   font-family: 'Lato', sans-serif;
   color: #222;
 }
-div {
-  box-sizing: border-box;
-}
 .hidden {
   opacity: 0;
   width: 0;
@@ -60,7 +57,8 @@ header a:hover {
   left: 0;
   z-index: -1;
 }
-#grid-wrapper .grid-segment {
+#grid-wrapper .grid-segment,
+#grid-wrapper .grid-side {
   position: absolute;
   top: 0;
   left: 0;
@@ -69,10 +67,12 @@ header a:hover {
   opacity: 0;
   transition: opacity 100ms;
 }
-#grid-wrapper .grid-segment.grid-segment__border-active {
+#grid-wrapper .grid-segment.grid-segment__border-active,
+#grid-wrapper .grid-side.grid-segment__border-active {
   opacity: 1;
 }
-#grid-wrapper .grid-segment.grid-segment__border-active.orange {
+#grid-wrapper .grid-segment.grid-segment__border-active.orange,
+#grid-wrapper .grid-side.grid-segment__border-active.orange {
   border: 1px solid #ffa500;
 }
 nav {

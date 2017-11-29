@@ -8,6 +8,7 @@ var direction = (winSize.w < winSize.h) ? 'horizontal' : 'vertical';
 var baseSide = (winSize.w > winSize.h) ? winSize.w : winSize.h;
 var gridClassActive = 'grid-segment__border-active';
 
+var g = gridData();
 
 /**
   * Grid data.
@@ -21,13 +22,13 @@ function gridData() {
 }
 
 /**
- *
+ * Random border color
  */
 function borderColor() {
   var array = [
     'blue', 'orange', 'grey'
   ];
-  return array[Math.floor(Math.random()* array.length)]
+  return array[Math.floor(Math.random()* array.length)];
 }
 
 /**
@@ -36,23 +37,67 @@ function borderColor() {
 function toggleGridDisplay($grid, toggle = false, color) {
   var delay = 45;
   if (toggle == false) {
-    $grid.children('.grid-segment').each(function(i){
+    $grid.children().each(function(i){
       var el = $(this);
       setTimeout(function() {
         el.removeClass(gridClassActive);
       }, i * delay);
     });
   } else {
-    $($grid.children('.grid-segment').get().reverse()).each(function(i){
+
+    $($grid.children().get().reverse()).each(function(i){
       var $el = $(this);
       setTimeout(function() {
         $el.addClass(gridClassActive);
         $el.css({
           'border': '1px solid ' + color
         });
+        $el.find('line').attr('stroke', color);
       }, i * delay);
     });
   }
+}
+
+/**
+ *
+ */
+function gridInitWrapper($) {
+  var grid = document.getElementById(g.id);
+  var $wrapper;
+  if (grid == null) {
+    $('body').append('<div></div>');
+    $wrapper = $('body').children().last();
+    $wrapper.attr('id', g.id);
+  }
+  else
+    $wrapper = $(grid);
+  if (g.dev == true) {
+    $wrapper.addClass('dev');
+  }
+
+  return $wrapper;
+}
+
+function gridDrawCorners($wrapper) {
+  var $first = $wrapper.children().first();
+  var $last = $wrapper.children().last();
+  var h = ($first.outerHeight() / 2) - ($last.outerHeight() / 2);
+  var w = ($first.outerWidth() / 2) - ($last.outerWidth() / 2);
+
+  $wrapper.prepend('<div></div>');
+  var $el = $wrapper.children().first();
+  var id = 'grid-sides';
+  var x = 0;
+  var y = 0;
+  $el.attr('id', id)
+    .attr('s', 0)
+    .addClass('grid-side');
+  // top
+  var draw = SVG(id);
+  draw.line(w, h, $first.position().top, $first.position().left);
+  draw.line(w + $last.outerWidth(), h, $first.outerWidth(), $first.position().top);
+  draw.line(w + $last.outerWidth(), h + $last.outerHeight(), $first.outerWidth(), $first.outerHeight());
+  draw.line(w, h + $last.outerHeight(), $first.position().left, $first.outerHeight());
 }
 
 $(document).ready(function(){
@@ -62,25 +107,8 @@ $(document).ready(function(){
    */
   function initGrid() {
 
-    var g = gridData();
-
     // Wrapper
-    // The grid wrapper is a square, whose segment is the length of the shorter window side.
-    var grid = document.getElementById(g.id);
-    var $wrapper;
-    if (grid == null) {
-      $('body').append('<div></div>');
-      $wrapper = $('body').children().last();
-      $wrapper.attr('id', g.id);
-    }
-    else
-      $wrapper = $(grid);
-    if (g.dev == true) {
-      $wrapper.addClass('dev');
-    }
-
-    // Set up wrapper
-    // Constants
+    var $wrapper = gridInitWrapper($);
     $wrapper.css({
       'height': baseSide,
       'width': baseSide,
@@ -113,9 +141,10 @@ $(document).ready(function(){
       // if u want to use scale.
       // scale -= percentageStep;
       // 'transform': 'scale(' + scale + ')'
-
-
     }
+    // Corners.
+    gridDrawCorners($wrapper);
+
     /**
      * Offset centering
      */
@@ -126,11 +155,24 @@ $(document).ready(function(){
     css[offsetDir] = offset;
     $wrapper.css(css);
 
+    /**
+     * Offset Scaling
+     */
+    var offsetScaling = 1.2;
+    $wrapper.css({
+      'transform': 'scale(' + offsetScaling + ')'
+    });
+
     // Animate grid
-    $('#grid-ctrl').click(function(){
+    var $gridCtrl = $('#grid-ctrl form');
+    $gridCtrl.click(function(){
       var toggle = $(this).find('input[type=checkbox]:checked').length > 0;
       toggleGridDisplay($wrapper, toggle, borderColor());
     });
+    if (g.dev == true) {
+      $gridCtrl.find('input[type=checkbox]').prop('checked', true);
+      toggleGridDisplay($wrapper, true, borderColor());
+    }
 
 
     // console.log(css);
