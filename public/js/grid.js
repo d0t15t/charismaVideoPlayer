@@ -8,7 +8,6 @@ var winSize = {
 var direction = (winSize.w < winSize.h) ? 'horizontal' : 'vertical';
 var baseSide = (winSize.w > winSize.h) ? winSize.w : winSize.h;
 var gridClassActive = 'grid-segment__border-active';
-
 var g = gridData();
 
 /**
@@ -19,7 +18,8 @@ function gridData() {
     'dev' : true,
     'id' : 'grid-wrapper',
     'steps': 21,
-    'segments': 3
+    'segments': 4,
+    'sideSteps': 10
   };
 }
 
@@ -41,21 +41,26 @@ function toggleGridDisplay($grid, toggle = false, color) {
   if (toggle == false) {
     $grid.children().each(function(i){
       var el = $(this);
-      setTimeout(function() {
-        el.removeClass(gridClassActive);
-      }, i * delay);
+      el.removeClass(gridClassActive);
+      // setTimeout(function() {
+      //   el.removeClass(gridClassActive);
+      // }, i * delay);
     });
   } else {
-
     $($grid.children().get().reverse()).each(function(i){
       var $el = $(this);
-      setTimeout(function() {
-        $el.addClass(gridClassActive);
-        $el.css({
-          'border': '1px solid ' + color
-        });
-        $el.find('line').attr('stroke', color);
-      }, i * delay);
+      $el.addClass(gridClassActive);
+      $el.css({
+        'border': '1px solid ' + color
+      });
+      $el.find('line').attr('stroke', color);
+      // setTimeout(function() {
+      //   $el.addClass(gridClassActive);
+      //   $el.css({
+      //     'border': '1px solid ' + color
+      //   });
+      //   $el.find('line').attr('stroke', color);
+      // }, i * delay);
     });
   }
 }
@@ -80,34 +85,87 @@ function gridInitWrapper($) {
   return $wrapper;
 }
 
-function gridDrawSides($wrapper) {
+function gridDrawSides($wrapper, index) {
   var $first = $wrapper.children().first();
   var $last = $wrapper.children().last();
-  var h = ($first.outerHeight() / 2) - ($last.outerHeight() / 2);
   var w = ($first.outerWidth() / 2) - ($last.outerWidth() / 2);
+  var h = ($first.outerHeight() / 2) - ($last.outerHeight() / 2);
 
-  $wrapper.prepend('<div></div>');
-  var $el = $wrapper.children().first();
-  var id = 'grid-sides';
-  var x = 0;
-  var y = 0;
-  $el.attr('id', id)
-    .attr('s', 0)
-    .addClass('grid-side');
-  // Draw SVGs
-  var draw = SVG(id);
-  var cornerSides = {
-    'top-left': draw.line(w, h, $first.position().top, $first.position().left),
-    'top-right': draw.line(w + $last.outerWidth(), h, $first.outerWidth(), $first.position().top),
-    'bottom-right': draw.line(w + $last.outerWidth(), h + $last.outerHeight(), $first.outerWidth(), $first.outerHeight()),
-    'bottom-left': draw.line(w, h + $last.outerHeight(), $first.position().left, $first.outerHeight()),
-  };
-  // Animate SVGs
-  var myVivus = new Vivus($el.children('svg').attr('id'));
-  myVivus.play(2, function() {
-    // called after the animation completes
+  var sides = gridSidesData(w, h, $first, $last);
+
+  $.each(sides, function(i, e){
+    $wrapper.append('<div></div>');
+    var $el = $wrapper.children().last();
+    var id = i;
+    $el.attr('id', id)
+      .attr('s', 0)
+      .addClass('grid-side')
+      .css({
+        'z-index': index * -1
+      });
+    index++;
+    var draw = SVG(id);
+
+    // draw.line(e.svgLine);
+    var l1; var l2;
+    if (e.dir == 'x') {
+      l1 = $last.outerWidth();
+      l2 = $first.outerWidth();
+    }
+    else {
+      l1 = $last.outerHeight();
+      l2 = $first.outerHeight();
+    }
+    l1 = l1 / g.sideSteps
+    l2 = l2 / g.sideSteps
+    for (var j = 0; j <= g.sideSteps; j++) {
+      var lineData = [];
+      var l1x = l1 * j;
+      var l2x = l2 * j;
+      if (e.dir == 'x') {
+        lineData = [
+          e.svgLine[0] + l1x, e.svgLine[1], e.svgLine[2] + l2x, e.svgLine[3]
+        ];
+      }
+      else if (e.dir == 'y') {
+        lineData = [
+          e.svgLine[0], e.svgLine[1] + l1x, e.svgLine[2], e.svgLine[3] + l2x
+        ];
+      }
+
+      draw.line(lineData);
+
+    }
   });
+}
 
+function gridSidesData(w, h, $first, $last) {
+  return {
+    'top': {
+      'dir': 'x',
+      'svgLine': [
+        w, h, $first.position().left, $first.position().top
+      ],
+    },
+    'right': {
+      'dir': 'y',
+      'svgLine': [
+        w + $last.outerWidth(), h, $first.outerWidth(), $first.position().top
+      ],
+    },
+    'bottom': {
+      'dir': 'x',
+      'svgLine': [
+        w, h + $last.outerHeight(), $first.position().left, $first.outerHeight()
+      ],
+    },
+    'left': {
+      'dir': 'y',
+      'svgLine': [
+        w, h, $first.position().left, $first.position().top
+      ],
+    },
+  };
 }
 
 $(document).ready(function(){
@@ -132,32 +190,38 @@ $(document).ready(function(){
     var insertDiv = '<div></div>';
     var l = baseSide;
     var offset = 0;
-    for (var i = 0; i < steps; i++) {
+    var segMax = Math.round(steps / segments);
+    var curSeg = 0;
+    var i = 0;
+    for (i; i < steps; i++) {
+      // Check and update segment.
+      if (i >= segMax) {
+        segMax = segMax + Math.round(steps / segments);
+        curSeg++;
+      }
       $wrapper.append(insertDiv);
       var $el = $wrapper.children().last();
       $el.attr('id', 'grid-' + i)
         .attr('i', i)
+        .attr('zone', curSeg)
         .addClass('grid-segment');
       var css = {
         'width' : l,
         'height' : l,
         'left' : offset,
         'top' : offset,
+        'z-index': i * -1
       };
       $el.css(css);
-      // Update magnification.
+      // Update magnification & length.
       var n = l - (l * percentageStep) * 2;
       offset += (l - n) / 2;
       l = n;
 
-
-
-      // if u want to use scale.
-      // scale -= percentageStep;
-      // 'transform': 'scale(' + scale + ')'
     }
+
     // Corners.
-    gridDrawSides($wrapper);
+    gridDrawSides($wrapper, i + 1);
 
     /**
      * Offset centering
@@ -180,37 +244,26 @@ $(document).ready(function(){
     });
 
     // Animate grid
-    var $gridCtrl = $('#grid-ctrl form');
+    var $gridCtrl = $('#grid-ctrl form #gridIo');
     $gridCtrl.click(function(){
-      var toggle = $(this).find('input[type=checkbox]:checked').length > 0;
+      var toggle = $(this).prop('checked');
       toggleGridDisplay($wrapper, toggle, borderColor());
     });
     if (g.dev == true) {
-      $gridCtrl.find('input[type=checkbox]').prop('checked', true);
+      $gridCtrl.prop('checked', true);
       toggleGridDisplay($wrapper, true, borderColor());
     }
 
-
-    // console.log(css);
+    // Dev grid segment color
+    $('[name="grid-bg-activate"]').click(function(){
+      $('#grid-wrapper').toggleClass('bg-active');
+    });
 
   }
-
-
-
-  /**
-   *
-   */
 
 
   initGrid();
 
 
-  // Screen
-  var mq = window.matchMedia( "(min-width: 800px)" );
-  if (mq.matches) {
 
-  } else {
-    console.log('not big enuf');
-    // window width is less than 500px
-  }
 });
