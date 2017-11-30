@@ -18,3 +18,23 @@
     opacity 1
     &.orange
       border: 1px solid orange;
+
+
+.segment-bg
+  display: none
+  > span
+    margin -5px 0 0 30px
+
+.dev
+  .segment-bg
+    display: unset
+  #grid-wrapper
+    [segment="1"]
+      background-color #fff
+    [segment="2"]
+      background-color #dd
+    [segment="3"]
+      background-color #ccc
+
+body
+  display none !important

@@ -2,14 +2,22 @@
 
 <header class="header home">
   <nav class="nav">
-    <ul class="nav-links" id="grid-ctrl">
-        <li id="grid-button" status="active">
-          <form id="grid-check">
-            <input type="checkbox" name="grid-activate" value="1">
-            <label></label>
-          </form>
-        </li>
-      </ul>
+
+      <ul class="nav-links" id="grid-ctrl">
+          <li id="grid-button" status="active">
+            <form id="grid-check">
+              <div>
+                <input type="checkbox" name="grid-activate" value="1" id="gridIo">
+                <label></label>
+              </div>
+              <div class="segment-bg">
+                <input type="checkbox" name="grid-bg-activate" value="1">
+                <label></label>
+                <span>bg</span>
+              </div>
+            </form>
+          </li>
+        </ul>
 
     {{ partial "nav.html" . }}
   </nav>
@@ -24,6 +32,7 @@
     <script src="/js/animation.js"></script>
     <script src="/js/grid.js"></script>
     <script src="/js/thumbnails.js"></script>
+    <script src="/js/helper.js"></script>
 
     <script src="/data/release_1_data.js"></script>
 

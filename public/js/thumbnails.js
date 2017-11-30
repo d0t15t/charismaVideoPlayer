@@ -6,6 +6,8 @@ $(document).ready(function(){
   var playerId = 'video-player';
   var elementsId = 'scene-elements';
 
+  return true;
+
   var data = episodeData();
   var sE = data.sceneElements;
   var players = {};

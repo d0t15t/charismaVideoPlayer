@@ -88,6 +88,27 @@ h5 {
 #grid-wrapper .grid-side.grid-segment__border-active.orange {
   border: 1px solid #ffa500;
 }
+#grid-wrapper .segment-bg {
+  display: none;
+}
+#grid-wrapper .segment-bg > span {
+  margin: -5px 0 0 30px;
+}
+#grid-wrapper .dev .segment-bg {
+  display: unset;
+}
+#grid-wrapper .dev #grid-wrapper [segment="1"] {
+  background-color: #fff;
+}
+#grid-wrapper .dev #grid-wrapper [segment="2"] {
+  background-color: #ddd;
+}
+#grid-wrapper .dev #grid-wrapper [segment="3"] {
+  background-color: #ccc;
+}
+#grid-wrapper body {
+  display: none !important;
+}
 nav {
   padding: 10px 0 0 30px;
 }
@@ -101,16 +122,20 @@ nav ul li {
   list-style: none;
 }
 .nav-links#grid-ctrl {
-  font-family: Arial, Helvetica, sans-serif;
   margin: -3px 10px 0 0;
 }
 .nav-links#grid-ctrl form {
   display: inline-block;
   position: relative;
-  width: 20px;
   height: 20px;
 }
-.nav-links#grid-ctrl form > * {
+.nav-links#grid-ctrl form > div {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  padding-bottom: 50px;
+}
+.nav-links#grid-ctrl form > div > * {
   display: inline-block;
   position: absolute;
   width: 20px;

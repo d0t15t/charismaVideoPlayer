@@ -13,6 +13,7 @@ $(document).ready(function(){
   var append = '<div class="scene-element"></div>';
 
   if (data.enable !== true) return;
+  if (data.dev == true) $('body').addClass('dev');
 
   for (var i = 0; i < sE.length; i++) {
     var data = sE[i];
@@ -95,17 +96,15 @@ function initMasterVideo(data, wrapper) {
     loop: false,
     autoplay: false,
   };
-  player = new Vimeo.Player(id, options);
+  // player = new Vimeo.Player(id, options);
 
-  if ('volume' in data) {
-    player.setVolume(data.volume);
-  }
+
 
     // On finish, remove iframe
-  player.on('ended', function(){
-    $wrapper.removeClass('active');
-  });
+  // player.on('ended', function(){
+  //   $wrapper.removeClass('active');
+  // });
 
-  return player;
+  // return player;
 }
 
