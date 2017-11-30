@@ -3,7 +3,8 @@
  */
 
 var winSize = {
-  'w' : window.innerWidth, 'h' : window.innerHeight };
+  'w' : window.innerWidth, 'h' : window.innerHeight
+};
 var direction = (winSize.w < winSize.h) ? 'horizontal' : 'vertical';
 var baseSide = (winSize.w > winSize.h) ? winSize.w : winSize.h;
 var gridClassActive = 'grid-segment__border-active';
@@ -79,7 +80,7 @@ function gridInitWrapper($) {
   return $wrapper;
 }
 
-function gridDrawCorners($wrapper) {
+function gridDrawSides($wrapper) {
   var $first = $wrapper.children().first();
   var $last = $wrapper.children().last();
   var h = ($first.outerHeight() / 2) - ($last.outerHeight() / 2);
@@ -93,12 +94,20 @@ function gridDrawCorners($wrapper) {
   $el.attr('id', id)
     .attr('s', 0)
     .addClass('grid-side');
-  // top
+  // Draw SVGs
   var draw = SVG(id);
-  draw.line(w, h, $first.position().top, $first.position().left);
-  draw.line(w + $last.outerWidth(), h, $first.outerWidth(), $first.position().top);
-  draw.line(w + $last.outerWidth(), h + $last.outerHeight(), $first.outerWidth(), $first.outerHeight());
-  draw.line(w, h + $last.outerHeight(), $first.position().left, $first.outerHeight());
+  var cornerSides = {
+    'top-left': draw.line(w, h, $first.position().top, $first.position().left),
+    'top-right': draw.line(w + $last.outerWidth(), h, $first.outerWidth(), $first.position().top),
+    'bottom-right': draw.line(w + $last.outerWidth(), h + $last.outerHeight(), $first.outerWidth(), $first.outerHeight()),
+    'bottom-left': draw.line(w, h + $last.outerHeight(), $first.position().left, $first.outerHeight()),
+  };
+  // Animate SVGs
+  var myVivus = new Vivus($el.children('svg').attr('id'));
+  myVivus.play(2, function() {
+    // called after the animation completes
+  });
+
 }
 
 $(document).ready(function(){
@@ -148,7 +157,7 @@ $(document).ready(function(){
       // 'transform': 'scale(' + scale + ')'
     }
     // Corners.
-    gridDrawCorners($wrapper);
+    gridDrawSides($wrapper);
 
     /**
      * Offset centering
