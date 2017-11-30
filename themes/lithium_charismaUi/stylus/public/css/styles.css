@@ -64,14 +64,30 @@ h5 {
   font-family: 'Fredoka One';
   letter-spacing: 5px;
 }
+.scene-element.text {
+  font-size: 2em;
+  color: COLOR_BLACK_DARK;
+}
+.scene-element.text.scene_element--style_1 {
+  color: #ffa500;
+  text-shadow: 3px 3px 0px #333;
+}
+#scene-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,0,0,0.2);
+}
 #grid-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
-#grid-wrapper .grid-segment,
-#grid-wrapper .grid-side {
+.grid-segment,
+.grid-side {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,34 +96,31 @@ h5 {
   opacity: 0;
   transition: opacity 100ms;
 }
-#grid-wrapper .grid-segment.grid-segment__border-active,
-#grid-wrapper .grid-side.grid-segment__border-active {
+.grid-segment.grid-segment__border-active,
+.grid-side.grid-segment__border-active {
   opacity: 1;
 }
-#grid-wrapper .grid-segment.grid-segment__border-active.orange,
-#grid-wrapper .grid-side.grid-segment__border-active.orange {
+.grid-segment.grid-segment__border-active.orange,
+.grid-side.grid-segment__border-active.orange {
   border: 1px solid #ffa500;
 }
-#grid-wrapper .segment-bg {
+.segment-bg {
   display: none;
 }
-#grid-wrapper .segment-bg > span {
+.segment-bg > span {
   margin: -5px 0 0 30px;
 }
-#grid-wrapper .dev .segment-bg {
+body.dev .segment-bg {
   display: unset;
 }
-#grid-wrapper .dev #grid-wrapper [segment="1"] {
-  background-color: #fff;
+body.dev #grid-wrapper.bg-active [zone="1"] {
+  background-color: rgba(78,0,0,0.1);
 }
-#grid-wrapper .dev #grid-wrapper [segment="2"] {
-  background-color: #ddd;
+body.dev #grid-wrapper.bg-active [zone="2"] {
+  background-color: rgba(78,0,50,0.2);
 }
-#grid-wrapper .dev #grid-wrapper [segment="3"] {
-  background-color: #ccc;
-}
-#grid-wrapper body {
-  display: none !important;
+body.dev #grid-wrapper.bg-active [zone="3"] {
+  background-color: #640050;
 }
 nav {
   padding: 10px 0 0 30px;

@@ -3,8 +3,6 @@
   top: 0;
   left: 0;
   z-index: -1
-  // &.dev
-    // border 3px dotted #ccc;
 .grid-segment,
 .grid-side
   position: absolute;
@@ -23,18 +21,16 @@
 .segment-bg
   display: none
   > span
-    margin -5px 0 0 30px
+    margin -5px 0 0 30px;
 
-.dev
+body.dev
   .segment-bg
     display: unset
-  #grid-wrapper
-    [segment="1"]
-      background-color #fff
-    [segment="2"]
-      background-color #dd
-    [segment="3"]
-      background-color #ccc
+  #grid-wrapper.bg-active
+    [zone="1"]
+      background-color rgba(78, 0, 0, 0.1);
+    [zone="2"]
+      background-color rgba(78, 0, 50, 0.2);
+    [zone="3"]
+      background-color rgba(100, 0, 80, 1);
 
-body
-  display none !important

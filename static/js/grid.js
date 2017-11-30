@@ -18,7 +18,7 @@ function gridData() {
     'dev' : true,
     'id' : 'grid-wrapper',
     'steps': 21,
-    'segments': 3,
+    'segments': 4,
     'sideSteps': 10
   };
 }
@@ -80,7 +80,7 @@ function gridInitWrapper($) {
   return $wrapper;
 }
 
-function gridDrawSides($wrapper) {
+function gridDrawSides($wrapper, index) {
   var $first = $wrapper.children().first();
   var $last = $wrapper.children().last();
   var w = ($first.outerWidth() / 2) - ($last.outerWidth() / 2);
@@ -89,12 +89,16 @@ function gridDrawSides($wrapper) {
   var sides = gridSidesData(w, h, $first, $last);
 
   $.each(sides, function(i, e){
-    $wrapper.prepend('<div></div>');
-    var $el = $wrapper.children().first();
+    $wrapper.append('<div></div>');
+    var $el = $wrapper.children().last();
     var id = i;
     $el.attr('id', id)
       .attr('s', 0)
-      .addClass('grid-side');
+      .addClass('grid-side')
+      .css({
+        'z-index': index * -1
+      });
+    index++;
     var draw = SVG(id);
 
     // draw.line(e.svgLine);
@@ -182,8 +186,9 @@ $(document).ready(function(){
     var l = baseSide;
     var offset = 0;
     var segMax = Math.round(steps / segments);
-    var curSeg = 1;
-    for (var i = 0; i < steps; i++) {
+    var curSeg = 0;
+    var i = 0;
+    for (i; i < steps; i++) {
       // Check and update segment.
       if (i >= segMax) {
         segMax = segMax + Math.round(steps / segments);
@@ -193,28 +198,25 @@ $(document).ready(function(){
       var $el = $wrapper.children().last();
       $el.attr('id', 'grid-' + i)
         .attr('i', i)
-        .attr('segment', curSeg)
+        .attr('zone', curSeg)
         .addClass('grid-segment');
       var css = {
         'width' : l,
         'height' : l,
         'left' : offset,
         'top' : offset,
+        'z-index': i * -1
       };
       $el.css(css);
-      // Update magnification.
+      // Update magnification & length.
       var n = l - (l * percentageStep) * 2;
       offset += (l - n) / 2;
       l = n;
 
-
-
-      // if u want to use scale.
-      // scale -= percentageStep;
-      // 'transform': 'scale(' + scale + ')'
     }
+
     // Corners.
-    gridDrawSides($wrapper);
+    gridDrawSides($wrapper, i + 1);
 
     /**
      * Offset centering
@@ -240,7 +242,6 @@ $(document).ready(function(){
     var $gridCtrl = $('#grid-ctrl form #gridIo');
     $gridCtrl.click(function(){
       var toggle = $(this).prop('checked');
-      console.log(toggle);
       toggleGridDisplay($wrapper, toggle, borderColor());
     });
     if (g.dev == true) {
@@ -248,24 +249,16 @@ $(document).ready(function(){
       toggleGridDisplay($wrapper, true, borderColor());
     }
 
+    // Dev grid segment color
+    $('[name="grid-bg-activate"]').click(function(){
+      $('#grid-wrapper').toggleClass('bg-active');
+    });
+
   }
-
-
-
-  /**
-   *
-   */
 
 
   initGrid();
 
 
-  // Screen
-  var mq = window.matchMedia( "(min-width: 800px)" );
-  if (mq.matches) {
 
-  } else {
-    console.log('not big enuf');
-    // window width is less than 500px
-  }
 });
