@@ -5,7 +5,7 @@ function episodeData() {
     "dev": true,
     "sceneElements": [
       {
-        "targetZone": 0,
+        "targetZone": 0 ,
         "name": "fin1",
         "type": "text",
         "text": "Fin",
@@ -26,7 +26,7 @@ function episodeData() {
         "videoId": "243426602",
         "classes": 'scene_element--style_1',
         "position": {
-          "x": 600,
+          "x": 0,
           "y": 100,
         },
         "styles": {
@@ -34,14 +34,14 @@ function episodeData() {
         },
       },
       {
-        "targetZone": 2,
+        "targetZone": 3,
         "name": "r1e1",
         "type": "image",
         "thumbnail": "title.jpg",
         "videoId": "243426602",
         "position": {
-          "x": 475,
-          "y": 300,
+          "x": 0,
+          "y": 0,
         },
         "styles": {
           "transform": 'scale(1)'
