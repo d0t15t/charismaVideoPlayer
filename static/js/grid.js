@@ -41,21 +41,26 @@ function toggleGridDisplay($grid, toggle = false, color) {
   if (toggle == false) {
     $grid.children().each(function(i){
       var el = $(this);
-      setTimeout(function() {
-        el.removeClass(gridClassActive);
-      }, i * delay);
+      el.removeClass(gridClassActive);
+      // setTimeout(function() {
+      //   el.removeClass(gridClassActive);
+      // }, i * delay);
     });
   } else {
-
     $($grid.children().get().reverse()).each(function(i){
       var $el = $(this);
-      setTimeout(function() {
-        $el.addClass(gridClassActive);
-        $el.css({
-          'border': '1px solid ' + color
-        });
-        $el.find('line').attr('stroke', color);
-      }, i * delay);
+      $el.addClass(gridClassActive);
+      $el.css({
+        'border': '1px solid ' + color
+      });
+      $el.find('line').attr('stroke', color);
+      // setTimeout(function() {
+      //   $el.addClass(gridClassActive);
+      //   $el.css({
+      //     'border': '1px solid ' + color
+      //   });
+      //   $el.find('line').attr('stroke', color);
+      // }, i * delay);
     });
   }
 }

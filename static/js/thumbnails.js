@@ -57,12 +57,12 @@ $(document).ready(function(){
       'left': maxLeft,
     });
     // If custom position is set, add to current position
-    // if (typeof d.position !== 'undefined') {
-    //   $el.css({
-    //     // 'left': maxWidth + d.position.x,
-    //     // 'top': maxTop + d.position.y,
-    //   });
-    // }
+    if (typeof d.position !== 'undefined') {
+      $el.css({
+        'left': maxLeft + d.position.x,
+        'top': maxTop + d.position.y,
+      });
+    }
     // Set scale basedon parentZone
     if (typeof d.targetZone !== 'undefined') {
       $el.attr('target-zone', d.targetZone);
