@@ -1,9 +1,7 @@
 .center-page
-  position: relative
   width: 100%
   height: 600px
   position: relative;
-  resize: vertical;
   overflow: auto;
   > div
     position: absolute
@@ -13,3 +11,62 @@
     margin auto
     text-align: center
     margin 0 auto
+    width 100%
+
+
+l = 300px
+#fullscreen-launch
+  width 800px
+  margin 0 auto
+  margin-top 60px
+  .inner
+    .rounded-logo,
+    .rounded-enter
+      position: relative
+      margin 0 auto
+      width l
+      height 100px
+      background-image url('/images/chrarisma-logo-round.png');
+      background-size cover
+      background-repeat no-repeat
+    .rounded-enter
+      background-image url('/images/enter-rounded.png');
+  .circle
+    position: relative
+    height l
+    width l
+    margin 0 auto
+    a
+      display: block
+      position: absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      border-radius 50%
+      overflow hidden
+      background-image url('/images/title.jpg')
+      background-size cover
+      background-repeat no-repeat
+
+
+#launchpage-scrolling-text
+  position relative
+  marquee
+    padding 20px 0
+    position fixed
+    width 20%
+    height 50px
+    top 0
+    left 0
+    &:nth-child(2)
+      left 100%
+      margin-left -20%
+    &:nth-child(3)
+      left 100%
+      top 100%
+      margin-left -20%
+      margin-top -75px
+    &:nth-child(4)
+      top 100%
+      margin-top -75px

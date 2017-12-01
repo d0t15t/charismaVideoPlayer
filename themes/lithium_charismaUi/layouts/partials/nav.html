@@ -1,16 +1,18 @@
-  <!-- <a href="{{ .Site.BaseURL }}" class="nav-logo">
-    <img src="{{ .Site.BaseURL }}images/{{ .Site.Params.logo.url }}"
-         width="{{ .Site.Params.logo.width }}"
-         height="{{ .Site.Params.logo.height }}"
-         alt="{{ .Site.Params.logo.alt }}">
-  </a> -->
-  <ul id="main-menu">
-    <li id="home"><a href="/">Home</a></li>
-  </ul>
-  <ul class="nav-links" id="lang-ctrl">
-    <li id="de" status="active"><a href="#">DE</a></li>
-    <li id="en" status><a href="#">EN</a></li>
-    {{ range .Site.Menus.main }}
-    <!-- <li><a href="{{ .URL }}">{{ .Name }}</a></li> -->
-    {{ end }}
-  </ul>
+<!-- NAV LINKS -->
+
+<ul id="ctrl-links">
+  {{ range .Site.Menus.ctrl }}
+  <li id="{{ .Identifier }}">
+    <form>
+      <input type="checkbox" name="{{ .Name }}" value="1">
+      <label></label>
+      <span>{{ .Post }}</span>
+    </form>
+  </li>
+  {{ end }}
+</ul>
+<ul id="main-menu">
+  {{ range .Site.Menus.main }}
+  <li id="{{ .Identifier }}"><a href="{{ .URL }}">{{ .Name }}</a></li>
+  {{ end }}
+</ul>

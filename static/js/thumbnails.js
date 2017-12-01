@@ -145,7 +145,7 @@ function thumbnailSize() {
 
 function thumbnailImageStyles(d, tSize) {
   return {
-    'background-image':'url("thumbnails/' + d.thumbnail + '")',
+    'background-image':'url("images/' + d.thumbnail + '")',
     'background-size': 'cover',
     'background-repeat': 'no-repeat',
     'cursor': 'pointer',

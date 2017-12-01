@@ -1,44 +1,59 @@
-nav
-  padding 10px 0 0 30px
+gridSide = 20px
+nav.nav
+  display inline
   ul
-    display inline
-    margin 0
-    padding 0
+    display inline-block
+    vertical-align: top
+    margin: 0
+    position: relative
+    z-index: 1
     li
       display inline
       list-style: none
 
-gridSide = 20px
-.nav-links
-  &#grid-ctrl
-    margin: -3px 10px 0 0
-    form
-      display inline-block
-      position: relative
-      height gridSide
-      > div
-        position: relative
-        width gridSide
+nav.nav
+  ul#ctrl-links
+    width gridSide
+    height gridSide
+    margin gridSide
+    > li
+        // width gridSide
+        float left;
+        clear both
         height gridSide
-        padding-bottom 50px
-        > *
-          display inline-block
+        display block
+        margin-bottom gridSide
+      form
+        display inline
+        position relative
+        float left
+        > input, label
+          top 0
+          left 0
           position: absolute
+          display block
           width gridSide
           height gridSide
-          transition background-color 100ms
-          top: 0
-          left: 0
-      label
-        border 1px solid COLOR_DARK_BLACK;
-      input[type=checkbox]
-        z-index 1
-        opacity 0
-        cursor pointer
-        &:checked+label
-          background-color: COLOR_DARK_BLACK
+          box-sizing: border-box
+        label
+          border 1px solid COLOR_DARK_BLACK;
+        input[type=checkbox]
+          z-index 1
+          opacity 0
+          cursor pointer
+          &:hover+label
+            background-color COLOR_GREY
+          &:checked+label
+            background-color: COLOR_DARK_BLACK
+        > span
+          font-size 1em * 0.5
+          display block
+          margin-left gridSide * 2
+        > span:not(:first-child)
+          width: 200px
 
-header.home
-  #main-menu
-    #home
-      display: none
+
+nav.nav
+  ul#main-menu
+    margin-top 12px
+

@@ -28,42 +28,57 @@
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script src="/lib/svg/svg.min.js"></script>
-<script src="/lib/vivus/dist/vivus.min.js"></script>
+
+
+<script src="/data/release_1_data.js"></script>
+<script src="/js/animation.js"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/thumbnails.js"></script>
+<script src="/js/helper.js"></script>
+
   </head>
-  <body>
+  <body class="blue">
     <div class="wrapper">
 
 
 <header class="header home">
   <nav class="nav">
+    
 
-      <ul class="nav-links" id="grid-ctrl">
-          <li id="grid-button" status="active">
-            <form id="grid-check">
-              <div>
-                <input type="checkbox" name="grid-activate" value="1" id="gridIo">
-                <label></label>
-              </div>
-              <div class="segment-bg">
-                <input type="checkbox" name="grid-bg-activate" value="1">
-                <label></label>
-                <span>bg</span>
-              </div>
-            </form>
-          </li>
-        </ul>
-
-      
-  <ul id="main-menu">
-    <li id="home"><a href="/">Home</a></li>
-  </ul>
-  <ul class="nav-links" id="lang-ctrl">
-    <li id="de" status="active"><a href="#">DE</a></li>
-    <li id="en" status><a href="#">EN</a></li>
-    
-    
-    
-  </ul>
+<ul id="ctrl-links">
+  
+  <li id="grid-activate-link">
+    <form>
+      <input type="checkbox" name="grid-activate" value="1">
+      <label></label>
+      <span></span>
+    </form>
+  </li>
+  
+  <li id="bg-toggle-link">
+    <form>
+      <input type="checkbox" name="bg-toggle" value="1">
+      <label></label>
+      <span>bg toggle</span>
+    </form>
+  </li>
+  
+  <li id="zone-bg-toggle-link">
+    <form>
+      <input type="checkbox" name="zone-bg-toggle" value="1">
+      <label></label>
+      <span>zone bg</span>
+    </form>
+  </li>
+  
+</ul>
+<ul id="main-menu">
+  
+  <li id="de-link"><a href="#">DE</a></li>
+  
+  <li id="en-link"><a href="#">EN</a></li>
+  
+</ul>
 
   </nav>
 </header>
@@ -73,15 +88,6 @@
     <div id="scene-elements"></div>
     <div id="master-video-player"><div class="master-controls video-controls"><div class="close"></div></div></div>
     
-
-    <script src="/data/release_1_data.js"></script>
-    <script src="/js/animation.js"></script>
-    <script src="/js/grid.js"></script>
-    <script src="/js/thumbnails.js"></script>
-    <script src="/js/helper.js"></script>
-
-
-
 
 </main>
 
