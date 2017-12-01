@@ -245,7 +245,7 @@ nav.nav ul#main-menu {
   background-repeat: no-repeat;
 }
 #fullscreen-launch .inner .rounded-enter {
-  background-image: url("/images/enter-rounded.png");
+  background-image: url("/images/enter-rounded.svg");
 }
 #fullscreen-launch .circle {
   position: relative;
