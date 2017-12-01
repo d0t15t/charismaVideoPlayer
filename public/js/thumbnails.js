@@ -41,14 +41,13 @@ $(document).ready(function(){
         case 'text':
           css = thumbnailTextStyles(d, tSize);
           $el.text(d.text);
+          // bounce
+          $el.myBounceInPlace(numberBetween(70, 100), numberBetween(3300, 6333), 'easeInOutBack');
           break;
       }
 
-      $el.css(css);
+      $el.css(Object.assign({}, css, d.styles));
     }
-
-
-    $el.css(d.styles);
   }
   function placeThumbnails() {
     var $devWrapper = placeThumbnailsDev();
@@ -74,17 +73,21 @@ $(document).ready(function(){
         // Set scale basedon topZone
         $el.attr('target-zone', targetZone);
         var scale = (zoneMax - targetZone) / zoneMax;
-        // d.styles.transform += ' scale(' + scale + ')';
+        d.styles.transform += ' scale(' + scale + ')';
 
         // Place element within the bounds of its parent zone,
         // although not 'in' the target container.
         var styles = {
           'top' : (th.box.t < 0) ? th.box.h / 2 : th.box.t,
           'left' : (th.box.l < 0) ? th.box.w / 2 : th.box.l,
-          'width' : $el.width() * scale,
-          'height' : $el.height() * scale,
+          'width' : $el.width(),
+          'height' : $el.height(),
+          // 'background-size' : ($el.width() * scale ) ($el.height() * scale)
+          // 'width' : $el.width() * scale,
+          // 'height' : $el.height() * scale,
         };
-        $el.css(Object.assign({}, styles, d.styles));
+        $el.css(Object.assign({}, styles, d.styles))
+          .attr('scale', scale);
       }
 
       // Update dev elements
@@ -99,26 +102,6 @@ $(document).ready(function(){
           'border' : '5px solid red',
         });
       }
-
-
-      // var zoneMax = $('.grid-segment').last().attr('zone');
-      // var maxTop = ($topZone.outerHeight() > $(window).outerHeight())
-      //   ? 0 : $topZone.offset().top;
-      // var maxLeft = ($topZone.outerWidth() > $(window).outerWidth())
-      //   ? 0 : $topZone.offset().left;
-      // console.log('item: ' + i + ' ' + $el.attr('id'));
-      // console.log('item: ' + i + ' ' + $el.attr('id'));
-      $el.css({
-        // 'top': maxTop,
-        // 'left': maxLeft,
-      });
-      // If custom position is set, add to current position
-      // if (typeof d.position !== 'undefined') {
-      //   $el.css({
-      //     'left': maxLeft + d.position.x,
-      //     'top': maxTop + d.position.y,
-      //   });
-      // }
     }
   }
   initThumbnails();

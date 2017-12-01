@@ -2,8 +2,8 @@ var gridClassActive = 'grid-segment__border-active';
 $(document).ready(function(){
   var g = gridData();
 
-  // var test = g.dev;
-  var test = false;
+  var test = g.dev;
+  // var test = false;
 
   // Grid Toggle
   var $wrapper = $('#grid-wrapper');
@@ -17,6 +17,7 @@ $(document).ready(function(){
   if (test == true) {
     $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
     $wrapper.toggleClass('grid-wrapper__active');
+    $('body').toggleClass('grid-active');
   }
 
   // BG toggle.
