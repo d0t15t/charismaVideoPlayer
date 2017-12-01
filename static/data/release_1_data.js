@@ -5,7 +5,7 @@ function episodeData() {
     "dev": true,
     "sceneElements": [
       {
-        "targetZone": 0 ,
+        "targetZone": 2 ,
         "name": "fin1",
         "type": "text",
         "text": "Fin",
@@ -19,7 +19,7 @@ function episodeData() {
         },
       },
       {
-        "targetZone": 1,
+        "targetZone": 7,
         "name": "echo1",
         "type": "text",
         "text": "Echo",
@@ -34,10 +34,10 @@ function episodeData() {
         },
       },
       {
-        "targetZone": 3,
+        "targetZone": 15,
         "name": "r1e1",
         "type": "image",
-        "thumbnail": "title.jpg",
+        "thumbnail": "joke.jpg",
         "videoId": "243426602",
         "position": {
           "x": 0,

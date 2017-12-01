@@ -172,7 +172,8 @@ $(document).ready(function(){
       var $el = $wrapper.children().last();
       $el.attr('id', 'grid-' + i)
         .attr('i', i)
-        .attr('zone', curSeg)
+        .attr('zone', i)
+        // .attr('zone', curSeg)
         .addClass('grid-segment');
       var css = {
         'width' : l,
