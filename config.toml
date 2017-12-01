@@ -10,9 +10,39 @@ disqusShortname = ""
     post = "/:year/:month/:day/:title/"
     page = "/:title/"
 
+
+[[menu.ctrl]]
+    name = "grid-activate"
+    url = "/"
+    identifier = "grid-activate-link"
+    post = ""
+    weight = "-10"
+[[menu.ctrl]]
+    name = "bg-toggle"
+    url = "/"
+    identifier = "bg-toggle-link"
+    post = "bg toggle"
+    weight = "-9"
+[[menu.ctrl]]
+    name = "zone-bg-toggle"
+    url = "/"
+    identifier = "zone-bg-toggle-link"
+    post = "zone bg"
+    weight = "-8"
+
 [[menu.main]]
-    name = "Test Ep. v2"
-    url = "/episode-test-2"
+    name = "DE"
+    url = "#"
+    identifier = "de-link"
+[[menu.main]]
+    name = "EN"
+    url = "#"
+    identifier = "en-link"
+
+
+
+
+
 
 [params]
     description = ""
