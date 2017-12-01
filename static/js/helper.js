@@ -2,14 +2,22 @@ var gridClassActive = 'grid-segment__border-active';
 $(document).ready(function(){
   var g = gridData();
 
+  // var test = g.dev;
+  var test = false;
+
   // Grid Toggle
   var $wrapper = $('#grid-wrapper');
   $('#grid-activate-link input[type="checkbox"]').click(function(){
     $wrapper.toggleClass('grid-wrapper__active');
+    $('body').toggleClass('grid-active');
+
   });
+
   // Test
-  $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
-  $wrapper.toggleClass('grid-wrapper__active');
+  if (test == true) {
+    $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
+    $wrapper.toggleClass('grid-wrapper__active');
+  }
 
   // BG toggle.
   $('#bg-toggle-link input[type="checkbox"]').click(function(){
@@ -30,7 +38,11 @@ $(document).ready(function(){
     });
   });
 
-  // toggleGridDisplay($wrapper);
+
+  // Zone segment toggle
+  $('#zone-segmentbg-toggle-link input[type="checkbox').click(function(){
+    $('body').toggleClass('placement-dev-wrapper-active');
+  });
 
   // Zone toggle
   $('#zone-bg-toggle-link input[type="checkbox').click(function(){

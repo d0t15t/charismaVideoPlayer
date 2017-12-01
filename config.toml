@@ -24,11 +24,17 @@ disqusShortname = ""
     post = "bg toggle"
     weight = "-9"
 [[menu.ctrl]]
+    name = "zone-segment-toggle"
+    url = "/"
+    identifier = "zone-segmentbg-toggle-link"
+    post = "placement zones"
+    weight = "-8"
+[[menu.ctrl]]
     name = "zone-bg-toggle"
     url = "/"
     identifier = "zone-bg-toggle-link"
     post = "zone bg"
-    weight = "-8"
+    weight = "-7"
 
 [[menu.main]]
     name = "DE"

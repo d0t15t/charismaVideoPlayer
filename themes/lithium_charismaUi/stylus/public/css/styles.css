@@ -126,9 +126,12 @@ body.video-player-active #scene-elements {
 #placement-dev-wrapper {
   position: relative;
   z-index: -1;
+  opacity: 0;
 }
 #placement-dev-wrapper .placement-dev-wrapper {
   position: fixed;
+}
+body.placement-dev-wrapper-active.grid-active #placement-dev-wrapper {
   opacity: 0.5;
 }
 #grid-wrapper {
@@ -256,13 +259,20 @@ nav.nav ul#main-menu {
   left: 0;
   position: absolute;
   padding: 20px;
+  z-index: 0;
+  opacity: 0;
+}
+.video-player.active {
+  opacity: 1;
+  z-index: 1;
 }
 .video-controls {
   position: absolute;
   top: 0;
   right: 0;
-  background: #ffc0cb;
   z-index: 1;
+  opacity: 0;
+  transition: all 200ms;
 }
 .video-controls .close {
   margin: 5px;
@@ -274,6 +284,10 @@ nav.nav ul#main-menu {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  display: block;
+}
+.hover .video-controls {
+  opacity: 1;
 }
 .center-page {
   width: 100%;

@@ -30,7 +30,8 @@ function borderColor() {
   var array = [
     'white'
   ];
-  return array[Math.floor(Math.random()* array.length)];
+  return 'white';
+  // return array[Math.floor(Math.random()* array.length)];
 }
 
 
@@ -160,20 +161,20 @@ $(document).ready(function(){
     var l = baseSide;
     var offset = 0;
     var segMax = Math.round(steps / segments);
-    var curSeg = 0;
+    var curZone = 0;
     var i = 0;
     for (i; i < steps; i++) {
       // Check and update segment.
       if (i >= segMax) {
         segMax = segMax + Math.round(steps / segments);
-        curSeg++;
+        curZone++;
       }
       $wrapper.append(insertDiv);
       var $el = $wrapper.children().last();
       $el.attr('id', 'grid-' + i)
         .attr('i', i)
-        .attr('zone', i)
-        // .attr('zone', curSeg)
+        .attr('segment', i)
+        .attr('zone', curZone)
         .addClass('grid-segment');
       var css = {
         'width' : l,

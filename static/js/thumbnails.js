@@ -63,8 +63,8 @@ $(document).ready(function(){
       // Identify target zone & coordinates
       if (d.hasOwnProperty('targetZone')) {
         var targetZone = d.targetZone;
-        var $targetZone = $('[zone="' + targetZone + '"]').first();
-        var zoneMax = $('[zone]').last().attr('zone');
+        var $targetZone = $('[segment="' + targetZone + '"]').first();
+        var zoneMax = $('[segment]').last().attr('segment');
         th.box = {
           w: $targetZone.width(),
           h: $targetZone.height(),
