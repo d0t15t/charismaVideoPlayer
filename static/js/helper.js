@@ -7,6 +7,9 @@ $(document).ready(function(){
   $('#grid-activate-link input[type="checkbox"]').click(function(){
     $wrapper.toggleClass('grid-wrapper__active');
   });
+  // Test
+  $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
+  $wrapper.toggleClass('grid-wrapper__active');
 
   // BG toggle.
   $('#bg-toggle-link input[type="checkbox"]').click(function(){
@@ -25,8 +28,9 @@ $(document).ready(function(){
         $(this).find('svg line').attr('stroke', 'blue');
       }
     });
-
   });
+
+  // toggleGridDisplay($wrapper);
 
   // Zone toggle
   $('#zone-bg-toggle-link input[type="checkbox').click(function(){
@@ -35,10 +39,3 @@ $(document).ready(function(){
 
 });
 
-/**
- * Toggle grid view
- */
-function toggleGridDisplay($grid, toggle = false, color) {
-  var delay = 45;
-  $grid.toggleClass('grid-wrapper__active');
-}

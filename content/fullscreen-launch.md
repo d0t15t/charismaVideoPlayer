@@ -18,8 +18,8 @@ name = "fullscreen-launch"
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee>"What didn't you say?"</marquee>
-  <marquee>"No adult is an island."</marquee>
-  <marquee>"Got any coconuts in your backyard?"</marquee>
-  <marquee>"Boom! And you're inside the mirror."</marquee>
+  <marquee direction="right">"What didn't you say?"</marquee>
+  <marquee direction="left">"No adult is an island."</marquee>
+  <marquee direction="left">"Got any coconuts in your backyard?"</marquee>
+  <marquee direction="right">"Boom! And you're inside the mirror."</marquee>
 </div>

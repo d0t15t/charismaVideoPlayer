@@ -262,7 +262,7 @@ nav.nav ul#main-menu {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background-image: url("/images/title.jpg");
+  background-image: url("/images/title-color.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
