@@ -6,10 +6,19 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  transition: background 200ms;
+  transition: background 1s;
 }
+html.video-player-active,
+body.video-player-active {
+  background-color: #b3b3b3;
+}
+html.blue,
 body.blue {
   background-color: #00f;
+}
+html.blue.video-player-active,
+body.blue.video-player-active {
+  background-color: #0000b3;
 }
 header {
   float: left;
@@ -108,8 +117,16 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 1;
+  transition: all 800ms;
 }
-#placement-dev-wrapper position,
+body.video-player-active #scene-elements {
+  opacity: 0;
+}
+#placement-dev-wrapper {
+  position: relative;
+  z-index: -1;
+}
 #placement-dev-wrapper .placement-dev-wrapper {
   position: fixed;
   opacity: 0.5;
@@ -217,6 +234,46 @@ nav.nav ul#ctrl-links form > span:not(:first-child) {
 }
 nav.nav ul#main-menu {
   margin-top: 12px;
+}
+#master-video-player {
+  position: relative;
+  width: 680px;
+  height: 520px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.9);
+  margin: auto auto;
+  opacity: 0;
+  transition: opacity 400ms;
+  z-index: -2;
+}
+#master-video-player.active {
+  z-index: 1;
+  opacity: 1;
+}
+.video-player {
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding: 20px;
+}
+.video-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ffc0cb;
+  z-index: 1;
+}
+.video-controls .close {
+  margin: 5px;
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  background-image: url("/images/icon-close.svg");
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 .center-page {
   width: 100%;

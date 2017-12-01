@@ -1,15 +1,18 @@
 html,
-body {
+body
   margin: 0;
   padding: 0;
   position: fixed;
   width: 100%;
   height : 100%;
   overflow: hidden;
-  transition: background 200ms;
-}
-body.blue
-  background-color blue;
+  transition: background 1s;
+  &.video-player-active
+    background-color darken(white, 30%)
+  &.blue
+    background-color blue;
+    &.video-player-active
+      background-color darken(blue, 30%)
 
 header
   float left

@@ -4,9 +4,16 @@
   left 0
   width 100%
   height 100%
+  opacity 1
+  transition all 800ms
+
+body.video-player-active
+  #scene-elements
+    opacity 0
 
 #placement-dev-wrapper
-  position
+  position: relative
+  z-index: -1
   .placement-dev-wrapper
     position: fixed
     opacity 0.5

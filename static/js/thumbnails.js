@@ -50,9 +50,6 @@ $(document).ready(function(){
 
     $el.css(d.styles);
   }
-  initThumbnails();
-
-
   function placeThumbnails() {
     var $devWrapper = placeThumbnailsDev();
 
@@ -90,10 +87,6 @@ $(document).ready(function(){
         $el.css(Object.assign({}, styles, d.styles));
       }
 
-
-
-
-
       // Update dev elements
       if (data.dev == true) {
         $devWrapper.append('<div class="placement-dev-wrapper"></div>');
@@ -128,57 +121,12 @@ $(document).ready(function(){
       // }
     }
   }
+  initThumbnails();
   placeThumbnails();
 
-
-
-
-
-
-
-    // var t = getRandomInt(
-    //   maxTop,
-    //   maxLeft.outerHeight() - $el.outerHeight()
-    // );
-    // var l = getRandomInt(
-    //   $parentZone.offset().left + $el.outerWidth(),
-    //   $maxParentWidth.outerWidth() - $el.outerWidth()
-    // );
-    // $el.css({
-    //   'top': t,
-    //   'left': l
-    // });
-  // Click init & play for target videos.
-  // $('.video-trigger').click(function(){
-  //   $('#master-video-player').addClass('active');
-  //   var vid = $(this).attr('vid');
-  //   // Pause any active videos
-  //   $.each(players, function(i,e){
-  //     e.pause();
-  //     $('#' + i).removeClass('active');
-  //   });
-  //   $('#' + vid).addClass('active');
-  //   players[vid].play();
-  // });
-
-
-  $('.video-controls .close').click(function(){
-    $.each(players, function(i,e){
-      e.pause();
-    });
-    var $active = $('#master-video-player .target-video.active');
-    $('#' + $active.attr('id')).removeClass('active');
-    $('#master-video-player').removeClass('active');
-  });
-
-
-  // Controller jquery.
-  $('#master-video-player').hover(function(){
-    $( this ).toggleClass('hover');
-  }, function() {
-    $( this ).toggleClass('hover');
-  });
-
+  /**
+   *
+   */
   function placeThumbnailsDev() {
     if (data.dev == true) {
       $('#scene-elements').append('<div id="placement-dev-wrapper"></div>');
@@ -227,28 +175,6 @@ function thumbnailTextStyles(d, tSize) {
     'display': 'inline'
   };
 }
-
-function initMasterVideo(data, wrapper) {
-  var $container = $('#' + wrapper);
-  var id = data.videoId;
-  var options = {
-    id: data.videoId,
-    width: 640,
-    loop: false,
-    autoplay: false,
-  };
-  // player = new Vimeo.Player(id, options);
-
-
-
-    // On finish, remove iframe
-  // player.on('ended', function(){
-  //   $wrapper.removeClass('active');
-  // });
-
-  // return player;
-}
-
 
 
 /**
