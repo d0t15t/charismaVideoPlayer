@@ -4,7 +4,7 @@
 $(document).ready(function(){
   var data = episodeData();
   var sE = data.sceneElements;
-
+  var targetZones = [];
 
   // Sort by target zone
   temp = 0;
@@ -50,7 +50,12 @@ $(document).ready(function(){
         case 'image':
           if ('thumbnail' in d)
             var tSize = thumbnailSize();
-            css = thumbnailImageStyles(d, tSize);
+            css = thumbnailImageStyles(d, tSize, data);
+            if (sE[i].hasOwnProperty('overlay')) {
+              var overlayPath = 'releases/' + data.releaseId + '/' + sE[i].overlay;
+              var img = '<img class="overlay-gif" src="' + overlayPath + '"></img>';
+              $el.append(img);
+            }
             break;
         case 'text':
           css = thumbnailTextStyles(d, tSize);
@@ -68,7 +73,7 @@ $(document).ready(function(){
     var thumbs = {};
     for (var i = 0; i < sE.length; i++) {
       var d = sE[i];
-      console.log(d);
+
       thumbs[d.name] = $('#' + d.name);
       var th = thumbs[d.name];
       var $el = th;
@@ -78,6 +83,7 @@ $(document).ready(function(){
         var targetZone = d.targetZone;
         var $targetZone = $('[segment="' + targetZone + '"]').first();
         var zoneMax = $('[segment]').last().attr('segment');
+        targetZones[targetZone] = $targetZone;
         th.box = {
           w: $targetZone.outerWidth(),
           h: $targetZone.outerHeight(),
@@ -125,18 +131,6 @@ $(document).ready(function(){
             break;
         }
         $el.css(styles);
-
-
-        // // Better placement
-        // switch ($el.attr('type')) {
-        //   case 'image':
-        //     var styles = {
-        //       left : '500px',
-        //       top : ($(window).height() / 2 ) + 'px'
-        //     };
-        //     // $el.css(styles);
-        //     break;
-        // }
       }
 
       // Update dev elements
@@ -158,6 +152,40 @@ $(document).ready(function(){
   }
   initThumbnails();
   placeThumbnails();
+
+  function initOrbits() {
+
+    for (var i = 0; i < sE.length; i++) {
+      var $el = $('#' + sE[i].name);
+      var targetZone = sE[i].targetZone;
+
+      if ($el.attr('type') == 'image') {
+        $el.bounce('start', {
+          'minSpeed'	: 1,
+          'maxSpeed'	: 1,
+          'zone'		: '#grid-' + targetZone
+        });
+        // @TODO - HOVER STOP DOESN'T WORK.
+        $el.hover(  function() {
+          $el.bounce('stop');
+        }, function() {
+          $el.bounce('start');
+        });
+      }
+
+    }
+
+    return orbits;
+  }
+  var orbits = initOrbits();
+  // $.each(orbits, function(i, e){
+  //   console.log($(e).attr('id'));
+  //   orbitPath($(e).attr('id'), $ob)
+  // });
+
+  // console.log(orbits);
+  // console.log(svg);
+
 
   /**
    *
@@ -184,9 +212,9 @@ function thumbnailSize() {
   return t;
 }
 
-function thumbnailImageStyles(d, tSize) {
+function thumbnailImageStyles(d, tSize, data) {
   return {
-    'background-image':'url("images/' + d.thumbnail + '")',
+    'background-image':'url("releases/' + data.releaseId + '/' + d.thumbnail + '")',
     'width': tSize.w,
     'height': tSize.h,
     'transform' : 'translateY(-50%)',
