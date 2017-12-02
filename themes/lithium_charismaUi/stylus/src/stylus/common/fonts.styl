@@ -33,9 +33,13 @@ h1, h2, h3, h4, h5
 h1
   font-size 1.2em
 
-.scene-element.text
-  font-size 2em
-  color COLOR_BLACK_DARK
-  &.scene_element--style_1
+.scene-element
+  .text
+    font-size 2em
+    color COLOR_BLACK_DARK
+  &.scene_element--style_1 .text
     color orange
     text-shadow 3px 3px 0px rgba(#333, 1);
+  &:hover .text
+    color #aaa
+    text-shadow: none

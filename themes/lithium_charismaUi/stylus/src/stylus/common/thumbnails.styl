@@ -6,6 +6,13 @@
   height 100%
   opacity 1
   transition all 800ms
+  .scene-element
+    transform-origin top left
+    position fixed
+    background-repeat no-repeat
+    background-size cover
+    cursor pointer
+    // z-indez 1
 
 body.video-player-active
   #scene-elements
@@ -21,3 +28,12 @@ body.video-player-active
 body.placement-dev-wrapper-active.grid-active
   #placement-dev-wrapper
     opacity 0.5
+
+.target-zone-label
+  display none
+.dev
+  .target-zone-label
+    display block
+    font 14px Arial
+    font-weight: bold
+    color red
