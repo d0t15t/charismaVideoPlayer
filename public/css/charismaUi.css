@@ -1,0 +1,140 @@
+h1 {
+  float: right;
+}
+#scene-wrapper {
+  position: relative;
+  height: 475px;
+  width: 642px;
+  /* float: left; */
+}
+#video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid red;
+}
+.scene-elements {
+  position: relative;
+}
+.scene-element {
+  float: left;
+  position: absolute;
+  transition: opacity 100ms;
+  opacity: 0;
+}
+.scene-element.active {
+  opacity: 1;
+}
+.scene-element > * {
+  width: 100%;
+  height: auto;
+  /* background-color: rgba(255, 255, 255, 0.6); */
+}
+
+#scene-wrapper {
+  margin-right: 20px;
+}
+#scene-wrapper, #video-info {
+  display: inline-block;
+  vertical-align: top;
+  /* float: left; */
+}
+#video-info {
+  float: right;
+  /* border: 1px solid pink; */
+  width: 260px;
+  height: 500px;
+  position: relative;
+}
+table tr td, table tr th {
+  padding: 10px;
+}
+table tr td {
+  border: 1px solid #aaa;
+}
+table tr th {
+  background-color: #ccc;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+#video-info table tr#edits td {
+  display: none;
+}
+#video-info table tr#edits.active td {
+  display: table-cell;
+  background-color: mintcream;
+}
+tr.active.scene td {
+  background: orange;
+  border-right: 1px solid white;
+}
+tr.scene img {
+  width: 20px;
+  height: auto;
+}
+tr.active.scene td:last-child {
+  border-right: 1px solid #aaa;
+}
+tr#actions td#play-scene {
+  background-color: lightskyblue;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
+}
+tr#actions td#play-scene a.playback {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+tr#actions td#play-scene a.playback.active {
+  display: block;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding-top: 25%;
+}
+tr#actions td#play-scene a.playback.playing {
+  background-color: darkcyan;
+}
+tr#actions td#play-scene a:hover {
+  background-color: darkblue;
+}
+tr#actions .time {
+  text-align: center;
+}
+tr#actions td.calc {
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+tr#actions td.calc a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  text-align: center;
+  background-color: #aaa;
+  font-size: 16px;
+}
+tr#actions td.calc a:hover {
+  background-color: lightpink;
+}
+tr#actions td#play-scene a {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+tr#actions td.calc a:first-child {
+  border-bottom: 1px solid #ccc;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  clear: both;
+  margin-bottom: 100px;
+}
