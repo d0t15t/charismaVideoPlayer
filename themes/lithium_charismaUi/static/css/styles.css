@@ -1,4 +1,3 @@
-html,
 body {
   margin: 0;
   padding: 0;
@@ -8,17 +7,23 @@ body {
   overflow: hidden;
   transition: background 1s;
 }
-html.video-player-active,
 body.video-player-active {
   background-color: #b3b3b3;
 }
-html.blue,
 body.blue {
   background-color: #00f;
 }
-html.blue.video-player-active,
 body.blue.video-player-active {
   background-color: #0000b3;
+}
+body#credits {
+  position: relative;
+  overflow-y: visible;
+  height: unset;
+  display: block;
+}
+body#credits main {
+  position: relative;
 }
 header {
   float: left;
@@ -75,11 +80,14 @@ body {
   font: 2em 'Fredoka One';
   color: COLOR_BLACK_DARK;
 }
-header {
+header,
+.nav {
   font: 1em 'Geo';
+  font-size: 1em;
   color: COLOR_BLACK_DARK;
 }
-header a:hover {
+header a:hover,
+.nav a:hover {
   color: #aaa;
 }
 h1,
@@ -114,6 +122,9 @@ h1 {
 .scene-element:hover .text {
   color: #aaa;
   text-shadow: none;
+}
+#credits .nav {
+  font-size: 0.7em;
 }
 #scene-elements {
   position: absolute;
@@ -270,8 +281,18 @@ nav.nav ul#ctrl-links form > span {
 nav.nav ul#ctrl-links form > span:not(:first-child) {
   width: 200px;
 }
+#main-menu #credits-link {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+}
 nav.nav ul#main-menu {
   margin-top: 12px;
+}
+#credits #home-link {
+  position: relative;
+  top: 20px;
+  left: 30px;
 }
 #master-video-player {
   position: relative;
@@ -339,6 +360,11 @@ nav.nav ul#main-menu {
   text-align: center;
   margin: 0 auto;
   width: 100%;
+}
+.info-page {
+  margin: 50px 70px;
+  font-size: 0.8em;
+  box-sizing: conent-box;
 }
 #fullscreen-launch {
   width: 800px;
