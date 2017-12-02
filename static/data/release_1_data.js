@@ -66,7 +66,7 @@ function episodeData() {
         },
       },
       {
-        "targetZone": 15,
+        "targetZone": 2,
         "name": "r1e1",
         "type": "image",
         "thumbnail": "joke.jpg",
@@ -74,8 +74,8 @@ function episodeData() {
         "videoId": "243426602",
         "classes": '',
         "position": {
-          "x": '0%',
-          "y": '0%',
+          "x": '00%',
+          "y": '70%',
         },
         "styles": {
           "transform": 'scale(1)'

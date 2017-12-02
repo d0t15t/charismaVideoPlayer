@@ -5,6 +5,19 @@ $(document).ready(function(){
   var data = episodeData();
   var sE = data.sceneElements;
 
+
+  // Sort by target zone
+  temp = 0;
+  for (i = 0; i < sE.length - 1; i++) {
+    for (j = i + 1; j < sE.length; j++) {
+      if (sE[i].targetZone > sE[j].targetZone) {
+        temp = sE[j];
+        sE[j] = sE[i];
+        sE[i] = temp;
+      }
+    }
+  }
+
   /**
    * Init Thumbnails
    */
@@ -52,10 +65,10 @@ $(document).ready(function(){
   }
   function placeThumbnails() {
     var $devWrapper = placeThumbnailsDev();
-
     var thumbs = {};
     for (var i = 0; i < sE.length; i++) {
       var d = sE[i];
+      console.log(d);
       thumbs[d.name] = $('#' + d.name);
       var th = thumbs[d.name];
       var $el = th;
@@ -108,7 +121,6 @@ $(document).ready(function(){
             var dist    = numberBetween(30, 70);
             var timeout = numberBetween(4300, 7333);
             var easing  = 'easeInOutBack';
-            console.log('whatw');
             $el.myBounceInPlace(dist, timeout, easing);
             break;
         }
