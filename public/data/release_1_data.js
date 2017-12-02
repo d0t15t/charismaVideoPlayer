@@ -87,12 +87,28 @@ function episodeData() {
         "name": "Asher-Laughing",
         "type": "image",
         "thumbnail": "Asher-Laughing.jpg",
-        "overlay": "Asher-Laughing.jpg",
+        "overlay": "Asher-Laughing.gif",
         "videoId": "243426602",
         "classes": '',
         "position": {
           "x": '60%',
           "y": '20%',
+        },
+        "styles": {
+          "transform": 'scale(1)'
+        },
+      },
+      {
+        "targetZone": 13,
+        "name": "Hungarian-Rock",
+        "type": "image",
+        "thumbnail": "Hungarian-Rock.jpg",
+        "overlay": "Hungarian-Rock.gif",
+        "videoId": "243426602",
+        "classes": '',
+        "position": {
+          "x": '95%',
+          "y": '95%',
         },
         "styles": {
           "transform": 'scale(1)'
