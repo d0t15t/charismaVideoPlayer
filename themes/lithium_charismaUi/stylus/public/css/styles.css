@@ -160,11 +160,14 @@ body.placement-dev-wrapper-active.grid-active #placement-dev-wrapper {
 .target-zone-label {
   display: none;
 }
-.dev .target-zone-label {
-  display: block;
+body.dev .target-zone-label {
+  display: none;
   font: 14px Arial;
   font-weight: bold;
   color: #f00;
+}
+body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
+  display: block;
 }
 #grid-wrapper {
   position: absolute;

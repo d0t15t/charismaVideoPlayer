@@ -45,9 +45,12 @@ body.placement-dev-wrapper-active.grid-active
 
 .target-zone-label
   display none
-.dev
+body.dev
   .target-zone-label
-    display block
+    display none
     font 14px Arial
     font-weight: bold
     color red
+  &.grid-active.placement-dev-wrapper-active
+    .target-zone-label
+      display block
