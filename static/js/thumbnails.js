@@ -25,6 +25,7 @@ $(document).ready(function(){
         .attr('id', d.name)
         .attr('sIndex', i)
         .attr('target-zone', d.targetZone)
+        .attr('type', d.type)
         .addClass(d.type + ' scene-element');
       var $el = $('#' + d.name);
       if ('classes' in d)
@@ -40,9 +41,9 @@ $(document).ready(function(){
             break;
         case 'text':
           css = thumbnailTextStyles(d, tSize);
-          $el.text(d.text);
-          // bounce
-          $el.myBounceInPlace(numberBetween(70, 100), numberBetween(3300, 6333), 'easeInOutBack');
+          // Insert text with another wrapper.
+          var text = '<div class="text">' + d.text + '</div>';
+          $el.append(text);
           break;
       }
 
@@ -65,29 +66,65 @@ $(document).ready(function(){
         var $targetZone = $('[segment="' + targetZone + '"]').first();
         var zoneMax = $('[segment]').last().attr('segment');
         th.box = {
-          w: $targetZone.width(),
-          h: $targetZone.height(),
+          w: $targetZone.outerWidth(),
+          h: $targetZone.outerHeight(),
           l: $targetZone.offset().left,
           t: $targetZone.offset().top,
         };
         // Set scale basedon topZone
         $el.attr('target-zone', targetZone);
         var scale = (zoneMax - targetZone) / zoneMax;
-        d.styles.transform += ' scale(' + scale + ')';
+        d.styles.transform += 'scale(' + scale + ')';
 
-        // Place element within the bounds of its parent zone,
-        // although not 'in' the target container.
+        // Init Place element within the bounds of its parent zone top left,
+        // on an edge. Use bounds b/c scaling doesn't change outerH/W.
+        // If bounds are outside window height, place at wH.
+        $el.css(d.styles).attr('scale', scale);
+        // Set styles with scale now b/c we need the new dimentions.
+        var elBounds = $el[0].getBoundingClientRect();
         var styles = {
-          'top' : (th.box.t < 0) ? th.box.h / 2 : th.box.t,
-          'left' : (th.box.l < 0) ? th.box.w / 2 : th.box.l,
-          'width' : $el.width(),
-          'height' : $el.height(),
-          // 'background-size' : ($el.width() * scale ) ($el.height() * scale)
-          // 'width' : $el.width() * scale,
-          // 'height' : $el.height() * scale,
+          'top' : (th.box.t < 0) ? 0 : th.box.t,
+          'left' : (th.box.l < 0) ? 0 : th.box.l,
         };
-        $el.css(Object.assign({}, styles, d.styles))
-          .attr('scale', scale);
+        // Custom placement
+        if (d.hasOwnProperty('position')) {
+          if (
+            d.position.hasOwnProperty('x')
+            && d.position.hasOwnProperty('y')
+          ) {
+            // Get user input: "10%" as a decimal.
+            var decFactor = 100;
+            var x = parseInt(d.position.x) / decFactor;
+            var y = parseInt(d.position.y) / decFactor;
+            styles.top = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
+            styles.left = th.box.l + (th.box.w * x) - (elBounds.width / 2);
+          }
+        }
+        switch($el.attr('type')) {
+          case 'text':
+            $el.children('.text').css({
+              'transform' : 'scale(' + (scale * 1.5) + ') ' + d.rotate,
+            });
+            var dist    = numberBetween(30, 70);
+            var timeout = numberBetween(4300, 7333);
+            var easing  = 'easeInOutBack';
+            console.log('whatw');
+            $el.myBounceInPlace(dist, timeout, easing);
+            break;
+        }
+        $el.css(styles);
+
+
+        // // Better placement
+        // switch ($el.attr('type')) {
+        //   case 'image':
+        //     var styles = {
+        //       left : '500px',
+        //       top : ($(window).height() / 2 ) + 'px'
+        //     };
+        //     // $el.css(styles);
+        //     break;
+        // }
       }
 
       // Update dev elements
@@ -101,6 +138,9 @@ $(document).ready(function(){
           'height' : th.box.h,
           'border' : '5px solid red',
         });
+        // show target zone in element
+        var str = '<div class="target-zone-label">' + 'segment: ' + d.targetZone + '</div>';
+        $el.append(str);
       }
     }
   }
@@ -135,27 +175,17 @@ function thumbnailSize() {
 function thumbnailImageStyles(d, tSize) {
   return {
     'background-image':'url("images/' + d.thumbnail + '")',
-    'background-size': 'cover',
-    'background-repeat': 'no-repeat',
-    'cursor': 'pointer',
     'width': tSize.w,
     'height': tSize.h,
-    'left' : 0,
-    'top' : '50%',
     'transform' : 'translateY(-50%)',
-    'position': 'absolute',
-    'z-indez': 1
   };
 }
 
 function thumbnailTextStyles(d, tSize) {
   return {
-    'position': 'absolute',
-    'cursor': 'pointer',
     'left': 0,
     'top': 0,
     'z-indez': 1,
-    'display': 'inline'
   };
 }
 

@@ -3,7 +3,7 @@ $(document).ready(function(){
   var g = gridData();
 
   var test = g.dev;
-  var test = false;
+  // var test = false;
 
   // Grid Toggle
   var $wrapper = $('#grid-wrapper');

@@ -1,6 +1,6 @@
 function episodeData() {
   return {
-    "episodeId": "Release 1",
+    "releaseId": 'c1',
     "enable": true,
     "dev": true,
     "sceneElements": [
@@ -10,26 +10,13 @@ function episodeData() {
         "type": "text",
         "text": "Fin",
         "videoId": "243426602",
+        "classes": '',
         "position": {
-          "x": 175,
-          "y": 200,
+          "x": '100%',
+          "y": '60%',
         },
+        "rotate" : "rotate(-90deg)",
         "styles": {
-          "transform": "rotate(-90deg)",
-        },
-      },
-      {
-        "targetZone": 5,
-        "name": "r1e3",
-        "type": "image",
-        "thumbnail": "Fin-Vocal-Exercises.jpg",
-        "videoId": "243426602",
-        "position": {
-          "x": 0,
-          "y": 0,
-        },
-        "styles": {
-          "transform": 'scale(1)'
         },
       },
       {
@@ -40,11 +27,11 @@ function episodeData() {
         "videoId": "243426602",
         "classes": 'scene_element--style_1',
         "position": {
-          "x": 0,
-          "y": 100,
+          "x": '75%',
+          "y": '90%',
         },
+        "rotate" : "rotate(45deg)",
         "styles": {
-          "transform": "rotate(45deg)",
         },
       },
       {
@@ -55,11 +42,12 @@ function episodeData() {
         "videoId": "243426602",
         "classes": 'scene_element--style_1',
         "position": {
-          "x": 0,
-          "y": 100,
+          "x": '70%',
+          "y": '25%',
         },
+        "rotate": "rotate(90deg)",
         "styles": {
-          "transform": "rotate(90deg)",
+          "transform": 'scale(1)'
         },
       },
       {
@@ -68,9 +56,10 @@ function episodeData() {
         "type": "image",
         "thumbnail": "Miscom-Rom.jpg",
         "videoId": "243426602",
+        "classes": '',
         "position": {
-          "x": 0,
-          "y": 0,
+          "x": '10%',
+          "y": '85%',
         },
         "styles": {
           "transform": 'scale(1)'
@@ -81,10 +70,12 @@ function episodeData() {
         "name": "r1e1",
         "type": "image",
         "thumbnail": "joke.jpg",
+        "overlay": "joke.gif",
         "videoId": "243426602",
+        "classes": '',
         "position": {
-          "x": 0,
-          "y": 0,
+          "x": '0%',
+          "y": '0%',
         },
         "styles": {
           "transform": 'scale(1)'

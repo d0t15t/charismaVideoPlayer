@@ -61,28 +61,8 @@ $(document).ready(function(){
 
   $('.video-controls .close').click(function(){
     $.each(players, function(i,e){
-      e.pause().then(function() {
-        // the video was paused
-      }).catch(function(error) {
-        console.log(error);
-          switch (error.name) {
-              case 'PasswordError':
-                  // the video is password-protected and the viewer needs to enter the
-                  // password first
-                  break;
-
-              case 'PrivacyError':
-                  // the video is private
-                  break;
-
-              default:
-                  // some other error occurred
-                  break;
-          }
-      });
+      e.pause();
     });
-    // var $active = $('#master-video-player .target-video.active');
-    // $('#' + $active.attr('id')).removeClass('active');
     $('#master-video-player').removeClass('active');
     $('body').removeClass('video-player-active');
   });

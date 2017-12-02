@@ -103,13 +103,17 @@ h5.headline-style-1 {
 h1 {
   font-size: 1.2em;
 }
-.scene-element.text {
+.scene-element .text {
   font-size: 2em;
   color: COLOR_BLACK_DARK;
 }
-.scene-element.text.scene_element--style_1 {
+.scene-element.scene_element--style_1 .text {
   color: #ffa500;
   text-shadow: 3px 3px 0px #333;
+}
+.scene-element:hover .text {
+  color: #aaa;
+  text-shadow: none;
 }
 #scene-elements {
   position: absolute;
@@ -119,6 +123,13 @@ h1 {
   height: 100%;
   opacity: 1;
   transition: all 800ms;
+}
+#scene-elements .scene-element {
+  transform-origin: top left;
+  position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
 }
 body.video-player-active #scene-elements {
   opacity: 0;
@@ -133,6 +144,15 @@ body.video-player-active #scene-elements {
 }
 body.placement-dev-wrapper-active.grid-active #placement-dev-wrapper {
   opacity: 0.5;
+}
+.target-zone-label {
+  display: none;
+}
+.dev .target-zone-label {
+  display: block;
+  font: 14px Arial;
+  font-weight: bold;
+  color: #f00;
 }
 #grid-wrapper {
   position: absolute;
