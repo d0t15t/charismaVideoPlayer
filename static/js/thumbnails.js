@@ -214,11 +214,11 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '180px', h: '135px'
+    w: '180px', h: '130px'
   };
   if (window.matchMedia( "(min-width: 800px)" )) {
     var t = {
-      w: '280px', h: '240px'
+      w: '280px', h: '235px'
     };
   }
   return t;

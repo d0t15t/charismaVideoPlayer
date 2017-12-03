@@ -53,13 +53,28 @@ $(document).ready(function(){
     $('#grid-wrapper').toggleClass('bg-active');
   });
 
-  function scrollCredits($el){
-    // console.log($el.height());
-    // $el.animate(function(){
+  var germans = [
+    'de-AT', 'de-DE', 'de-LI', 'de-LU', 'de-CH',
+  ];
+  var lng = window.navigator.userLanguage || window.navigator.language;
+  if (germans.indexOf(lng) != -1) {
+    $('#de-link').attr('active-lang', '');
+  }
+  else {
+      $('#en-link').addClass('active-lang');
+  }
 
-      // });
-    }
-  scrollCredits($('#credits-page.info-page'));
+    console.log('this');
+  $('#main-menu').click(function(){
+    'lang click';
+  });
+
+  // $.each(langLinks, function(){
+  //   $(this).click(function(){
+  //     console.log('lang');
+  //   })
+  // });
+
 
 
 });

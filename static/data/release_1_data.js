@@ -74,15 +74,15 @@ function episodeData() {
       },
       {
         "type": "text",
-        "targetZone": 6,
+        "targetZone": 8,
         "id": "Micro-Bondage",
         "name": "Micro-Bondage",
         "videoId": "245575563",
         "videoIdGerm": "245575295",
         "classes": 'scene_element--title',
         "position": {
-          "x": '0%',
-          "y": '50%',
+          "x": '-30%',
+          "y": '110%',
         },
         "rotate" : "",
         "styles": {
@@ -184,7 +184,7 @@ function episodeData() {
         "classes": '',
         "position": {
           "x": '-50%',
-          "y": '120%',
+          "y": '100%',
         },
         "rotate" : "",
         "styles": {
@@ -217,7 +217,7 @@ function episodeData() {
         "videoIdGerm": "245581683",
         "classes": 'scene_element--name',
         "position": {
-          "x": '30%',
+          "x": '20%',
           "y": '70%',
         },
         "rotate" : "rotate(-90deg)",
