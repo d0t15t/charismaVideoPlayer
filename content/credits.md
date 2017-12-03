@@ -111,7 +111,7 @@ title = "Credits"
     </p>
 
     <p>
-    Charisma Interface for Volksbühne Fullscreen was commissioned by Volksbühne Berlin
+    <span style="text-decoration:underline">Charisma Interface for Volksbühne Fullscreen</span><br> Commissioned by Volksbühne Berlin
     </p>
 
     <p>
@@ -144,3 +144,29 @@ title = "Credits"
     </p>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+
+  function scrollCredits($el){
+    $el.animate({
+      top: ($el.height() + 500) * -1
+    }, 20000, 'linear', function() {
+      $el.css({
+        'top': $(window).height()
+      });
+      scrollCredits($($el));
+    });
+  }
+
+  setTimeout(function(){
+    scrollCredits($('#credits-page.info-page'));
+  }, 1000);
+
+
+
+});
+
+</script>

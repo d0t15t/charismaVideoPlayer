@@ -54,5 +54,15 @@ $(document).ready(function(){
     $('#grid-wrapper').toggleClass('bg-active');
   });
 
+  function scrollCredits($el){
+    // console.log($el.height());
+    // $el.animate(function(){
+
+      // });
+    }
+  console.log('test ');
+  scrollCredits($('#credits-page.info-page'));
+
+
 });
 
