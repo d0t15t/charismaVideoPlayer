@@ -116,7 +116,7 @@ title = "Credits"
 
     <p>
     Programming by<br>
-    Isaac Bigsby Trogdon
+    <a href="http://www.isaacbigsbytrogdon.com" target="_blank">Isaac Bigsby Trogdon</a>
     </p>
 
     <p>

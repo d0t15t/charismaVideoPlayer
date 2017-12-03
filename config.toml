@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "Charisma, 2017"
+title = "Charisma"
 theme = "lithium_charismaUi"
 googleAnalytics = ""
 disqusShortname = ""
