@@ -115,7 +115,7 @@ h1 {
   font-size: 2em;
   color: COLOR_BLACK_DARK;
 }
-.scene-element.scene_element--style_1 .text {
+.scene-element.scene_element--title .text {
   color: #ffa500;
   text-shadow: 3px 3px 0px #333;
 }
@@ -139,7 +139,7 @@ h1 {
   transform-origin: top left;
   position: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   cursor: pointer;
 }
 #scene-elements .scene-element .overlay-gif {

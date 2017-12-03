@@ -48,19 +48,16 @@ $(document).ready(function(){
       var css = {};
       switch(d.type) {
         case 'image':
-          if ('thumbnail' in d)
-            var tSize = thumbnailSize();
-            css = thumbnailImageStyles(d, tSize, data);
-            if (sE[i].hasOwnProperty('overlay')) {
-              var overlayPath = 'releases/' + data.releaseId + '/' + sE[i].overlay;
-              var img = '<img class="overlay-gif" src="' + overlayPath + '"></img>';
-              $el.append(img);
-            }
-            break;
+          var tSize = thumbnailSize();
+          css = thumbnailImageStyles(d, tSize, data);
+          var overlayPath = 'releases/' + data.releaseId + '/' + sE[i].name;
+          var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
+          $el.append(img);
+          break;
         case 'text':
           css = thumbnailTextStyles(d, tSize);
           // Insert text with another wrapper.
-          var text = '<div class="text">' + d.text + '</div>';
+          var text = '<div class="text">' + d.name + '</div>';
           $el.append(text);
           break;
       }
@@ -68,6 +65,9 @@ $(document).ready(function(){
       $el.css(Object.assign({}, css, d.styles));
     }
   }
+  /**
+   * Init Placement and mods.
+   */
   function placeThumbnails() {
     var $devWrapper = placeThumbnailsDev();
     var thumbs = {};
@@ -150,11 +150,10 @@ $(document).ready(function(){
       }
     }
   }
-  initThumbnails();
-  placeThumbnails();
-
+  /**
+   * Init orbits.
+   */
   function initOrbits() {
-
     for (var i = 0; i < sE.length; i++) {
       var $el = $('#' + sE[i].name);
       var targetZone = sE[i].targetZone;
@@ -165,27 +164,26 @@ $(document).ready(function(){
           'maxSpeed'	: 1,
           'zone'		: '#grid-' + targetZone
         });
-        // @TODO - HOVER STOP DOESN'T WORK.
-        $el.hover(  function() {
-          $el.bounce('stop');
+        $el.hover(function() {
+          $(this).each(function() {
+            $(this).bounce('stop');
+          });
         }, function() {
-          $el.bounce('start');
+          $(this).each(function() {
+            $(this).bounce('start', {
+              'minSpeed'	: 1,
+              'maxSpeed'	: 1,
+              'zone'		: '#grid-' + targetZone
+            });
+          });
         });
       }
 
     }
-
-    return orbits;
   }
-  var orbits = initOrbits();
-  // $.each(orbits, function(i, e){
-  //   console.log($(e).attr('id'));
-  //   orbitPath($(e).attr('id'), $ob)
-  // });
-
-  // console.log(orbits);
-  // console.log(svg);
-
+  initThumbnails();
+  placeThumbnails();
+  initOrbits();
 
   /**
    *
@@ -202,7 +200,7 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '400px', h: '300px'
+    w: '400px', h: '320px'
   };
   // var mq = window.matchMedia( "(min-width: 800px)" );
 
@@ -214,7 +212,7 @@ function thumbnailSize() {
 
 function thumbnailImageStyles(d, tSize, data) {
   return {
-    'background-image':'url("releases/' + data.releaseId + '/' + d.thumbnail + '")',
+    'background-image':'url("releases/' + data.releaseId + '/' + d.name + '.jpg")',
     'width': tSize.w,
     'height': tSize.h,
     'transform' : 'translateY(-50%)',
