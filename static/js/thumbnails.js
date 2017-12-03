@@ -160,10 +160,11 @@ $(document).ready(function(){
       var $el = $('#' + sE[i].name);
       var targetZone = sE[i].targetZone;
 
+      var speed = 1;
       if ($el.attr('type') == 'image') {
         $el.bounce('start', {
-          'minSpeed'	: 1,
-          'maxSpeed'	: 1,
+          'minSpeed'	: speed,
+          'maxSpeed'	: speed,
           'zone'		: '#grid-' + targetZone
         });
         $el.hover(function() {
@@ -173,8 +174,8 @@ $(document).ready(function(){
         }, function() {
           $(this).each(function() {
             $(this).bounce('start', {
-              'minSpeed'	: 1,
-              'maxSpeed'	: 1,
+              'minSpeed'	: speed,
+              'maxSpeed'	: speed,
               'zone'		: '#grid-' + targetZone
             });
           });

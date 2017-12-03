@@ -15,7 +15,7 @@ var g = gridData();
   */
 function gridData() {
   return {
-    'dev' : true,
+    'dev' : false,
     'id' : 'grid-wrapper',
     'steps': 21,
     'segments': 4,

@@ -82,8 +82,8 @@ body {
 }
 header,
 .nav {
-  font: 1em 'Geo';
-  font-size: 1em;
+  font: 0.95em 'Geo';
+  font-size: 0.95em;
   color: COLOR_BLACK_DARK;
 }
 header a:hover,
@@ -235,7 +235,7 @@ nav.nav ul li {
 nav.nav ul#ctrl-links {
   width: 20px;
   height: 20px;
-  margin: 20px;
+  margin: 20px 10px 20px 20px;
 }
 nav.nav ul#ctrl-links > li {
   float: left;
@@ -260,7 +260,7 @@ nav.nav ul#ctrl-links form label {
   box-sizing: border-box;
 }
 nav.nav ul#ctrl-links form label {
-  border: 1px solid #111;
+  border: 1px solid #fff;
 }
 nav.nav ul#ctrl-links form input[type=checkbox] {
   z-index: 1;
@@ -271,7 +271,8 @@ nav.nav ul#ctrl-links form input[type=checkbox]:hover+label {
   background-color: #aaa;
 }
 nav.nav ul#ctrl-links form input[type=checkbox]:checked+label {
-  background-color: #111;
+  background-color: #00f;
+  border: 1px solid #111;
 }
 nav.nav ul#ctrl-links form > span {
   font-size: 0.5em;
@@ -287,7 +288,7 @@ nav.nav ul#ctrl-links form > span:not(:first-child) {
   right: 20px;
 }
 nav.nav ul#main-menu {
-  margin-top: 12px;
+  margin-top: 14px;
 }
 #credits #home-link {
   background-color: #fff;
@@ -365,7 +366,7 @@ nav.nav ul#main-menu {
 .info-page {
   margin: 0px 70px;
   margin-top: -20px;
-  font: 1em 'Geo';
+  font: 0.95em 'Geo';
   font-size: 0.7em;
   box-sizing: conent-box;
 }

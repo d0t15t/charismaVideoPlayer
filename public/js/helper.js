@@ -3,7 +3,10 @@ $(document).ready(function(){
   var g = gridData();
 
   var test = g.dev;
-  // var test = false;
+
+  // add Blue on main page
+  if ($('body').find('.front-page').length > 0)
+    $('body').addClass('blue');
 
   // Grid Toggle
   var $wrapper = $('#grid-wrapper');
@@ -49,6 +52,15 @@ $(document).ready(function(){
   $('#zone-bg-toggle-link input[type="checkbox').click(function(){
     $('#grid-wrapper').toggleClass('bg-active');
   });
+
+  function scrollCredits($el){
+    // console.log($el.height());
+    // $el.animate(function(){
+
+      // });
+    }
+  scrollCredits($('#credits-page.info-page'));
+
 
 });
 

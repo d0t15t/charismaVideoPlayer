@@ -5,7 +5,6 @@ $(document).ready(function(){
   var test = g.dev;
 
   // add Blue on main page
-  console.log($('body'));
   if ($('body').find('.front-page').length > 0)
     $('body').addClass('blue');
 
@@ -60,7 +59,6 @@ $(document).ready(function(){
 
       // });
     }
-  console.log('test ');
   scrollCredits($('#credits-page.info-page'));
 
 

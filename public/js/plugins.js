@@ -1,8 +1,8 @@
 /**
  * Bounce in place
  */
-$.fn.myBounceInPlace = function(dist, timeout, easing) {
-  var $square = this,flag = 1;
+$.fn.myBounceInPlace = function(dist, duration, pause, easing1, easing2) {
+  var $object = this,flag = 1;
   var timer;
   bounce();
   function bounce() {
@@ -12,11 +12,14 @@ $.fn.myBounceInPlace = function(dist, timeout, easing) {
       } else {
           flag = 1;
       }
-      $square.animate({ top: "+="+(flag * dist)}, timeout, easing);
-    },timeout);
+      var easing = (flag == 1) ? easing1 : easing2;
+      var transform = 'translateY(' + (flag * dist) + 'px)';
+      $object.animate({ top: "+="+(flag * dist)}, duration, easing);
+      // $object.animate({ 'transform': transform }, duration, easing);
+    },pause);
   }
 
-  $square.hover(function() {
+  $object.hover(function() {
       clearInterval(timer);
   }, function() {
       bounce();

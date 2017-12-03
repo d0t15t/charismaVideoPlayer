@@ -17,24 +17,6 @@ disqusShortname = ""
     identifier = "grid-activate-link"
     post = ""
     weight = "-10"
-[[menu.ctrl]]
-    name = "bg-toggle"
-    url = "/"
-    identifier = "bg-toggle-link"
-    post = "bg toggle"
-    weight = "-9"
-[[menu.ctrl]]
-    name = "zone-segment-toggle"
-    url = "/"
-    identifier = "zone-segmentbg-toggle-link"
-    post = "placement zones"
-    weight = "-8"
-[[menu.ctrl]]
-    name = "zone-bg-toggle"
-    url = "/"
-    identifier = "zone-bg-toggle-link"
-    post = "zone bg"
-    weight = "-7"
 
 [[menu.main]]
     name = "DE"
@@ -49,13 +31,8 @@ disqusShortname = ""
     url = "credits"
     identifier = "credits-link"
 
-
-
-
-
-
 [params]
-    description = ""
+    description = "Independent web series, a sitcom produced by artists Sarah M. Harrison and Wojciech Kosma."
 
     [params.logo]
     url = "logo.png"
