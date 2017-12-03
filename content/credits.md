@@ -9,7 +9,7 @@ title = "Credits"
 
 <div id="credits-page" class="info-page">
 
-  <h1>Charisma, 2017</h1>
+  <h1>Charisma</h1>
 
     <p>
     Created by<br>
@@ -143,6 +143,11 @@ title = "Credits"
     Brian Doose • Sirdi Travalle • Michael Runyan • Imri Kahn • Marta Baron • Saihou • Suza Husse, Naomi Hennig & District Team • Bea Rodrigues • Anna Zett • Jesse Darling • Julia Siemienowicz • Juliane Elting • Emily Ranford • Victor Tricard • Abhishek Nilamber • Sebastian Bodirsky • Jan Rolletschek • Freja Bäckman, Johanna Koskinen & Vappu Jalonen • Simone Kellerhoff & Material Mafia • Jenna Sutela • Rickard Borgström • Kimmo Modig • Ulrike Gerhardt • Dirk Bell • Joey Hansom & Godmother • Michael Ruiz • Kuba Kosma • Penny Nagle • Paula Alamillo Rodriguez • Dan Meththananda • Elodie Evers & John McKiernan • Ville Haimala & Martti Kalliala • Sjoerd Dijk • Florence Peake • Josh Bitelli • Hanna Kaljo • Noha Ramadan • Holly Childs • Toby Paul • Llewellyn Reichman • Sam WIlder • Anna Schmidt • Lotte Juul Petersen, Donna Lynas & Wysing Arts Center • Elena Levi, Laurel Ptak & Triangle Arts Association • Joanna Kamm • Cordelia Martens • Silke Wittig • Frank Wagner
     </p>
 
+    <p>
+    Contact<br>
+    <a href="mailto:charisma@medium.blue?subject=Charisma%20Video%20Inquiry">charisma@medium.blue</a>
+    </p>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -153,7 +158,7 @@ $(document).ready(function(){
   function scrollCredits($el){
     $el.animate({
       top: ($el.height() + 500) * -1
-    }, 20000, 'linear', function() {
+    }, 25000, 'linear', function() {
       $el.css({
         'top': $(window).height()
       });
@@ -163,7 +168,7 @@ $(document).ready(function(){
 
   setTimeout(function(){
     scrollCredits($('#credits-page.info-page'));
-  }, 1000);
+  }, 1400);
 
 
 
