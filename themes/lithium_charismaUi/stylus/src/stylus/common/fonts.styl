@@ -36,8 +36,10 @@ h1
 
 .scene-element
   .text
-    font-size 2em
+    font-size 1.5em
     color COLOR_BLACK_DARK
+    @media screen and (min-width: 800px)
+      font-size 2em
   &.scene_element--title .text
     color orange
     text-shadow 3px 3px 0px rgba(#333, 1);

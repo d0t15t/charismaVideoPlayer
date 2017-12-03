@@ -1,23 +1,46 @@
 
-iW = 640px
-iH = 480px
+iW = 375px
+iH = 305px
 margin = 40px
 #master-video-player
-  position relative
+  position fixed
   width: iW + (margin)
-  height: iH + (margin)
+  height: iH
   top: 50%;
   transform:translateY(-50%);
   background-color rgba(0, 0, 0, 0.9)
-  margin auto auto
   opacity 0
   transition opacity 400ms
   z-index: -2
+  @media screen and (min-width: 600px)
+    margin auto auto
+    position: relative
+    width: 100%
+    height: 375px
+  @media screen and (min-width: 800px)
+    width: 640px
+    height: 520px
   &.active
     z-index: 1
     opacity 1
 
 #master-video-player iframe
+  width iW - (margin / 2)
+  height iH
+  position: absolute
+  top 0
+  left 10px
+  @media screen and (min-width: 600px)
+    position: relative
+    width: 600px
+    height: 350px
+    top 10px
+    left 0
+    margin 0 auto
+  @media screen and (min-width: 800px)
+    width: 640px
+    height: 500px
+
   // border 5px solid black
   // background black
 
@@ -25,7 +48,8 @@ margin = 40px
   top 0
   left 0
   position: absolute
-  padding (margin / 2)
+  // padding 0 (margin / 4)
+
   z-index: 0
   opacity 0
   &.active
@@ -35,8 +59,8 @@ margin = 40px
 button-width = 30px
 .video-controls
   position: absolute
-  top 0
-  right 0
+  top 10px
+  right 10px
   z-index: 1
   opacity 0
   transition all 200ms
@@ -54,29 +78,4 @@ button-width = 30px
 .hover
   .video-controls
     opacity 1
-
-// #master-video-player.active {
-//   display: inherit;
-// }
-// #master-video-player, .target-video, .target-video iframe {
-//   position: fixed;
-//   left: 50%;
-//   top: 50%;
-//   // margin: -225px 0 0 -300px;
-
-// }
-// .target-video.active {
-//   z-index: 1;
-// }
-// .video-controls {
-//   position: relative;
-//   width: 100%;
-//   height: 35px;
-//   z-index: 3;
-//   transition: opacity 100ms;
-//   opacity: 0;
-// }
-// .active.hover .video-controls {
-//   opacity: 1;
-// }
 

@@ -82,7 +82,6 @@ $(document).ready(function(){
       thumbs[d.id] = $('#' + d.id);
       var th = thumbs[d.id];
       var $el = th;
-      console.log(d.id);
 
       // Identify target zone & coordinates
       if (d.hasOwnProperty('targetZone')) {
@@ -215,12 +214,12 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '280px', h: '240px'
+    w: '180px', h: '135px'
   };
-  // var mq = window.matchMedia( "(min-width: 800px)" );
-
   if (window.matchMedia( "(min-width: 800px)" )) {
-    // t.w =
+    var t = {
+      w: '280px', h: '240px'
+    };
   }
   return t;
 }
