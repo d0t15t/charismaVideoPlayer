@@ -159,8 +159,8 @@ $(document).ready(function(){
     for (var i = 0; i < sE.length; i++) {
       var $el = $('#' + sE[i].name);
       var targetZone = sE[i].targetZone;
-
       var speed = 1;
+
       if ($el.attr('type') == 'image') {
         $el.bounce('start', {
           'minSpeed'	: speed,
@@ -176,17 +176,23 @@ $(document).ready(function(){
             $(this).bounce('start', {
               'minSpeed'	: speed,
               'maxSpeed'	: speed,
-              'zone'		: '#grid-' + targetZone
+              'zone'		: '#grid-' + $(this).attr('target-zone')
             });
           });
         });
       }
+      setTimeout(function(){
+      }, 200);
 
     }
   }
-  initThumbnails();
-  placeThumbnails();
-  initOrbits();
+
+  $('body').imagesLoaded( function() {
+    // images have loaded
+    initThumbnails();
+    placeThumbnails();
+    initOrbits();
+  });
 
   /**
    *
@@ -203,7 +209,7 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '320px', h: '240px'
+    w: '280px', h: '240px'
   };
   // var mq = window.matchMedia( "(min-width: 800px)" );
 

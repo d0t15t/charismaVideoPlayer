@@ -166,14 +166,14 @@ function episodeData() {
       },
       {
         "type": "image",
-        "targetZone": 1,
+        "targetZone": 10,
         "name": "Opening-Credits",
         "videoId": "245528529",
         "videoIdGerm": "245528529",
         "classes": '',
         "position": {
-          "x": '0%',
-          "y": '85%',
+          "x": '-50%',
+          "y": '120%',
         },
         "rotate" : "",
         "styles": {
@@ -214,7 +214,7 @@ function episodeData() {
       },
       {
         "type": "text",
-        "targetZone": 6,
+        "targetZone": 4,
         "name": "HOWY",
         "videoId": "245583951",
         "videoIdGerm": "245583038",
@@ -230,14 +230,14 @@ function episodeData() {
       },
       {
         "type": "text",
-        "targetZone": 6,
+        "targetZone": 5,
         "name": "ECHO",
         "videoId": "245586632",
         "videoIdGerm": "245585875",
         "classes": 'scene_element--name',
         "position": {
           "x": '10%',
-          "y": '20%',
+          "y": '25%',
         },
         "rotate" : "rotate(0deg)",
         "styles": {

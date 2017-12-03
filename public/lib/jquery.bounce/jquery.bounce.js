@@ -1,7 +1,7 @@
 /*
 ** Released under GPL license v3.0
 ** http://www.gnu.org/licenses/gpl-3.0.txt
-** 
+**
 ** By Gagaro
 */
 
@@ -53,9 +53,9 @@
 		return ;
 
 	    var settings = $.extend( {
-		'minSpeed'	: 2,
+		'minSpeed'	: 1,
 		'maxSpeed'	: 6,
-		'interval'	: 20,
+		'interval'	: 10,
 		'zone'		: window
 	    }, options);
 
@@ -67,11 +67,15 @@
 	    speedY = Math.floor((Math.random()
 				 * (settings.maxSpeed - settings.minSpeed))
 				+ settings.minSpeed);
+
+		var customSpeed = 0.5;
+		speedX = customSpeed;
+		speedY = customSpeed;
 	    if (dirX == 0)
 		dirX = -1;
 	    if (dirY == 0)
 		dirY = -1;
-	    
+
 	    $(this).data('data', {
 		'dirX' : dirX,
 		'dirY' : dirY,
@@ -103,6 +107,6 @@
 	    return methods.init.apply( this, arguments );
 	} else {
 	    $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
-	}   
+	}
     };
 })( jQuery );
