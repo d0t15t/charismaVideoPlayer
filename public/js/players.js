@@ -48,10 +48,6 @@ $(document).ready(function(){
         $('#' + wrapper).addClass('active');
         var activeLang = $('.lang-link.active-lang').attr('lang');
         var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
-        console.log(vid);
-        // $trigger.attr('vid', sE[i].videoId);
-        // var vid = $(this).attr('vid');
-        // Pause any active videos
         $.each(players, function(i,e){
           e.pause();
           $('#' + i).removeClass('active');
