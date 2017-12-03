@@ -8,11 +8,11 @@ name = "fullscreen-launch"
   <div class="inner">
     <div class="rounded-logo"></div>
       <div class="circle">
-        <a href="/" target="_blank">
+        <a href="/" >
       </div>
       <!-- <div class="rounded-enter"></div> -->
     </a>
-    <a class="title" href="/" target="_blank">
+    <a class="title" href="/" >
       <img src="/images/Episode-1-title.svg">
       <!-- <h1 class="headline-style-1">Episode 1: Miscommunication</h1> -->
     </a>

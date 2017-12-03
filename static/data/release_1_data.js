@@ -7,6 +7,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 3,
+        "id": "Joke",
         "name": "Joke",
         "videoId": "245555706",
         "videoIdGerm": "245555399",
@@ -23,6 +24,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 5,
+        "id": "Breakfast",
         "name": "Breakfast",
         "videoId": "245525806",
         "videoIdGerm": "245527422",
@@ -39,6 +41,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 6,
+        "id": "Miscommunication",
         "name": "Miscommunication",
         "videoId": "245579568",
         "videoIdGerm": "245578721",
@@ -55,6 +58,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 8,
+        "id": "Fin-Vocal-Exercises",
         "name": "Fin-Vocal-Exercises",
         "videoId": "245529827",
         "videoIdGerm": "245531429",
@@ -71,6 +75,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 6,
+        "id": "Micro-Bondage",
         "name": "Micro-Bondage",
         "videoId": "245575563",
         "videoIdGerm": "245575295",
@@ -87,6 +92,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 7,
+        "id": "Kitchen",
         "name": "Kitchen",
         "videoId": "245587654",
         "videoIdGerm": "245587344",
@@ -103,6 +109,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 9,
+        "id": "Teatime",
         "name": "Teatime",
         "videoId": "245536162",
         "videoIdGerm": "245582880",
@@ -119,6 +126,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 13,
+        "id": "Asher-Laughing",
         "name": "Asher-Laughing",
         "videoId": "245517121",
         "videoIdGerm": "245517202",
@@ -135,7 +143,8 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 14,
-        "name": "AveMaria",
+        "id": "AveMaria",
+        "name": "Ave Maria",
         "videoId": "245515257",
         "videoIdGerm": "245516029",
         "classes": 'scene_element--title',
@@ -151,6 +160,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 16,
+        "id": "Hungarian-Rock",
         "name": "Hungarian-Rock",
         "videoId": "245539150",
         "videoIdGerm": "245541084",
@@ -167,6 +177,7 @@ function episodeData() {
       {
         "type": "image",
         "targetZone": 10,
+        "id": "Opening-Credits",
         "name": "Opening-Credits",
         "videoId": "245528529",
         "videoIdGerm": "245528529",
@@ -183,6 +194,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 5,
+        "id": "ASHER",
         "name": "ASHER",
         "videoId": "245581039",
         "videoIdGerm": "245580437",
@@ -199,6 +211,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 4,
+        "id": "FIN",
         "name": "FIN",
         "videoId": "245582230",
         "videoIdGerm": "245581683",
@@ -215,6 +228,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 4,
+        "id": "HOWY",
         "name": "HOWY",
         "videoId": "245583951",
         "videoIdGerm": "245583038",
@@ -231,6 +245,7 @@ function episodeData() {
       {
         "type": "text",
         "targetZone": 5,
+        "id": "echo",
         "name": "ECHO",
         "videoId": "245586632",
         "videoIdGerm": "245585875",

@@ -35,12 +35,15 @@ $(document).ready(function(){
       var d = sE[i];
       $wrapper.prepend(append)
         .children().first()
-        .attr('id', d.name)
+        .attr('id', d.id)
+        .attr('name', d.name)
         .attr('sIndex', i)
         .attr('target-zone', d.targetZone)
         .attr('type', d.type)
+        .attr('vidEn', d.videoId)
+        .attr('vidDe', d.videoIdGerm)
         .addClass(d.type + ' scene-element');
-      var $el = $('#' + d.name);
+      var $el = $('#' + d.id);
       if ('classes' in d)
         $el.addClass(d.classes);
 
@@ -54,7 +57,9 @@ $(document).ready(function(){
           var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
           $el.append(img);
           break;
-        case 'text':
+
+
+          case 'text':
           css = thumbnailTextStyles(d, tSize);
           // Insert text with another wrapper.
           var text = '<div class="text">' + d.name + '</div>';
@@ -74,9 +79,10 @@ $(document).ready(function(){
     for (var i = 0; i < sE.length; i++) {
       var d = sE[i];
 
-      thumbs[d.name] = $('#' + d.name);
-      var th = thumbs[d.name];
+      thumbs[d.id] = $('#' + d.id);
+      var th = thumbs[d.id];
       var $el = th;
+      console.log(d.id);
 
       // Identify target zone & coordinates
       if (d.hasOwnProperty('targetZone')) {

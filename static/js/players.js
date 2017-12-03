@@ -35,7 +35,7 @@ $(document).ready(function(){
   function initTriggers() {
     for (var i = 0; i < sE.length; i++) {
       var vid = sE[i].videoId;
-      var $trigger = $('#' + sE[i].name);
+      var $trigger = $('#' + sE[i].id);
       $trigger.attr('vid', sE[i].videoId);
       // Click init & play for target videos.
       $trigger.click(function(){
@@ -52,8 +52,11 @@ $(document).ready(function(){
       });
     }
   }
-  initPlayers();
-  initTriggers();
+
+  $('body').imagesLoaded( function() {
+    initPlayers();
+    initTriggers();
+  });
 
 
 
