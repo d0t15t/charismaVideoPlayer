@@ -22,6 +22,9 @@ $(document).ready(function(){
   var players = {};
   var sE = data.sceneElements;
 
+  /**
+   * Init videos in both languages.
+   */
   function initPlayers() {
     for (var i = 0; i < sE.length; i++) {
       var vid = sE[i].videoId;
@@ -29,15 +32,15 @@ $(document).ready(function(){
       var $el = $wrapper.children().first();
       $el.attr('id', vid);
       $el.attr('id', vid).attr('parent', sE[i].id);
-      var player  = initPlayer(vid, wrapper);
-      players[vid] = player;
+      // var player  = initPlayer(vid, wrapper);
+      // players[vid] = player;
 
       var vid = sE[i].videoIdGerm;
       $wrapper.prepend('<div class="video-player"></div>');
       var $el = $wrapper.children().first();
       $el.attr('id', vid).attr('parent', sE[i].id);
-      var player  = initPlayer(vid, wrapper);
-      players[vid] = player;
+      // var player  = initPlayer(vid, wrapper);
+      // players[vid] = player;
     }
   }
 
@@ -45,10 +48,14 @@ $(document).ready(function(){
     $('.scene-element').each(function(i, e){
       var $trigger = $(this);
       $trigger.click(function(){
-        $('body').addClass('video-player-active');
-        $('#' + wrapper).addClass('active');
         var activeLang = $('.lang-link.active-lang').attr('lang');
         var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
+
+        var player  = initPlayer(vid, vid);
+        players[vid] = player;
+
+        $('body').addClass('video-player-active');
+        $('#' + wrapper).addClass('active');
         $.each(players, function(i,e){
           e.pause();
           $('#' + i).removeClass('active');
@@ -72,7 +79,7 @@ $(document).ready(function(){
     players[activePlayerId].pause();
     $('#master-video-player').removeClass('active');
     $('body').removeClass('video-player-active');
-    var delay = 1000;
+    var delay = 500;
     function removeStopped($v, $p) {
       setTimeout(function(){
         $v.remove();
@@ -80,7 +87,6 @@ $(document).ready(function(){
         $('.removeMe');
       }, delay);
     }
-    console.log(activePlayerId);
     setTimeout(function(){
       $('#' + $activePlayer.attr('parent'))
         .effect('shake')
