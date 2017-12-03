@@ -60,21 +60,15 @@ $(document).ready(function(){
   if (germans.indexOf(lng) != -1) {
     $('#de-link').attr('active-lang', '');
   }
-  else {
-      $('#en-link').addClass('active-lang');
-  }
-
-    console.log('this');
-  $('#main-menu').click(function(){
-    'lang click';
+  else
+    $('#en-link').addClass('active-lang');
+  $('#de-link, #en-link').each(function(){
+    $(this).attr('lang', $(this).attr('id').replace('-link', '')).addClass('lang-link');
   });
-
-  // $.each(langLinks, function(){
-  //   $(this).click(function(){
-  //     console.log('lang');
-  //   })
-  // });
-
+  $('#de-link, #en-link').click(function(){
+    $('#de-link, #en-link').removeClass('active-lang');
+    $(this).addClass('active-lang');
+  });
 
 
 });

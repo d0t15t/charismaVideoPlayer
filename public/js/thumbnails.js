@@ -196,7 +196,7 @@ $(document).ready(function(){
     // images have loaded
     initThumbnails();
     placeThumbnails();
-    initOrbits();
+    // initOrbits();
   });
 
   /**

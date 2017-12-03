@@ -1,7 +1,7 @@
-function initPlayer(data) {
-  var id = data.videoId;
+function initPlayer(vid) {
+  var id = vid;
   var options = {
-    id: data.videoId,
+    id: vid,
     loop: false,
     autoplay: false,
     width: 640,
@@ -28,20 +28,29 @@ $(document).ready(function(){
       $wrapper.prepend('<div class="video-player"></div>');
       var $el = $wrapper.children().first();
       $el.attr('id', vid);
-      var player  = initPlayer(sE[i], wrapper);
+      var player  = initPlayer(vid, wrapper);
+      players[vid] = player;
+
+      var vid = sE[i].videoIdGerm;
+      $wrapper.prepend('<div class="video-player"></div>');
+      var $el = $wrapper.children().first();
+      $el.attr('id', vid);
+      var player  = initPlayer(vid, wrapper);
       players[vid] = player;
     }
   }
+
   function initTriggers() {
-    for (var i = 0; i < sE.length; i++) {
-      var vid = sE[i].videoId;
-      var $trigger = $('#' + sE[i].id);
-      $trigger.attr('vid', sE[i].videoId);
-      // Click init & play for target videos.
+    $('.scene-element').each(function(i, e){
+      var $trigger = $(this);
       $trigger.click(function(){
         $('body').addClass('video-player-active');
         $('#' + wrapper).addClass('active');
-        var vid = $(this).attr('vid');
+        var activeLang = $('.lang-link.active-lang').attr('lang');
+        var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
+        console.log(vid);
+        // $trigger.attr('vid', sE[i].videoId);
+        // var vid = $(this).attr('vid');
         // Pause any active videos
         $.each(players, function(i,e){
           e.pause();
@@ -50,13 +59,41 @@ $(document).ready(function(){
         $('#' + vid).addClass('active');
         players[vid].play();
       });
-    }
+    });
+
+
+    // for (var i = 0; i < sE.length; i++) {
+
+    //   // Click init & play for target videos.
+    //   var $trigger = $('#' + sE[i].id);
+    //   var trigger = sE[i];
+    //   var elId = sE[i].id;
+    //   $trigger.click(function(){
+    //     $('body').addClass('video-player-active');
+    //     $('#' + wrapper).addClass('active');
+    //     var activeLang = $('.lang-link.active-lang').attr('lang');
+    //     var vid = activeLang == 'en' ? trigger.videoId : trigger.videoIdGerm;
+
+    //     console.log(elId);
+
+    //     // $trigger.attr('vid', sE[i].videoId);
+    //     // var vid = $(this).attr('vid');
+    //     // Pause any active videos
+    //     $.each(players, function(i,e){
+    //       e.pause();
+    //       $('#' + i).removeClass('active');
+    //     });
+    //     $('#' + vid).addClass('active');
+    //     players[vid].play();
+      // });
+    // }
   }
 
   $('body').imagesLoaded( function() {
     initPlayers();
     initTriggers();
   });
+
 
 
 
