@@ -125,9 +125,11 @@ $(document).ready(function(){
               'transform' : 'scale(' + (scale * 1.5) + ') ' + d.rotate,
             });
             var dist    = numberBetween(30, 70);
-            var timeout = numberBetween(4300, 7333);
-            var easing  = 'easeInOutBack';
-            $el.myBounceInPlace(dist, timeout, easing);
+            var duration = numberBetween(4300, 7333);
+            var pause = 500;
+            var easing1  = 'easeOutCirc';
+            var easing2  = 'easeInCirc';
+            $el.myBounceInPlace(dist, duration, pause, easing1, easing2);
             break;
         }
         $el.css(styles);
@@ -183,7 +185,7 @@ $(document).ready(function(){
   }
   initThumbnails();
   placeThumbnails();
-  initOrbits();
+  // initOrbits();
 
   /**
    *

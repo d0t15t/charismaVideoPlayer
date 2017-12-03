@@ -59,38 +59,34 @@ function episodeData() {
           "transform": 'scale(1)'
         },
       },
-      // {
-      //   "targetZone": 12,
-      //   "name": "Miscommunication",
-      //   "type": "image",
-      //   "thumbnail": "Miscommunication.jpg",
-      //   "overlay": "Miscommunication.gif",
-      //   "videoId": "243426602",
-      //   "classes": '',
-      //   "position": {
-      //     "x": '5%',
-      //     "y": '85%',
-      //   },
-      //   "styles": {
-      //     "transform": 'scale(1)'
-      //   },
-      // },
-      // {
-      //   "targetZone": 2,
-      //   "name": "r1e1",
-      //   "type": "image",
-      //   "thumbnail": "Joke.jpg",
-      //   "overlay": "Joke.gif",
-      //   "videoId": "243426602",
-      //   "classes": '',
-      //   "position": {
-      //     "x": '0%',
-      //     "y": '70%',
-      //   },
-      //   "styles": {
-      //     "transform": 'scale(1)'
-      //   },
-      // },
+      {
+        "type": "image",
+        "targetZone": 12,
+        "name": "Miscommunication",
+        "videoId": "243426602",
+        "classes": '',
+        "position": {
+          "x": '5%',
+          "y": '85%',
+        },
+        "styles": {
+          "transform": 'scale(1)'
+        },
+      },
+      {
+        "type": "image",
+        "targetZone": 3,
+        "name": "Asher-Laughing",
+        "videoId": "243426602",
+        "classes": '',
+        "position": {
+          "x": '90%',
+          "y": '30%',
+        },
+        "styles": {
+          "transform": 'scale(1)'
+        },
+      },
       // {
       //   "targetZone": 17,
       //   "name": "Asher-Laughing",
