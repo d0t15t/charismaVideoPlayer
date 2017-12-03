@@ -1,7 +1,6 @@
 .center-page
   width: 100%
   height: 600px
-  position: relative;
   overflow: auto;
   > div
     position: absolute
@@ -13,17 +12,28 @@
     margin 0 auto
     width 100%
 
+// e.g.: credits.
 .info-page
   margin 50px 70px
   font-size: 0.8em
   box-sizing: conent-box
 
 
-l = 300px
+l = 200px
 #fullscreen-launch
-  width 800px
+  position: relative;
+  width 600px
   margin 0 auto
-  margin-top 60px
+  margin-top 10px
+  .title
+    width 450px
+    display block
+    margin 40px auto 0
+    img
+      width 100%
+      height auto
+  h1
+    font-size 1em
   .inner
     .rounded-logo,
     .rounded-enter
@@ -31,11 +41,16 @@ l = 300px
       margin 0 auto
       width l
       height 100px
-      background-image url('/images/chrarisma-logo-round.png');
-      background-size cover
+      background-image url('/images/chrarisma-logo-round.svg');
+      background-size contain
       background-repeat no-repeat
     .rounded-enter
       background-image url('/images/enter-rounded.svg');
+
+    .rounded-logo
+      width 300px
+      background-size 90%
+      background-position center
   .circle
     position: relative
     height l
@@ -51,27 +66,31 @@ l = 300px
       border-radius 50%
       overflow hidden
       background-image url('/images/title-color.png')
+      background-position-x: -11px
       background-size cover
       background-repeat no-repeat
 
 
 #launchpage-scrolling-text
   position relative
+  width 100%
+
   marquee
+    font-size 0.9em
     padding 20px 0
     position fixed
-    width 20%
+    width 100%
     height 50px
     top 0
     left 0
     &:nth-child(2)
-      left 100%
-      margin-left -20%
-    &:nth-child(3)
-      left 100%
-      top 100%
-      margin-left -20%
-      margin-top -75px
-    &:nth-child(4)
       top 100%
       margin-top -75px
+    // &:nth-child(3)
+    //   left 100%
+    //   top 100%
+    //   margin-left -20%
+    //   margin-top -75px
+    // &:nth-child(4)
+    //   top 100%
+    //   margin-top -75px

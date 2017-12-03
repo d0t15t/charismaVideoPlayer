@@ -185,7 +185,7 @@ $(document).ready(function(){
   }
   initThumbnails();
   placeThumbnails();
-  // initOrbits();
+  initOrbits();
 
   /**
    *
@@ -202,7 +202,7 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '400px', h: '320px'
+    w: '320px', h: '240px'
   };
   // var mq = window.matchMedia( "(min-width: 800px)" );
 

@@ -12,14 +12,15 @@ name = "fullscreen-launch"
       </div>
       <!-- <div class="rounded-enter"></div> -->
     </a>
-    <a href="/" target="_blank">
-      <h1 class="headline-style-1">Episode 1: Miscommunication</h1>
+    <a class="title" href="/" target="_blank">
+      <img src="/images/Episode-1-title.svg">
+      <!-- <h1 class="headline-style-1">Episode 1: Miscommunication</h1> -->
     </a>
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee direction="right">"What didn't you say?"</marquee>
   <marquee direction="left">"No adult is an island."</marquee>
-  <marquee direction="left">"Got any coconuts in your backyard?"</marquee>
-  <marquee direction="right">"Boom! And you're inside the mirror."</marquee>
+  <marquee direction="right">"What didn't you say?"</marquee>
+  <!-- <marquee direction="left">"Got any coconuts in your backyard?"</marquee> -->
+  <!-- <marquee direction="right">"Boom! And you're inside the mirror."</marquee> -->
 </div>

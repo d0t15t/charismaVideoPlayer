@@ -3,7 +3,11 @@ $(document).ready(function(){
   var g = gridData();
 
   var test = g.dev;
-  // var test = false;
+
+  // add Blue on main page
+  console.log($('body'));
+  if ($('body').find('.front-page').length > 0)
+    $('body').addClass('blue');
 
   // Grid Toggle
   var $wrapper = $('#grid-wrapper');

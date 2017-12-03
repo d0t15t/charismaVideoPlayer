@@ -2,7 +2,7 @@ function episodeData() {
   return {
     "releaseId": 'c1',
     "enable": true,
-    "dev": true,
+    "dev": false,
     "sceneElements": [
       {
         "type": "text",
@@ -34,7 +34,7 @@ function episodeData() {
       },
       {
         "type": "text",
-        "targetZone": 7,
+        "targetZone": 10,
         "name": "Micro-bondage",
         "videoId": "243426602",
         "classes": 'scene_element--title',
