@@ -34,11 +34,6 @@ title = "Credits"
     </p>
 
     <p>
-    Produced by<br>
-    Sarah M. Harrison and Wojciech Kosma
-    </p>
-
-    <p>
     Associate Producer<br>
     Maru Mustrieva
     </p>
@@ -98,7 +93,7 @@ title = "Credits"
     </p>
 
     <p>
-    Written & directed by<br>
+    Produced, written & directed by<br>
     Sarah M. Harrison and Wojciech Kosma
     </p>
 
@@ -111,16 +106,16 @@ title = "Credits"
     </p>
 
     <p>
-    <span style="text-decoration:underline">Charisma Interface for Volksbühne Fullscreen</span><br> Commissioned by Volksbühne Berlin
+    Volksbühne Fullscreen Charisma Expanded commissioned by Volksbühne Berlin
     </p>
 
     <p>
-    Concept & Design<br>
+    Concept & Design by<br>
     Ebba Fransén Waldhör
     </p>
 
     <p>
-    Programmed by<br>
+    Programming by<br>
     Isaac Bigsby Trogdon
     </p>
 
@@ -129,10 +124,6 @@ title = "Credits"
     Maru Mustrieva and Elodie Evers
     </p>
 
-    <p>
-    Produced by<br>
-    Sarah M. Harrison and Wojciech Kosma
-    </p>
     <p>
     Curation and Artistic Production<br>
     Elodie Evers and John McKiernan
@@ -155,20 +146,20 @@ title = "Credits"
 <script>
 $(document).ready(function(){
 
-  function scrollCredits($el){
-    $el.animate({
-      top: ($el.height() + 500) * -1
-    }, 25000, 'linear', function() {
-      $el.css({
-        'top': $(window).height()
-      });
-      scrollCredits($($el));
-    });
-  }
+  // function scrollCredits($el){
+  //   $el.animate({
+  //     top: ($el.height() + 500) * -1
+  //   }, 70000, 'linear', function() {
+  //     $el.css({
+  //       'top': $(window).height()
+  //     });
+  //     scrollCredits($($el));
+  //   });
+  // }
 
-  setTimeout(function(){
-    scrollCredits($('#credits-page.info-page'));
-  }, 1400);
+  // setTimeout(function(){
+  //   scrollCredits($('#credits-page.info-page'));
+  // }, 2000);
 
 
 
