@@ -1,12 +1,13 @@
 #grid-wrapper
   position: absolute;
+  visibility: hidden
   top: 0;
   left: 0;
   z-index: -1
   opacity 0
   transition opacity 200ms
   &.active
-    opacity 0.7
+    opacity 0.3
 .grid-segment
 .grid-side
   position: absolute;
@@ -14,11 +15,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border 1px solid white
+  border 1px solid red
   z-index 1
 .grid-segment
   z-index -1
-  border 1px solid white
+  border 1px solid red
 
 .segment-bg
   display: none
@@ -46,11 +47,9 @@ body.dev
   z-index -1
   opacity 0
   transition 200ms
-  display none
   svg
     *
       transition stroke 400ms
-      stroke #0000000
       stroke-opacity 0.7
   &.active
     opacity 1

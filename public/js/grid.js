@@ -230,26 +230,27 @@ $(document).ready(function(){
     var g = gridData();
     var svg = SVG(id);
     svg.viewbox(0, 0, base, base);
-    var sep = ',';
+    var sep1 = ', ';
+    var sep2 = ' ';
     var b = base;
 
     var r = 0.1;
-    var h = b * r;
-    var d = (b - h) / g.steps;
-    var p = b / h / 100
+    var x = b * r;
+    var d = (b - x) / g.steps;
+    var p = b / x / 100
     var o = 0; // offset
-    var n = 0; // new length
+    // var n = 0; // new length
     for (var i = 0; i < g.steps; i++) {
-      var coords = [
-        'M' + o + sep + o,
-        'L' + b + sep + o,
-        'L' + b + sep + b,
-        'L' + o + sep + b,
-        'z'
-      ];
-      var path = coords.join();
+      var path =
+        'M' + o + sep1 + o + sep2 +
+        'L' + b + sep1 + o + sep2 +
+        'L' + b + sep1 + b + sep2 +
+        'L' + o + sep1 + b + sep2 +
+        'Z'
+      ;
+      // var path = coords.join();
       svg.path(path);
-      n = b - (d /2);
+      var n = b - (d /2);
       o += (b - n);
       b = n;
     }
@@ -307,7 +308,7 @@ $(document).ready(function(){
     var offsetSideLength = direction == 'horizontal' ? $(window).width() : $(window).height();
     var offsetHalf = ((offsetSideLength - baseSide) / 2); // this centers the middle
     var css = {};
-    console.log(direction)
+
     if (offsetDir == 'top') {
       var offsetWithOffset = (offsetHalf / 5);
       var offset = ((offsetSideLength - baseSide) / 2) + offsetWithOffset + 'px';
@@ -316,13 +317,13 @@ $(document).ready(function(){
     else {
       var offset = ((offsetSideLength - baseSide) / 2) + 'px';
       css[offsetDir] = offset;
-      css['transform'] = 'scale(1.3) translateY(-50px)';
+      css.transform = 'scale(1.3) translateY(-50px)';
     }
     $wr.css(css);
 
 
     $wr.find('svg path, svg line')
-      .attr('stroke', 'yellow')
+      .attr('stroke', '#ffffff')
       .attr('fill', 'none')
       .attr('stroke-width', '1');
   }
