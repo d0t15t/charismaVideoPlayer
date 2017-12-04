@@ -81,7 +81,7 @@ function episodeData() {
         "videoIdGerm": "245575295",
         "classes": 'scene_element--title',
         "position": {
-          "x": '-30%',
+          "x": '-10%',
           "y": '110%',
         },
         "rotate" : "",

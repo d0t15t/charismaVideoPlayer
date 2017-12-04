@@ -137,7 +137,6 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 1;
   transition: all 400ms;
   max-height: 800px;
   max-width: 800px;
@@ -149,6 +148,9 @@ h1 {
   background-size: cover;
   cursor: pointer;
   transition: all 500ms;
+  opacity: 0;
+}
+#scene-elements .scene-element.se-visible {
   opacity: 1;
 }
 #scene-elements .scene-element.image {
@@ -201,7 +203,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   left: 0;
   z-index: -1;
   opacity: 0;
-  transition: opacity 300ms;
 }
 #grid-wrapper.grid-wrapper__active {
   opacity: 1;

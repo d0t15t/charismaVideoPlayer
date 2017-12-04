@@ -53,9 +53,9 @@
 		return ;
 
 	    var settings = $.extend( {
-		'minSpeed'	: 1,
+		'minSpeed'	: 2,
 		'maxSpeed'	: 6,
-		'interval'	: 10,
+		'interval'	: 20,
 		'zone'		: window
 	    }, options);
 
@@ -67,10 +67,9 @@
 	    speedY = Math.floor((Math.random()
 				 * (settings.maxSpeed - settings.minSpeed))
 				+ settings.minSpeed);
-
-		var customSpeed = 0.5;
-		speedX = customSpeed;
-		speedY = customSpeed;
+		// custSpeed = 1;
+		// speedX = custSpeed;
+		// speedY = custSpeed;
 	    if (dirX == 0)
 		dirX = -1;
 	    if (dirY == 0)

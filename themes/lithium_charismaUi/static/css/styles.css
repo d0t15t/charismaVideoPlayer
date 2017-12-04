@@ -203,7 +203,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   left: 0;
   z-index: -1;
   opacity: 0;
-  transition: opacity 300ms;
 }
 #grid-wrapper.grid-wrapper__active {
   opacity: 1;

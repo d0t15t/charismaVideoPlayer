@@ -15,7 +15,7 @@ var g = gridData();
   */
 function gridData() {
   return {
-    'dev' : false,
+    'dev' : true,
     'id' : 'grid-wrapper',
     'steps': 21,
     'segments': 4,
@@ -51,7 +51,6 @@ function gridInitWrapper($) {
   if (g.dev == true) {
     $wrapper.addClass('dev');
   }
-
   return $wrapper;
 }
 
@@ -207,13 +206,15 @@ $(document).ready(function(){
     /**
      * Offset Scaling
      */
-    var offsetScaling = 1.13;
     var offsetTranslate = winSize.h * -0.1;
-    $wrapper.css({
-      'transform': 'translate(0, ' + offsetTranslate + 'px)'
-      // 'transform': 'scale(' + offsetScaling + ') translate(0, -70px)'
-    });
+    var transform = transform += ' translate(0, ' + offsetTranslate + 'px)';
+    var offsetScaling = 1.2;
+    var transform = { transform: 'translate(0, ' + offsetTranslate + 'px)' };
+    if ($(window).width() < 600) {
+      transform.transform += ' scale('+ offsetScaling + ')';
+    }
 
+    $wrapper.css( transform );
   }
 
 

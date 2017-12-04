@@ -17,7 +17,6 @@ $(document).ready(function(){
       }
     }
   }
-
   /**
    * Init Thumbnails
    */
@@ -164,8 +163,7 @@ $(document).ready(function(){
     for (var i = 0; i < sE.length; i++) {
       var $el = $('#' + sE[i].name);
       var targetZone = sE[i].targetZone;
-      var speed = 1;
-
+      var speed = 10;
       if ($el.attr('type') == 'image') {
         $el.bounce('start', {
           'minSpeed'	: speed,
@@ -186,9 +184,6 @@ $(document).ready(function(){
           });
         });
       }
-      setTimeout(function(){
-      }, 200);
-
     }
   }
 
@@ -197,6 +192,26 @@ $(document).ready(function(){
     initThumbnails();
     placeThumbnails();
     initOrbits();
+
+
+    function initSeFade() {
+      $('.scene-element').each(function(i, e){
+        var $el = $(this);
+        // console.log((time < delay) ? delay : i * time);
+
+        var delay = 500;
+        var stepTime = 100;
+        var time = delay;
+        setTimeout(function(){
+          time = (time < delay) ? time : i * 10 * time;
+          // console.log(time);
+          $el.addClass('se-visible');
+        }, time);
+      });
+    }
+    initSeFade();
+
+
   });
 
   /**
