@@ -138,7 +138,7 @@ function gridSidesData(w, h, $first, $last) {
 }
 
 $(document).ready(function(){
-
+  var $wrapper = gridInitWrapper($);
   /**
    * Init Grid
    */
@@ -216,10 +216,91 @@ $(document).ready(function(){
 
     $wrapper.css( transform );
   }
-
-
   initGrid();
 
+  function initSvgGrid(base, direction) {
+    var id = 'grid-svg';
+    $('body').append('<div id="grid-svg"></div>');
+    var $wr = $('#' + id);
+    $wr.css({
+      'width': base + 'px',
+      'height': base + 'px',
+    });
+    var g = gridData();
+    var svg = SVG(id);
+    svg.viewbox(0, 0, b0, b0);
+    var sep = ',';
+    var b = b0;
+
+    var r = 0.1;
+    var h = b * r;
+    var d = (b - h) / g.steps;
+    var p = b / h / 100
+    var o = 0; // offset
+    var n = 0; // new length
+    for (var i = 0; i < g.steps; i++) {
+      var coords = [
+        'M' + o + sep + o,
+        'L' + b + sep + o,
+        'L' + b + sep + b,
+        'L' + o + sep + b,
+        'z'
+      ];
+      var path = coords.join();
+      svg.path(path);
+      n = b - (d /2);
+      o += (b - n);
+      b = n;
+    }
+
+    o -= (d/ 2);
+    var sides = 4;
+    var l1 =  g.sideSteps;
+    console.log(l1);
+    var l2 = b0 / g.sideSteps;
+    for (var i = 0; i < sides; i++) {
+      var dir = i % 2 == 0 ? 'x' : 'y';
+      for (var j = 0; j < g.steps; j++) {
+        var lineData = [];
+        var l1x = l1 * j;
+        var l2x = l2 * j;
+        if (dir == 'x') {
+          lineData = [
+            o + l1x, o, 0 + l2x, 0
+          ];
+          svg.line(lineData);
+        }
+        // else if (dir == 'y') {
+        //   lineData = [
+        //     e.svgLine[0], e.svgLine[1] + l1x, e.svgLine[2], e.svgLine[3] + l2x
+        //   ];
+        // }
+      }
+    }
+
+        /**
+     * Offset centering
+     */
+    var offsetDir = direction == 'horizontal' ? 'left' : 'top';
+    var offsetSideLength = direction == 'horizontal' ? winSize.w : winSize.h;
+    var offsetHalf = ((offsetSideLength - baseSide) / 2); // this centers the middle
+
+    var offsetWithOffset = (offsetHalf / 5);
+    var offset = ((offsetSideLength - baseSide) / 2) + offsetWithOffset + 'px';
+    var css = {};
+    css[offsetDir] = offset;
+    // $wr.css(css);
+
+
+
+
+
+    $wr.find('svg path, svg line')
+      .attr('stroke', 'yellow')
+      .attr('fill', 'none')
+      .attr('stroke-width', '1');
+  }
+  // initSvgGrid(baseSide, direction);
 
 
 });

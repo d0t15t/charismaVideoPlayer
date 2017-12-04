@@ -10,7 +10,7 @@ function episodeData() {
         "id": "Joke",
         "name": "Joke",
         "videoId": "245555706",
-        "videoIdGerm": "245555399",
+        "videoIdGerm": "245728592",
         "classes": '',
         "position": {
           "x": '100%',
@@ -27,7 +27,7 @@ function episodeData() {
         "id": "Breakfast",
         "name": "Breakfast",
         "videoId": "245525806",
-        "videoIdGerm": "245527422",
+        "videoIdGerm": "245726343",
         "classes": '',
         "position": {
           "x": '55%',
@@ -44,7 +44,7 @@ function episodeData() {
         "id": "Miscommunication",
         "name": "Miscommunication",
         "videoId": "245579568",
-        "videoIdGerm": "245578721",
+        "videoIdGerm": "245734969",
         "classes": '',
         "position": {
           "x": '100%',
@@ -112,7 +112,7 @@ function episodeData() {
         "id": "Teatime",
         "name": "Teatime",
         "videoId": "245536162",
-        "videoIdGerm": "245582880",
+        "videoIdGerm": "245730560",
         "classes": 'scene_element--title',
         "position": {
           "x": '90%',

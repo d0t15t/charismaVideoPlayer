@@ -207,6 +207,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 #grid-wrapper.grid-wrapper__active {
   opacity: 1;
+  opacity: 0.5;
 }
 .grid-segment,
 .grid-side {
@@ -216,6 +217,10 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 100%;
   height: 100%;
   border: 1px solid #fff;
+  z-index: 1;
+}
+.grid-segment {
+  z-index: -1;
 }
 .segment-bg {
   display: none;
@@ -234,6 +239,14 @@ body.dev #grid-wrapper.bg-active [zone="2"] {
 }
 body.dev #grid-wrapper.bg-active [zone="3"] {
   background-color: #640050;
+}
+#grid-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100%;
+  background: rgba(255,0,0,0.4);
 }
 nav {
   opacity: 1;

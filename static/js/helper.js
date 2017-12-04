@@ -42,14 +42,13 @@ $(document).ready(function(){
     });
   });
 
-
   // Zone segment toggle
-  $('#zone-segmentbg-toggle-link input[type="checkbox').click(function(){
+  $('#zone-segmentbg-toggle-link input[type="checkbox"]').click(function(){
     $('body').toggleClass('placement-dev-wrapper-active');
   });
 
   // Zone toggle
-  $('#zone-bg-toggle-link input[type="checkbox').click(function(){
+  $('#zone-bg-toggle-link input[type="checkbox"]').click(function(){
     $('#grid-wrapper').toggleClass('bg-active');
   });
 
@@ -57,6 +56,12 @@ $(document).ready(function(){
     'de-AT', 'de-DE', 'de-LI', 'de-LU', 'de-CH',
   ];
   var lng = window.navigator.userLanguage || window.navigator.language;
+
+
+
+  console.log(lng);
+
+
   if (germans.indexOf(lng) != -1) {
     $('#de-link').attr('active-lang', '');
   }
