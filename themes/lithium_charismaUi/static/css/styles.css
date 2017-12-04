@@ -6,6 +6,7 @@ body {
   height: 100%;
   overflow: hidden;
   transition: background 1s;
+  background-color: #faa53d;
 }
 body.video-player-active {
   background-color: #b3b3b3;
@@ -314,8 +315,6 @@ nav.nav ul#main-menu {
   margin-top: 14px;
 }
 #credits #home-link {
-  background-color: #fff;
-  width: 100%;
   position: relative;
   padding: 20px 30px;
   z-index: 1;
