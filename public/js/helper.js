@@ -10,8 +10,10 @@ $(document).ready(function(){
 
   // Grid Toggle
   var $wrapper = $('#grid-svg');
+  var $wrapper2 = $('#grid-wrapper');
   $('#grid-activate-link input[type="checkbox"]').click(function(){
     $wrapper.toggleClass('active');
+    $wrapper2.toggleClass('active');
     $('body').toggleClass('grid-active');
 
   });
@@ -20,6 +22,7 @@ $(document).ready(function(){
   if (test == true) {
     $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
     $wrapper.toggleClass('active');
+    $wrapper2.toggleClass('active');
     $('body').toggleClass('grid-active');
   }
 

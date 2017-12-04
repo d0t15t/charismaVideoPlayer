@@ -54,6 +54,60 @@ function gridInitWrapper($) {
   return $wrapper;
 }
 
+function gridDrawSides($wrapper, index) {
+  var $first = $wrapper.children().first();
+  var $last = $wrapper.children().last();
+  var w = ($first.outerWidth() / 2) - ($last.outerWidth() / 2);
+  var h = ($first.outerHeight() / 2) - ($last.outerHeight() / 2);
+
+  var sides = gridSidesData(w, h, $first, $last);
+
+  $.each(sides, function(i, e){
+    $wrapper.append('<div></div>');
+    var $el = $wrapper.children().last();
+    var id = i;
+    $el.attr('id', id)
+      .attr('s', 0)
+      .addClass('grid-side')
+      .css({
+        'z-index': index * -1
+      });
+    index++;
+    var draw = SVG(id);
+
+    // draw.line(e.svgLine);
+    var l1; var l2;
+    if (e.dir == 'x') {
+      l1 = $last.outerWidth();
+      l2 = $first.outerWidth();
+    }
+    else {
+      l1 = $last.outerHeight();
+      l2 = $first.outerHeight();
+    }
+    l1 = l1 / g.sideSteps
+    l2 = l2 / g.sideSteps
+    for (var j = 0; j <= g.sideSteps; j++) {
+      var lineData = [];
+      var l1x = l1 * j;
+      var l2x = l2 * j;
+      if (e.dir == 'x') {
+        lineData = [
+          e.svgLine[0] + l1x, e.svgLine[1], e.svgLine[2] + l2x, e.svgLine[3]
+        ];
+      }
+      else if (e.dir == 'y') {
+        lineData = [
+          e.svgLine[0], e.svgLine[1] + l1x, e.svgLine[2], e.svgLine[3] + l2x
+        ];
+      }
+      draw.line(lineData);
+
+    }
+    $el.find('svg line').attr('stroke', 'white');
+  });
+}
+
 
 function gridSidesData(w, h, $first, $last) {
   return {
@@ -138,7 +192,7 @@ $(document).ready(function(){
     }
 
     // Corners.
-    // gridDrawSides($wrapper, i + 1);
+    gridDrawSides($wrapper, i + 1);
 
     /**
      * Offset centering
