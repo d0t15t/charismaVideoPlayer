@@ -49,10 +49,11 @@ margin = 40px
   left 0
   position: absolute
   // padding 0 (margin / 4)
-
   z-index: 0
-  opacity 0
-  &.active
+  iframe
+    opacity 0
+    transition opacity 700
+  &.active iframe
     opacity 1
     z-index 1
 
