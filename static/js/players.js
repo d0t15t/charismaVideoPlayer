@@ -61,7 +61,15 @@ $(document).ready(function(){
           $('#' + i).removeClass('active');
         });
         $('#' + vid).addClass('active');
-        players[vid].play();
+
+        var elem = document.getElementById(vid);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        }
+
+        if (window.matchMedia( "(min-width: 800px)" )) {
+          players[vid].play();
+        }
       });
     });
 
