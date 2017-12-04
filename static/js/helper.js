@@ -9,9 +9,9 @@ $(document).ready(function(){
     $('body').addClass('blue');
 
   // Grid Toggle
-  var $wrapper = $('#grid-wrapper');
+  var $wrapper = $('#grid-svg');
   $('#grid-activate-link input[type="checkbox"]').click(function(){
-    $wrapper.toggleClass('grid-wrapper__active');
+    $wrapper.toggleClass('active');
     $('body').toggleClass('grid-active');
 
   });
@@ -19,14 +19,14 @@ $(document).ready(function(){
   // Test
   if (test == true) {
     $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
-    $wrapper.toggleClass('grid-wrapper__active');
+    $wrapper.toggleClass('active');
     $('body').toggleClass('grid-active');
   }
 
   // BG toggle.
   $('#bg-toggle-link input[type="checkbox"]').click(function(){
     $('body').toggleClass('blue');
-    $('#grid-wrapper').children().each(function(){
+    $('#grid-wrapper, #grid-svg').children().each(function(){
       if ($('body').hasClass('blue')) {
         $(this).css({
           'border': '1px solid white',
@@ -56,11 +56,6 @@ $(document).ready(function(){
     'de-AT', 'de-DE', 'de-LI', 'de-LU', 'de-CH',
   ];
   var lng = window.navigator.userLanguage || window.navigator.language;
-
-
-
-  console.log(lng);
-
 
   if (germans.indexOf(lng) != -1) {
     $('#de-link').attr('active-lang', '');

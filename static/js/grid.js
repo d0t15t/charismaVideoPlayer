@@ -54,59 +54,6 @@ function gridInitWrapper($) {
   return $wrapper;
 }
 
-function gridDrawSides($wrapper, index) {
-  var $first = $wrapper.children().first();
-  var $last = $wrapper.children().last();
-  var w = ($first.outerWidth() / 2) - ($last.outerWidth() / 2);
-  var h = ($first.outerHeight() / 2) - ($last.outerHeight() / 2);
-
-  var sides = gridSidesData(w, h, $first, $last);
-
-  $.each(sides, function(i, e){
-    $wrapper.append('<div></div>');
-    var $el = $wrapper.children().last();
-    var id = i;
-    $el.attr('id', id)
-      .attr('s', 0)
-      .addClass('grid-side')
-      .css({
-        'z-index': index * -1
-      });
-    index++;
-    var draw = SVG(id);
-
-    // draw.line(e.svgLine);
-    var l1; var l2;
-    if (e.dir == 'x') {
-      l1 = $last.outerWidth();
-      l2 = $first.outerWidth();
-    }
-    else {
-      l1 = $last.outerHeight();
-      l2 = $first.outerHeight();
-    }
-    l1 = l1 / g.sideSteps
-    l2 = l2 / g.sideSteps
-    for (var j = 0; j <= g.sideSteps; j++) {
-      var lineData = [];
-      var l1x = l1 * j;
-      var l2x = l2 * j;
-      if (e.dir == 'x') {
-        lineData = [
-          e.svgLine[0] + l1x, e.svgLine[1], e.svgLine[2] + l2x, e.svgLine[3]
-        ];
-      }
-      else if (e.dir == 'y') {
-        lineData = [
-          e.svgLine[0], e.svgLine[1] + l1x, e.svgLine[2], e.svgLine[3] + l2x
-        ];
-      }
-      draw.line(lineData);
-
-    }
-    $el.find('svg line').attr('stroke', 'white');
-  });
-}
 
 function gridSidesData(w, h, $first, $last) {
   return {
@@ -191,7 +138,7 @@ $(document).ready(function(){
     }
 
     // Corners.
-    gridDrawSides($wrapper, i + 1);
+    // gridDrawSides($wrapper, i + 1);
 
     /**
      * Offset centering
@@ -228,9 +175,9 @@ $(document).ready(function(){
     });
     var g = gridData();
     var svg = SVG(id);
-    svg.viewbox(0, 0, b0, b0);
+    svg.viewbox(0, 0, base, base);
     var sep = ',';
-    var b = b0;
+    var b = base;
 
     var r = 0.1;
     var h = b * r;
@@ -253,28 +200,49 @@ $(document).ready(function(){
       b = n;
     }
 
+    var $last = $wr.find('path').last();
+    var t = $last.offset().top
+    var l = $last.offset().left
+    var w = $last.width();
+    var h = $last.height();
+
     o -= (d/ 2);
     var sides = 4;
-    var l1 =  g.sideSteps;
-    console.log(l1);
-    var l2 = b0 / g.sideSteps;
+
+    var l1 = w / g.sideSteps;
+    var l2 = base / g.sideSteps;
+
     for (var i = 0; i < sides; i++) {
       var dir = i % 2 == 0 ? 'x' : 'y';
-      for (var j = 0; j < g.steps; j++) {
+      for (var j = 0; j <= 10; j++) {
         var lineData = [];
         var l1x = l1 * j;
         var l2x = l2 * j;
-        if (dir == 'x') {
-          lineData = [
-            o + l1x, o, 0 + l2x, 0
-          ];
-          svg.line(lineData);
-        }
-        // else if (dir == 'y') {
-        //   lineData = [
-        //     e.svgLine[0], e.svgLine[1] + l1x, e.svgLine[2], e.svgLine[3] + l2x
-        //   ];
-        // }
+        switch (i) {
+          case 0:
+            lineData = [
+              o + l1x, o, 0 + l2x, 0
+            ];
+            svg.line(lineData);
+            break;
+          case 1:
+            lineData = [
+              o + w, o + l1x, $wr.width() , 0 + l2x
+            ];
+            svg.line(lineData);
+            break;
+          case 2:
+            lineData = [
+              o + w - l1x, o + w, $wr.width() - l2x, $wr.height()
+            ];
+            break;
+          case 3:
+            lineData = [
+              o, o + w - l1x, 0, $wr.height() - l2x
+            ];
+            break;
+          }
+        svg.line(lineData);
       }
     }
 
@@ -282,17 +250,21 @@ $(document).ready(function(){
      * Offset centering
      */
     var offsetDir = direction == 'horizontal' ? 'left' : 'top';
-    var offsetSideLength = direction == 'horizontal' ? winSize.w : winSize.h;
+    var offsetSideLength = direction == 'horizontal' ? $(window).width() : $(window).height();
     var offsetHalf = ((offsetSideLength - baseSide) / 2); // this centers the middle
-
-    var offsetWithOffset = (offsetHalf / 5);
-    var offset = ((offsetSideLength - baseSide) / 2) + offsetWithOffset + 'px';
     var css = {};
-    css[offsetDir] = offset;
-    // $wr.css(css);
-
-
-
+    console.log(direction)
+    if (offsetDir == 'top') {
+      var offsetWithOffset = (offsetHalf / 5);
+      var offset = ((offsetSideLength - baseSide) / 2) + offsetWithOffset + 'px';
+      css[offsetDir] = offset;
+    }
+    else {
+      var offset = ((offsetSideLength - baseSide) / 2) + 'px';
+      css[offsetDir] = offset;
+      css['transform'] = 'scale(1.3) translateY(-50px)';
+    }
+    $wr.css(css);
 
 
     $wr.find('svg path, svg line')
@@ -300,7 +272,7 @@ $(document).ready(function(){
       .attr('fill', 'none')
       .attr('stroke-width', '1');
   }
-  // initSvgGrid(baseSide, direction);
+  initSvgGrid(baseSide, direction);
 
 
 });

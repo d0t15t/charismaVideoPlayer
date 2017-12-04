@@ -4,9 +4,9 @@
   left: 0;
   z-index: -1
   opacity 0
-  &.grid-wrapper__active
-    opacity 1
-    opacity 0.5
+  // &.grid-wrapper__active
+  //   opacity 1
+  //   opacity 0.1
 .grid-segment
 .grid-side
   position: absolute;
@@ -43,8 +43,19 @@ body.dev
   left 0
   width 100%
   width 100%
+  z-index -1
+  opacity 0
+  transition 200ms
+  svg
+    *
+      transition stroke 400ms
+      stroke #0000000
+      stroke-opacity 0.7
+  &.active
+    opacity 1
+    svg *
+      stroke #ffffff
   // width 600px !important
   // height 600px !important
   // margin 50px auto
   // position relative
-  background rgba(255, 0, 0, 0.4)
