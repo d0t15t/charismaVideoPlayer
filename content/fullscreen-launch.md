@@ -25,20 +25,3 @@ name = "fullscreen-launch"
   <!-- <marquee direction="right">"Boom! And you're inside the mirror."</marquee> -->
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-
-<script>
-$(document).ready(function(){
-
-  var $el = $('#fullscreen-launch-content');
-  // $el.hide();
-  $el.css({
-    'top':( $(window).height() / 2) - ($el.height() / 2)
-  });
-
-
-
-});
-
-</script>
