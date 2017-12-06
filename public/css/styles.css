@@ -446,7 +446,7 @@ nav.nav ul#main-menu {
   overflow: auto;
 }
 .center-page > div {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
