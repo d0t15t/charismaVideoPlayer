@@ -173,6 +173,7 @@ h1 {
 }
 body.video-player-active #scene-elements {
   opacity: 0;
+  z-index: -1;
 }
 #placement-dev-wrapper {
   position: relative;
@@ -346,48 +347,52 @@ nav.nav ul#main-menu {
   z-index: 1;
 }
 #master-video-player {
-  position: fixed;
-  width: 415px;
-  height: 305px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.9);
+  background-color: #0000b3;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   transition: opacity 400ms;
   z-index: -2;
+  display: none;
+}
+#master-video-player > div {
+  position: fixed;
+  width: 375px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.9);
 }
 @media screen and (min-width: 600px) {
-  #master-video-player {
-    margin: auto auto;
-    position: relative;
-    width: 100%;
+  #master-video-player > div {
+    width: 500px;
     height: 375px;
   }
 }
 @media screen and (min-width: 800px) {
-  #master-video-player {
+  #master-video-player > div {
     width: 640px;
     height: 520px;
   }
 }
 #master-video-player.active {
-  z-index: 1;
+  display: block;
+  z-index: 2;
   opacity: 1;
 }
 #master-video-player iframe {
   width: 355px;
-  height: 305px;
-  position: absolute;
-  top: 0;
-  left: 10px;
+  height: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 @media screen and (min-width: 600px) {
   #master-video-player iframe {
-    position: relative;
-    width: 600px;
-    height: 350px;
-    top: 10px;
-    left: 0;
+    width: 580px;
+    height: 375px;
     margin: 0 auto;
   }
 }
@@ -398,24 +403,45 @@ nav.nav ul#main-menu {
   }
 }
 .video-player {
-  top: 0;
-  left: 0;
-  position: absolute;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
   z-index: 0;
+  overflow: hidden;
+  width: 510px;
+  height: 290px;
+  width: 100%;
+}
+@media screen and (min-width: 600px) {
+  .video-player {
+    height: 350px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .video-player {
+    height: 510px;
+  }
 }
 .video-player iframe {
   opacity: 0;
   transition: opacity 700;
 }
+.video-player.active {
+  z-index: 2;
+}
 .video-player.active iframe {
   opacity: 1;
   z-index: 1;
 }
+:-webkit-full-screen-ancestor iframe {
+  transform: translate(0, 0) !important;
+}
 .video-controls {
   position: absolute;
   top: 10px;
-  right: 50px;
-  z-index: 1;
+  right: 10px;
+  z-index: 3;
   opacity: 0;
   transition: all 200ms;
 }
@@ -437,6 +463,50 @@ nav.nav ul#main-menu {
   display: block;
 }
 .hover .video-controls {
+  opacity: 1;
+}
+#playlist {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  bottom: -50px;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  tranition: all 200ms;
+}
+#playlist > * {
+  margin: 10px 5px;
+  background-color: rgba(0,128,0,0.3);
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background: url("/images/chevron-right.svg") no-repeat center center/contain;
+}
+#playlist > *:hover {
+  cursor: pointer;
+}
+#playlist > *:first-child {
+  transform: rotate(180deg);
+}
+#playlist > *:last-child {
+  float: right;
+}
+@media screen and (max-height: 600px) {
+  #playlist {
+    bottom: 10px;
+  }
+  #playlist > * {
+    position: absolute;
+  }
+  #playlist > *:first-child {
+    left: -50px;
+  }
+  #playlist > *:last-child {
+    right: -50px;
+  }
+}
+.hover #playlist {
   opacity: 1;
 }
 .center-page {

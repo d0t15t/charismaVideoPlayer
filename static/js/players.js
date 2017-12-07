@@ -3,7 +3,7 @@ function initPlayer(vid) {
   var options = {
     id: vid,
     loop: false,
-    autoplay: false,
+    autoplay: true,
     width: 640,
     height: 480
   };
@@ -16,7 +16,7 @@ function initPlayer(vid) {
  */
 $(document).ready(function(){
 
-  var wrapper = 'master-video-player';
+  var wrapper = 'master-video-player-inner';
   var $wrapper = $('#' + wrapper);
   var data = episodeData();
   var players = {};
@@ -31,14 +31,14 @@ $(document).ready(function(){
       $wrapper.prepend('<div class="video-player"></div>');
       var $el = $wrapper.children().first();
       $el.attr('id', vid);
-      $el.attr('id', vid).attr('parent', sE[i].id);
+      $el.attr('id', vid).attr('parent', sE[i].id).attr('lang', 'en');
       // var player  = initPlayer(vid, wrapper);
       // players[vid] = player;
 
       var vid = sE[i].videoIdGerm;
       $wrapper.prepend('<div class="video-player"></div>');
       var $el = $wrapper.children().first();
-      $el.attr('id', vid).attr('parent', sE[i].id);
+      $el.attr('id', vid).attr('parent', sE[i].id).attr('lang', 'de');
       // var player  = initPlayer(vid, wrapper);
       // players[vid] = player;
     }
@@ -55,9 +55,9 @@ $(document).ready(function(){
         players[vid] = player;
 
         $('body').addClass('video-player-active');
-        $('#' + wrapper).addClass('active');
+        $('#master-video-player').addClass('active');
         $.each(players, function(i,e){
-          e.pause();
+          // e.pause();
           $('#' + i).removeClass('active');
         });
         $('#' + vid).addClass('active');
@@ -80,6 +80,16 @@ $(document).ready(function(){
     initTriggers();
   });
 
+  /**
+   * Playlist nav
+   */
+  $('#playlist').children().click(function(){
+    var parId = ($('.video-player.active').attr('parent'));
+    var parIndex = $('#' + parId).index();
+    var index = parIndex + parseInt($(this).attr('val')); // up or down
+    $('.scene-element').eq(index).click()
+
+  });
 
   $('.video-controls .close').click(function(){
     var $activePlayer = $('.video-player.active');

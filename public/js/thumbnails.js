@@ -132,9 +132,7 @@ $(document).ready(function(){
             var topPos = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
             var lefPos = th.box.l + (th.box.w * x) - (elBounds.width / 2);
 
-
             if (topPos < 0 || topPos + $el.height() > window.innerWidth) {
-              console.log('top');
               styles.top = numberBetween(0, window.innerHeight - 100);
             }
             if (lefPos < 0 || lefPos + $el.width() > window.innerWidth) {
@@ -249,6 +247,11 @@ function thumbnailSize() {
     w: '180px', h: '135px'
   };
   if (window.innerWidth > 600) {
+    var t = {
+      w: '230px', h: '172.5px'
+    };
+  }
+  if (window.innerWidth > 800) {
     var t = {
       w: '280px', h: '235px'
     };
