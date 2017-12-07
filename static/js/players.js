@@ -86,8 +86,10 @@ $(document).ready(function(){
   $('#playlist').children().click(function(){
     var parId = ($('.video-player.active').attr('parent'));
     var parIndex = $('#' + parId).index();
-    var index = parIndex + parseInt($(this).attr('val')); // up or down
-    $('.scene-element').eq(index).click()
+    var index = parIndex + parseInt($(this).attr('val'));
+    var activePlayerId = $('.video-player.active').attr('id');
+    players[activePlayerId].pause();
+    $('.scene-element').eq(index).click();
 
   });
 
