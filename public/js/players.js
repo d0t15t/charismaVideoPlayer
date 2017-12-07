@@ -48,6 +48,12 @@ $(document).ready(function(){
     $('.scene-element').each(function(i, e){
       var $trigger = $(this);
       $trigger.click(function(){
+
+        // stop animations, launch player
+        $('.scene-element').each(function() {
+          $(this).bounce('stop');
+        });
+
         var activeLang = $('.lang-link.active-lang').attr('lang');
         var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
 

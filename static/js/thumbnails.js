@@ -198,8 +198,24 @@ $(document).ready(function(){
             });
           });
         });
+
       }
     }
+    $('.master-controls .close').click(function(){
+      for (var i = 0; i < sE.length; i++) {
+        var $el = $('#' + sE[i].name);
+        var targetZone = sE[i].targetZone;
+        var speed = 10;
+        var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
+        if ($el.attr('type') == 'image') {
+          $el.bounce('start', {
+            'minSpeed'	: speed,
+            'maxSpeed'	: speed,
+            'zone'		: targetZoneId
+          });
+        }
+      }
+    });
   }
 
   $('body').imagesLoaded( function() {
