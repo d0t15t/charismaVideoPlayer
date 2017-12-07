@@ -4,6 +4,7 @@
 $.fn.myBounceInPlace = function(dist, duration, pause, easing1, easing2) {
   var $object = this,flag = 1;
   var timer;
+  var position = $object.offset();
   bounce();
   function bounce() {
     timer = setInterval(function() {
@@ -13,21 +14,17 @@ $.fn.myBounceInPlace = function(dist, duration, pause, easing1, easing2) {
           flag = 1;
       }
       var easing = (flag == 1) ? easing1 : easing2;
-      var transform = '+= translateY(' + (flag * dist) + ')';
-      $object.animate({ 'top': "+="+(flag * dist)}, duration, easing);
-      // $object.animate({ 'transform': transform }, duration, easing);
-
-      // $object.animate({  fake: 200, fake2: 10 }, {
-      //     step: function(now,fx) {
-      //       $(this).css('-webkit-transform','translate('+now+'px,'+now+'px )');
-      //     },
-      //     duration:duration
-      // },easing);
-
-
-
-
+      $object.animate({ 'margin-top': (flag * dist)}, duration, easing);
     },pause);
+  }
+
+  if (($object.position().top + $object.height()) >= $(window).height()) {
+    console.log('reset');
+    $object.fadeOut()
+    $object.css({
+      'top': position.top,
+      'left': position.left
+    }).fadeIn();
   }
 
   $object.hover(function() {

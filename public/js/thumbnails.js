@@ -133,7 +133,9 @@ $(document).ready(function(){
             var pause = 500;
             var easing1  = 'easeOutCirc';
             var easing2  = 'easeInCirc';
+
             $el.myBounceInPlace(dist, duration, pause, easing1, easing2);
+
             break;
         }
         $el.css(styles);
