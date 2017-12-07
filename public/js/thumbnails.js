@@ -128,7 +128,21 @@ $(document).ready(function(){
             $el.children('.text').css({
               'transform' : 'scale(' + (scale * 1.5) + ') ' + d.rotate,
             });
-            var dist    = numberBetween(30, 70);
+
+            var topPos = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
+            var lefPos = th.box.l + (th.box.w * x) - (elBounds.width / 2);
+
+
+            if (topPos < 0 || topPos + $el.height() > window.innerWidth) {
+              console.log('top');
+              styles.top = numberBetween(0, window.innerHeight - 100);
+            }
+            if (lefPos < 0 || lefPos + $el.width() > window.innerWidth) {
+              styles.left = numberBetween(0, window.innerWidth - 100 );
+            }
+
+
+            var dist     = numberBetween(30, 70);
             var duration = numberBetween(4300, 7333);
             var pause = 500;
             var easing1  = 'easeOutCirc';
@@ -166,11 +180,12 @@ $(document).ready(function(){
       var $el = $('#' + sE[i].name);
       var targetZone = sE[i].targetZone;
       var speed = 10;
+      var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
       if ($el.attr('type') == 'image') {
         $el.bounce('start', {
           'minSpeed'	: speed,
           'maxSpeed'	: speed,
-          'zone'		: '#grid-' + targetZone
+          'zone'		: targetZoneId
         });
         $el.hover(function() {
           $(this).each(function() {
@@ -181,7 +196,7 @@ $(document).ready(function(){
             $(this).bounce('start', {
               'minSpeed'	: speed,
               'maxSpeed'	: speed,
-              'zone'		: '#grid-' + $(this).attr('target-zone')
+              'zone'		: targetZoneId
             });
           });
         });
@@ -231,9 +246,9 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '180px', h: '130px'
+    w: '180px', h: '135px'
   };
-  if (window.matchMedia( "(min-width: 800px)" )) {
+  if (window.innerWidth > 600) {
     var t = {
       w: '280px', h: '235px'
     };

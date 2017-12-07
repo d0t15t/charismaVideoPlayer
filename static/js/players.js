@@ -68,7 +68,7 @@ $(document).ready(function(){
         }
 
         if (window.matchMedia( "(min-width: 800px)" )) {
-          players[vid].play();
+          // players[vid].play();
         }
       });
     });
