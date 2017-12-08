@@ -3,27 +3,31 @@ $(document).ready(function(){
   var g = gridData();
 
   var test = g.dev;
+  var grid = true;
 
   // add Blue on main page
   if ($('body').find('.front-page').length > 0)
     $('body').addClass('blue');
 
   // Grid Toggle
+  // @todo: toggle is disabled.
   var $wrapper = $('#grid-svg');
   var $wrapper2 = $('#grid-wrapper');
-  $('#grid-activate-link input[type="checkbox"]').click(function(){
-    $wrapper.toggleClass('active');
-    $wrapper2.toggleClass('active');
-    $('body').toggleClass('grid-active');
+  // $('#grid-activate-link input[type="checkbox"]').click(function(){
+  //   $wrapper.toggleClass('active');
+  //   $wrapper2.toggleClass('active');
+  //   $('body').toggleClass('grid-active');
 
-  });
+  // });
 
   // Test
-  if (test == true) {
+  if (grid == true) {
     $('#grid-activate-link input[type="checkbox"]').prop('checked', true);
     $wrapper.toggleClass('active');
     $wrapper2.toggleClass('active');
-    $('body').toggleClass('grid-active');
+    setTimeout(function(){
+      $('body').toggleClass('grid-active');
+    }, 500);
   }
 
   // BG toggle.

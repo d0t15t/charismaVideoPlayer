@@ -32,15 +32,11 @@ $(document).ready(function(){
       var $el = $wrapper.children().first();
       $el.attr('id', vid);
       $el.attr('id', vid).attr('parent', sE[i].id).attr('lang', 'en');
-      // var player  = initPlayer(vid, wrapper);
-      // players[vid] = player;
 
       var vid = sE[i].videoIdGerm;
       $wrapper.prepend('<div class="video-player"></div>');
       var $el = $wrapper.children().first();
       $el.attr('id', vid).attr('parent', sE[i].id).attr('lang', 'de');
-      // var player  = initPlayer(vid, wrapper);
-      // players[vid] = player;
     }
   }
 
@@ -59,6 +55,11 @@ $(document).ready(function(){
 
         var player  = initPlayer(vid, vid);
         players[vid] = player;
+        player.on('ended', function(data) {
+          setTimeout(function(){
+            closeVideoPlayer();
+          }, 700);
+        });
 
         $('body').addClass('video-player-active');
         $('#master-video-player').addClass('active');
@@ -99,7 +100,10 @@ $(document).ready(function(){
 
   });
 
-  $('.video-controls .close').click(function(){
+  /**
+   * Close video player.
+   */
+  function closeVideoPlayer() {
     var $activePlayer = $('.video-player.active');
     var activePlayerId = $('.video-player.active').attr('id');
     players[activePlayerId].pause();
@@ -119,6 +123,16 @@ $(document).ready(function(){
         .addClass('fadeOut');
       removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
     }, delay * 2);
+  }
+
+  $('.video-controls .close, #master-video-player').click(function(){
+    closeVideoPlayer();
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { // escape key maps to keycode `27`
+       closeVideoPlayer();
+    }
   });
 
 
