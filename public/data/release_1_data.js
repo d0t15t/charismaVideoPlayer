@@ -6,15 +6,15 @@ function episodeData() {
     "sceneElements": [
       {
         "type": "image",
-        "targetZone": 3,
+        "targetZone": 4,
         "id": "Joke",
         "name": "Joke",
         "videoId": "245555706",
         "videoIdGerm": "245728592",
         "classes": '',
         "position": {
-          "x": '100%',
-          "y": '90%',
+          "x": '70%',
+          "y": '70%',
         },
         "rotate" : "",
         "styles": {
@@ -82,7 +82,7 @@ function episodeData() {
         "classes": 'scene_element--title',
         "position": {
           "x": '-10%',
-          "y": '110%',
+          "y": '100%',
         },
         "rotate" : "",
         "styles": {
@@ -149,8 +149,8 @@ function episodeData() {
         "videoIdGerm": "245516029",
         "classes": 'scene_element--title',
         "position": {
-          "x": '20%',
-          "y": '15%',
+          "x": '0%',
+          "y": '50%',
         },
         "rotate" : "",
         "styles": {
@@ -167,7 +167,7 @@ function episodeData() {
         "classes": '',
         "position": {
           "x": '80%',
-          "y": '100%',
+          "y": '30%',
         },
         "rotate" : "",
         "styles": {
@@ -183,8 +183,8 @@ function episodeData() {
         "videoIdGerm": "245528529",
         "classes": '',
         "position": {
-          "x": '-50%',
-          "y": '100%',
+          "x": '-30%',
+          "y": '80%',
         },
         "rotate" : "",
         "styles": {
@@ -210,15 +210,15 @@ function episodeData() {
       },
       {
         "type": "text",
-        "targetZone": 4,
+        "targetZone": 2,
         "id": "FIN",
         "name": "FIN",
         "videoId": "245582230",
         "videoIdGerm": "245581683",
         "classes": 'scene_element--name',
         "position": {
-          "x": '20%',
-          "y": '70%',
+          "x": '2%',
+          "y": '55%',
         },
         "rotate" : "rotate(-90deg)",
         "styles": {

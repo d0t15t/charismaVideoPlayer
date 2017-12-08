@@ -113,7 +113,7 @@ h1 {
   font-size: 1.2em;
 }
 .scene-element .text {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: COLOR_BLACK_DARK;
 }
 @media screen and (min-width: 800px) {
@@ -164,6 +164,9 @@ h1 {
   z-index: 1;
   opacity: 0;
   transition: opacity 200ms;
+}
+#scene-elements .scene-element.text {
+  z-index: 3;
 }
 #scene-elements .scene-element:hover .overlay-gif {
   opacity: 1;

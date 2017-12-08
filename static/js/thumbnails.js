@@ -106,9 +106,12 @@ $(document).ready(function(){
         // Set styles with scale now b/c we need the new dimentions.
         var elBounds = $el[0].getBoundingClientRect();
         var styles = {
-          'top' : (th.box.t < 0) ? 0 : th.box.t,
-          'left' : (th.box.l < 0) ? 0 : th.box.l,
+          // 'top' : (th.box.t < 0) ? 0 : th.box.t,
+          // 'left' : (th.box.l < 0) ? 0 : th.box.l,
+          'top' : th.box.t,
+          'left' : th.box.l,
         };
+        $el.css(styles);
         // Custom placement
         if (d.hasOwnProperty('position')) {
           if (
@@ -119,8 +122,10 @@ $(document).ready(function(){
             var decFactor = 100;
             var x = parseInt(d.position.x) / decFactor;
             var y = parseInt(d.position.y) / decFactor;
-            styles.top = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
-            styles.left = th.box.l + (th.box.w * x) - (elBounds.width / 2);
+            // styles.top = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
+            // styles.left = th.box.l + (th.box.w * x) - (elBounds.width / 2);
+            styles.top = (th.box.t + (th.box.h * y));
+            styles.left = th.box.l + (th.box.w * x);
           }
         }
         switch($el.attr('type')) {
@@ -132,12 +137,12 @@ $(document).ready(function(){
             var topPos = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
             var lefPos = th.box.l + (th.box.w * x) - (elBounds.width / 2);
 
-            if (topPos < 0 || topPos + $el.height() > window.innerWidth) {
-              styles.top = numberBetween(0, window.innerHeight - 100);
-            }
-            if (lefPos < 0 || lefPos + $el.width() > window.innerWidth) {
-              styles.left = numberBetween(0, window.innerWidth - 100 );
-            }
+            // if (topPos < 0 || topPos + $el.height() > window.innerWidth) {
+            //   styles.top = numberBetween(0, window.innerHeight - 100);
+            // }
+            // if (lefPos < 0 || lefPos + $el.width() > window.innerWidth) {
+            //   styles.left = numberBetween(0, window.innerWidth - 100 );
+            // }
 
             if ($el.hasClass('scene_element--title')) {
               var dist     = numberBetween(30, 70);
@@ -148,6 +153,20 @@ $(document).ready(function(){
               $el.myBounceInPlace(dist, duration, pause, easing1, easing2);
             }
 
+            break;
+          case 'image':
+            if (true) {
+              // var dist     = numberBetween(30, 70);
+              // var duration = numberBetween(4300, 7333);
+              // var dist     = 20;
+              // var duration = 4000
+              // var pause = 500;
+              // var easing1  = 'easeOutCirc';
+              // var easing2  = 'easeInCirc';
+              // $el.myBounceInPlace(dist, duration, pause, easing1, easing2);
+
+            }
+            // $el.remove();
             break;
         }
         $el.css(styles);
@@ -176,7 +195,9 @@ $(document).ready(function(){
   function initOrbits() {
     for (var i = 0; i < sE.length; i++) {
       var $el = $('#' + sE[i].name);
+
       var targetZone = sE[i].targetZone;
+
       var speed = 10;
       // var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
       var targetZoneId = '#grid-' + targetZone;
@@ -223,20 +244,18 @@ $(document).ready(function(){
     // images have loaded
     initThumbnails();
     placeThumbnails();
-    initOrbits();
+    // initOrbits();
 
 
     function initSeFade() {
       $('.scene-element').each(function(i, e){
         var $el = $(this);
-        // console.log((time < delay) ? delay : i * time);
 
         var delay = 50;
         var stepTime = 100;
         var time = delay;
         setTimeout(function(){
           time = (time < delay) ? time : i * 10 * time;
-          // console.log(time);
           $el.addClass('se-visible');
         }, time * i);
       });
@@ -265,7 +284,7 @@ function thumbnailSize() {
   };
   if (window.innerWidth > 600) {
     var t = {
-      w: '230px', h: '172.5px'
+      w: '100px', h: '75px'
     };
   }
   if (window.innerWidth > 800) {

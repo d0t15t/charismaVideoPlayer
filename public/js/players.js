@@ -120,7 +120,7 @@ $(document).ready(function(){
             .effect('shake')
             .addClass('fadeOut');
           removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
-        }, delay * 2);
+        }, delay);
       }
     }, 500);
   }
