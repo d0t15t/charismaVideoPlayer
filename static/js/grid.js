@@ -191,7 +191,7 @@ $(document).ready(function(){
 
     }
 
-    // Corners.
+    // Sides.
     gridDrawSides($wrapper, i + 1);
 
     /**
@@ -327,7 +327,25 @@ $(document).ready(function(){
       .attr('fill', 'none')
       .attr('stroke-width', '1');
   }
-  initSvgGrid(baseSide, direction);
+  // initSvgGrid(baseSide, direction);
+  function initSvgGrid_simple(base, direction) {
+    var id = 'grid-svg';
+    $('body').append('<div id="grid-svg"></div>');
+    var $wr = $('#' + id);
+    $wr.css({
+      'width': base + 'px',
+      'height': base + 'px',
+    });
+
+
+
+
+    $wr.find('svg path, svg line')
+      .attr('stroke', '#ffffff')
+      .attr('fill', 'none')
+      .attr('stroke-width', '1');
+  }
+  initSvgGrid_simple(baseSide, direction);
 
 
 });

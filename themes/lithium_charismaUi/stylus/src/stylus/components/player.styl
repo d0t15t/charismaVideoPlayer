@@ -95,9 +95,10 @@ button-width = 30px
     height: button-width;
     cursor: pointer;
     display block
-.hover
-  .video-controls
-    opacity 1
+#master-video-player.hover
+  #master-video-player-inner:hover
+    .video-controls
+      opacity 1
 
 buttonH = 50px
 
@@ -134,6 +135,3 @@ buttonH = 50px
       &:last-child
         right buttonH * -1
 
-.hover
-  #playlist
-    opacity 1

@@ -56,9 +56,7 @@ $(document).ready(function(){
         var player  = initPlayer(vid, vid);
         players[vid] = player;
         player.on('ended', function(data) {
-          setTimeout(function(){
-            closeVideoPlayer();
-          }, 700);
+          closeVideoPlayer();
         });
 
         $('body').addClass('video-player-active');
@@ -74,9 +72,6 @@ $(document).ready(function(){
           elem.requestFullscreen();
         }
 
-        if (window.matchMedia( "(min-width: 800px)" )) {
-          // players[vid].play();
-        }
       });
     });
 
@@ -104,25 +99,30 @@ $(document).ready(function(){
    * Close video player.
    */
   function closeVideoPlayer() {
-    var $activePlayer = $('.video-player.active');
-    var activePlayerId = $('.video-player.active').attr('id');
-    players[activePlayerId].pause();
-    $('#master-video-player').removeClass('active');
-    $('body').removeClass('video-player-active');
-    var delay = 500;
-    function removeStopped($v, $p) {
-      setTimeout(function(){
-        $v.remove();
-        $p.remove();
-        $('.removeMe');
-      }, delay);
-    }
     setTimeout(function(){
-      $('#' + $activePlayer.attr('parent'))
-        .effect('shake')
-        .addClass('fadeOut');
-      removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
-    }, delay * 2);
+      var $activePlayer = $('.video-player.active');
+      var activePlayerId = $('.video-player.active').attr('id');
+      players[activePlayerId].pause();
+      $('#master-video-player').removeClass('active');
+      $('body').removeClass('video-player-active');
+      var delay = 500;
+      function removeStopped($v, $p) {
+        setTimeout(function(){
+          $v.remove();
+          $p.remove();
+          $('.removeMe');
+        }, delay);
+      }
+      var $parent = $('#' + $activePlayer.attr('parent'));
+      if ($parent.hasClass('image')) {
+        setTimeout(function(){
+          $('#' + $activePlayer.attr('parent'))
+            .effect('shake')
+            .addClass('fadeOut');
+          removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
+        }, delay * 2);
+      }
+    }, 500);
   }
 
   $('.video-controls .close, #master-video-player').click(function(){

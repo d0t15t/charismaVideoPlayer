@@ -251,6 +251,9 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
   z-index: -1;
   opacity: 0;
   transition: 200ms;
+  background-image: url("/images/GRID.svg");
+  background-size: cover;
+  top: -300px;
 }
 #grid-svg svg * {
   transition: stroke 400ms;
@@ -473,7 +476,7 @@ nav.nav ul#main-menu li.active-lang:hover {
   cursor: pointer;
   display: block;
 }
-.hover .video-controls {
+#master-video-player.hover #master-video-player-inner:hover .video-controls {
   opacity: 1;
 }
 #playlist {
@@ -517,9 +520,6 @@ nav.nav ul#main-menu li.active-lang:hover {
   #playlist > *:last-child {
     right: -50px;
   }
-}
-.hover #playlist {
-  opacity: 1;
 }
 .center-page {
   width: 100%;
