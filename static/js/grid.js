@@ -333,9 +333,16 @@ $(document).ready(function(){
     $('body').append('<div id="grid-svg"></div>');
     var $wr = $('#' + id);
     $wr.css({
-      'width': base + 'px',
-      'height': base + 'px',
+      // 'width': base + 'px',
+      'height': (base * 1.1)+ 'px',
+      'bottom' :'0'
     });
+    if (window.innerWidth > window.innerHeight) {
+      $wr.css({
+        'height': (base)+ 'px',
+        'bottom' :'-35%'
+      });
+    }
 
 
 

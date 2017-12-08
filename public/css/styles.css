@@ -244,13 +244,15 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
 }
 #grid-svg {
   position: absolute;
-  top: 0;
   left: 0;
   width: 100%;
-  width: 100%;
+  height: 100%;
   z-index: -1;
   opacity: 0;
   transition: 200ms;
+  background-image: url("/images/GRID.svg");
+  background-size: cover;
+  background-position: center center;
 }
 #grid-svg svg * {
   transition: stroke 400ms;
@@ -273,6 +275,11 @@ nav {
 body.video-player-active nav {
   opacity: 0;
   transition: opacity 600ms;
+}
+header.header {
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 nav.nav {
   display: inline;
@@ -473,7 +480,7 @@ nav.nav ul#main-menu li.active-lang:hover {
   cursor: pointer;
   display: block;
 }
-.hover .video-controls {
+#master-video-player.hover #master-video-player-inner:hover .video-controls {
   opacity: 1;
 }
 #playlist {
@@ -517,9 +524,6 @@ nav.nav ul#main-menu li.active-lang:hover {
   #playlist > *:last-child {
     right: -50px;
   }
-}
-.hover #playlist {
-  opacity: 1;
 }
 .center-page {
   width: 100%;

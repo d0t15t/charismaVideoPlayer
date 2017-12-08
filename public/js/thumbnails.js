@@ -139,14 +139,14 @@ $(document).ready(function(){
               styles.left = numberBetween(0, window.innerWidth - 100 );
             }
 
-
-            var dist     = numberBetween(30, 70);
-            var duration = numberBetween(4300, 7333);
-            var pause = 500;
-            var easing1  = 'easeOutCirc';
-            var easing2  = 'easeInCirc';
-
-            $el.myBounceInPlace(dist, duration, pause, easing1, easing2);
+            if ($el.hasClass('scene_element--title')) {
+              var dist     = numberBetween(30, 70);
+              var duration = numberBetween(4300, 7333);
+              var pause = 500;
+              var easing1  = 'easeOutCirc';
+              var easing2  = 'easeInCirc';
+              $el.myBounceInPlace(dist, duration, pause, easing1, easing2);
+            }
 
             break;
         }
@@ -178,7 +178,8 @@ $(document).ready(function(){
       var $el = $('#' + sE[i].name);
       var targetZone = sE[i].targetZone;
       var speed = 10;
-      var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
+      // var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
+      var targetZoneId = '#grid-' + targetZone;
       if ($el.attr('type') == 'image') {
         $el.bounce('start', {
           'minSpeed'	: speed,
@@ -230,14 +231,14 @@ $(document).ready(function(){
         var $el = $(this);
         // console.log((time < delay) ? delay : i * time);
 
-        var delay = 500;
+        var delay = 50;
         var stepTime = 100;
         var time = delay;
         setTimeout(function(){
           time = (time < delay) ? time : i * 10 * time;
           // console.log(time);
           $el.addClass('se-visible');
-        }, time);
+        }, time * i);
       });
     }
     initSeFade();
