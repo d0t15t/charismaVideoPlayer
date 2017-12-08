@@ -466,6 +466,7 @@ nav.nav ul#main-menu {
   opacity: 1;
 }
 #playlist {
+  display: none;
   position: absolute;
   height: 50px;
   width: 100%;

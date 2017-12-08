@@ -260,7 +260,7 @@ $(document).ready(function(){
 
 function thumbnailSize() {
   var t = {
-    w: '180px', h: '135px'
+    w: '100px', h: '75px'
   };
   if (window.innerWidth > 600) {
     var t = {
