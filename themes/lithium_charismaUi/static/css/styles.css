@@ -1,3 +1,6 @@
+.clear {
+  background-color: rgba(255,255,255,0) !important;
+}
 body {
   font-size: 100%;
 }
@@ -12,22 +15,6 @@ body {
   font-size: 2em;
   color: COLOR_BLACK_DARK;
 }
-header,
-.nav {
-  font: 5vw 'Geo';
-  font-size: 5vw;
-  color: COLOR_BLACK_DARK;
-}
-@media only screen and (min-width: 400px) {
-  header,
-  .nav {
-    font-size: 3vw;
-  }
-}
-header a:hover,
-.nav a:hover {
-  color: #aaa;
-}
 h1,
 h2,
 h3,
@@ -41,7 +28,7 @@ h3,
 h4,
 h5 {
   font-family: 'Fredoka One';
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   color: #111;
   font-weight: light;
 }
@@ -72,28 +59,67 @@ h2 {
     font-size: 1.9vw;
   }
 }
-@media only screen and (max-width: 400px) {
-  h1 {
-    font-size: 3.5vw;
-  }
-  h2 {
-    font-size: 4.5vw;
+header,
+nav.nav {
+  font-family: 'Geo';
+  font-size: font-size-menu;
+  color: COLOR_BLACK_DARK;
+  font-size: 1vw;
+}
+@media only screen and (min-width: 400px) {
+  header,
+  nav.nav {
+    font-size: 3vw;
   }
 }
-header nav.nav h1,
-header nav.nav h2 {
+header a:hover,
+nav.nav a:hover {
+  color: #aaa;
+}
+header h1,
+nav.nav h1,
+header h2,
+nav.nav h2,
+header a,
+nav.nav a {
+  font-size: 5vw;
+  font-family: 'Geo';
   vertical-align: middle;
 }
 @media only screen and (min-width: 600px) {
-  header nav.nav ul {
+  header h1,
+  nav.nav h1,
+  header h2,
+  nav.nav h2,
+  header a,
+  nav.nav a {
+    font-size: 2.7vw;
+    letter-spacing: 1.5px;
+  }
+}
+@media only screen and (min-width: 600px) and (min-width: 800px) {
+  header h1,
+  nav.nav h1,
+  header h2,
+  nav.nav h2,
+  header a,
+  nav.nav a {
+    font-size: 1.7vw;
+  }
+}
+@media only screen and (min-width: 600px) {
+  header ul,
+  nav.nav ul {
     width: 30%;
   }
-  header nav.nav h2 {
+  header h2,
+  nav.nav h2 {
     width: 40%;
   }
 }
 @media only screen and (min-width: 800px) {
-  header nav.nav ul {
+  header ul,
+  nav.nav ul {
     font-size: 1.6vw;
   }
 }
@@ -129,6 +155,9 @@ body {
 }
 body.video-player-active {
   background-color: #0000b3;
+}
+body#credits {
+  background-color: #ffa500;
 }
 body#credits {
   position: relative;
@@ -249,17 +278,35 @@ body.video-player-active #grid-svg * {
   stroke-opacity: 0.3;
 }
 header {
-  opacity: 1;
-  transition: opacity 600ms;
+  transition: all 600ms;
+  position: relative;
+  top: -40px;
+}
+@media only screen and (min-width: 400px) {
+  header {
+    top: -50px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  header {
+    top: -80px;
+  }
+}
+header.active {
+  top: 0;
+}
+body#credits header {
+  display: none;
 }
 body.video-player-active header {
   opacity: 0;
 }
 header.header {
   position: relative;
-  background-color: #ffa500;
   width: 100%;
   z-index: 2;
+  background-color: rgba(255,255,255,0.5);
+  transition: all 300ms;
 }
 header.header nav {
   position: relative;
@@ -274,9 +321,13 @@ header.header nav > * {
   height: 30px;
   vertical-align: middle;
 }
+header.header nav h1#site-title {
+  margin: 0 10px 0 0;
+}
 header.header nav h2#page-title {
   float: left;
   text-align: center;
+  font-style: italic;
 }
 @media only screen and (min-width: 400px) {
   header.header nav h2#page-title {
@@ -292,6 +343,7 @@ header.header nav ul#main-menu {
 }
 header.header nav ul#main-menu li {
   position: relative;
+  top: -3px;
 }
 header.header nav ul#sub-menu {
   position: relative;
@@ -300,7 +352,7 @@ header.header nav ul#sub-menu {
 }
 header.header nav ul li {
   vertical-align: middle;
-  padding: 0 3px;
+  padding: 0 4px;
 }
 header.header nav ul li.active-link > a {
   border-bottom: 2px solid #000;
@@ -311,6 +363,12 @@ header.header nav ul li.active-link > a {
   }
 }
 #master-video-player {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -544,6 +602,11 @@ body.dev .target-zone-label {
 body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   display: block;
 }
+.scene-element__zoom-in {
+  top: 35% !important;
+  left: 50% !important;
+  transform: scale(0.01) translate(-50%, -35%) !important;
+}
 .center-page {
   width: 100%;
   height: 600px;
@@ -562,7 +625,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 .info-page {
   margin: 0px 70px;
   margin-top: -20px;
-  font: 5vw 'Geo';
+  font-family: 'Geo';
   font-size: 0.7em;
   box-sizing: conent-box;
 }
@@ -660,8 +723,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 .center-page > div {
   width: 100%;
-}
-height: 600px {
+  height: 600px;
   overflow: hidden;
   position: absolute;
   top: 50%;
@@ -671,4 +733,10 @@ height: 600px {
   text-align: center;
   margin: 0 auto;
   width: 100%;
+}
+#credits #home-link {
+  position: relative;
+  z-index: 1;
+  font-family: 'Geo';
+  margin: 20px 30px 40px;
 }

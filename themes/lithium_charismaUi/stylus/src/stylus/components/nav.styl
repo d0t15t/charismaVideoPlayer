@@ -1,8 +1,20 @@
 gridSide = 10px
 
 header
-  opacity 1
-  transition opacity 600ms
+  transition all 600ms
+  position relative
+  top -40px
+  +above(2)
+    top -50px
+  +below(1)
+    top -80px
+  &.active
+    top 0
+
+body#credits
+  header
+    display none
+
 body.video-player-active
   header
     opacity 0
@@ -10,11 +22,11 @@ body.video-player-active
 h = 30px
 header.header
   position: relative
-  background-color orange
   width 100%
   z-index: 2
+  background-color rgba(#fff, 0.5)
+  transition all 300ms
   nav
-    // padding 5px 10px
     position relative
     *
       display inline
@@ -24,9 +36,12 @@ header.header
       position relative
       height h
       vertical-align: middle
+    h1#site-title
+      margin 0 10px 0 0
     h2#page-title
       float left
       text-align: center
+      font-style italic
       +above(2)
         line-height: 32px
     ul
@@ -36,7 +51,7 @@ header.header
         float left
         li
           position relative
-          // top -3px
+          top -3px
       &#sub-menu
         position relative
         // top 4px
@@ -44,7 +59,7 @@ header.header
         text-align: right
       li
         vertical-align: middle
-        padding 0 3px
+        padding 0 4px
         &.active-link
           > a
             border-bottom 2px solid black

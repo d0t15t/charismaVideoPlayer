@@ -36,6 +36,7 @@ $.fn.myBounceInPlace = function(dist, duration, pause, easing1, easing2) {
   return this;
 };
 
+
 /**
  *
  */

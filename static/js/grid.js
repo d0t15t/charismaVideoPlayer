@@ -217,9 +217,11 @@ $(document).ready(function(){
 
     $wrapper.css( transform );
   }
-  initGrid();
+
 
   function initSvgGrid(base, direction) {
+
+
     var id = 'grid-svg';
     $('body').append('<div id="grid-svg"></div>');
     var $wr = $('#' + id);
@@ -328,6 +330,7 @@ $(document).ready(function(){
       .attr('stroke-width', '1');
   }
   function initSvgGrid_simple(base, direction) {
+    $('#grid-svg').remove();
     var id = 'grid-svg';
     $('body').append('<div id="grid-svg"></div>');
     var $wr = $('#' + id);
@@ -346,12 +349,13 @@ $(document).ready(function(){
 
 
 
-    $wr.find('svg path, svg line')
-      .attr('stroke', '#ffffff')
-      .attr('fill', 'none')
-      .attr('stroke-width', '1');
   }
+  initGrid();
   initSvgGrid_simple(baseSide, direction);
 
+  $(window).resize(function(){
+    initGrid();
+    initSvgGrid_simple(baseSide, direction);
+  });
 
 });

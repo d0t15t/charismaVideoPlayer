@@ -5,9 +5,9 @@ $(document).ready(function(){
   var test = g.dev;
   var grid = true;
 
-  // add Blue on main page
-  if ($('body').find('.front-page').length > 0)
-    $('body').addClass('blue');
+  setTimeout(function(){
+    $('header').addClass('active');
+  }, 600);
 
   // Grid Toggle
   // @todo: toggle is disabled.
@@ -75,6 +75,11 @@ $(document).ready(function(){
   $('#de-link, #en-link').click(function(){
     $('#de-link, #en-link').removeClass('active-link');
     $(this).addClass('active-link');
+  });
+
+
+  $('header.header').click(function(){
+    $(this).toggleClass('clear');
   });
 
 
