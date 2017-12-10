@@ -10,25 +10,28 @@ disqusShortname = ""
     post = "/:year/:month/:day/:title/"
     page = "/:title/"
 
-
-[[menu.ctrl]]
-    name = "grid-activate"
-    url = "/"
-    identifier = "grid-activate-link"
-    post = ""
-    weight = "-10"
-
 [[menu.main]]
-    name = "DE"
-    url = "#"
-    identifier = "de-link"
+    name = "1"
+    url = "/episode-1"
+    identifier = "episode-1"
+    weight = -50
 [[menu.main]]
+    name = "2"
+    url = "episode-2"
+    identifier = "episode-2"
+    weight = -49
+
+[[menu.sub]]
     name = "EN"
     url = "#"
     identifier = "en-link"
-[[menu.main]]
+[[menu.sub]]
+    name = "DE"
+    url = "#"
+    identifier = "de-link"
+[[menu.sub]]
     name = "¢"
-    url = "credits"
+    url = "/credits"
     identifier = "credits-link"
 
 [params]
