@@ -644,6 +644,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 600px;
   height: 400px;
   margin: 0 auto;
+  z-index: 1;
 }
 .article-content #fullscreen-launch-content .title {
   width: 450px;
@@ -722,6 +723,14 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 #launchpage-scrolling-text marquee:nth-child(2) {
   top: 100%;
   margin-top: -75px;
+  width: 125%;
+  margin-left: -250px;
+}
+#launchpage-scrolling-text marquee:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150%;
+  margin-left: -350px;
 }
 .center-page > div {
   width: 100%;

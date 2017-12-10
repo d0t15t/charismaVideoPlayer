@@ -19,9 +19,16 @@ name = "fullscreen-launch"
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee direction="left">"No adult is an island."</marquee>
-  <marquee direction="right">"What didn't you say?"</marquee>
-  <!-- <marquee direction="left">"Got any coconuts in your backyard?"</marquee> -->
-  <!-- <marquee direction="right">"Boom! And you're inside the mirror."</marquee> -->
+  <marquee direction="right">"Are you lonely?"</marquee>
+  <marquee direction="right">"All I want is to be alone"</marquee>
+  <marquee direction="left">"Me?"</marquee>
+  <!-- <script type="text/javascript">
+    setTimeout(function(){
+      console.log("Hello");
+    }, 100);
+
+      document.getElementById("launchpage-scrolling-text").innerHTML+=
+        '<marquee direction="right">"Are you lonely?"</marquee>';
+  </script> -->
 </div>
 

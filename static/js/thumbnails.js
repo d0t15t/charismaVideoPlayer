@@ -25,7 +25,7 @@ $(document).ready(function(){
     var pause = 500;
     var easing1  = 'easeOutCirc';
     var easing2  = 'easeInCirc';
-    $('.scene_element--title').each(function(i){
+    $('.scene-element.text').each(function(i){
       $(this).myBounceInPlace(dist, duration, pause, easing1, easing2);
     }, 1000 * i );
 
