@@ -4,7 +4,7 @@ title = "Credits"
 +++
 
 <div class="nav" id="home-link">
-  <a href="/"><< Back</a>
+  <a href="/episode-2"><< Back</a>
 </div>
 
 <div id="credits-page" class="info-page">

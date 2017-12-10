@@ -126,15 +126,17 @@ $(document).ready(function(){
  * Init videos in both languages.
  */
 function initPlayers(d, $wr) {
-  for (var i = 0; i < d.items.length; i++) {
-    var vid = d.items[i].videoId;
-    $wr.prepend('<div class="video-player"></div>');
-    var $el = $wr.children().first();
-    $el.attr('id', vid);
-    $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'en');
-    var vid = d.items[i].videoIdGerm;
-    $wr.prepend('<div class="video-player"></div>');
-    var $el = $wr.children().first();
-    $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'de');
+  if (d.hasOwnProperty('items')) {
+    for (var i = 0; i < d.items.length; i++) {
+      var vid = d.items[i].videoId;
+      $wr.prepend('<div class="video-player"></div>');
+      var $el = $wr.children().first();
+      $el.attr('id', vid);
+      $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'en');
+      var vid = d.items[i].videoIdGerm;
+      $wr.prepend('<div class="video-player"></div>');
+      var $el = $wr.children().first();
+      $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'de');
+    }
   }
 }
