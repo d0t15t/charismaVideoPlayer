@@ -52,7 +52,7 @@ $(document).ready(function(){
         case 'image':
           var tSize = thumbnailSize();
           css = thumbnailImageStyles(d, tSize, data);
-          var overlayPath = 'releases/' + data.releaseId + '/' + sE[i].name;
+          var overlayPath = '/releases/' + data.releaseId + '/' + sE[i].name;
           var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
           $el.append(img);
           break;
@@ -297,7 +297,7 @@ function thumbnailSize() {
 
 function thumbnailImageStyles(d, tSize, data) {
   return {
-    'background-image':'url("releases/' + data.releaseId + '/' + d.name + '.jpg")',
+    'background-image':'url("/releases/' + data.releaseId + '/' + d.name + '.jpg")',
     'width': tSize.w,
     'height': tSize.h,
     'transform' : 'translateY(-50%)',

@@ -37,14 +37,13 @@ body.dev
     [zone="3"]
       background-color rgba(100, 0, 80, 1);
 
-
 #grid-svg
   position: absolute
   left 0
   width 100%
   height 100%
   z-index -1
-  opacity 0
+  // opacity 0
   transition 200ms
   background-image: url(/images/GRID.svg)
   background-size cover
@@ -53,12 +52,12 @@ body.dev
     *
       transition stroke 400ms
       stroke-opacity 0.7
-body.grid-active
-  #grid-svg
-    &.active
-      opacity 1
-      svg *
-        stroke #ffffff
+// body.grid-active
+//   #grid-svg
+//     &.active
+//       opacity 1
+//       svg *
+//         stroke #ffffff
 
 
 body.video-player-active

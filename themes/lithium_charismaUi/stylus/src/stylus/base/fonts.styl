@@ -1,7 +1,10 @@
+body
+  font-size 100%
+
 font-family-menu = 'Geo';
 font-family-main = 'Fredoka One';
 
-font-size-menu = 0.95em
+font-size-menu = 5vw
 font-size-main = 2em
 
 font-menu = font-size-menu font-family-menu
@@ -12,15 +15,21 @@ a, a:link, a:visited
   text-decoration: none
 
 body
-  font font-main
+  font-family: font-family-main
+  font-size: font-size-main
   color COLOR_BLACK_DARK
 
 header, .nav
   font font-menu
   font-size font-size-menu
   color COLOR_BLACK_DARK
+  +above(2)
+    font-size 3vw
   a:hover
     color COLOR_GREY
+
+h1, h2, h3, h4, h5
+  margin 0
 
 h1, h2, h3, h4, h5
   font-family font-family-main
@@ -32,7 +41,36 @@ h1, h2, h3, h4, h5
     text-shadow 3px 3px 0px rgba(black, 1);
 
 h1
-  font-size 1.2em
+  font-size 1.3vw
+  +above(3)
+    line-height: 30px
+h2
+  font-size 1.7vw
+
++above(2)
+  h1
+    font-size 1.7vw
+  h2
+    font-size 1.9vw
++below(1)
+  h1
+    font-size 3.5vw
+  h2
+    font-size 4.5vw
+
+header nav.nav
+  h1, h2
+    vertical-align: middle
+  +above(3)
+    ul
+      width 30%
+    h2
+      width 40%
+  +above(4)
+    ul
+      font-size 1.6vw
+
+
 
 .scene-element
   .text

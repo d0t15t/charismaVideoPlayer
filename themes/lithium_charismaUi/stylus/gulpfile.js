@@ -1,10 +1,17 @@
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var concat = require('gulp-concat');
+var nib = require('nib');
+var rupture = require('rupture');
 
 gulp.task('stylus', function() {
   return gulp.src('src/stylus/index.styl')
-    .pipe(stylus())
+    .pipe(stylus({
+      use: [
+        nib(),
+        rupture()
+      ],
+    }))
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('public/css/'))
     .pipe(gulp.dest('../static/css/')); // Copy files to hugo.
