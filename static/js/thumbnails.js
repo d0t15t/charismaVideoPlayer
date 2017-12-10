@@ -233,7 +233,7 @@ function thumbnailSize() {
   }
   if (window.innerWidth > 800) {
     var t = {
-      w: '280px', h: '235px'
+      w: '290px', h: '220px'
     };
   }
   return t;

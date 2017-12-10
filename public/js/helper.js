@@ -78,9 +78,6 @@ $(document).ready(function(){
   });
 
 
-  $('header.header').click(function(){
-    $(this).toggleClass('clear');
-  });
 
 
 });
