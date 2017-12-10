@@ -147,7 +147,7 @@ d.e =
       "classes": 'scene_element--title scene-element__zoom-in',
       "landscape": {
         "x": '60%',
-        "y": '100%',
+        "y": '90%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {

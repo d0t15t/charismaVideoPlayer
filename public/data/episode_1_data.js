@@ -115,28 +115,6 @@ d.e =
     },
     {
       "type": "text",
-      "targetZone": 7,
-      "id": "Kitchen",
-      "name": "Kitchen",
-      "videoId": "245587654",
-      "videoIdGerm": "245587344",
-      "classes": 'scene_element--title scene-element__zoom-in',
-      "landscape": {
-        "x": '50%',
-        "y": '90%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '50%',
-        "y": '90%',
-        "rotate" : "rotate(0deg)",
-      },
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
-    {
-      "type": "text",
       "targetZone": 9,
       "id": "Teatime",
       "name": "Teatime",

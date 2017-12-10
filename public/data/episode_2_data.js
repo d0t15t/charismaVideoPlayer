@@ -11,35 +11,13 @@ d.e =
       "videoIdGerm": "246651303",
       "classes": 'scene-element__zoom-in',
       "landscape": {
-        "x": '70%',
-        "y": '70%',
+        "x": '-2%',
+        "y": '63%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
         "x": '70%',
         "y": '70%',
-        "rotate" : "rotate(0deg)",
-      },
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
-    {
-      "type": "image",
-      "targetZone": 5,
-      "id": "Breakfast_Part_2",
-      "name": "Breakfast_Part_2",
-      "videoId": "246617947",
-      "videoIdGerm": "246617420",
-      "classes": 'scene-element__zoom-in',
-      "landscape": {
-        "x": '55%',
-        "y": '55%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '55%',
-        "y": '55%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -49,14 +27,36 @@ d.e =
     {
       "type": "image",
       "targetZone": 6,
+      "id": "Breakfast_Part_2",
+      "name": "Breakfast_Part_2",
+      "videoId": "246617947",
+      "videoIdGerm": "246617420",
+      "classes": 'scene-element__zoom-in',
+      "landscape": {
+        "x": '65%',
+        "y": '65%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '55%',
+        "y": '45%',
+        "rotate" : "rotate(0deg)",
+      },
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "image",
+      "targetZone": 8,
       "id": "Family_Constellations",
       "name": "Family_Constellations",
       "videoId": "246622810",
       "videoIdGerm": "246624488",
       "classes": 'scene-element__zoom-in',
       "landscape": {
-        "x": '100%',
-        "y": '30%',
+        "x": '62%',
+        "y": '18%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
@@ -77,8 +77,8 @@ d.e =
       "videoIdGerm": "246652476",
       "classes": 'scene-element__zoom-in',
       "landscape": {
-        "x": '0%',
-        "y": '40%',
+        "x": '-9%',
+        "y": '30%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
@@ -100,8 +100,8 @@ d.e =
       "videoIdGerm": "246652007",
       "classes": 'scene-element__zoom-in',
       "landscape": {
-        "x": '20%',
-        "y": '10%',
+        "x": '0%',
+        "y": '70%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
@@ -123,8 +123,8 @@ d.e =
       "videoIdGerm": "246618472",
       "classes": 'scene-element__zoom-in',
       "landscape": {
-        "x": '80%',
-        "y": '30%',
+        "x": '38%',
+        "y": '48%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
@@ -137,5 +137,28 @@ d.e =
         'transform': 'scale(1)'
       },
     },
+    {
+      "type": "text",
+      "targetZone": 7,
+      "id": "Kitchen",
+      "name": "Kitchen",
+      "videoId": "245587654",
+      "videoIdGerm": "245587344",
+      "classes": 'scene_element--title scene-element__zoom-in',
+      "landscape": {
+        "x": '60%',
+        "y": '90%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '50%',
+        "y": '120%',
+        "rotate" : "rotate(0deg)",
+      },
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+
   ]
 };

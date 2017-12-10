@@ -60,7 +60,7 @@ header,
 nav.nav {
   font-family: 'Geo';
   font-size: font-size-menu;
-  color: COLOR_BLACK_DARK;
+  color: #fff;
   font-size: 1vw;
 }
 @media only screen and (min-width: 400px) {
@@ -82,6 +82,7 @@ nav.nav a {
   font-size: 5vw;
   font-family: 'Geo';
   vertical-align: middle;
+  color: #fff;
 }
 @media only screen and (min-width: 600px) {
   header h1,
@@ -118,6 +119,11 @@ nav.nav a {
   header ul,
   nav.nav ul {
     font-size: 1.6vw;
+  }
+}
+@media only screen and (min-width: 800px) {
+  #sub-menu a {
+    font-size: 1.3vw;
   }
 }
 .scene-element .text {
@@ -282,16 +288,16 @@ body.video-player-active #grid-svg * {
 header {
   transition: all 600ms;
   position: relative;
-  top: -40px;
+  top: -30px;
 }
 @media only screen and (min-width: 400px) {
   header {
-    top: -50px;
+    top: -30px;
   }
 }
 @media only screen and (max-width: 400px) {
   header {
-    top: -80px;
+    top: -40px;
   }
 }
 header.active {
@@ -307,7 +313,7 @@ header.header {
   position: relative;
   width: 100%;
   z-index: 2;
-  background-color: rgba(255,255,255,0.5);
+  background-color: #000;
   transition: all 300ms;
 }
 header.header nav {
@@ -318,10 +324,14 @@ header.header nav * {
   box-sizing: border-box;
 }
 header.header nav > * {
-  padding: 5px 10px;
+  padding: 4px 10px;
   position: relative;
-  height: 30px;
+  height: 25px;
   vertical-align: middle;
+}
+header.header nav h1#site-title,
+header.header nav h2#page-title {
+  line-height: 13px;
 }
 header.header nav h1#site-title {
   margin: 0 10px 0 0;
@@ -333,22 +343,23 @@ header.header nav h2#page-title {
 }
 @media only screen and (min-width: 400px) {
   header.header nav h2#page-title {
-    line-height: 32px;
+    line-height: 22px;
   }
 }
 header.header nav ul {
   position: relative;
-  height: 30px;
+  height: 25px;
 }
 header.header nav ul#main-menu {
   float: left;
 }
 header.header nav ul#main-menu li {
   position: relative;
-  top: -3px;
+  top: -5px;
 }
 header.header nav ul#sub-menu {
   position: relative;
+  top: -4.5px;
   float: right;
   text-align: right;
 }
@@ -357,11 +368,11 @@ header.header nav ul li {
   padding: 0 4px;
 }
 header.header nav ul li.active-link > a {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #fff;
 }
 @media only screen and (min-width: 600px) {
   header.header nav.nav > * {
-    height: 40px;
+    height: 30px;
   }
 }
 #master-video-player {
@@ -644,6 +655,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 600px;
   height: 400px;
   margin: 0 auto;
+  z-index: 1;
 }
 .article-content #fullscreen-launch-content .title {
   width: 450px;
@@ -722,6 +734,14 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 #launchpage-scrolling-text marquee:nth-child(2) {
   top: 100%;
   margin-top: -75px;
+  width: 125%;
+  margin-left: -250px;
+}
+#launchpage-scrolling-text marquee:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150%;
+  margin-left: -350px;
 }
 .center-page > div {
   width: 100%;
