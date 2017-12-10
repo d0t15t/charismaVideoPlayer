@@ -20,7 +20,7 @@ body.video-player-active
     opacity 0
 
 h = 25px
-header.header
+header.header, footer
   position: relative
   width 100%
   z-index: 2
@@ -67,8 +67,12 @@ header.header
           > a
             border-bottom 2px solid white
 
+footer
+  position fixed
+  bottom 0
+
 +above(3)
-  header.header
+  header.header, footer
     nav.nav
       > *
         height h + 5px

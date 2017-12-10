@@ -11,12 +11,12 @@ disqusShortname = ""
     page = "/:title/"
 
 [[menu.main]]
-    name = "1"
+    name = "E1"
     url = "/episode-1"
     identifier = "episode-1"
     weight = -50
 [[menu.main]]
-    name = "2"
+    name = "E2"
     url = "/episode-2"
     identifier = "episode-2"
     weight = -49
