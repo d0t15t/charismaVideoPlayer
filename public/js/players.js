@@ -52,7 +52,7 @@ $(document).ready(function(){
           $(this).bounce('stop');
         });
 
-        var activeLang = $('.lang-link.active-lang').attr('lang');
+        var activeLang = $('.lang-link.active-link').attr('lang');
         var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
         var player  = initPlayer(vid);
         player.on('ended', function(data) {
