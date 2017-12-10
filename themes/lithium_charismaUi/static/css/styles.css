@@ -806,6 +806,8 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 #credits header,
 #fullscreen-launch header,
+#credits footer,
+#fullscreen-launch footer,
 #credits #scene-elements,
 #fullscreen-launch #scene-elements {
   display: none;
