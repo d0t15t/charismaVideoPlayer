@@ -8,12 +8,12 @@ name = "fullscreen-launch"
   <div class="inner">
     <div class="rounded-logo"></div>
       <div class="circle">
-        <a href="/" >
+        <a href="/episode-2" >
       </div>
       <!-- <div class="rounded-enter"></div> -->
     </a>
-    <a class="title" href="/" >
-      <img src="/images/Episode-1-title.svg">
+    <a class="title" href="/episode-2" >
+      <img src="/images/Episode_2_Psycologistical.svg">
       <!-- <h1 class="headline-style-1">Episode 1: Miscommunication</h1> -->
     </a>
   </div>

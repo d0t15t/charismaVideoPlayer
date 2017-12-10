@@ -41,18 +41,22 @@ $(document).ready(function(){
  */
 function initTextEl(n, $wr) {
   var append = '<div class="scene-element"></div>';
-  for (var i = 0; i < n.items.length; i++) {
-    var d = n.items[i];
-    if (d.type == 'text') {
-      $wr.prepend(append);
+  if (n.hasOwnProperty('items')) {
+    for (var i = 0; i < n.items.length; i++) {
       var d = n.items[i];
-      var $el = $wr.children().first();
-      $el.sceneElAttr(d);
-      css = thumbnailTextStyles(d);
-      var text = '<div class="text">' + d.name + '</div>';
-      $el.append(text);
-      $el.css(Object.assign({}, css, d.styles));
-      $el.placeIn3dTargetZone(d);
+      if (d.type == 'text') {
+        $wr.prepend(append);
+        var d = n.items[i];
+        var $el = $wr.children().first();
+        $el.sceneElAttr(d);
+        var text = '<div class="text">' + d.name + '</div>';
+        $el.append(text);
+        $el.css(d.styles);
+        $el.placeIn3dTargetZone(d);
+        css = thumbnailTextStyles(d);
+        css.transform += ' scale(' + $el.attr('scale') + ')';
+        $el.children().css(css);
+      }
     }
   }
 }
@@ -62,20 +66,22 @@ function initTextEl(n, $wr) {
  */
 function initImages(n, $wr) {
   var append = '<div class="scene-element"></div>';
-  for (var i = 0; i < n.items.length; i++) {
-    var d = n.items[i];
-    if (d.type == 'image') {
-      $wr.prepend(append);
-      var $el = $wr.children().first();
-      $el.sceneElAttr(d);
-      var css = {};
-      var tSize = thumbnailSize();
-      css = thumbnailImageStyles(d, tSize, n.releaseId);
-      var overlayPath = '/releases/' + n.releaseId + '/' + d.name;
-      var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
-      $el.append(img);
-      $el.css(Object.assign({}, css, d.styles));
-      $el.placeIn3dTargetZone(d);
+  if (n.hasOwnProperty('items')) {
+    for (var i = 0; i < n.items.length; i++) {
+      var d = n.items[i];
+      if (d.type == 'image') {
+        $wr.prepend(append);
+        var $el = $wr.children().first();
+        $el.sceneElAttr(d);
+        var css = {};
+        var tSize = thumbnailSize();
+        css = thumbnailImageStyles(d, tSize, n.releaseId);
+        var overlayPath = '/releases/' + n.releaseId + '/' + d.name;
+        var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
+        $el.append(img);
+        $el.css(Object.assign({}, css, d.styles));
+        $el.placeIn3dTargetZone(d);
+      }
     }
   }
 }
@@ -105,8 +111,6 @@ $.fn.placeIn3dTargetZone = function(d) {
   var targetZone = d.targetZone;
   var $targetZone = $('[segment="' + targetZone + '"]').first();
   var zoneMax = $('[segment]').last().attr('segment');
-  // targetZones[targetZone] = $targetZone;
-
   $el.box = {
     w: $targetZone.outerWidth(),
     h: $targetZone.outerHeight(),
@@ -116,7 +120,7 @@ $.fn.placeIn3dTargetZone = function(d) {
   // Set scale basedon topZone
   $el.attr('target-zone', targetZone);
   var scale = (zoneMax - targetZone) / zoneMax;
-  d.styles.transform += 'scale(' + scale + ')';
+  d.styles.transform += 'scale(' + (scale) + ')';
 
   // Init Place element within the bounds of its parent zone top left,
   // on an edge. Use bounds b/c scaling doesn't change outerH/W.
@@ -132,39 +136,17 @@ $.fn.placeIn3dTargetZone = function(d) {
   };
   $el.css(styles);
   // Custom placement
-  if (d.hasOwnProperty('position')) {
-    if (
-      d.position.hasOwnProperty('x')
-      && d.position.hasOwnProperty('y')
-    ) {
-      // Get user input: "10%" as a decimal.
-      var decFactor = 100;
-      var x = parseInt(d.position.x) / decFactor;
-      var y = parseInt(d.position.y) / decFactor;
-      // styles.top = (th.box.t + (th.box.h * y)) - (elBounds.height / 2);
-      // styles.left = th.box.l + (th.box.w * x) - (elBounds.width / 2);
-      styles.top = ($el.box.t + ($el.box.h * y));
-      styles.left = $el.box.l + ($el.box.w * x);
-    }
-  }
-  switch($el.attr('type')) {
-    case 'text':
-      $el.children('.text').css({
-        'transform' : 'scale(' + (scale * 1.5) + ') ' + d.rotate,
-      });
+  var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
+  var decFactor = 100;
+  var x = parseInt(d[orientation].x) / decFactor;
+  var y = parseInt(d[orientation].y) / decFactor;
 
-      var topPos = ($el.box.t + ($el.box.h * y)) - (elBounds.height / 2);
-      var lefPos = $el.box.l + ($el.box.w * x) - (elBounds.width / 2);
+  styles.top = ($el.box.t + ($el.box.h * y));
+  styles.left = $el.box.l + ($el.box.w * x);
 
-
-      break;
-    case 'image':
-      break;
-  }
   $el.css(styles);
 
   return this;
-
 };
 
 /**
@@ -267,10 +249,12 @@ function thumbnailImageStyles(d, tSize, id) {
 }
 
 function thumbnailTextStyles(d, tSize) {
+  var orientation = window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
   return {
     'left': 0,
     'top': 0,
-    'z-indez': 1,
+    'z-index': 1,
+    'transform' : d[orientation].rotate
   };
 }
 

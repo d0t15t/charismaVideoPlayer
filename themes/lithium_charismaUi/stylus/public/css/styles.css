@@ -1,9 +1,6 @@
 .clear {
   background-color: rgba(255,255,255,0) !important;
 }
-body {
-  font-size: 100%;
-}
 a,
 a:link,
 a:visited {
@@ -156,7 +153,8 @@ body {
 body.video-player-active {
   background-color: #0000b3;
 }
-body#credits {
+body#credits,
+body#fullscreen-launch {
   background-color: #ffa500;
 }
 body#credits {
@@ -271,6 +269,10 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
 #grid-svg svg * {
   transition: stroke 400ms;
   stroke-opacity: 0.7;
+}
+body#credits #grid-svg,
+body#fullscreen-launch #grid-svg {
+  display: none;
 }
 body.video-player-active #grid-svg svg,
 body.video-player-active #grid-svg * {
@@ -688,7 +690,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background-image: url("/images/title-color.jpg");
+  background-image: url("/images/charisma-e2-title-image.jpg");
   background-position-x: -11px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -723,9 +725,8 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 .center-page > div {
   width: 100%;
-  height: 600px;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -734,9 +735,16 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   margin: 0 auto;
   width: 100%;
 }
-#credits #home-link {
+#credits #home-link,
+#fullscreen-launch #home-link {
   position: relative;
   z-index: 1;
   font-family: 'Geo';
   margin: 20px 30px 40px;
+}
+#credits header,
+#fullscreen-launch header,
+#credits #scene-elements,
+#fullscreen-launch #scene-elements {
+  display: none;
 }

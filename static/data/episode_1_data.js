@@ -10,11 +10,16 @@ d.e =
       "videoId": "245555706",
       "videoIdGerm": "245728592",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '70%',
         "y": '70%',
+        "rotate" : "rotate(0deg)",
       },
-      "rotate" : "",
+      "portrait": {
+        "x": '70%',
+        "y": '70%',
+        "rotate" : "rotate(0deg)",
+      },
       "styles": {
         'transform': 'scale(1)'
       },
@@ -27,11 +32,16 @@ d.e =
       "videoId": "245525806",
       "videoIdGerm": "245726343",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '55%',
         "y": '55%',
+        "rotate" : "rotate(0deg)",
       },
-      "rotate" : "",
+      "portrait": {
+        "x": '55%',
+        "y": '55%',
+        "rotate" : "rotate(0deg)",
+      },
       "styles": {
         'transform': 'scale(1)'
       },
@@ -44,11 +54,16 @@ d.e =
       "videoId": "245579568",
       "videoIdGerm": "245734969",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '100%',
         "y": '30%',
+        "rotate" : "rotate(0deg)",
       },
-      "rotate" : "",
+      "portrait": {
+        "x": '100%',
+        "y": '30%',
+        "rotate" : "rotate(0deg)",
+      },
       "styles": {
         'transform': 'scale(1)'
       },
@@ -61,9 +76,15 @@ d.e =
       "videoId": "245529827",
       "videoIdGerm": "245531429",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '0%',
         "y": '40%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '0%',
+        "y": '40%',
+        "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
       "styles": {
@@ -78,11 +99,16 @@ d.e =
       "videoId": "245575563",
       "videoIdGerm": "245575295",
       "classes": 'scene_element--title scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '-10%',
         "y": '100%',
+        "rotate" : "rotate(0deg)",
       },
-      "rotate" : "",
+      "portrait": {
+        "x": '-10%',
+        "y": '100%',
+        "rotate" : "rotate(0deg)",
+      },
       "styles": {
         'transform': 'scale(1)'
       },
@@ -95,11 +121,16 @@ d.e =
       "videoId": "245587654",
       "videoIdGerm": "245587344",
       "classes": 'scene_element--title scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '50%',
         "y": '90%',
+        "rotate" : "rotate(0deg)",
       },
-      "rotate" : "",
+      "portrait": {
+        "x": '50%',
+        "y": '90%',
+        "rotate" : "rotate(0deg)",
+      },
       "styles": {
         'transform': 'scale(1)'
       },
@@ -112,9 +143,15 @@ d.e =
       "videoId": "245536162",
       "videoIdGerm": "245730560",
       "classes": 'scene_element--title scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '90%',
         "y": '20%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '90%',
+        "y": '20%',
+        "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
       "styles": {
@@ -129,9 +166,15 @@ d.e =
       "videoId": "245517121",
       "videoIdGerm": "245517202",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '20%',
         "y": '10%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '20%',
+        "y": '10%',
+        "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
       "styles": {
@@ -146,9 +189,15 @@ d.e =
       "videoId": "245515257",
       "videoIdGerm": "245516029",
       "classes": 'scene_element--title scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '0%',
         "y": '50%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '0%',
+        "y": '50%',
+        "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
       "styles": {
@@ -163,9 +212,15 @@ d.e =
       "videoId": "245539150",
       "videoIdGerm": "245541084",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '80%',
         "y": '30%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '80%',
+        "y": '30%',
+        "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
       "styles": {
@@ -180,9 +235,15 @@ d.e =
       "videoId": "245528529",
       "videoIdGerm": "245528529",
       "classes": 'scene-element__zoom-in',
-      "position": {
+      "landscape": {
         "x": '-30%',
         "y": '80%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '-30%',
+        "y": '80%',
+        "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
       "styles": {

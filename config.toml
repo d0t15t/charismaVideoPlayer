@@ -17,7 +17,7 @@ disqusShortname = ""
     weight = -50
 [[menu.main]]
     name = "2"
-    url = "episode-2"
+    url = "/episode-2"
     identifier = "episode-2"
     weight = -49
 

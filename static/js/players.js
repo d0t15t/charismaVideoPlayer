@@ -37,45 +37,42 @@ $(document).ready(function(){
     var activePlayerId = $('.video-player.active').attr('id');
     players[activePlayerId].pause();
     $('.scene-element').eq(index).click();
-
   });
 
+  /**
+   *
+   */
+  function initTriggers(players) {
+    $('.scene-element').each(function(i, e){
+      var $trigger = $(this);
+      $trigger.click(function(){
 
+        // stop animations, launch player
+        $('.scene-element').each(function() {
+          $(this).bounce('stop');
+        });
 
-/**
- *
- */
-function initTriggers(players) {
-  $('.scene-element').each(function(i, e){
-    var $trigger = $(this);
-    $trigger.click(function(){
+        var activeLang = $('.lang-link.active-lang').attr('lang');
+        var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
+        var player  = initPlayer(vid);
+        player.on('ended', function(data) {
+          closeVideoPlayer();
+        });
 
-      // stop animations, launch player
-      $('.scene-element').each(function() {
-        $(this).bounce('stop');
+        $('body').addClass('video-player-active');
+        $('#master-video-player').addClass('active');
+        $.each(players, function(i,e){
+          $('#' + i).removeClass('active');
+        });
+        $('#' + vid).addClass('active');
+
+        // var elem = document.getElementById(vid);
+        // if (elem.requestFullscreen) {
+        //   elem.requestFullscreen();
+        // }
       });
-
-      var activeLang = $('.lang-link.active-lang').attr('lang');
-      var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
-      var player  = initPlayer(vid);
-      player.on('ended', function(data) {
-        closeVideoPlayer();
-      });
-
-      $('body').addClass('video-player-active');
-      $('#master-video-player').addClass('active');
-      $.each(players, function(i,e){
-        $('#' + i).removeClass('active');
-      });
-      $('#' + vid).addClass('active');
-
-      // var elem = document.getElementById(vid);
-      // if (elem.requestFullscreen) {
-      //   elem.requestFullscreen();
-      // }
     });
-  });
-}
+  }
 
   /**
    * Close video player.
