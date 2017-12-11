@@ -106,13 +106,19 @@ l = 200px
     &:nth-child(2)
       top 100%
       margin-top -75px
-      width: 125%
-      margin-left -250px
+      width: 150%
+      margin-left -150px
+      +above(4)
+        width: 125%
+        margin-left -250px
     &:nth-child(3)
       top 50%
       transform translateY(-50%)
-      width: 150%
-      margin-left -350px
+      width: 180%
+      margin-left -150px
+      +above(4)
+        width: 150%
+        margin-left -350px
 
 .center-page > div
   width: 100%;

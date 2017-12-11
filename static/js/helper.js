@@ -33,7 +33,11 @@ $(document).ready(function(){
     $(this).addClass('active-link');
   });
 
-
+  // Home page set default latest episode
+  if (window.location.pathname == '/') {
+    $('h2#page-title').text(d.e.title);
+    $('#main-menu li').eq(d.e.releaseId - 1).addClass('active-link');
+  }
 
 
 });

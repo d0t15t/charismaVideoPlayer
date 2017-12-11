@@ -440,7 +440,7 @@ footer nav ul#main-menu li {
 @media only screen and (min-width: 400px) {
   header.header nav ul#main-menu li,
   footer nav ul#main-menu li {
-    top: -3px;
+    top: -2px;
   }
 }
 header.header nav ul#sub-menu,
@@ -453,7 +453,7 @@ footer nav ul#sub-menu {
 @media only screen and (min-width: 400px) {
   header.header nav ul#sub-menu,
   footer nav ul#sub-menu {
-    top: -3px;
+    top: -2px;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -836,14 +836,26 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 #launchpage-scrolling-text marquee:nth-child(2) {
   top: 100%;
   margin-top: -75px;
-  width: 125%;
-  margin-left: -250px;
+  width: 150%;
+  margin-left: -150px;
+}
+@media only screen and (min-width: 800px) {
+  #launchpage-scrolling-text marquee:nth-child(2) {
+    width: 125%;
+    margin-left: -250px;
+  }
 }
 #launchpage-scrolling-text marquee:nth-child(3) {
   top: 50%;
   transform: translateY(-50%);
-  width: 150%;
-  margin-left: -350px;
+  width: 180%;
+  margin-left: -150px;
+}
+@media only screen and (min-width: 800px) {
+  #launchpage-scrolling-text marquee:nth-child(3) {
+    width: 150%;
+    margin-left: -350px;
+  }
 }
 .center-page > div {
   width: 100%;
