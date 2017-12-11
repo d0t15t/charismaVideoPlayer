@@ -17,8 +17,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '70%',
-        "y": '70%',
+        "x": '25%',
+        "y": '95%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -39,8 +39,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '55%',
-        "y": '55%',
+        "x": '45%',
+        "y": '75%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -61,7 +61,7 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '100%',
+        "x": '65%',
         "y": '30%',
         "rotate" : "rotate(0deg)",
       },
@@ -106,8 +106,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '-10%',
-        "y": '100%',
+        "x": '10%',
+        "y": '5%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -115,21 +115,21 @@ d.e =
       },
     },
     {
-      "type": "text",
+      "type": "image",
       "targetZone": 9,
-      "id": "Teatime",
-      "name": "Teatime",
+      "id": "Howy_Album",
+      "name": "Howy_Album",
       "videoId": "245536162",
       "videoIdGerm": "245730560",
-      "classes": 'scene_element--title scene-element__zoom-in',
+      "classes": 'scene-element__zoom-in',
       "landscape": {
         "x": '90%',
         "y": '20%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '90%',
-        "y": '20%',
+        "x": '50%',
+        "y": '60%',
         "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
@@ -151,8 +151,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '20%',
-        "y": '10%',
+        "x": '10%',
+        "y": '90%',
         "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
@@ -174,8 +174,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '0%',
-        "y": '50%',
+        "x": '25%',
+        "y": '10%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -196,8 +196,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '80%',
-        "y": '30%',
+        "x": '55%',
+        "y": '40%',
         "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
@@ -219,7 +219,7 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '-30%',
+        "x": '85%',
         "y": '80%',
         "rotate" : "rotate(0deg)",
       },

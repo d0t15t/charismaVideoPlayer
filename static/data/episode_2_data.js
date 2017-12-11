@@ -17,8 +17,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '70%',
-        "y": '70%',
+        "x": '25%',
+        "y": '90%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -39,8 +39,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '55%',
-        "y": '45%',
+        "x": '67%',
+        "y": '72%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -61,7 +61,7 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '100%',
+        "x": '60%',
         "y": '30%',
         "rotate" : "rotate(0deg)",
       },
@@ -83,8 +83,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '0%',
-        "y": '40%',
+        "x": '10%',
+        "y": '10%',
         "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
@@ -106,8 +106,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '20%',
-        "y": '10%',
+        "x": '10%',
+        "y": '90%',
         "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
@@ -129,8 +129,8 @@ d.e =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '80%',
-        "y": '30%',
+        "x": '40%',
+        "y": '70%',
         "rotate" : "rotate(0deg)",
       },
       "rotate" : "",
@@ -153,7 +153,7 @@ d.e =
       },
       "portrait": {
         "x": '50%',
-        "y": '120%',
+        "y": '100%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {

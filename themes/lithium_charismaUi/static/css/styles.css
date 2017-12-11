@@ -650,11 +650,6 @@ footer nav ul li.active-link > a {
   height: 100%;
   transition: all 400ms;
 }
-@media only screen and (max-width: 400px) {
-  #scene-elements {
-    transform: rotate(90deg);
-  }
-}
 #scene-elements .scene-element {
   transform-origin: top left;
   position: fixed;

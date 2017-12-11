@@ -16,8 +16,8 @@ d.n =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '50%',
-        "y": '90%',
+        "x": '60%',
+        "y": '60%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
@@ -38,9 +38,9 @@ d.n =
         "rotate" : "rotate(-90deg)",
       },
       "portrait": {
-        "x": '2%',
-        "y": '55%',
-        "rotate" : "rotate(0deg)",
+        "x": '25%',
+        "y": '70%',
+        "rotate" : "rotate(-90deg)",
       },
       "styles": {
         'transform': 'scale(1)'
@@ -60,9 +60,9 @@ d.n =
         "rotate" : "rotate(-45deg)",
       },
       "portrait": {
-        "x": '90%',
-        "y": '80%',
-        "rotate" : "rotate(0deg)",
+        "x": '60%',
+        "y": '100%',
+        "rotate" : "rotate(-45deg)",
       },
       "styles": {
         'transform': 'scale(1)'
@@ -82,8 +82,8 @@ d.n =
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '10%',
-        "y": '25%',
+        "x": '25%',
+        "y": '10%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {
