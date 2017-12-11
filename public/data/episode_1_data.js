@@ -1,6 +1,7 @@
 d.e =
 {
   "releaseId": '1',
+  "title": 'Miscommunication',
   "items": [
     {
       "type": "image",
