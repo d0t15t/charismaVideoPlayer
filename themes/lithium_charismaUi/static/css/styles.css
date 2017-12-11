@@ -49,9 +49,7 @@ h2 {
   font-size: 1.3vw;
 }
 @media only screen and (min-width: 400px) {
-  h1 {
-    font-size: 1.7vw;
-  }
+  h1,
   h2 {
     font-size: 1.7vw;
   }
@@ -99,7 +97,7 @@ header a,
 nav.nav a,
 footer a {
   font-weight: 100;
-  font-size: 5vw;
+  font-size: 4vw;
   font-family: 'Geo';
   vertical-align: middle;
   color: #fff;
@@ -121,7 +119,7 @@ footer a {
   header a,
   nav.nav a,
   footer a {
-    font-size: 2.7vw;
+    font-size: 2.2vw;
     letter-spacing: 1px;
   }
 }
@@ -141,14 +139,14 @@ footer a {
   header a,
   nav.nav a,
   footer a {
-    font-size: 1.7vw;
+    font-size: 1.2vw;
   }
 }
 @media only screen and (min-width: 800px) {
   header a,
   nav.nav a,
   footer a {
-    font-size: 1.5vw !important;
+    font-size: 1.2vw !important;
   }
 }
 @media only screen and (min-width: 800px) {
@@ -382,6 +380,13 @@ footer nav a {
 header.header nav h1#site-title,
 footer nav h1#site-title {
   margin: 0 10px 0 0;
+  display: none;
+}
+@media only screen and (min-width: 400px) {
+  header.header nav h1#site-title,
+  footer nav h1#site-title {
+    display: inline;
+  }
 }
 header.header nav h2#page-title,
 footer nav h2#page-title {
@@ -411,7 +416,6 @@ footer nav h2#page-title {
 header.header nav h4,
 footer nav h4 {
   position: relative;
-  display: none;
 }
 @media only screen and (min-width: 800px) {
   header.header nav h4,

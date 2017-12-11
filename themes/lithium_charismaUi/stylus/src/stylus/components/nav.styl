@@ -47,8 +47,9 @@ header.header, footer
       line-height: 13px
     h1#site-title
       margin 0 10px 0 0
-      // +above(2)
-      //   position relative
+      display none
+      +above(2)
+        display inline
       //   top -1.5px
       // +above(4)
       //   top -2.5px
@@ -70,7 +71,7 @@ header.header, footer
 
     h4
       position relative
-      display none
+      // display none
       +above(4)
         display inline
         margin-left 20px
