@@ -227,7 +227,7 @@ function initOrbits() {
 
 function thumbnailSize() {
   var t = {
-    w: '150px', h: '112.5px'
+    w: '200px', h: '150px'
   };
   if (window.innerWidth > 600) {
     var t = {
