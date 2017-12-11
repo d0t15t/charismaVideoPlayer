@@ -26,8 +26,11 @@ $(document).ready(function(){
     var easing1  = 'easeOutCirc';
     var easing2  = 'easeInCirc';
     $('.scene-element.text').each(function(i){
-      $(this).myBounceInPlace(dist, duration, pause, easing1, easing2);
-    }, 1000 * i );
+      var $bounce = $(this);
+      setTimeout(function(i){
+        $bounce.myBounceInPlace(dist, duration, pause, easing1, easing2);
+      }, 900 * i );
+    });
 
     // initOrbits();
 
@@ -224,11 +227,11 @@ function initOrbits() {
 
 function thumbnailSize() {
   var t = {
-    w: '100px', h: '75px'
+    w: '150px', h: '112.5px'
   };
   if (window.innerWidth > 600) {
     var t = {
-      w: '100px', h: '75px'
+      w: '200px', h: '150px'
     };
   }
   if (window.innerWidth > 800) {

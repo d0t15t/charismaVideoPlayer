@@ -34,13 +34,13 @@ h1
   +above(3)
     line-height: 30px
 h2
-  font-size 1.7vw
+  font-size 1.3vw
 
 +above(2)
   h1
     font-size 1.7vw
   h2
-    font-size 1.9vw
+    font-size 1.7vw
 // +below(1)
 //   h1
 //     font-size 15vw
@@ -57,26 +57,28 @@ header, nav.nav, footer
   font-size font-size-menu
   color white
   font-size 1vw
+  text-transform uppercase
   +above(2)
     font-size 3vw
   a:hover
     color COLOR_GREY
 
-  h1, h2, a
+  h1, h2, h3, h4, a
+    font-weight: 100
     font-size: 5vw
     font-family font-family-menu
     vertical-align: middle
     color white
+    letter-spacing 0px
     +above(3)
       font-size: 2.7vw
-      letter-spacing: 1.5px
+      letter-spacing: 1px
       +above(4)
         font-size: 1.7vw
-  +above(3)
-    ul
-      width 30%
-    h2
-      width 40%
+  +above(4)
+    a
+      font-size: 1.5vw !important
+
   +above(4)
     ul
       font-size 1.6vw
@@ -84,7 +86,7 @@ header, nav.nav, footer
 #sub-menu
   a
     +above(4)
-      font-size: 1.3vw
+      font-size: 1.7vw
 
 
 .scene-element

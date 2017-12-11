@@ -19,7 +19,7 @@ body.video-player-active
   header
     opacity 0
 
-h = 25px
+// h = 20px
 header.header, footer
   position: relative
   width 100%
@@ -32,47 +32,87 @@ header.header, footer
       display inline
       box-sizing: border-box
     > *
-      padding 4px 10px
+      padding 4px 10px 3px 10px
       position relative
-      height h
+      // height h
       vertical-align: middle
+      // +above(2)
+      //   padding 0px 10px
+      // +above(4)
+      //   padding 4px 30px
     h1#site-title
     h2#page-title
+    h4
+    a
       line-height: 13px
     h1#site-title
       margin 0 10px 0 0
+      // +above(2)
+      //   position relative
+      //   top -1.5px
+      // +above(4)
+      //   top -2.5px
     h2#page-title
+      background black
+      position fixed
+      width 100%
+      left 0
+      bottom 0
       float left
       text-align: center
       font-style italic
-      +above(2)
-        line-height: 22px
+      +above(4)
+        top 3px
+        position relative
+        background-color: transparent
+      +above(6)
+        top 5px
+
+    h4
+      position relative
+      display none
+      +above(4)
+        display inline
+        margin-left 20px
+        // top -2px
+      &:after
+        content ':';
     ul
       position: relative
-      height h
+      // height h
       &#main-menu
         float left
         li
           position relative
-          top -5px
+          top -1px
+          +above(2)
+            top -3px
       &#sub-menu
         position relative
-        top -4.5px
+        top -1px
         float right
         text-align: right
+        +above(2)
+          top -3px
+        // +above(4)
+        //   top -5px
+      +above(3)
+        padding 0 10px 0 15px
       li
         vertical-align: middle
         padding 0 4px
         &.active-link
           > a
-            border-bottom 2px solid white
+            text-decoration: underline
+            // border-bottom 2px solid white
 
-footer
-  position fixed
-  bottom 0
++above(4)
+  header nav
+    > *
+      width 33% !important
 
-+above(3)
++above(4)
   header.header, footer
     nav.nav
       > *
-        height h + 5px
+        // height h + 5px

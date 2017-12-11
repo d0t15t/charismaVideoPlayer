@@ -46,14 +46,14 @@ h1 {
   }
 }
 h2 {
-  font-size: 1.7vw;
+  font-size: 1.3vw;
 }
 @media only screen and (min-width: 400px) {
   h1 {
     font-size: 1.7vw;
   }
   h2 {
-    font-size: 1.9vw;
+    font-size: 1.7vw;
   }
 }
 footer {
@@ -69,6 +69,7 @@ footer {
   font-size: font-size-menu;
   color: #fff;
   font-size: 1vw;
+  text-transform: uppercase;
 }
 @media only screen and (min-width: 400px) {
   header,
@@ -88,13 +89,21 @@ footer h1,
 header h2,
 nav.nav h2,
 footer h2,
+header h3,
+nav.nav h3,
+footer h3,
+header h4,
+nav.nav h4,
+footer h4,
 header a,
 nav.nav a,
 footer a {
+  font-weight: 100;
   font-size: 5vw;
   font-family: 'Geo';
   vertical-align: middle;
   color: #fff;
+  letter-spacing: 0px;
 }
 @media only screen and (min-width: 600px) {
   header h1,
@@ -103,11 +112,17 @@ footer a {
   header h2,
   nav.nav h2,
   footer h2,
+  header h3,
+  nav.nav h3,
+  footer h3,
+  header h4,
+  nav.nav h4,
+  footer h4,
   header a,
   nav.nav a,
   footer a {
     font-size: 2.7vw;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
   }
 }
 @media only screen and (min-width: 600px) and (min-width: 800px) {
@@ -117,22 +132,23 @@ footer a {
   header h2,
   nav.nav h2,
   footer h2,
+  header h3,
+  nav.nav h3,
+  footer h3,
+  header h4,
+  nav.nav h4,
+  footer h4,
   header a,
   nav.nav a,
   footer a {
     font-size: 1.7vw;
   }
 }
-@media only screen and (min-width: 600px) {
-  header ul,
-  nav.nav ul,
-  footer ul {
-    width: 30%;
-  }
-  header h2,
-  nav.nav h2,
-  footer h2 {
-    width: 40%;
+@media only screen and (min-width: 800px) {
+  header a,
+  nav.nav a,
+  footer a {
+    font-size: 1.5vw !important;
   }
 }
 @media only screen and (min-width: 800px) {
@@ -144,7 +160,7 @@ footer a {
 }
 @media only screen and (min-width: 800px) {
   #sub-menu a {
-    font-size: 1.3vw;
+    font-size: 1.7vw;
   }
 }
 .scene-element .text {
@@ -349,15 +365,18 @@ footer nav * {
 }
 header.header nav > *,
 footer nav > * {
-  padding: 4px 10px;
+  padding: 4px 10px 3px 10px;
   position: relative;
-  height: 25px;
   vertical-align: middle;
 }
 header.header nav h1#site-title,
 footer nav h1#site-title,
 header.header nav h2#page-title,
-footer nav h2#page-title {
+footer nav h2#page-title,
+header.header nav h4,
+footer nav h4,
+header.header nav a,
+footer nav a {
   line-height: 13px;
 }
 header.header nav h1#site-title,
@@ -366,20 +385,48 @@ footer nav h1#site-title {
 }
 header.header nav h2#page-title,
 footer nav h2#page-title {
+  background: #000;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
   float: left;
   text-align: center;
   font-style: italic;
 }
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 800px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
-    line-height: 22px;
+    top: 3px;
+    position: relative;
+    background-color: transparent;
   }
+}
+@media only screen and (min-width: 1300px) {
+  header.header nav h2#page-title,
+  footer nav h2#page-title {
+    top: 5px;
+  }
+}
+header.header nav h4,
+footer nav h4 {
+  position: relative;
+  display: none;
+}
+@media only screen and (min-width: 800px) {
+  header.header nav h4,
+  footer nav h4 {
+    display: inline;
+    margin-left: 20px;
+  }
+}
+header.header nav h4:after,
+footer nav h4:after {
+  content: ':';
 }
 header.header nav ul,
 footer nav ul {
   position: relative;
-  height: 25px;
 }
 header.header nav ul#main-menu,
 footer nav ul#main-menu {
@@ -388,14 +435,32 @@ footer nav ul#main-menu {
 header.header nav ul#main-menu li,
 footer nav ul#main-menu li {
   position: relative;
-  top: -5px;
+  top: -1px;
+}
+@media only screen and (min-width: 400px) {
+  header.header nav ul#main-menu li,
+  footer nav ul#main-menu li {
+    top: -3px;
+  }
 }
 header.header nav ul#sub-menu,
 footer nav ul#sub-menu {
   position: relative;
-  top: -4.5px;
+  top: -1px;
   float: right;
   text-align: right;
+}
+@media only screen and (min-width: 400px) {
+  header.header nav ul#sub-menu,
+  footer nav ul#sub-menu {
+    top: -3px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  header.header nav ul,
+  footer nav ul {
+    padding: 0 10px 0 15px;
+  }
 }
 header.header nav ul li,
 footer nav ul li {
@@ -404,16 +469,11 @@ footer nav ul li {
 }
 header.header nav ul li.active-link > a,
 footer nav ul li.active-link > a {
-  border-bottom: 2px solid #fff;
+  text-decoration: underline;
 }
-footer {
-  position: fixed;
-  bottom: 0;
-}
-@media only screen and (min-width: 600px) {
-  header.header nav.nav > *,
-  footer nav.nav > * {
-    height: 30px;
+@media only screen and (min-width: 800px) {
+  header nav > * {
+    width: 33% !important;
   }
 }
 #master-video-player {
