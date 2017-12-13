@@ -48,6 +48,28 @@ d.n =
     },
     {
       "type": "text",
+      "targetZone": 7,
+      "id": "echo",
+      "name": "ECHO",
+      "videoId": "245586632",
+      "videoIdGerm": "245585875",
+      "classes": 'scene_element--name',
+      "landscape": {
+        "x": '10%',
+        "y": '25%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '25%',
+        "y": '10%',
+        "rotate" : "rotate(0deg)",
+      },
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "text",
       "targetZone": 4,
       "id": "HOWY",
       "name": "HOWY",
@@ -63,28 +85,6 @@ d.n =
         "x": '60%',
         "y": '100%',
         "rotate" : "rotate(-45deg)",
-      },
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
-    {
-      "type": "text",
-      "targetZone": 5,
-      "id": "echo",
-      "name": "ECHO",
-      "videoId": "245586632",
-      "videoIdGerm": "245585875",
-      "classes": 'scene_element--name',
-      "landscape": {
-        "x": '10%',
-        "y": '25%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '25%',
-        "y": '10%',
-        "rotate" : "rotate(0deg)",
       },
       "styles": {
         'transform': 'scale(1)'

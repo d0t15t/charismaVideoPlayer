@@ -25,11 +25,20 @@ $(document).ready(function(){
     var pause = 500;
     var easing1  = 'easeOutCirc';
     var easing2  = 'easeInCirc';
+
+
+
     $('.scene-element.text').each(function(i){
       var $bounce = $(this);
       setTimeout(function(i){
-        $bounce.myBounceInPlace(dist, duration, pause, easing1, easing2);
-      }, 900 * i );
+
+        // $bounce.velocity({
+        //   translateY: "-120px",
+        // }, {
+        //   loop: true
+        // },  [ 250, 15 ] ).velocity("reverse");
+
+      }, 300 * i );
     });
 
     // initOrbits();
@@ -123,20 +132,25 @@ $.fn.placeIn3dTargetZone = function(d) {
   // Set scale basedon topZone
   $el.attr('target-zone', targetZone);
   var scale = (zoneMax - targetZone) / zoneMax;
-  d.styles.transform += 'scale(' + (scale) + ')';
-
+  var p = {
+    s: scale,
+    t: $el.box.t,
+    l: $el.box.l,
+  };
   // Init Place element within the bounds of its parent zone top left,
   // on an edge. Use bounds b/c scaling doesn't change outerH/W.
   // If bounds are outside window height, place at wH.
-  $el.css(d.styles).attr('scale', scale);
+  // d.styles.transform += 'scale(' + (p.s) + ')';
+  $el.css(d.styles);
   // Set styles with scale now b/c we need the new dimentions.
   var elBounds = $el[0].getBoundingClientRect();
   var styles = {
     // 'top' : (th.box.t < 0) ? 0 : th.box.t,
     // 'left' : (th.box.l < 0) ? 0 : th.box.l,
-    'top' : $el.box.t,
-    'left' : $el.box.l,
+    'top' : p.t,
+    'left' : p.l,
   };
+  $el.attr('scale', p.s).attr('t', p.t).attr('l', p.l);
   $el.css(styles);
   // Custom placement
   var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
@@ -153,13 +167,17 @@ $.fn.placeIn3dTargetZone = function(d) {
 };
 
 /**
- *
+ * Fade in Names
  */
 function sceneElementsFadeTransition() {
   var $fadeElements = $('.scene_element--name');
-  setTimeout(function(){
-    $fadeElements.addClass('se-visible');
-  }, 400);
+  $fadeElements.each(function(i){
+    var $el = $(this);
+    setTimeout(function(){
+      $el.addClass('se-visible');
+      bounceInPlace($el, -175);
+    }, 300 * i);
+  });
 }
 
 /**
@@ -168,9 +186,42 @@ function sceneElementsFadeTransition() {
 function sceneElementsZoomTransition() {
   var $zoomElements = $('.scene-element__zoom-in');
   setTimeout(function(){
-    $zoomElements.addClass('se-visible');
-    $zoomElements.removeClass('scene-element__zoom-in');
+    $zoomElements.each(function(i){
+      var $e = $(this);
+      setTimeout(function(){
+        $e.css({
+          transform: 'scale(' + ($e.attr('scale')) + ')'
+        });
+        $e.addClass('se-visible');
+        $e.removeClass('scene-element__zoom-in');;
+        if ($e.hasClass('text')) {
+          setTimeout(function(){
+            bounceInPlace($e, 175);
+          }, 1000);
+        }
+      }, 50 * i);
+    });
   }, 700);
+  // bounceInPlace(175);
+}
+
+/**
+ *
+ */
+function bounceInPlace($e, dist) {
+  $e.velocity({
+    translateY: dist,
+  }, {
+    duration: 800,
+  }, "easeOutQuad");
+  $e.velocity({
+    translateY: dist * -1,
+  }, {
+    duration: 230,
+    complete: function() {
+      bounceInPlace($e, dist);
+    }
+  }, "easeInSine");
 }
 
 
