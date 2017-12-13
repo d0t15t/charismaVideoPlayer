@@ -876,8 +876,8 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   margin: 0 auto;
   width: 100%;
 }
-#credits #home-link,
-#fullscreen-launch #home-link {
+#credits #prev-link,
+#fullscreen-launch #prev-link {
   position: relative;
   z-index: 1;
   font-family: 'Geo';
