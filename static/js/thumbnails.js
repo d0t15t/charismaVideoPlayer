@@ -175,7 +175,7 @@ function sceneElementsFadeTransition() {
     var $el = $(this);
     setTimeout(function(){
       $el.addClass('se-visible');
-      bounceInPlace($el, -175);
+      bounceInPlace($el, 300);
     }, 300 * i);
   });
 }
@@ -196,7 +196,7 @@ function sceneElementsZoomTransition() {
         $e.removeClass('scene-element__zoom-in');;
         if ($e.hasClass('text')) {
           setTimeout(function(){
-            bounceInPlace($e, 175);
+            bounceInPlace($e, 300);
           }, 1000);
         }
       }, 50 * i);
@@ -208,20 +208,23 @@ function sceneElementsZoomTransition() {
 /**
  *
  */
-function bounceInPlace($e, dist) {
-  $e.velocity({
-    translateY: dist,
-  }, {
-    duration: 800,
-  }, "easeOutQuad");
+function bounceInPlace($e, dist, dur1, dur2) {
+  // Up.
   $e.velocity({
     translateY: dist * -1,
   }, {
-    duration: 230,
+    duration: 50,
+  }, "easeOutCirc");
+  // Down.
+  $e.velocity({
+    translateY: dist,
+  }, {
+    duration: 1200,
     complete: function() {
+      $e.velocity('stop', true);
       bounceInPlace($e, dist);
     }
-  }, "easeInSine");
+  }, "easeInCirc");
 }
 
 
