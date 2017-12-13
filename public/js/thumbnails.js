@@ -219,7 +219,7 @@ function bounceInPlace($e, dist, dur1, dur2) {
   $e.velocity({
     translateY: dist,
   }, {
-    duration: 1200,
+    duration: 1700,
     complete: function() {
       $e.velocity('stop', true);
       bounceInPlace($e, dist);
