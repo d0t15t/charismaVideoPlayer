@@ -47,11 +47,6 @@ $(document).ready(function(){
       var $trigger = $(this);
       $trigger.click(function(){
 
-        // stop animations, launch player
-        $('.scene-element').each(function() {
-          $(this).bounce('stop');
-        });
-
         var activeLang = $('.lang-link.active-link').attr('lang');
         var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
         var player  = initPlayer(vid);
@@ -66,10 +61,6 @@ $(document).ready(function(){
         });
         $('#' + vid).addClass('active');
 
-        // var elem = document.getElementById(vid);
-        // if (elem.requestFullscreen) {
-        //   elem.requestFullscreen();
-        // }
       });
     });
   }
@@ -78,6 +69,7 @@ $(document).ready(function(){
    * Close video player.
    */
   function closeVideoPlayer() {
+    console.log('close this');
     setTimeout(function(){
       var $activePlayer = $('.video-player.active');
       var activePlayerId = $('.video-player.active').attr('id');
@@ -92,13 +84,13 @@ $(document).ready(function(){
         }, delay);
       }
       var $parent = $('#' + $activePlayer.attr('parent'));
+      setTimeout(function(){
+        $('#' + $activePlayer.attr('parent'))
+          .effect('shake')
+          .addClass('fadeOut');
+        removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
+      }, delay);
       if ($parent.hasClass('image')) {
-        setTimeout(function(){
-          $('#' + $activePlayer.attr('parent'))
-            .effect('shake')
-            .addClass('fadeOut');
-          removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
-        }, delay);
       }
     }, 500);
   }
