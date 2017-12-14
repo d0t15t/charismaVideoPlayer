@@ -195,7 +195,13 @@ body.video-player-active {
   background-color: #0000b3;
 }
 body#credits,
-body#fullscreen-launch {
+body#fullscreen-launch,
+body#fullscreen-launch-1,
+body#fullscreen-launch-2,
+body#fullscreen-launch-3,
+body#fullscreen-launch-4,
+body#fullscreen-launch-5,
+body#fullscreen-launch-6 {
   background-color: #ffa500;
 }
 body#credits {
@@ -312,7 +318,13 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
   stroke-opacity: 0.7;
 }
 body#credits #grid-svg,
-body#fullscreen-launch #grid-svg {
+body#fullscreen-launch #grid-svg,
+body#fullscreen-launch-1 #grid-svg,
+body#fullscreen-launch-2 #grid-svg,
+body#fullscreen-launch-3 #grid-svg,
+body#fullscreen-launch-4 #grid-svg,
+body#fullscreen-launch-5 #grid-svg,
+body#fullscreen-launch-6 #grid-svg {
   display: none;
 }
 body.video-player-active #grid-svg svg,
@@ -864,7 +876,13 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 100%;
 }
 #credits #prev-link,
-#fullscreen-launch #prev-link {
+#fullscreen-launch #prev-link,
+#fullscreen-launch-1 #prev-link,
+#fullscreen-launch-2 #prev-link,
+#fullscreen-launch-3 #prev-link,
+#fullscreen-launch-4 #prev-link,
+#fullscreen-launch-5 #prev-link,
+#fullscreen-launch-6 #prev-link {
   position: relative;
   z-index: 1;
   font-family: 'Geo';
@@ -872,9 +890,27 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 #credits header,
 #fullscreen-launch header,
+#fullscreen-launch-1 header,
+#fullscreen-launch-2 header,
+#fullscreen-launch-3 header,
+#fullscreen-launch-4 header,
+#fullscreen-launch-5 header,
+#fullscreen-launch-6 header,
 #credits footer,
 #fullscreen-launch footer,
+#fullscreen-launch-1 footer,
+#fullscreen-launch-2 footer,
+#fullscreen-launch-3 footer,
+#fullscreen-launch-4 footer,
+#fullscreen-launch-5 footer,
+#fullscreen-launch-6 footer,
 #credits #scene-elements,
-#fullscreen-launch #scene-elements {
+#fullscreen-launch #scene-elements,
+#fullscreen-launch-1 #scene-elements,
+#fullscreen-launch-2 #scene-elements,
+#fullscreen-launch-3 #scene-elements,
+#fullscreen-launch-4 #scene-elements,
+#fullscreen-launch-5 #scene-elements,
+#fullscreen-launch-6 #scene-elements {
   display: none;
 }

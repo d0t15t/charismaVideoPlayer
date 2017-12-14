@@ -22,11 +22,29 @@
     
     <item>
       <title>Episode 1: Miscommunication</title>
+      <link>/fullscreen-launch-1/</link>
+      <pubDate>Wed, 06 Dec 2017 21:48:51 -0700</pubDate>
+      
+      <guid>/fullscreen-launch-1/</guid>
+      <description>   --  Episode 1: Miscommunication --    &#34;No adult is an island.&#34; &#34;What didn&#39;t you say?&#34;  </description>
+    </item>
+    
+    <item>
+      <title>Episode 1: Miscommunication</title>
+      <link>/fullscreen-launch-2/</link>
+      <pubDate>Wed, 06 Dec 2017 21:48:51 -0700</pubDate>
+      
+      <guid>/fullscreen-launch-2/</guid>
+      <description>   --  Episode 1: Miscommunication --    &#34;Are you lonely?&#34; &#34;All I want is to be alone&#34; &#34;Me?&#34;  </description>
+    </item>
+    
+    <item>
+      <title>Episode 1: Miscommunication</title>
       <link>/fullscreen-launch/</link>
       <pubDate>Wed, 06 Dec 2017 21:48:51 -0700</pubDate>
       
       <guid>/fullscreen-launch/</guid>
-      <description>   --  Episode 1: Miscommunication --    &#34;Are you lonely?&#34; &#34;All I want is to be alone&#34; &#34;Me?&#34; setTimeout(function(){ console.log(&#34;Hello&#34;); }, 100); document.getElementById(&#34;launchpage-scrolling-text&#34;).innerHTML+= &#39;&#34;Are you lonely?&#34;&#39;;  --  </description>
+      <description>   --  Episode 1: Miscommunication --    &#34;Are you lonely?&#34; &#34;All I want is to be alone&#34; &#34;Me?&#34;  </description>
     </item>
     
     <item>
