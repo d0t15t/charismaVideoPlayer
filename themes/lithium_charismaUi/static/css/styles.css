@@ -363,9 +363,9 @@ footer nav * {
 }
 header.header nav > *,
 footer nav > * {
-  padding: 4px 10px 3px 10px;
   position: relative;
   vertical-align: middle;
+  padding: 5px 10px 3px 10px;
 }
 header.header nav h1#site-title,
 footer nav h1#site-title,
@@ -402,7 +402,7 @@ footer nav h2#page-title {
 @media only screen and (min-width: 800px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
-    top: 3px;
+    top: 1px;
     position: relative;
     background-color: transparent;
   }
@@ -410,7 +410,7 @@ footer nav h2#page-title {
 @media only screen and (min-width: 1300px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
-    top: 5px;
+    top: 6px;
   }
 }
 header.header nav h4,
@@ -421,7 +421,6 @@ footer nav h4 {
   header.header nav h4,
   footer nav h4 {
     display: inline;
-    margin-left: 20px;
   }
 }
 header.header nav h4:after,
@@ -441,24 +440,12 @@ footer nav ul#main-menu li {
   position: relative;
   top: -1px;
 }
-@media only screen and (min-width: 400px) {
-  header.header nav ul#main-menu li,
-  footer nav ul#main-menu li {
-    top: -2px;
-  }
-}
 header.header nav ul#sub-menu,
 footer nav ul#sub-menu {
   position: relative;
   top: -1px;
   float: right;
   text-align: right;
-}
-@media only screen and (min-width: 400px) {
-  header.header nav ul#sub-menu,
-  footer nav ul#sub-menu {
-    top: -2px;
-  }
 }
 @media only screen and (min-width: 600px) {
   header.header nav ul,

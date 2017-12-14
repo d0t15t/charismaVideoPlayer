@@ -32,14 +32,9 @@ header.header, footer
       display inline
       box-sizing: border-box
     > *
-      padding 4px 10px 3px 10px
       position relative
-      // height h
       vertical-align: middle
-      // +above(2)
-      //   padding 0px 10px
-      // +above(4)
-      //   padding 4px 30px
+      padding 5px 10px 3px 10px
     h1#site-title
     h2#page-title
     h4
@@ -63,18 +58,18 @@ header.header, footer
       text-align: center
       font-style italic
       +above(4)
-        top 3px
+        top 1px
         position relative
         background-color: transparent
       +above(6)
-        top 5px
+        top 6px
 
     h4
       position relative
       // display none
       +above(4)
         display inline
-        margin-left 20px
+        // margin-left 20px
         // top -2px
       &:after
         content ':';
@@ -86,15 +81,13 @@ header.header, footer
         li
           position relative
           top -1px
-          +above(2)
-            top -2px
       &#sub-menu
         position relative
         top -1px
         float right
         text-align: right
-        +above(2)
-          top -2px
+        // +above(2)
+        //   top -2px
         // +above(4)
         //   top -5px
       +above(3)
