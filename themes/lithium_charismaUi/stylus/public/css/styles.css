@@ -826,6 +826,9 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
     width: 350px;
   }
 }
+#fullscreen-launch-1 .circle a {
+  background-image: url("/images/title-color.jpg") !important;
+}
 #launchpage-scrolling-text {
   position: relative;
   width: 100%;
