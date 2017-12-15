@@ -141,28 +141,29 @@ $.fn.placeIn3dTargetZone = function(d) {
   // on an edge. Use bounds b/c scaling doesn't change outerH/W.
   // If bounds are outside window height, place at wH.
   // d.styles.transform += 'scale(' + (p.s) + ')';
-  $el.css(d.styles);
+  // $el.css(d.styles);
   // Set styles with scale now b/c we need the new dimentions.
-  var elBounds = $el[0].getBoundingClientRect();
   var styles = {
-    // 'top' : (th.box.t < 0) ? 0 : th.box.t,
-    // 'left' : (th.box.l < 0) ? 0 : th.box.l,
     'top' : p.t,
     'left' : p.l,
+    'transform' : 'scale(' + (p.s) + ')'
   };
-  $el.attr('scale', p.s).attr('t', p.t).attr('l', p.l);
-  $el.css(styles);
+  // $el.css(styles);
   // Custom placement
   var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
   var decFactor = 100;
   var x = parseInt(d[orientation].x) / decFactor;
   var y = parseInt(d[orientation].y) / decFactor;
 
-  styles.top = ($el.box.t + ($el.box.h * y));
-  styles.left = $el.box.l + ($el.box.w * x);
-
+  var stylesTop = Math.round($el.box.t + ($el.box.h * y));
+  var stylesLeft = Math.round($el.box.l + ($el.box.w * x));
+  // styles.transform = 'translate(' + stylesLeft + 'px,' + stylesTop + 'px)';
+  if ($el.attr('type') == 'text') {
+    styles.top = stylesTop;
+    styles.left = stylesLeft;
+  }
+  $el.attr('scale', p.s).attr('t', stylesTop).attr('l', stylesLeft);
   $el.css(styles);
-
   return this;
 };
 
@@ -175,7 +176,7 @@ function sceneElementsFadeTransition() {
     var $el = $(this);
     setTimeout(function(){
       $el.addClass('se-visible');
-      bounceInPlace($el, 300);
+      bounceInPlace($el, numberBetween(100,150));
     }, 300 * i);
   });
 }
@@ -189,37 +190,79 @@ function sceneElementsZoomTransition() {
     $zoomElements.each(function(i){
       var $e = $(this);
       setTimeout(function(){
-        $e.css({
-          transform: 'scale(' + ($e.attr('scale')) + ')'
-        });
+        // $e.css({
+        //   transform: 'scale(' + ($e.attr('scale')) + ')'
+        // });
         $e.addClass('se-visible');
         $e.removeClass('scene-element__zoom-in');;
         if ($e.hasClass('text')) {
           setTimeout(function(){
-            bounceInPlace($e, 300);
+            bounceInPlace($e, numberBetween(100,150));
+          }, 600);
+        }
+        if ($e.hasClass('image')) {
+          setTimeout(function(){
+            var tz = $e.attr('target-zone');
+            var $tz = $('[segment="' + parseInt(tz) + '"]');
+            var cur1 = $e.offset().left;
+            var pos1 = $tz.offset().left + $tz.width();
+            var pos2 = $tz.offset().left;
+
+
+
+            function bounceWallInit($e, $tz, i) {
+              // Calculate random point on $tz rectangle perimeter.
+              var s = numberBetween(1, 4);
+              var o = s%2 == 0 ? 'y' : 'x';
+              var pos = numberBetween(1, $tz.width());
+              var bounds = $e[0].getBoundingClientRect();
+
+              var x = $tz.width() - (bounds.width / 2 * i);
+              var y = $tz.height() - (bounds.height / 2 * i);
+
+              var properties = {
+                translateX: numberBetween(0, $tz.width()) - $tz.offset().left,
+                translateY: numberBetween(0, $tz.width()) - $tz.offset().top,
+                scale: [$e.attr('scale'), $e.attr('scale')]
+              };
+              var dur = 7000;
+              $e.velocity(
+                properties
+                , {
+                easing: 'linear',
+                duration: dur,
+                complete: function(){
+                  console.log('bounce');
+                  bounceWallInit($e, $tz, i);
+                }
+              });
+            }
+            setTimeout(function(){
+              bounceWallInit($e, $tz, 1);
+            }, 200 * i);
+
           }, 1000);
         }
       }, 50 * i);
     });
   }, 700);
-  // bounceInPlace(175);
 }
 
 /**
  *
  */
-function bounceInPlace($e, dist, dur1, dur2) {
+function bounceInPlace($e, dist) {
   // Up.
   $e.velocity({
     translateY: dist * -1,
   }, {
-    duration: 50,
+    duration: numberBetween(70,111),
   }, "easeOutCirc");
   // Down.
   $e.velocity({
     translateY: dist,
   }, {
-    duration: 1700,
+    duration: numberBetween(2555, 3333),
     complete: function() {
       $e.velocity('stop', true);
       bounceInPlace($e, dist);
