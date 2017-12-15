@@ -232,7 +232,6 @@ function sceneElementsZoomTransition() {
                 easing: 'linear',
                 duration: dur,
                 complete: function(){
-                  console.log('bounce');
                   bounceWallInit($e, $tz, i);
                 }
               });
