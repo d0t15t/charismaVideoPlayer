@@ -6,10 +6,19 @@
     <description>Recent content on Charisma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Dec 2017 21:48:51 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 17 Dec 2017 21:48:51 -0700</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Episode 3: Understandings</title>
+      <link>/fullscreen-launch/</link>
+      <pubDate>Sun, 17 Dec 2017 21:48:51 -0700</pubDate>
+      
+      <guid>/fullscreen-launch/</guid>
+      <description>   --  Episode 1: Miscommunication --     &#34;That specific twinge in my stomach... That&#39;s a feeling&#34;  </description>
+    </item>
     
     <item>
       <title>Psychologistical</title>
@@ -35,15 +44,6 @@
       <pubDate>Wed, 06 Dec 2017 21:48:51 -0700</pubDate>
       
       <guid>/fullscreen-launch-2/</guid>
-      <description>   --  Episode 1: Miscommunication --    &#34;Are you lonely?&#34; &#34;All I want is to be alone&#34; &#34;Me?&#34;  </description>
-    </item>
-    
-    <item>
-      <title>Episode 2: Psycologistical</title>
-      <link>/fullscreen-launch/</link>
-      <pubDate>Wed, 06 Dec 2017 21:48:51 -0700</pubDate>
-      
-      <guid>/fullscreen-launch/</guid>
       <description>   --  Episode 1: Miscommunication --    &#34;Are you lonely?&#34; &#34;All I want is to be alone&#34; &#34;Me?&#34;  </description>
     </item>
     

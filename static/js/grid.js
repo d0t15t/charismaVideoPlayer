@@ -340,7 +340,11 @@ $(document).ready(function(){
     });
     $wr.css({
       'height': ($wr.height() + ($wr.height() / 4)) + 'px',
-      // 'bottom' :'-35%'
+    });
+    $wr.velocity({
+      'opacity': 1
+    }, {
+      duration: 1000
     });
     if (window.innerWidth > window.innerHeight) {
     }
