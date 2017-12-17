@@ -256,7 +256,7 @@ function initOrbits() {
     }
     setTimeout(function(){
       orbit($e);
-    }, 300 * i);
+    }, 900 * i);
 
   });
 }
