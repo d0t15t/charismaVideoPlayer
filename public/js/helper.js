@@ -34,7 +34,9 @@ $(document).ready(function(){
   });
 
   // Home page set active link as default latest episode
+
   if (window.location.pathname == '/') {
+    // console.log(d.e.releaseId);
     $('h2#page-title').text(d.e.title);
     $('#main-menu li').eq(d.e.releaseId - 1).addClass('active-link');
   }

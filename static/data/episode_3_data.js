@@ -1,7 +1,7 @@
 d.e =
 {
   "releaseId": '3',
-  "title": 'Psychologistical',
+  "title": 'Understandings',
   "items": [
     {
       "type": "image",
