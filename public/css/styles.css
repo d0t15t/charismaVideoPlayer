@@ -120,7 +120,6 @@ footer a {
   nav.nav a,
   footer a {
     font-size: 2.2vw;
-    letter-spacing: 1px;
   }
 }
 @media only screen and (min-width: 600px) and (min-width: 800px) {
@@ -387,7 +386,7 @@ footer nav a {
 }
 header.header nav h1#site-title,
 footer nav h1#site-title {
-  margin: 0 10px 0 0;
+  margin: 0;
   display: none;
 }
 @media only screen and (min-width: 400px) {
