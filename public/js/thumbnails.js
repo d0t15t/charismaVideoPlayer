@@ -63,7 +63,7 @@ function initImages(n, $wr) {
         var css = {};
         var tSize = thumbnailSize();
         css = thumbnailImageStyles(d, tSize, n.releaseId);
-        var overlayPath = '/releases/' + n.releaseId + '/' + d.name;
+        var overlayPath = '/releases/' + n.releaseId + '/' + d.id;
         var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
         $el.append(img);
         $el.css(Object.assign({}, css, d.styles));
@@ -220,7 +220,7 @@ function bounceInPlace($e, dist) {
  * Init orbits.
  */
 function initOrbits() {
-  $('.scene-element.image').each(function(){
+  $('.scene-element.image').each(function(i, e){
     var $e = $(this);
     var tz = $e.attr('target-zone');
     var $tz = $('[segment="' + tz + '"]');
@@ -235,21 +235,12 @@ function initOrbits() {
       var offset = $tz.offset();
       x = offset.left + x1 - $e.offset().left;
       y = offset.top + y1 - $e.offset().top;
-      // switch (s) {
-      //   case 0:
-      //     x = offset.left + x1 - $e.offset().left;
-      //     break;
-      //   case 1:
-      //     x = offset.left + $e.width();
-      //     y = offset.top + y1;
-      //     break;
-      // }
       setTimeout(function(){
         $e.velocity({
           translateX: '+=' + x,
           translateY: '+=' + y,
         }, {
-          'duration': numberBetween(8888,11111),
+          'duration': numberBetween(11111,22222),
           'easing': 'linear',
         }, {
           complete: function() {
@@ -261,26 +252,13 @@ function initOrbits() {
             orbit($e);
           }
         });
-
       });
     }
-    orbit($e);
+    setTimeout(function(){
+      orbit($e);
+    }, 300 * i);
+
   });
-  // $('.master-controls .close').click(function(){
-  //   for (var i = 0; i < sE.length; i++) {
-  //     var $el = $('#' + sE[i].name);
-  //     var targetZone = sE[i].targetZone;
-  //     var speed = 10;
-  //     var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
-  //     if ($el.attr('type') == 'image') {
-  //       $el.bounce('start', {
-  //         'minSpeed'	: speed,
-  //         'maxSpeed'	: speed,
-  //         'zone'		: targetZoneId
-  //       });
-  //     }
-  //   }
-  // });
 }
 
 function thumbnailSize() {
@@ -302,7 +280,7 @@ function thumbnailSize() {
 
 function thumbnailImageStyles(d, tSize, id) {
   return {
-    'background-image':'url("/releases/' + id + '/' + d.name + '.jpg")',
+    'background-image':'url("/releases/' + id + '/' + d.id + '.jpg")',
     'width': tSize.w,
     'height': tSize.h,
     'transform' : 'translateY(-50%)',
