@@ -7,7 +7,20 @@ $(document).ready(function(){
   // Init names from data and insert into wrapper.
   // Fade in names.
   initTextEl(d.n, $wr);
-  sceneElementsFadeTransition();
+
+  // if (condition == 'true'){
+  //   function1(someVariable, function() {
+  //     function2(someOtherVariable);
+  //   });
+  // }
+  // else {
+  //     doThis(someVariable);
+  // }
+
+
+  sPreEtransition();
+  sEtransition();
+  // sceneElementsFadeTransition();
 
   // Init titles from data and insert into wrapper.
   // Fade in + images with zoom effect.
@@ -18,28 +31,6 @@ $(document).ready(function(){
 
     // Zoom in elements
     sceneElementsZoomTransition();
-
-    // Bounce title elements
-    var dist     = numberBetween(30, 70);
-    var duration = numberBetween(4300, 7333);
-    var pause = 500;
-    var easing1  = 'easeOutCirc';
-    var easing2  = 'easeInCirc';
-
-
-
-    $('.scene-element.text').each(function(i){
-      var $bounce = $(this);
-      setTimeout(function(i){
-
-        // $bounce.velocity({
-        //   translateY: "-120px",
-        // }, {
-        //   loop: true
-        // },  [ 250, 15 ] ).velocity("reverse");
-
-      }, 300 * i );
-    });
 
     // initOrbits();
 
@@ -140,16 +131,9 @@ $.fn.placeIn3dTargetZone = function(d) {
   // Init Place element within the bounds of its parent zone top left,
   // on an edge. Use bounds b/c scaling doesn't change outerH/W.
   // If bounds are outside window height, place at wH.
-  // d.styles.transform += 'scale(' + (p.s) + ')';
-  // $el.css(d.styles);
-  // Set styles with scale now b/c we need the new dimentions.
-  var styles = {
-    'top' : p.t,
-    'left' : p.l,
-    'transform' : 'scale(' + (p.s) + ')'
-  };
-  // $el.css(styles);
+  // @TODO - this? Set styles with scale now b/c we need the new dimentions.
   // Custom placement
+  var styles = {};
   var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
   var decFactor = 100;
   var x = parseInt(d[orientation].x) / decFactor;
@@ -158,14 +142,54 @@ $.fn.placeIn3dTargetZone = function(d) {
   var stylesTop = Math.round($el.box.t + ($el.box.h * y));
   var stylesLeft = Math.round($el.box.l + ($el.box.w * x));
   // styles.transform = 'translate(' + stylesLeft + 'px,' + stylesTop + 'px)';
-  if ($el.attr('type') == 'text') {
-    styles.top = stylesTop;
-    styles.left = stylesLeft;
-  }
-  $el.attr('scale', p.s).attr('t', stylesTop).attr('l', stylesLeft);
+  styles.transform = 'scale(' + (p.s) + ')';
+  // if ($el.attr('type') == 'text') {
+  //  }
+  $el.attr('scale', p.s)
+     .attr('t', stylesTop)
+     .attr('l', stylesLeft);
+
   $el.css(styles);
   return this;
 };
+
+/**
+ *
+ */
+function sPreEtransition() {
+  var $s = $('.scene-element');
+  $s.each(function(i){
+    var $e = $(this);
+    var $w = $('#grid-svg');
+    var x1 = $(window).width() / 2;
+    var y1 = $(window).height() / 2 - ($(window).height() / 8);
+    $e.css({
+      transform: 'translate(' + x1 + 'px, ' + y1 + 'px)',
+    });
+  });
+}
+/**
+ *
+ */
+function sEtransition() {
+  var $s = $('.scene-element');
+  $s.each(function(i){
+    var $e = $(this);
+    var $w = $('#grid-svg');
+    var x1 = $(window).width() / 2;
+    var y1 = $(window).height() / 2 - ($(window).height() / 8);
+    var x2 = $e.attr('l');
+    var y2 = $e.attr('t');
+    setTimeout(function(){
+      $e.velocity({
+        translateX: x2,
+        translateY: y2,
+        opacity: 1,
+      });
+      // bounceInPlace($el, numberBetween(100,150));
+    }, 300 * i);
+  });
+}
 
 /**
  * Fade in Names
@@ -176,7 +200,7 @@ function sceneElementsFadeTransition() {
     var $el = $(this);
     setTimeout(function(){
       $el.addClass('se-visible');
-      bounceInPlace($el, numberBetween(100,150));
+      // bounceInPlace($el, numberBetween(100,150));
     }, 300 * i);
   });
 }
@@ -194,7 +218,7 @@ function sceneElementsZoomTransition() {
         //   transform: 'scale(' + ($e.attr('scale')) + ')'
         // });
         $e.addClass('se-visible');
-        $e.removeClass('scene-element__zoom-in');;
+        $e.removeClass('scene-element__zoom-in');
         if ($e.hasClass('text')) {
           setTimeout(function(){
             bounceInPlace($e, numberBetween(100,150));
@@ -207,8 +231,6 @@ function sceneElementsZoomTransition() {
             var cur1 = $e.offset().left;
             var pos1 = $tz.offset().left + $tz.width();
             var pos2 = $tz.offset().left;
-
-
 
             function bounceWallInit($e, $tz, i) {
               // Calculate random point on $tz rectangle perimeter.
@@ -255,15 +277,14 @@ function bounceInPlace($e, dist) {
   $e.velocity({
     translateY: dist * -1,
   }, {
-    duration: numberBetween(70,111),
+    duration: numberBetween(200,500),
   }, "easeOutCirc");
   // Down.
   $e.velocity({
     translateY: dist,
   }, {
-    duration: numberBetween(2555, 3333),
+    duration: numberBetween(4000, 5000),
     complete: function() {
-      $e.velocity('stop', true);
       bounceInPlace($e, dist);
     }
   }, "easeInCirc");

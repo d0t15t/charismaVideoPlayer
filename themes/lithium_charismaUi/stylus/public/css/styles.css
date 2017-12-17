@@ -658,7 +658,7 @@ footer nav ul li.active-link > a {
   cursor: pointer;
   transition: all 500ms;
   opacity: 0;
-  transform: translate(0px, 0px);
+  transform: translate(50%, 50%) scale(0);
 }
 #scene-elements .scene-element.se-visible {
   opacity: 1;
@@ -710,11 +710,6 @@ body.dev .target-zone-label {
 }
 body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   display: block;
-}
-.scene-element__zoom-in {
-  top: 35% !important;
-  left: 50% !important;
-  transform: scale(0.01) translate(-50%, -35%) !important;
 }
 .center-page {
   width: 100%;
