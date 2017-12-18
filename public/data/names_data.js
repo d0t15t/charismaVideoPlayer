@@ -90,28 +90,28 @@ d.n =
         'transform': 'scale(1)'
       },
     },
-    {
-      "type": "text",
-      "targetZone": 7,
-      "id": "Bedroom",
-      "name": "Bedroom",
-      "videoId": "247689211",
-      "videoIdGerm": "247687928",
-      "classes": 'scene_element--title',
-      "landscape": {
-        "x": '-20%',
-        "y": '60%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '10%',
-        "y": '100%',
-        "rotate" : "rotate(0deg)",
-      },
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
+    // {
+    //   "type": "text",
+    //   "targetZone": 7,
+    //   "id": "Bedroom",
+    //   "name": "Bedroom",
+    //   "videoId": "247689211",
+    //   "videoIdGerm": "247687928",
+    //   "classes": 'scene_element--title',
+    //   "landscape": {
+    //     "x": '-20%',
+    //     "y": '60%',
+    //     "rotate" : "rotate(0deg)",
+    //   },
+    //   "portrait": {
+    //     "x": '10%',
+    //     "y": '100%',
+    //     "rotate" : "rotate(0deg)",
+    //   },
+    //   "styles": {
+    //     'transform': 'scale(1)'
+    //   },
+    // },
     {
       "type": "text",
       "targetZone": 7,

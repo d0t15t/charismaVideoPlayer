@@ -167,6 +167,10 @@ var sEtransition = function() {
     var x2 = $e.attr('l');
     var y2 = $e.attr('t');
     setTimeout(function(){
+      // $e.css({
+      //   'transform': 'translate(' + x2 + 'px, ' + y2 + 'px) scale(' + $e.attr('scale') + ')',
+      //   'opacity': 1,
+      // });
       $e.velocity({
         translateX: x2,
         translateY: y2,
