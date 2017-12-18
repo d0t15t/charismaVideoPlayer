@@ -185,7 +185,7 @@ var sEtransition = function() {
         switch ($e.attr('type')) {
           case 'text':
             if ($e.hasClass('scene_element--title')) {
-              bounceInPlace($e, numberBetween(50,100));
+              bounceInPlace($e, numberBetween(40,70));
             }
             break;
           case 'image':

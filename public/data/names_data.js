@@ -48,7 +48,7 @@ d.n =
     },
     {
       "type": "text",
-      "targetZone": 7,
+      "targetZone": 5,
       "id": "echo",
       "name": "ECHO",
       "videoId": "245586632",

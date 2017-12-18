@@ -386,16 +386,9 @@ footer nav a {
 }
 header.header nav h1#site-title,
 footer nav h1#site-title {
-  margin: 0;
-  display: none;
   position: relative;
   top: -1px;
-}
-@media only screen and (min-width: 400px) {
-  header.header nav h1#site-title,
-  footer nav h1#site-title {
-    display: inline;
-  }
+  margin: 0;
 }
 header.header nav h2#page-title,
 footer nav h2#page-title {
@@ -425,8 +418,9 @@ footer nav h2#page-title {
 header.header nav h4,
 footer nav h4 {
   position: relative;
+  display: none;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 400px) {
   header.header nav h4,
   footer nav h4 {
     display: inline;
