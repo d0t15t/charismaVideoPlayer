@@ -118,7 +118,7 @@ $.fn.placeIn3dTargetZone = function(d) {
   // @TODO - this? Set styles with scale now b/c we need the new dimentions.
   // Custom placement
   var styles = {
-    'z-index': targetZone * -1
+    // 'z-index': targetZone * -1
   };
   var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
   var decFactor = 100;
