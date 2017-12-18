@@ -69,7 +69,6 @@ $(document).ready(function(){
    * Close video player.
    */
   function closeVideoPlayer() {
-    console.log('close this');
     setTimeout(function(){
       var $activePlayer = $('.video-player.active');
       var activePlayerId = $('.video-player.active').attr('id');

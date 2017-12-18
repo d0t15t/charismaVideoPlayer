@@ -117,7 +117,9 @@ $.fn.placeIn3dTargetZone = function(d) {
   // If bounds are outside window height, place at wH.
   // @TODO - this? Set styles with scale now b/c we need the new dimentions.
   // Custom placement
-  var styles = {};
+  var styles = {
+    'z-index': targetZone * -1
+  };
   var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
   var decFactor = 100;
   var x = parseInt(d[orientation].x) / decFactor;
@@ -182,7 +184,9 @@ var sEtransition = function() {
       setTimeout(function(){
         switch ($e.attr('type')) {
           case 'text':
-           bounceInPlace($e, numberBetween(100,150));
+            if ($e.hasClass('scene_element--title')) {
+              bounceInPlace($e, numberBetween(50,100));
+            }
             break;
           case 'image':
 
@@ -202,13 +206,13 @@ function bounceInPlace($e, dist) {
   $e.velocity({
     translateY: '+='+(dist * -1),
   }, {
-    duration: numberBetween(200,500),
+    duration: numberBetween(800,1000),
   }, "easeOutCirc");
   // Down.
   $e.velocity({
     translateY: '+='+dist,
   }, {
-    duration: numberBetween(4000, 5000),
+    duration: numberBetween(6000, 8000),
     complete: function() {
       bounceInPlace($e, dist);
     }
@@ -240,7 +244,7 @@ function initOrbits() {
           translateX: '+=' + x,
           translateY: '+=' + y,
         }, {
-          'duration': numberBetween(11111,22222),
+          'duration': numberBetween(44444,66666),
           'easing': 'linear',
         }, {
           complete: function() {

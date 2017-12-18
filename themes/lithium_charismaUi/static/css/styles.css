@@ -306,7 +306,7 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -999;
   opacity: 0;
   transition: all 200ms;
   background-image: url("/images/GRID.svg");
