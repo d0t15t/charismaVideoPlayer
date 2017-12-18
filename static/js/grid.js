@@ -336,14 +336,17 @@ $(document).ready(function(){
     var $wr = $('#' + id);
     $wr.css({
       // 'width': base + 'px',
-      'height': (base * 1.1)+ 'px',
       'bottom' :'0'
     });
+    $wr.css({
+      'height': ($wr.height() + ($wr.height() / 4)) + 'px',
+    });
+    $wr.velocity({
+      'opacity': 1
+    }, {
+      duration: 1000
+    });
     if (window.innerWidth > window.innerHeight) {
-      $wr.css({
-        'height': (base)+ 'px',
-        'bottom' :'-35%'
-      });
     }
 
 

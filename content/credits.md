@@ -3,8 +3,8 @@ date = "2016-05-05T21:48:51-07:00"
 title = "Credits"
 +++
 
-<div class="nav" id="home-link">
-  <a href="/episode-2"><< Back</a>
+<div class="nav" id="prev-link">
+  <a href="#"><< Back</a>
 </div>
 
 <div id="credits-page" class="info-page">

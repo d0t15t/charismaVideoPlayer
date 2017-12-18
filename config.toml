@@ -20,19 +20,22 @@ disqusShortname = ""
     url = "/episode-2"
     identifier = "episode-2"
     weight = -49
+[[menu.main]]
+    name = "Three"
+    url = "/episode-3"
+    identifier = "episode-3"
+    weight = -48
 
 [[menu.sub]]
     name = "EN"
     url = "#"
     identifier = "en-link"
+    weight = -50
 [[menu.sub]]
     name = "DE"
     url = "#"
     identifier = "de-link"
-[[menu.sub]]
-    name = "¢"
-    url = "/credits"
-    identifier = "credits-link"
+    weight = -49
 
 [params]
     description = "Independent web series, a sitcom produced by artists Sarah M. Harrison and Wojciech Kosma."

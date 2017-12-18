@@ -120,7 +120,6 @@ footer a {
   nav.nav a,
   footer a {
     font-size: 2.2vw;
-    letter-spacing: 1px;
   }
 }
 @media only screen and (min-width: 600px) and (min-width: 800px) {
@@ -195,7 +194,13 @@ body.video-player-active {
   background-color: #0000b3;
 }
 body#credits,
-body#fullscreen-launch {
+body#fullscreen-launch,
+body#fullscreen-launch-1,
+body#fullscreen-launch-2,
+body#fullscreen-launch-3,
+body#fullscreen-launch-4,
+body#fullscreen-launch-5,
+body#fullscreen-launch-6 {
   background-color: #ffa500;
 }
 body#credits {
@@ -301,8 +306,9 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  transition: 200ms;
+  z-index: -999;
+  opacity: 0;
+  transition: all 200ms;
   background-image: url("/images/GRID.svg");
   background-size: cover;
   background-position: center center;
@@ -312,13 +318,14 @@ body.dev #grid-wrapper.bg-active [zone="3"] {
   stroke-opacity: 0.7;
 }
 body#credits #grid-svg,
-body#fullscreen-launch #grid-svg {
+body#fullscreen-launch #grid-svg,
+body#fullscreen-launch-1 #grid-svg,
+body#fullscreen-launch-2 #grid-svg,
+body#fullscreen-launch-3 #grid-svg,
+body#fullscreen-launch-4 #grid-svg,
+body#fullscreen-launch-5 #grid-svg,
+body#fullscreen-launch-6 #grid-svg {
   display: none;
-}
-body.video-player-active #grid-svg svg,
-body.video-player-active #grid-svg * {
-  transition: stroke 400ms;
-  stroke-opacity: 0.3;
 }
 header {
   transition: all 600ms;
@@ -348,7 +355,7 @@ header.header,
 footer {
   position: relative;
   width: 100%;
-  z-index: 2;
+  z-index: 999;
   background-color: #000;
   transition: all 300ms;
 }
@@ -363,9 +370,9 @@ footer nav * {
 }
 header.header nav > *,
 footer nav > * {
-  padding: 4px 10px 3px 10px;
   position: relative;
   vertical-align: middle;
+  padding: 5px 10px 3px 10px;
 }
 header.header nav h1#site-title,
 footer nav h1#site-title,
@@ -379,14 +386,9 @@ footer nav a {
 }
 header.header nav h1#site-title,
 footer nav h1#site-title {
-  margin: 0 10px 0 0;
-  display: none;
-}
-@media only screen and (min-width: 400px) {
-  header.header nav h1#site-title,
-  footer nav h1#site-title {
-    display: inline;
-  }
+  position: relative;
+  top: -1px;
+  margin: 0;
 }
 header.header nav h2#page-title,
 footer nav h2#page-title {
@@ -402,7 +404,7 @@ footer nav h2#page-title {
 @media only screen and (min-width: 800px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
-    top: 3px;
+    top: 1px;
     position: relative;
     background-color: transparent;
   }
@@ -410,18 +412,18 @@ footer nav h2#page-title {
 @media only screen and (min-width: 1300px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
-    top: 5px;
+    top: 7px;
   }
 }
 header.header nav h4,
 footer nav h4 {
   position: relative;
+  display: none;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 400px) {
   header.header nav h4,
   footer nav h4 {
     display: inline;
-    margin-left: 20px;
   }
 }
 header.header nav h4:after,
@@ -441,24 +443,12 @@ footer nav ul#main-menu li {
   position: relative;
   top: -1px;
 }
-@media only screen and (min-width: 400px) {
-  header.header nav ul#main-menu li,
-  footer nav ul#main-menu li {
-    top: -2px;
-  }
-}
 header.header nav ul#sub-menu,
 footer nav ul#sub-menu {
   position: relative;
   top: -1px;
   float: right;
   text-align: right;
-}
-@media only screen and (min-width: 400px) {
-  header.header nav ul#sub-menu,
-  footer nav ul#sub-menu {
-    top: -2px;
-  }
 }
 @media only screen and (min-width: 600px) {
   header.header nav ul,
@@ -663,7 +653,7 @@ footer nav ul li.active-link > a {
   cursor: pointer;
   transition: all 500ms;
   opacity: 0;
-  transform: translate(0px, 0px);
+  transform: translate(50%, 50%) scale(0);
 }
 #scene-elements .scene-element.se-visible {
   opacity: 1;
@@ -715,11 +705,6 @@ body.dev .target-zone-label {
 }
 body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   display: block;
-}
-.scene-element__zoom-in {
-  top: 35% !important;
-  left: 50% !important;
-  transform: scale(0.01) translate(-50%, -35%) !important;
 }
 .center-page {
   width: 100%;
@@ -811,7 +796,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background-image: url("/images/charisma-e2-title-image.jpg");
+  background-image: url("/images/Charisma-salami.jpg");
   background-position-x: -11px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -826,6 +811,12 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   .article-content #fullscreen-launch-content .inner .title {
     width: 350px;
   }
+}
+#fullscreen-launch-1 .circle a {
+  background-image: url("/images/title-color.jpg") !important;
+}
+#fullscreen-launch-2 .circle a {
+  background-image: url("/images/charisma-e2-title-image.jpg") !important;
 }
 #launchpage-scrolling-text {
   position: relative;
@@ -876,8 +867,14 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   margin: 0 auto;
   width: 100%;
 }
-#credits #home-link,
-#fullscreen-launch #home-link {
+#credits #prev-link,
+#fullscreen-launch #prev-link,
+#fullscreen-launch-1 #prev-link,
+#fullscreen-launch-2 #prev-link,
+#fullscreen-launch-3 #prev-link,
+#fullscreen-launch-4 #prev-link,
+#fullscreen-launch-5 #prev-link,
+#fullscreen-launch-6 #prev-link {
   position: relative;
   z-index: 1;
   font-family: 'Geo';
@@ -885,9 +882,27 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 #credits header,
 #fullscreen-launch header,
+#fullscreen-launch-1 header,
+#fullscreen-launch-2 header,
+#fullscreen-launch-3 header,
+#fullscreen-launch-4 header,
+#fullscreen-launch-5 header,
+#fullscreen-launch-6 header,
 #credits footer,
 #fullscreen-launch footer,
+#fullscreen-launch-1 footer,
+#fullscreen-launch-2 footer,
+#fullscreen-launch-3 footer,
+#fullscreen-launch-4 footer,
+#fullscreen-launch-5 footer,
+#fullscreen-launch-6 footer,
 #credits #scene-elements,
-#fullscreen-launch #scene-elements {
+#fullscreen-launch #scene-elements,
+#fullscreen-launch-1 #scene-elements,
+#fullscreen-launch-2 #scene-elements,
+#fullscreen-launch-3 #scene-elements,
+#fullscreen-launch-4 #scene-elements,
+#fullscreen-launch-5 #scene-elements,
+#fullscreen-launch-6 #scene-elements {
   display: none;
 }

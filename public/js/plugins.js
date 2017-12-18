@@ -1,40 +1,25 @@
 /**
  * Bounce in place
  */
-$.fn.myBounceInPlace = function(dist, duration, pause, easing1, easing2) {
-  var $object = this,flag = 1;
-  var timer;
-  var position = $object.offset();
-  bounce();
-  function bounce() {
-    timer = setInterval(function() {
-      if(flag ==1) {
-          flag = -1;
-      } else {
-          flag = 1;
-      }
-      var easing = (flag == 1) ? easing1 : easing2;
-      $object.animate({ 'margin-top': (flag * dist)}, duration, easing);
-    },pause);
-  }
+// $.fn.bIp = function(dist) {
+//   var $e = this;
+//   $e.velocity({
+//     translateY: dist
+//   }, 800, {
+//     // delay: 500
+//   }, "easeOutQuad");
 
-  if (($object.position().top + $object.height()) >= $(window).height()) {
-    console.log('reset');
-    $object.fadeOut()
-    $object.css({
-      'top': position.top,
-      'left': position.left
-    }).fadeIn();
-  }
+//   $e.velocity({
+//     translateY: dist * -1
+//   }, {
+//     duration: 100,
+//     complete: function() {
+//        $e.bIp(dist);
+//     }
+//   }, "easeInSine");
 
-  $object.hover(function() {
-      clearInterval(timer);
-  }, function() {
-      bounce();
-  });
-
-  return this;
-};
+//   return this;
+// };
 
 
 /**

@@ -33,14 +33,36 @@ d.n =
       "videoIdGerm": "245581683",
       "classes": 'scene_element--name',
       "landscape": {
-        "x": '2%',
-        "y": '55%',
+        "x": '-10%',
+        "y": '65%',
         "rotate" : "rotate(-90deg)",
       },
       "portrait": {
         "x": '25%',
         "y": '70%',
         "rotate" : "rotate(-90deg)",
+      },
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "text",
+      "targetZone": 5,
+      "id": "echo",
+      "name": "ECHO",
+      "videoId": "245586632",
+      "videoIdGerm": "245585875",
+      "classes": 'scene_element--name',
+      "landscape": {
+        "x": '0%',
+        "y": '30%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '25%',
+        "y": '10%',
+        "rotate" : "rotate(0deg)",
       },
       "styles": {
         'transform': 'scale(1)'
@@ -68,22 +90,66 @@ d.n =
         'transform': 'scale(1)'
       },
     },
+    // {
+    //   "type": "text",
+    //   "targetZone": 7,
+    //   "id": "Bedroom",
+    //   "name": "Bedroom",
+    //   "videoId": "247689211",
+    //   "videoIdGerm": "247687928",
+    //   "classes": 'scene_element--title',
+    //   "landscape": {
+    //     "x": '-20%',
+    //     "y": '60%',
+    //     "rotate" : "rotate(0deg)",
+    //   },
+    //   "portrait": {
+    //     "x": '10%',
+    //     "y": '100%',
+    //     "rotate" : "rotate(0deg)",
+    //   },
+    //   "styles": {
+    //     'transform': 'scale(1)'
+    //   },
+    // },
     {
       "type": "text",
-      "targetZone": 5,
-      "id": "echo",
-      "name": "ECHO",
-      "videoId": "245586632",
-      "videoIdGerm": "245585875",
-      "classes": 'scene_element--name',
+      "targetZone": 7,
+      "id": "Kitchen",
+      "name": "Kitchen",
+      "videoId": "245587654",
+      "videoIdGerm": "245587344",
+      "classes": 'scene_element--title',
       "landscape": {
-        "x": '10%',
-        "y": '25%',
+        "x": '60%',
+        "y": '90%',
         "rotate" : "rotate(0deg)",
       },
       "portrait": {
-        "x": '25%',
-        "y": '10%',
+        "x": '50%',
+        "y": '100%',
+        "rotate" : "rotate(0deg)",
+      },
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "text",
+      "targetZone": 7,
+      "id": "Living-Room",
+      "name": "Living Room",
+      "videoId": "247005810",
+      "videoIdGerm": "247005810",
+      "classes": 'scene_element--title',
+      "landscape": {
+        "x": '10%',
+        "y": '30%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '10%',
+        "y": '30%',
         "rotate" : "rotate(0deg)",
       },
       "styles": {

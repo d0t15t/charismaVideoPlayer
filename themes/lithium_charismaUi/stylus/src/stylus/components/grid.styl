@@ -42,9 +42,9 @@ body.dev
   left 0
   width 100%
   height 100%
-  z-index -1
-  // opacity 0
-  transition 200ms
+  z-index -999
+  opacity 0
+  transition all 200ms
   background-image: url(/images/GRID.svg)
   background-size cover
   background-position center center
@@ -53,7 +53,7 @@ body.dev
       transition stroke 400ms
       stroke-opacity 0.7
 body
-  &#credits, &#fullscreen-launch
+  &#credits, &#fullscreen-launch, &#fullscreen-launch-1, &#fullscreen-launch-2, &#fullscreen-launch-3, &#fullscreen-launch-4, &#fullscreen-launch-5, &#fullscreen-launch-6
     #grid-svg
       display none
 // body.grid-active
@@ -64,9 +64,9 @@ body
 //         stroke #ffffff
 
 
-body.video-player-active
-  #grid-svg
-    svg
-    *
-      transition stroke 400ms
-      stroke-opacity 0.3
+// body.video-player-active
+//   #grid-svg
+//     svg
+//     *
+//       transition stroke 400ms
+//       stroke-opacity 0.3

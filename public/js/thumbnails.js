@@ -2,40 +2,24 @@
  * Scene elements - thumbnails & videos.
  */
 $(document).ready(function(){
-  var $wr = $('#scene-elements');
-
-  // Init names from data and insert into wrapper.
-  // Fade in names.
-  initTextEl(d.n, $wr);
-  sceneElementsFadeTransition();
-
-  // Init titles from data and insert into wrapper.
-  // Fade in + images with zoom effect.
-  initTextEl(d.e, $wr);
-
   $('body').imagesLoaded( function() {
-    initImages(d.e, $wr);
-
-    // Zoom in elements
-    sceneElementsZoomTransition();
-
-    // Bounce title elements
-    var dist     = numberBetween(30, 70);
-    var duration = numberBetween(4300, 7333);
-    var pause = 500;
-    var easing1  = 'easeOutCirc';
-    var easing2  = 'easeInCirc';
-    $('.scene-element.text').each(function(i){
-      var $bounce = $(this);
-      setTimeout(function(i){
-        $bounce.myBounceInPlace(dist, duration, pause, easing1, easing2);
-      }, 900 * i );
-    });
-
-    // initOrbits();
-
+    var textElements = function() {
+      var $wr = $('#scene-elements');
+      initTextEl(d.e, $wr);
+      initTextEl(d.n, $wr);
+      sPreEtransition(sEtransition);
+    };
+    var imageElements = function(callback) {
+      var $wr = $('#scene-elements');
+      initImages(d.e, $wr);
+      // sPreEtransition(sEtransition);
+      callback();
+    };
+    imageElements(textElements);
+    setTimeout(function(){
+      initOrbits();
+    },5000);
   });
-
 });
 
 
@@ -79,7 +63,7 @@ function initImages(n, $wr) {
         var css = {};
         var tSize = thumbnailSize();
         css = thumbnailImageStyles(d, tSize, n.releaseId);
-        var overlayPath = '/releases/' + n.releaseId + '/' + d.name;
+        var overlayPath = '/releases/' + n.releaseId + '/' + d.id;
         var img = '<img class="overlay-gif" src="' + overlayPath + '.gif"></img>';
         $el.append(img);
         $el.css(Object.assign({}, css, d.styles));
@@ -123,54 +107,120 @@ $.fn.placeIn3dTargetZone = function(d) {
   // Set scale basedon topZone
   $el.attr('target-zone', targetZone);
   var scale = (zoneMax - targetZone) / zoneMax;
-  d.styles.transform += 'scale(' + (scale) + ')';
-
+  var p = {
+    s: scale,
+    t: $el.box.t,
+    l: $el.box.l,
+  };
   // Init Place element within the bounds of its parent zone top left,
   // on an edge. Use bounds b/c scaling doesn't change outerH/W.
   // If bounds are outside window height, place at wH.
-  $el.css(d.styles).attr('scale', scale);
-  // Set styles with scale now b/c we need the new dimentions.
-  var elBounds = $el[0].getBoundingClientRect();
-  var styles = {
-    // 'top' : (th.box.t < 0) ? 0 : th.box.t,
-    // 'left' : (th.box.l < 0) ? 0 : th.box.l,
-    'top' : $el.box.t,
-    'left' : $el.box.l,
-  };
-  $el.css(styles);
+  // @TODO - this? Set styles with scale now b/c we need the new dimentions.
   // Custom placement
+  var styles = {
+    // 'z-index': targetZone * -1
+  };
   var orientation = (window.innerHeight > window.innerWidth) ? 'portrait' : 'landscape';
   var decFactor = 100;
   var x = parseInt(d[orientation].x) / decFactor;
   var y = parseInt(d[orientation].y) / decFactor;
 
-  styles.top = ($el.box.t + ($el.box.h * y));
-  styles.left = $el.box.l + ($el.box.w * x);
+  var stylesTop = Math.round($el.box.t + ($el.box.h * y));
+  var stylesLeft = Math.round($el.box.l + ($el.box.w * x));
+  // styles.transform = 'translate(' + stylesLeft + 'px,' + stylesTop + 'px)';
+  styles.transform = 'scale(' + (p.s) + ')';
+  // if ($el.attr('type') == 'text') {
+  //  }
+  $el.attr('scale', p.s)
+     .attr('t', stylesTop)
+     .attr('l', stylesLeft);
 
   $el.css(styles);
-
   return this;
 };
 
 /**
  *
  */
-function sceneElementsFadeTransition() {
-  var $fadeElements = $('.scene_element--name');
+var sPreEtransition = function(callback) {
+  var $s = $('.scene-element');
+  $s.each(function(i){
+    if ($s.attr('state') == 'done') return;
+    var $e = $(this);
+    var x1 = ($(window).width() / 2) + ($e.width() / 2);
+    var y1 = $(window).height() / 2 - ($(window).height() / 8);
+    $e.css({
+      transform: 'translate(' + x1 + 'px, ' + y1 + 'px) scale(0.01)',
+    });
+  });
   setTimeout(function(){
-    $fadeElements.addClass('se-visible');
-  }, 400);
-}
+    callback();
+  }, 300);
+};
+/**
+ *
+ */
+var sEtransition = function() {
+  var $s = $('.scene-element');
+  $s.each(function(i){
+    var $e = $(this);
+    var x2 = $e.attr('l');
+    var y2 = $e.attr('t');
+    setTimeout(function(){
+      // $e.css({
+      //   'transform': 'translate(' + x2 + 'px, ' + y2 + 'px) scale(' + $e.attr('scale') + ')',
+      //   'opacity': 1,
+      // });
+      $e.velocity({
+        translateX: x2,
+        translateY: y2,
+        opacity: 1,
+        scale : $e.attr('scale'),
+        tween: 1000,
+      },
+      {
+        progress: function(elements, complete, remaining, start, tweenValue) {
+          // console.log((complete * 100) + "%");
+          // console.log(remaining + "ms remaining!");
+          // console.log("The current tween value is " + tweenValue);
+        }
+    });
+      setTimeout(function(){
+        switch ($e.attr('type')) {
+          case 'text':
+            if ($e.hasClass('scene_element--title')) {
+              bounceInPlace($e, numberBetween(40,70));
+            }
+            break;
+          case 'image':
+
+            break;
+        }
+        $e.attr('state', 'done');
+      }, 500);
+    }, 300 * i);
+  });
+};
 
 /**
  *
  */
-function sceneElementsZoomTransition() {
-  var $zoomElements = $('.scene-element__zoom-in');
-  setTimeout(function(){
-    $zoomElements.addClass('se-visible');
-    $zoomElements.removeClass('scene-element__zoom-in');
-  }, 700);
+function bounceInPlace($e, dist) {
+  // Up.
+  $e.velocity({
+    translateY: '+='+(dist * -1),
+  }, {
+    duration: numberBetween(800,1000),
+  }, "easeOutCirc");
+  // Down.
+  $e.velocity({
+    translateY: '+='+dist,
+  }, {
+    duration: numberBetween(6000, 8000),
+    complete: function() {
+      bounceInPlace($e, dist);
+    }
+  }, "easeInCirc");
 }
 
 
@@ -178,50 +228,44 @@ function sceneElementsZoomTransition() {
  * Init orbits.
  */
 function initOrbits() {
-  for (var i = 0; i < sE.length; i++) {
-    var $el = $('#' + sE[i].name);
+  $('.scene-element.image').each(function(i, e){
+    var $e = $(this);
+    var tz = $e.attr('target-zone');
+    var $tz = $('[segment="' + tz + '"]');
+    function orbit($e) {
+      var s = numberBetween(0,3);
 
-    var targetZone = sE[i].targetZone;
-
-    var speed = 10;
-    // var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
-    var targetZoneId = '#grid-' + targetZone;
-    if ($el.attr('type') == 'image') {
-      $el.bounce('start', {
-        'minSpeed'	: speed,
-        'maxSpeed'	: speed,
-        'zone'		: targetZoneId
+      var o = s%2 ? 'y' : 'x';
+      var x1 = numberBetween(0, $tz.width());
+      var y1 = numberBetween(0, $tz.width());
+      var x = 0;
+      var y = 0;
+      var offset = $tz.offset();
+      x = offset.left + x1 - $e.offset().left;
+      y = offset.top + y1 - $e.offset().top;
+      setTimeout(function(){
+        $e.velocity({
+          translateX: '+=' + x,
+          translateY: '+=' + y,
+        }, {
+          'duration': numberBetween(44444,66666),
+          'easing': 'linear',
+        }, {
+          complete: function() {
+            orbit($e);
+          }
+        });
+        $e.velocity('reverse', {
+          complete: function(){
+            orbit($e);
+          }
+        });
       });
-      $el.hover(function() {
-        $(this).each(function() {
-          $(this).bounce('stop');
-        });
-      }, function() {
-        $(this).each(function() {
-          $(this).bounce('start', {
-            'minSpeed'	: speed,
-            'maxSpeed'	: speed,
-            'zone'		: targetZoneId
-          });
-        });
-      });
+    }
+    setTimeout(function(){
+      orbit($e);
+    }, 900 * i);
 
-    }
-  }
-  $('.master-controls .close').click(function(){
-    for (var i = 0; i < sE.length; i++) {
-      var $el = $('#' + sE[i].name);
-      var targetZone = sE[i].targetZone;
-      var speed = 10;
-      var targetZoneId = (window.innerWidth < 600) ? '#scene-elements' : '#grid-' + targetZone;
-      if ($el.attr('type') == 'image') {
-        $el.bounce('start', {
-          'minSpeed'	: speed,
-          'maxSpeed'	: speed,
-          'zone'		: targetZoneId
-        });
-      }
-    }
   });
 }
 
@@ -244,7 +288,7 @@ function thumbnailSize() {
 
 function thumbnailImageStyles(d, tSize, id) {
   return {
-    'background-image':'url("/releases/' + id + '/' + d.name + '.jpg")',
+    'background-image':'url("/releases/' + id + '/' + d.id + '.jpg")',
     'width': tSize.w,
     'height': tSize.h,
     'transform' : 'translateY(-50%)',
