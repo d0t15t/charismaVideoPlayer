@@ -5,6 +5,29 @@ d.e =
   "items": [
     {
       "type": "image",
+      "targetZone": 3,
+      "id": "Runaway",
+      "name": "Runaway",
+      "videoId": "247672477",
+      "videoIdGerm": "247671990",
+      "classes": '',
+      "landscape": {
+        "x": '0%',
+        "y": '70%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '20%',
+        "y": '90%',
+        "rotate" : "rotate(0deg)",
+      },
+      "rotate" : "",
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "image",
       "targetZone": 6,
       "id": "Delayed-Process",
       "name": "Delayed Process",
@@ -21,6 +44,52 @@ d.e =
         "y": '90%',
         "rotate" : "rotate(0deg)",
       },
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "image",
+      "targetZone": 7,
+      "id": "Telephone",
+      "name": "Telephone",
+      "videoId": "247643665",
+      "videoIdGerm": "247643311",
+      "classes": '',
+      "landscape": {
+        "x": '5%',
+        "y": '34%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '8%',
+        "y": '30%',
+        "rotate" : "rotate(0deg)",
+      },
+      "rotate" : "",
+      "styles": {
+        'transform': 'scale(1)'
+      },
+    },
+    {
+      "type": "image",
+      "targetZone": 8,
+      "id": "Nowhere-To-Go",
+      "name": "Nowhere To Go",
+      "videoId": "247642426",
+      "videoIdGerm": "247641613",
+      "classes": '',
+      "landscape": {
+        "x": '60%',
+        "y": '30%',
+        "rotate" : "rotate(0deg)",
+      },
+      "portrait": {
+        "x": '70%',
+        "y": '10%',
+        "rotate" : "rotate(0deg)",
+      },
+      "rotate" : "",
       "styles": {
         'transform': 'scale(1)'
       },
@@ -65,75 +134,6 @@ d.e =
         "y": '70%',
         "rotate" : "rotate(0deg)",
       },
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
-    {
-      "type": "image",
-      "targetZone": 8,
-      "id": "Nowhere-To-Go",
-      "name": "Nowhere To Go",
-      "videoId": "247642426",
-      "videoIdGerm": "247641613",
-      "classes": '',
-      "landscape": {
-        "x": '60%',
-        "y": '30%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '70%',
-        "y": '10%',
-        "rotate" : "rotate(0deg)",
-      },
-      "rotate" : "",
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
-    {
-      "type": "image",
-      "targetZone": 3,
-      "id": "Runaway",
-      "name": "Runaway",
-      "videoId": "247672477",
-      "videoIdGerm": "247671990",
-      "classes": '',
-      "landscape": {
-        "x": '0%',
-        "y": '70%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '20%',
-        "y": '90%',
-        "rotate" : "rotate(0deg)",
-      },
-      "rotate" : "",
-      "styles": {
-        'transform': 'scale(1)'
-      },
-    },
-    {
-      "type": "image",
-      "targetZone": 7,
-      "id": "Telephone",
-      "name": "Telephone",
-      "videoId": "247643665",
-      "videoIdGerm": "247643311",
-      "classes": '',
-      "landscape": {
-        "x": '5%',
-        "y": '34%',
-        "rotate" : "rotate(0deg)",
-      },
-      "portrait": {
-        "x": '8%',
-        "y": '30%',
-        "rotate" : "rotate(0deg)",
-      },
-      "rotate" : "",
       "styles": {
         'transform': 'scale(1)'
       },
