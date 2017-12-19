@@ -330,20 +330,6 @@ body#fullscreen-launch-6 #grid-svg {
 header {
   transition: all 600ms;
   position: relative;
-  top: -30px;
-}
-@media only screen and (min-width: 400px) {
-  header {
-    top: -30px;
-  }
-}
-@media only screen and (max-width: 400px) {
-  header {
-    top: -40px;
-  }
-}
-header.active {
-  top: 0;
 }
 body#credits header {
   display: none;

@@ -38,7 +38,9 @@ $(document).ready(function(){
   if (window.location.pathname == '/') {
     // console.log(d.e.releaseId);
     $('h2#page-title').text(d.e.title);
-    $('#main-menu li').eq(d.e.releaseId - 1).addClass('active-link');
+    $('#main-menu li').last().addClass('active-link');
+    // eq(d.e.releaseId).addClass('active-link');
+    console.log(d.e.releaseId);
   }
 
   // back button
