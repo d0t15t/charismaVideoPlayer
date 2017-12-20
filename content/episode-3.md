@@ -6,5 +6,5 @@ name = "episode-3-understandings"
   identifier = "episode-3"
 +++
 
-<script src="/data/episode_3_data.js"></script>
+<!-- <script src="/data/episode_3_data.js"></script> -->
 

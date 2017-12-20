@@ -149,76 +149,69 @@ var sPreEtransition = function(callback) {
     var $e = $(this);
     var x1 = ($(window).width() / 2) + ($e.width() / 2);
     var y1 = $(window).height() / 2 - ($(window).height() / 8);
+
+    var x2 = $e.attr('l');
+    var y2 = $e.attr('t');
+
     $e.css({
-      transform: 'translate(' + x1 + 'px, ' + y1 + 'px) scale(0.01)',
+      'transform': 'translate(' + x2 + 'px, ' + y2 + 'px) scale(' + $e.attr('scale') + ')',
     });
+
   });
   setTimeout(function(){
     callback();
-  }, 300);
+  }, 500);
 };
 /**
  *
  */
 var sEtransition = function() {
+  console.log('post');
   var $s = $('.scene-element');
   $s.each(function(i){
     var $e = $(this);
     var x2 = $e.attr('l');
     var y2 = $e.attr('t');
     setTimeout(function(){
-      // $e.css({
-      //   'transform': 'translate(' + x2 + 'px, ' + y2 + 'px) scale(' + $e.attr('scale') + ')',
-      //   'opacity': 1,
-      // });
-      $e.velocity({
-        translateX: x2,
-        translateY: y2,
-        opacity: 1,
-        scale : $e.attr('scale'),
-        tween: 1000,
-      },
-      {
-        progress: function(elements, complete, remaining, start, tweenValue) {
-          // console.log((complete * 100) + "%");
-          // console.log(remaining + "ms remaining!");
-          // console.log("The current tween value is " + tweenValue);
-        }
-    });
-      setTimeout(function(){
-        switch ($e.attr('type')) {
-          case 'text':
-            if ($e.hasClass('scene_element--title')) {
-              bounceInPlace($e, numberBetween(40,70));
-            }
-            break;
-          case 'image':
-
-            break;
-        }
-        $e.attr('state', 'done');
-      }, 500);
-    }, 300 * i);
+      $e.css({
+        'transform': 'translateX(' + x2 + 'px) translateY(' + y2 + 'px) scale(' + $e.attr('scale') + ')',
+        'opacity': 1,
+      });
+    }, 150 * i);
+    setTimeout(function(){
+      switch ($e.attr('type')) {
+        case 'text':
+          if ($e.hasClass('scene_element--title')) {
+            bounceInPlace($e, numberBetween(40,70), x2, y2, $e.attr('scale'));
+          }
+          break;
+      }
+      $e.attr('state', 'done');
+    }, 200 * i);
   });
 };
 
 /**
  *
  */
-function bounceInPlace($e, dist) {
+function bounceInPlace($e, dist, x1, y1, s) {
   // Up.
   $e.velocity({
-    translateY: '+='+(dist * -1),
+    translateY: ['+='+(dist * -1), y1],
+    translateX: [x1, x1],
+    scale: [s, s],
   }, {
     duration: numberBetween(800,1000),
   }, "easeOutCirc");
   // Down.
   $e.velocity({
-    translateY: '+='+dist,
+    translateY: ['+='+dist, y1],
+    translateX: [x1, x1],
+    scale: [s, s],
   }, {
     duration: numberBetween(6000, 8000),
     complete: function() {
-      bounceInPlace($e, dist);
+      bounceInPlace($e, dist, x1, y1, s);
     }
   }, "easeInCirc");
 }
