@@ -33,7 +33,7 @@ d.n =
       "videoIdGerm": "245581683",
       "classes": 'scene_element--name',
       "landscape": {
-        "x": '-10%',
+        "x": '0%',
         "y": '65%',
         "rotate" : "rotate(-90deg)",
       },

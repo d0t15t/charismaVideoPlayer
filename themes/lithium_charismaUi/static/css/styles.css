@@ -488,7 +488,7 @@ footer nav ul li.active-link > a {
 @media screen and (min-width: 800px) {
   #master-video-player > div {
     width: 640px;
-    height: 520px;
+    height: 516px;
   }
 }
 #master-video-player.active {
