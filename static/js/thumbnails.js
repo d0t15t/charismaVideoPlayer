@@ -17,7 +17,7 @@ $(document).ready(function(){
     };
     imageElements(textElements);
     setTimeout(function(){
-      initOrbits();
+      // initOrbits();
     },1000);
   });
 });

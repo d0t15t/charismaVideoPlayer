@@ -191,7 +191,7 @@ body {
   background-color: #00f;
 }
 body.video-player-active {
-  background-color: #0000b3;
+  /* background-color: #0000b3; */
 }
 body#credits,
 body#fullscreen-launch,
