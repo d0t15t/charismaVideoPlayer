@@ -17,8 +17,8 @@ $(document).ready(function(){
     };
     imageElements(textElements);
     setTimeout(function(){
-      initOrbits();
-    },5000);
+      // initOrbits();
+    },1000);
   });
 });
 
@@ -149,13 +149,18 @@ var sPreEtransition = function(callback) {
     var $e = $(this);
     var x1 = ($(window).width() / 2) + ($e.width() / 2);
     var y1 = $(window).height() / 2 - ($(window).height() / 8);
+
+    var x2 = $e.attr('l');
+    var y2 = $e.attr('t');
+
     $e.css({
-      transform: 'translate(' + x1 + 'px, ' + y1 + 'px) scale(0.01)',
+      'transform': 'translateX(' + x2 + 'px) translateY(' + y2 + 'px) scale(' + $e.attr('scale') + ')',
     });
+
   });
   setTimeout(function(){
     callback();
-  }, 300);
+  }, 500);
 };
 /**
  *
@@ -166,59 +171,44 @@ var sEtransition = function() {
     var $e = $(this);
     var x2 = $e.attr('l');
     var y2 = $e.attr('t');
-    setTimeout(function(){
-      // $e.css({
-      //   'transform': 'translate(' + x2 + 'px, ' + y2 + 'px) scale(' + $e.attr('scale') + ')',
-      //   'opacity': 1,
-      // });
+    setTimeout(function(i){
+      switch ($e.attr('type')) {
+        case 'text':
+          if ($e.hasClass('scene_element--title')) {
+            bounceInPlace($e, numberBetween(10,20), x2, y2, $e.attr('scale'));
+          }
+          break;
+      }
       $e.velocity({
-        translateX: x2,
-        translateY: y2,
-        opacity: 1,
-        scale : $e.attr('scale'),
-        tween: 1000,
-      },
-      {
-        progress: function(elements, complete, remaining, start, tweenValue) {
-          // console.log((complete * 100) + "%");
-          // console.log(remaining + "ms remaining!");
-          // console.log("The current tween value is " + tweenValue);
-        }
-    });
-      setTimeout(function(){
-        switch ($e.attr('type')) {
-          case 'text':
-            if ($e.hasClass('scene_element--title')) {
-              bounceInPlace($e, numberBetween(40,70));
-            }
-            break;
-          case 'image':
-
-            break;
-        }
-        $e.attr('state', 'done');
-      }, 500);
-    }, 300 * i);
+        opacity: 1
+      });
+      $e.attr('state', 'done');
+    }, 100 * (i+1));
   });
 };
 
 /**
  *
  */
-function bounceInPlace($e, dist) {
+function bounceInPlace($e, dist, x1, y1, s) {
   // Up.
   $e.velocity({
-    translateY: '+='+(dist * -1),
+    translateX: [x1, x1],
+    translateY: ['+='+(dist * -1), y1],
+    scale: [s, s],
+    opacity: 1
   }, {
     duration: numberBetween(800,1000),
   }, "easeOutCirc");
   // Down.
   $e.velocity({
-    translateY: '+='+dist,
+    translateY: ['+='+dist, y1],
+    translateX: [x1, x1],
+    scale: [s, s],
   }, {
     duration: numberBetween(6000, 8000),
     complete: function() {
-      bounceInPlace($e, dist);
+      bounceInPlace($e, dist, x1, y1, s);
     }
   }, "easeInCirc");
 }
@@ -232,38 +222,48 @@ function initOrbits() {
     var $e = $(this);
     var tz = $e.attr('target-zone');
     var $tz = $('[segment="' + tz + '"]');
-    function orbit($e) {
-      var s = numberBetween(0,3);
+    // function orbit($e) {
 
-      var o = s%2 ? 'y' : 'x';
-      var x1 = numberBetween(0, $tz.width());
-      var y1 = numberBetween(0, $tz.width());
-      var x = 0;
-      var y = 0;
+    //   var x1 = numberBetween(0, $tz.width());
+    //   var y1 = numberBetween(0, $tz.width());
+    //   var x = 0;
+    //   var y = 0;
+    //   var offset = $tz.offset();
+    //   x = offset.left + x1 - $e.offset().left;
+    //   y = offset.top + y1 - $e.offset().top;
+    //   setTimeout(function(){
+    //     $e.velocity({
+    //       translateX: '+=' + x,
+    //       translateY: '+=' + y,
+    //     }, {
+    //       'duration': numberBetween(44444,66666),
+    //       'easing': 'linear',
+    //     }, {
+    //       complete: function() {
+    //         orbit($e);
+    //       }
+    //     });
+    //     $e.velocity('reverse', {
+    //       complete: function(){
+    //         orbit($e);
+    //       }
+    //     });
+    //   });
+    // }
+    function orbit() {
       var offset = $tz.offset();
-      x = offset.left + x1 - $e.offset().left;
-      y = offset.top + y1 - $e.offset().top;
-      setTimeout(function(){
-        $e.velocity({
-          translateX: '+=' + x,
-          translateY: '+=' + y,
-        }, {
-          'duration': numberBetween(44444,66666),
-          'easing': 'linear',
-        }, {
-          complete: function() {
-            orbit($e);
-          }
-        });
-        $e.velocity('reverse', {
-          complete: function(){
-            orbit($e);
-          }
-        });
+      var x = numberBetween(offset.left, offset.left + $tz.width());
+      var y = numberBetween(offset.top, offset.top + $tz.height());
+      $e.velocity({
+        translateX: [x, $e.attr('l')],
+        translateY: [y, $e.attr('t')],
+        scale: [$e.attr('scale'), $e.attr('scale')]
       });
     }
+    orbit($e);
+
+
     setTimeout(function(){
-      orbit($e);
     }, 900 * i);
 
   });

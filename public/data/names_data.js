@@ -33,7 +33,7 @@ d.n =
       "videoIdGerm": "245581683",
       "classes": 'scene_element--name',
       "landscape": {
-        "x": '-10%',
+        "x": '0%',
         "y": '65%',
         "rotate" : "rotate(-90deg)",
       },
@@ -51,8 +51,8 @@ d.n =
       "targetZone": 5,
       "id": "echo",
       "name": "ECHO",
-      "videoId": "245586632",
-      "videoIdGerm": "245585875",
+      "videoId": "246653898",
+      "videoIdGerm": "246653245",
       "classes": 'scene_element--name',
       "landscape": {
         "x": '0%',
@@ -73,8 +73,8 @@ d.n =
       "targetZone": 4,
       "id": "HOWY",
       "name": "HOWY",
-      "videoId": "245583951",
-      "videoIdGerm": "245583038",
+      "videoId": "246655234",
+      "videoIdGerm": "246654535",
       "classes": 'scene_element--name',
       "landscape": {
         "x": '90%',
@@ -117,8 +117,8 @@ d.n =
       "targetZone": 7,
       "id": "Kitchen",
       "name": "Kitchen",
-      "videoId": "245587654",
-      "videoIdGerm": "245587344",
+      "videoId": "246656324",
+      "videoIdGerm": "246656021",
       "classes": 'scene_element--title',
       "landscape": {
         "x": '60%',

@@ -330,20 +330,6 @@ body#fullscreen-launch-6 #grid-svg {
 header {
   transition: all 600ms;
   position: relative;
-  top: -30px;
-}
-@media only screen and (min-width: 400px) {
-  header {
-    top: -30px;
-  }
-}
-@media only screen and (max-width: 400px) {
-  header {
-    top: -40px;
-  }
-}
-header.active {
-  top: 0;
 }
 body#credits header {
   display: none;
@@ -502,7 +488,7 @@ footer nav ul li.active-link > a {
 @media screen and (min-width: 800px) {
   #master-video-player > div {
     width: 640px;
-    height: 520px;
+    height: 516px;
   }
 }
 #master-video-player.active {
@@ -747,7 +733,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 .article-content #fullscreen-launch-content {
   position: relative;
   width: 600px;
-  height: 400px;
   margin: 0 auto;
   z-index: 1;
 }
