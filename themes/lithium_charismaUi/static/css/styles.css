@@ -259,10 +259,10 @@ button > *:hover {
 }
 #grid-wrapper {
   position: absolute;
-  visibility: hidden;
   top: 0;
   left: 0;
   z-index: -1;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 200ms;
 }

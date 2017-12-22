@@ -17,7 +17,7 @@ $(document).ready(function(){
     };
     imageElements(textElements);
     setTimeout(function(){
-      // initOrbits();
+      initOrbits();
     },1000);
   });
 });
@@ -170,19 +170,31 @@ var sEtransition = function() {
     var $e = $(this);
     var x2 = $e.attr('l');
     var y2 = $e.attr('t');
-    setTimeout(function(i){
-      switch ($e.attr('type')) {
-        case 'text':
-        if ($e.hasClass('scene_element--title')) {
-          bounceInPlace($e, numberBetween(10,20), x2, y2, $e.attr('scale'));
-        }
-        break;
+    switch ($e.attr('type')) {
+      case 'text':
+      if ($e.hasClass('scene_element--title')) {
+        bounceInPlace($e, numberBetween(10,20), x2, y2, $e.attr('scale'));
       }
-      $e.css({
-        opacity: 1
-      });
-      $e.attr('state', 'done');
-    }, 100 * (i+1));
+      break;
+    }
+    $e.css({
+      opacity: 1
+    });
+    $e.attr('state', 'done');
+    var color = getRandomColor();
+    setTimeout(function(i){
+
+      // TESTING
+      // $e.css({
+      //   'border': '5px solid ' + color
+      // });
+      // $('#grid-' + $e.attr('target-zone')).css({
+      //   'border': '5px solid ' + color
+      // });
+
+    }, 0);
+    // }, 100);
+    // }, 100 * (i+1));
   });
 };
 
@@ -251,12 +263,25 @@ function initOrbits() {
     // }
     function orbit() {
       var offset = $tz.offset();
-      var x = numberBetween(offset.left, offset.left + $tz.width());
-      var y = numberBetween(offset.top, offset.top + $tz.height());
+      var x = numberBetween(offset.left, offset.left + $tz.width()) - $e.width();
+      var y = numberBetween(offset.top, offset.top + $tz.height()) - $e.height();
       $e.velocity({
+        // translateX: x,
+        // translateY: y,
         translateX: [x, $e.attr('l')],
         translateY: [y, $e.attr('t')],
+        // translateX: [offset.left, $e.attr('l')],
+        // translateY: [offset.top, $e.attr('t')],
         scale: [$e.attr('scale'), $e.attr('scale')]
+      }, {
+        // 'duration': 1000,
+        'duration': numberBetween(44444,66666),
+        'easing': 'linear',
+      });
+      $e.velocity('reverse', {
+        complete: function(){
+          orbit();
+        }
       });
     }
     orbit($e);
@@ -268,6 +293,18 @@ function initOrbits() {
   });
 }
 
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+/**
+ *
+ */
 function thumbnailSize() {
   var t = {
     w: '200px', h: '150px'
@@ -285,6 +322,12 @@ function thumbnailSize() {
   return t;
 }
 
+/**
+ *
+ * @param {*} d
+ * @param {*} tSize
+ * @param {*} id
+ */
 function thumbnailImageStyles(d, tSize, id) {
   return {
     'background-image':'url("/releases/' + id + '/' + d.id + '.jpg")',
