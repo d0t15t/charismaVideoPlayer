@@ -191,7 +191,7 @@ body {
   background-color: #00f;
 }
 body.video-player-active {
-  /* background-color: #0000b3; */
+  background-color: #0000b3;
 }
 body#credits,
 body#fullscreen-launch,
@@ -375,6 +375,7 @@ footer nav h1#site-title {
   position: relative;
   top: -1px;
   margin: 0;
+  font-style: italic;
 }
 header.header nav h2#page-title,
 footer nav h2#page-title {
