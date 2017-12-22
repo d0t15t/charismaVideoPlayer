@@ -259,10 +259,10 @@ button > *:hover {
 }
 #grid-wrapper {
   position: absolute;
-  visibility: hidden;
   top: 0;
   left: 0;
   z-index: -1;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 200ms;
 }
@@ -375,6 +375,7 @@ footer nav h1#site-title {
   position: relative;
   top: -1px;
   margin: 0;
+  font-style: italic;
 }
 header.header nav h2#page-title,
 footer nav h2#page-title {
@@ -400,21 +401,6 @@ footer nav h2#page-title {
   footer nav h2#page-title {
     top: 7px;
   }
-}
-header.header nav h4,
-footer nav h4 {
-  position: relative;
-  display: none;
-}
-@media only screen and (min-width: 400px) {
-  header.header nav h4,
-  footer nav h4 {
-    display: inline;
-  }
-}
-header.header nav h4:after,
-footer nav h4:after {
-  content: ':';
 }
 header.header nav ul,
 footer nav ul {

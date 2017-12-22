@@ -339,7 +339,7 @@ $(document).ready(function(){
       'bottom' :'0'
     });
     $wr.css({
-      'height': ($wr.height() + ($wr.height() / 4)) + 'px',
+      'height': ($wr.height() + ($wr.height() / 7)) + 'px',
     });
     $wr.velocity({
       'opacity': 1
