@@ -164,7 +164,7 @@ d.e =
       "type": "image",
       "targetZone": 14,
       "id": "Ave_Maria",
-      "name": "Ave_Maria",
+      "name": "Ave Maria",
       "videoId": "247988819",
       "videoIdGerm": "247986866",
       "classes": 'scene-element__zoom-in',
