@@ -12,7 +12,7 @@ $(document).ready(function(){
     var imageElements = function(callback) {
       var $wr = $('#scene-elements');
       initImages(d.e, $wr);
-      // sPreEtransition(sEtransition);
+      sPreEtransition(sEtransition);
       callback();
     };
     imageElements(textElements);
@@ -156,7 +156,6 @@ var sPreEtransition = function(callback) {
     $e.css({
       'transform': 'translateX(' + x2 + 'px) translateY(' + y2 + 'px) scale(' + $e.attr('scale') + ')',
     });
-
   });
   setTimeout(function(){
     callback();
@@ -174,12 +173,12 @@ var sEtransition = function() {
     setTimeout(function(i){
       switch ($e.attr('type')) {
         case 'text':
-          if ($e.hasClass('scene_element--title')) {
-            bounceInPlace($e, numberBetween(10,20), x2, y2, $e.attr('scale'));
-          }
-          break;
+        if ($e.hasClass('scene_element--title')) {
+          bounceInPlace($e, numberBetween(10,20), x2, y2, $e.attr('scale'));
+        }
+        break;
       }
-      $e.velocity({
+      $e.css({
         opacity: 1
       });
       $e.attr('state', 'done');
