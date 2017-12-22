@@ -40,7 +40,6 @@ $(document).ready(function(){
     $('h2#page-title').text(d.e.title);
     $('#main-menu li').last().addClass('active-link');
     // eq(d.e.releaseId).addClass('active-link');
-    console.log(d.e.releaseId);
   }
 
   // back button

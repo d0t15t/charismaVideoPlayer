@@ -733,7 +733,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 .article-content #fullscreen-launch-content {
   position: relative;
   width: 600px;
-  height: 400px;
   margin: 0 auto;
   z-index: 1;
 }
