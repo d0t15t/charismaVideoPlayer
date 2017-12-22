@@ -8,7 +8,6 @@
             </a>
         </h1>
     </li>
-    <li><h4>Episode</h4></li>
   {{ range .Site.Menus.main }}
 
   <li class="{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}active-link{{end}}">
