@@ -12,7 +12,7 @@ $(document).ready(function(){
     var imageElements = function(callback) {
       var $wr = $('#scene-elements');
       initImages(d.e, $wr);
-      // sPreEtransition(sEtransition);
+      sPreEtransition(sEtransition);
       callback();
     };
     imageElements(textElements);
@@ -159,7 +159,10 @@ var sPreEtransition = function(callback) {
 
   });
   setTimeout(function(){
-    callback();
+    $s.css({
+      opacity: 1
+    });
+    // callback();
   }, 500);
 };
 /**
