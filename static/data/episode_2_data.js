@@ -120,8 +120,8 @@ d.e =
       "targetZone": 16,
       "id": "Schaulust",
       "name": "Schaulust",
-      "videoId": "246618472",
-      "videoIdGerm": "246618472",
+      "videoId": "247995473",
+      "videoIdGerm": "247995473",
       "classes": 'scene-element__zoom-in',
       "landscape": {
         "x": '38%',
