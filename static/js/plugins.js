@@ -1,25 +1,24 @@
 /**
- * Bounce in place
+ *
  */
-// $.fn.bIp = function(dist) {
-//   var $e = this;
-//   $e.velocity({
-//     translateY: dist
-//   }, 800, {
-//     // delay: 500
-//   }, "easeOutQuad");
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-//   $e.velocity({
-//     translateY: dist * -1
-//   }, {
-//     duration: 100,
-//     complete: function() {
-//        $e.bIp(dist);
-//     }
-//   }, "easeInSine");
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-//   return this;
-// };
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 
 /**

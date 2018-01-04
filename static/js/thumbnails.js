@@ -19,6 +19,86 @@ $(document).ready(function(){
     setTimeout(function(){
       initOrbits();
     },1000);
+
+
+    var $w = $('.b-wrapper');
+    var $b = $('.bounce');
+    function loadSides(){
+      return shuffle([0,1,2,3]);
+    }
+
+    /**
+     *
+     * @param {*} x1
+     * @param {*} x2
+     * @param {*} y1
+     * @param {*} y2
+     */
+    function distanceCalc(x1, x2, y1, y2) {
+      var a = x1 - x2;
+      var b = y1 - y2;
+      return Math.sqrt( a*a + b*b );
+    }
+
+    function durationCalc(x1, x2, y1, y2) {
+      var d = distanceCalc(x1, x2, y1, y2);
+      var speed = 10 * d;
+      // console.log(d);
+      return speed;
+    }
+
+    function perimeterCoordinates(s, r, offset, W, w) {
+
+    }
+    function bounceInside($e, s, array) {
+      if (array.length == 0) {
+        array = shuffle(loadSides());
+        s = array.pop();
+      }
+      // var s = array.pop();
+      var $tz = $w;
+      var offset = $tz.offset();
+      var W = $tz.outerWidth();
+      var w = $e.outerWidth();
+      var r = numberBetween(0, $w.width() - w);
+      var x1, y1, x2, y2;
+      x1 = $e.offset().left;
+      y1 = $e.offset().top;
+      // s = 3;
+      switch (s) {
+        case 0: // point on top
+          x2 = offset.left + r;
+          y2 = offset.top;
+          break;
+        case 1: // point on right
+          x2 = offset.left + W - w;
+          y2 = offset.top + r;
+          break;
+        case 2: // point on bottom
+          x2 = offset.left + r;
+          y2 = offset.top + W - w;
+          break;
+        case 3: // point on left
+          x2 = offset.left;
+          y2 = offset.top + r;
+          break;
+      }
+      $e.velocity({
+        translateX: x2,
+        translateY: y2,
+      }, {
+        // 'duration': numberBetween(44444,66666),
+        'duration': durationCalc(x1, x2, y1, y2),
+        'easing': 'linear',
+        complete: function() {
+          bounceInside($e, array.pop(), array);
+        }
+      });
+    }
+    var sides = loadSides();
+    bounceInside($b, sides.pop(), sides);
+
+
   });
 });
 
@@ -233,48 +313,15 @@ function initOrbits() {
     var $e = $(this);
     var tz = $e.attr('target-zone');
     var $tz = $('[segment="' + tz + '"]');
-    // function orbit($e) {
-
-    //   var x1 = numberBetween(0, $tz.width());
-    //   var y1 = numberBetween(0, $tz.width());
-    //   var x = 0;
-    //   var y = 0;
-    //   var offset = $tz.offset();
-    //   x = offset.left + x1 - $e.offset().left;
-    //   y = offset.top + y1 - $e.offset().top;
-    //   setTimeout(function(){
-    //     $e.velocity({
-    //       translateX: '+=' + x,
-    //       translateY: '+=' + y,
-    //     }, {
-    //       'duration': numberBetween(44444,66666),
-    //       'easing': 'linear',
-    //     }, {
-    //       complete: function() {
-    //         orbit($e);
-    //       }
-    //     });
-    //     $e.velocity('reverse', {
-    //       complete: function(){
-    //         orbit($e);
-    //       }
-    //     });
-    //   });
-    // }
     function orbit() {
       var offset = $tz.offset();
       var x = numberBetween(offset.left, offset.left + $tz.width()) - $e.width();
       var y = numberBetween(offset.top, offset.top + $tz.height()) - $e.height();
       $e.velocity({
-        // translateX: x,
-        // translateY: y,
         translateX: [x, $e.attr('l')],
         translateY: [y, $e.attr('t')],
-        // translateX: [offset.left, $e.attr('l')],
-        // translateY: [offset.top, $e.attr('t')],
         scale: [$e.attr('scale'), $e.attr('scale')]
       }, {
-        // 'duration': 1000,
         'duration': numberBetween(44444,66666),
         'easing': 'linear',
       });
