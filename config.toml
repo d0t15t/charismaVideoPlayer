@@ -25,6 +25,11 @@ disqusShortname = ""
     url = "/episode-3"
     identifier = "episode-3"
     weight = -48
+[[menu.main]]
+    name = "Four"
+    url = "/episode-4"
+    identifier = "episode-4"
+    weight = -47
 
 [[menu.sub]]
     name = "EN"
