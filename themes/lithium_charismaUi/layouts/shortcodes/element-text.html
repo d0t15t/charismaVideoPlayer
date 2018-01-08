@@ -1,0 +1,26 @@
+{{- $releaseId := .Parent.Get "releaseId"}}
+{{- $name := .Get "name" -}}
+{{- $type := .Get "type" -}}
+{{- $targetZone := .Get "targetZone" -}}
+{{- $srcPath := .Get "targetZone" -}}
+{{- $rotate := .Get "rotate" -}}
+{{- $viden := .Get "viden" -}}
+{{- $vidde := .Get "vidde" -}}
+{{- $landscape := .Get "landscape" -}}
+{{- $portrait := .Get "portrait" -}}
+{{- with .Parent -}}
+  <div
+    class="scene-element text scene_element--{{$type}}"
+    id={{$name}}
+    name={{$name}}
+    type="text"
+    target-zone={{$targetZone}}
+    rotate={{$rotate}}
+    viden="{{$viden}}"
+    vidde="{{$vidde}}"
+    data-landscape='[{{$landscape}}]'
+    data-portrait='[{{$portrait}}]'
+  >
+  <div class="text">{{$name}}</div>
+  </div>
+{{- end }}

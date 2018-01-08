@@ -1,0 +1,24 @@
+{{- $releaseId := .Parent.Get "releaseId"}}
+{{- $name := .Get "name" -}}
+{{- $targetZone := .Get "targetZone" -}}
+{{- $srcPath := .Get "targetZone" -}}
+{{- $viden := .Get "viden" -}}
+{{- $vidde := .Get "vidde" -}}
+{{- $landscape := .Get "landscape" -}}
+{{- $portrait := .Get "portrait" -}}
+{{- with .Parent -}}
+  <div
+    class="scene-element image"
+    id={{$name}}
+    name={{$name}}
+    type=image
+    target-zone={{$targetZone}}
+    style="background-image:url('/releases/{{$releaseId}}/{{$name}}.jpg')"
+    viden="{{$viden}}"
+    vidde="{{$vidde}}"
+    data-landscape='[{{$landscape}}]'
+    data-portrait='[{{$portrait}}]'
+  >
+    <img src="/releases/{{$releaseId}}/{{$name}}.gif" class="overlay-gif">
+  </div>
+{{- end }}
