@@ -19,8 +19,8 @@ $(document).ready(function(){
   var $wr = $('#' + wrapper);
   var players = [];
 
-  initPlayers(d.n, $wr);
-  initPlayers(d.e, $wr);
+  initPlayers($wr);
+  // initPlayers(d.e, $wr);
 
   var players = [];
   $('body').imagesLoaded( function() {
@@ -116,18 +116,30 @@ $(document).ready(function(){
 /**
  * Init videos in both languages.
  */
-function initPlayers(d, $wr) {
-  if (d.hasOwnProperty('items')) {
-    for (var i = 0; i < d.items.length; i++) {
-      var vid = d.items[i].videoId;
-      $wr.prepend('<div class="video-player"></div>');
-      var $el = $wr.children().first();
-      $el.attr('id', vid);
-      $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'en');
-      var vid = d.items[i].videoIdGerm;
-      $wr.prepend('<div class="video-player"></div>');
-      var $el = $wr.children().first();
-      $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'de');
-    }
-  }
+function initPlayers($wr) {
+  $.each($('.scene-element'), function(){
+    var $parent = $(this);
+    var vid = $parent.attr('viden');
+    $wr.prepend('<div class="video-player"></div>');
+    var $el = $wr.children().first();
+    $el.attr('id', vid);
+    $el.attr('id', vid).attr('parent', $parent.attr('id')).attr('lang', 'en');
+    var vid = $parent.attr('vidde');
+    $wr.prepend('<div class="video-player"></div>');
+    var $el = $wr.children().first();
+    $el.attr('id', vid).attr('parent', $parent.attr('id')).attr('lang', 'de');
+  });
+  // if (d.hasOwnProperty('items')) {
+  //   for (var i = 0; i < d.items.length; i++) {
+  //     var vid = d.items[i].videoId;
+  //     $wr.prepend('<div class="video-player"></div>');
+  //     var $el = $wr.children().first();
+  //     $el.attr('id', vid);
+  //     $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'en');
+  //     var vid = d.items[i].videoIdGerm;
+  //     $wr.prepend('<div class="video-player"></div>');
+  //     var $el = $wr.children().first();
+  //     $el.attr('id', vid).attr('parent', d.items[i].id).attr('lang', 'de');
+  //   }
+  // }
 }
