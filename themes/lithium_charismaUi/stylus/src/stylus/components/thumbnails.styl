@@ -5,19 +5,20 @@
   width 100%
   height 100%
   transition all 400ms
+  z-index: 1
   // +below(1)
   //   transform rotate(90deg)
 
   .scene-element
     transform-origin top left
     position fixed
+    top 0
+    left 0
     background-repeat no-repeat
     background-size cover
     background-position: center center
     cursor pointer
-    transition all 500ms
     opacity 0
-    transform translate(50%, 50%) scale(0);
 
     &.se-visible
       opacity 1
@@ -32,8 +33,8 @@
       z-index 1
       opacity 0
       transition opacity 200ms
-    &.text
-      z-index 3
+    &.text.scene_element--name
+      text-transform: uppercase
     &:hover
       .overlay-gif
         opacity 1
