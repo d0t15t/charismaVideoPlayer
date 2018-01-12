@@ -124,4 +124,3 @@ name = "episode-3-understandings"
     rotate      = "0"
   >}}
 {{< /sE >}}
-
