@@ -190,7 +190,7 @@ function distanceCalc(x1, x2, y1, y2) {
 
 function durationCalc(x1, x2, y1, y2) {
   var d = distanceCalc(x1, x2, y1, y2);
-  var speed = 50 * d;
+  var speed = 70 * d;
   // console.log(d);
   return speed;
 }
