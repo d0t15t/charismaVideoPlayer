@@ -14,6 +14,13 @@ $(document).ready(function(){
       $.each($wr.children('.scene-element.image'), function(i){
         var $b = $(this);
         // Fade in images
+        $b.velocity({
+          translateX: $b.attr('l'),
+          translateY: $b.attr('t'),
+        }, {
+          'duration': 1,
+          'easing': 'linear',
+        });
         setTimeout(function(){
           $b.velocity({
             opacity:1,
@@ -28,11 +35,18 @@ $(document).ready(function(){
           bounceInside($b, sides.pop(), sides, 0);
         }, numberBetween(1300, 1600));
       });
+      // Text
       $.each($wr.children('.scene-element.text'), function(i){
         // Bounce in place.
         var $e = $(this);
+        $e.velocity({
+          translateX: $e.attr('l'),
+          translateY: $e.attr('t'),
+        }, {
+          duration: 1,
+        }, "linear");
         setTimeout(function(){
-          bounceInPlace($e, numberBetween(10,20));
+          bounceInPlace($e, numberBetween(10,20), $e.attr('l'), $e.attr('t'));
         }, numberBetween(700, 1300));
       });
     };
@@ -114,14 +128,14 @@ $.fn.placeIn3dTargetZone = function(d) {
   var y = parseInt(coordinates[1]) / decFactor;
   var stylesTop = Math.round($el.box.t + ($el.box.h * y));
   var stylesLeft = Math.round($el.box.l + ($el.box.w * x));
-  styles.transform = 'translate(' + stylesLeft + 'px,' + stylesTop + 'px)';
+  styles.transform = 'translate(' + stylesLeft + 'px, ' + stylesTop + 'px)';
   styles.width = $el.width() * p.s;
   styles.height = $el.height() * p.s;
   // if ($el.attr('type') == 'text') {
-  //  }
+    //  }
   $el.attr('scale', p.s)
-     .attr('t', stylesTop)
-     .attr('l', stylesLeft);
+    .attr('t', stylesTop)
+    .attr('l', stylesLeft);
 
   $el.css(styles);
   $targetZone.css({
@@ -136,15 +150,15 @@ $.fn.placeIn3dTargetZone = function(d) {
 function bounceInPlace($e, dist, x1, y1) {
   // Up.
   $e.velocity({
-    // translateX: [x1, x1],
-    // translateY: ['+='+(dist * -1), y1],
-    'margin-top': (dist * -1),
+    translateY: '+='+(dist * -1),
+    // 'margin-top': (dist * -1),
   }, {
     duration: numberBetween(800,1000),
   }, "easeOutCirc");
   // Down.
   $e.velocity({
-    'margin-top': dist,
+    translateY: '+='+(dist * 1),
+    // 'margin-top': dist,
   }, {
     duration: numberBetween(6000, 8000),
     complete: function() {
@@ -153,20 +167,30 @@ function bounceInPlace($e, dist, x1, y1) {
   }, "easeInCirc");
 }
 
-
+/**
+ *
+ */
 function loadSides(){
   return shuffle([0,1,2,3]);
 }
 
+/**
+ *
+ * @param {*} x1
+ * @param {*} x2
+ * @param {*} y1
+ * @param {*} y2
+ */
 function distanceCalc(x1, x2, y1, y2) {
   var a = x1 - x2;
   var b = y1 - y2;
   return Math.sqrt( a*a + b*b );
 }
 
+
 function durationCalc(x1, x2, y1, y2) {
   var d = distanceCalc(x1, x2, y1, y2);
-  var speed = 30 * d;
+  var speed = 50 * d;
   // console.log(d);
   return speed;
 }
@@ -212,7 +236,8 @@ function bounceInside($e, s, array, i) {
       y2 = offset.top + r;
       break;
   }
-  var easing = i == 0 ? 'easeInSine' : 'linear';
+  var easing = i == 0 ? 'linear' : 'linear';
+  // var easing = i == 0 ? 'easeInSine' : 'linear';
   i++;
   $e.velocity({
     translateX: [x2, x1],
