@@ -10,6 +10,6 @@
 
 {{ partial "scripts-top.html" . }}
 
-<script src="/data/episode_3_data.js"></script>
+{{ with $.Site.GetPage "page" "episode-3.md" }}{{.Content}}{{end}}
 
 {{ partial "scripts-bottom.html" . }}
