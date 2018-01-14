@@ -733,6 +733,9 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 .article-content #fullscreen-launch-content h1 {
   font-size: 1em;
+  color: #fff;
+  font-weight: lighter;
+  text-shadow: -1.5px -1.5px 0px #000, 1.5px -1.5px 0px #000, 1.5px 1.5px 0px #000, -1.5px 1.5px 0px #000;
 }
 .article-content #fullscreen-launch-content .inner .rounded-logo,
 .article-content #fullscreen-launch-content .inner .rounded-enter {
@@ -767,7 +770,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background-image: url("/images/Charisma-salami.jpg");
+  background-image: url("/images/SEEK.jpg");
   background-position-x: -11px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -788,6 +791,9 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 #fullscreen-launch-2 .circle a {
   background-image: url("/images/charisma-e2-title-image.jpg") !important;
+}
+#fullscreen-launch-3 .circle a {
+  background-image: url("/images/Charisma-salami.jpg") !important;
 }
 #launchpage-scrolling-text {
   position: relative;
