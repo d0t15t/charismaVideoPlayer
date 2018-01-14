@@ -1,6 +1,6 @@
 +++
-date = "2017-12-17T21:48:51-07:00"
-title = "Episode 3: Understandings"
+date = "2018-01-14T15:05:27+01:00"
+title = "Episode 4: Seek"
 name = "fullscreen-launch"
 +++
 
@@ -8,18 +8,20 @@ name = "fullscreen-launch"
   <div class="inner">
     <div class="rounded-logo"></div>
       <div class="circle">
-        <a href="/episode-3" >
+        <a href="/episode-4" >
       </div>
       <!-- <div class="rounded-enter"></div> -->
     </a>
-    <a class="title" href="/episode-3" >
-      <img src="/images/Episode-3-title.svg">
+    <a class="title" href="/episode-4" >
+    <!-- <h1>Episode 4: Seek</h1> -->
+      <!-- <img src="/images/Episode-3-title.svg"> -->
       <!-- <h1 class="headline-style-1">Episode 1: Miscommunication</h1> -->
     </a>
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee direction="left"></marquee>
-  <marquee direction="left">"That specific twinge in my stomach... That's a feeling"</marquee>
+  <marquee direction="left">No technology exists outside of the social conditions they were born under</marquee>
+  <marquee direction="right">"You don't know what you're looking for?"</marquee>
 </div>
+
 

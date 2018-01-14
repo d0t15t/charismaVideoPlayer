@@ -48,36 +48,12 @@ name = "episode-1-miscommunication"
     portrait    = "10,5"
   >}}
   {{< element-image
-    targetZone  =  "9"
-    name        =  "Howy_Album"
-    viden       = "247981652"
-    vidde       = "247982473"
-    landscape   = "90,20"
-    portrait    = "50,60"
-  >}}
-  {{< element-image
     targetZone  =  "13"
     name        =  "Asher-Laughing"
     viden       = "247991227"
     vidde       = "247991016"
     landscape   = "20,10"
     portrait    = "10,90"
-  >}}
-  {{< element-image
-    targetZone  =  "14"
-    name        =  "Ave_Maria"
-    viden       = "247988819"
-    vidde       = "247986866"
-    landscape   = "20,60"
-    portrait    = "25,10"
-  >}}
-  {{< element-image
-    targetZone  =  "16"
-    name        =  "Hungarian-Rock"
-    viden       = "247983398"
-    vidde       = "247991885"
-    landscape   = "30,30"
-    portrait    = "55,40"
   >}}
   {{< element-image
     targetZone  =  "16"
