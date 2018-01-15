@@ -25,10 +25,10 @@ $(document).ready(function(){
           $b.velocity({
             opacity:1,
           }, {
-            'duration': 200,
+            'duration': 100,
             'easing': 'linear',
           });
-        }, 500);
+        }, 200);
         // Bounce in space.
         setTimeout(function(){
           var sides = loadSides();
