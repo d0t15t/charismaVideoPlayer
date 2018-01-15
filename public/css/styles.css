@@ -731,11 +731,12 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 100%;
   height: auto;
 }
-.article-content #fullscreen-launch-content h1 {
+.article-content #fullscreen-launch-content p {
   font-size: 1em;
+  letter-spacing: 4px;
   color: #fff;
-  font-weight: lighter;
-  text-shadow: -1.5px -1.5px 0px #000, 1.5px -1.5px 0px #000, 1.5px 1.5px 0px #000, -1.5px 1.5px 0px #000;
+  font-weight: 0;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .article-content #fullscreen-launch-content .inner .rounded-logo,
 .article-content #fullscreen-launch-content .inner .rounded-enter {
@@ -769,7 +770,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  overflow: hidden;
   background-image: url("/images/SEEK.jpg");
   background-position-x: -11px;
   background-size: cover;
@@ -780,7 +780,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
     width: 100%;
     height: 600px;
     position: absolute;
-    overflow: hidden;
   }
   .article-content #fullscreen-launch-content .inner .title {
     width: 350px;
@@ -834,7 +833,6 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 .center-page > div {
   width: 100%;
-  overflow: hidden;
   position: fixed;
   top: 50%;
   left: 50%;

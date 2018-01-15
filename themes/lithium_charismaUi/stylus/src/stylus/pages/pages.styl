@@ -47,15 +47,17 @@ l = 200px
       img
         width 100%
         height auto
-    h1
+    p
       font-size 1em
+      letter-spacing: 4px
       color white
-      font-weight: lighter
+      font-weight: 0
       text-shadow:
-        -1.5px -1.5px 0px black,
-        1.5px -1.5px 0px black,
-        1.5px 1.5px 0px black,
-        -1.5px 1.5px 0px black
+        3px 3px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
     .inner
       .rounded-logo,
       .rounded-enter
@@ -86,7 +88,7 @@ l = 200px
         width 100%
         height 100%
         border-radius 50%
-        overflow hidden
+        // overflow hidden
         background-image url('/images/SEEK.jpg')
         background-position-x: -11px
         background-size cover
@@ -95,7 +97,7 @@ l = 200px
       width 100%
       height 600px
       position absolute
-      overflow hidden
+      // overflow hidden
       .inner
         .title
           width 350px
@@ -140,7 +142,6 @@ l = 200px
 
 .center-page > div
   width: 100%;
-  overflow: hidden;
   position: fixed;
   top: 50%;
   left: 50%;
