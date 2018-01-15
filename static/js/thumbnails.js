@@ -52,6 +52,7 @@ $(document).ready(function(){
     };
     functionOne().done( functionTwo() );
   });
+
 });
 
 /**
@@ -165,6 +166,11 @@ function bounceInPlace($e, dist, x1, y1) {
       bounceInPlace($e, dist, x1, y1);
     }
   }, "easeInCirc");
+  $e.hover(function(){
+    $e.velocity("stop", true);
+  }, function(){
+    bounceInPlace($e, dist, x1, y1);
+  });
 }
 
 /**
@@ -248,6 +254,21 @@ function bounceInside($e, s, array, i) {
     complete: function() {
       bounceInside($e, array.pop(), array);
     }
+  });
+  $e.hover(function(){
+    $e.velocity("stop", true);
+  }, function(){
+    bounceInside($e, array.pop(), array);
+  });
+  $(window).focus(function() {
+    setTimeout(function(){
+      bounceInside($e, array.pop(), array);
+    }, numberBetween(1300, 1600));
+
+  });
+
+  $(window).blur(function() {
+    $e.velocity("stop", true);
   });
 }
 
