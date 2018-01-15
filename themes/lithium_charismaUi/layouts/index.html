@@ -12,4 +12,17 @@
 
 {{ with $.Site.GetPage "page" "episode-4.md" }}{{.Content}}{{end}}
 
+<div id="master-video-player">
+  <div id="master-video-player-inner">
+    <div class="master-controls video-controls">
+      <div class="close"></div>
+    </div>
+    <div id="playlist">
+      <div id="prev" val="-1"></div>
+      <div id="next" val="1"></div>
+    </div>
+  </div>
+</div>
+
+
 {{ partial "scripts-bottom.html" . }}
