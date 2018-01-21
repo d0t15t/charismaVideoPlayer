@@ -12,7 +12,7 @@ name = "episode-5-emotions"
     targetZone  =  "11"
     viden       = "252023557"
     vidde       = "252023139"
-    landscape    = "0,70"
+    landscape    = "-50,100"
     portrait    = "20,90"
   >}}
   {{< element-image
