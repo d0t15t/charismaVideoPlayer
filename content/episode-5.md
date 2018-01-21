@@ -9,7 +9,7 @@ name = "episode-5-emotions"
 {{< sE releaseId="5">}}
   {{< element-image
     name        =  "Augenkrebs"
-    targetZone  =  "4"
+    targetZone  =  "11"
     viden       = "252023557"
     vidde       = "252023139"
     landscape    = "0,70"
@@ -25,7 +25,7 @@ name = "episode-5-emotions"
   >}}
   {{< element-image
     name        =  "Plate-Saga"
-    targetZone  =  "5"
+    targetZone  =  "6"
     viden       = "252031447"
     vidde       = "252024025"
     landscape    = "5,34"
@@ -41,7 +41,7 @@ name = "episode-5-emotions"
   >}}
   {{< element-image
     name        =  "Glue"
-    targetZone  =  "16"
+    targetZone  =  "4"
     viden       = "246652848"
     vidde       = "246652476"
     landscape   = "20,60"
