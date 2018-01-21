@@ -8,20 +8,17 @@ name = "fullscreen-launch"
   <div class="inner">
     <div class="rounded-logo"></div>
       <div class="circle">
-        <a href="/episode-4" >
+        <a href="/episode-5" >
       </div>
-      <!-- <div class="rounded-enter"></div> -->
     </a>
-    <a class="title" href="/episode-4" >
-    <p>Episode 4: Seek</p>
-      <!-- <img src="/images/Episode-3-title.svg"> -->
-      <!-- <h1 class="headline-style-1">Episode 1: Miscommunication</h1> -->
+    <a class="title" href="/episode-5" >
+    <p>Episode 5: Emotions</p>
     </a>
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee direction="left">No technology exists outside of the social conditions they were born under</marquee>
-  <marquee direction="right">"You don't know what you're looking for?"</marquee>
+  <marquee direction="left">Simple, serious and a little bit punk?</marquee>
+  <!-- <marquee direction="right">"You don't know what you're looking for?"</marquee> -->
 </div>
 
 
