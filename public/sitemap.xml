@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/fullscreen-launch-4/</loc>
+    <lastmod>2018-01-21T19:02:44+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/episode-5/</loc>
     <lastmod>2018-01-21T18:20:54+01:00</lastmod>
   </url>
@@ -59,7 +64,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-01-21T18:20:54+01:00</lastmod>
+    <lastmod>2018-01-21T19:02:44+01:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,7 +1,7 @@
 +++
 date = "2017-12-06T21:48:51-07:00"
 title = "Episode 1: Miscommunication"
-name = "fullscreen-launch"
+name = "fullscreen-launch-1"
 +++
 
 <div id="fullscreen-launch-content" class="center-page no-nav">
