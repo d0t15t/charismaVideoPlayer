@@ -40,14 +40,6 @@ name = "episode-3-understandings"
     portrait    = "70,10"
   >}}
   {{< element-image
-    name        =  "Mad-World"
-    targetZone  =  "12"
-    viden       = "247668636"
-    vidde       = "247668462"
-    landscape    = "-2,70"
-    portrait    = "30,-50"
-  >}}
-  {{< element-image
     name        =  "Telephone"
     targetZone  =  "12"
     viden       = "248061451"

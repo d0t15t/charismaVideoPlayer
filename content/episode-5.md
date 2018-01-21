@@ -1,54 +1,63 @@
 +++
-date = "2017-12-10T21:48:51-07:00"
-title = "Psychologistical"
-name = "episode-2-psychologistical"
+date = "2018-01-21T18:20:54+01:00"
+title = "Emotions"
+name = "episode-5-emotions"
 [menu.main]
-  identifier = "episode-2"
+  identifier = "episode-5"
 +++
 
-{{< sE releaseId="2">}}
+{{< sE releaseId="5">}}
   {{< element-image
-    name        =  "ASMR"
+    name        =  "Augenkrebs"
     targetZone  =  "4"
-    viden       = "246617130"
-    vidde       = "246651303"
-    landscape    = "-2,63"
-    portrait    = "25,90"
-  >}}
-  {{< element-image
-    name        =  "Breakfast_Part_2"
-    targetZone  =  "6"
-    viden       = "246617947"
-    vidde       = "246617420"
-    landscape    = "65,65"
-    portrait    = "67,72"
-  >}}
-  {{< element-image
-    name        =  "Family_Constellations"
-    targetZone  =  "8"
-    viden       = "246622810"
-    vidde       = "246624488"
-    landscape    = "62,18"
-    portrait    = "60,30"
-  >}}
-  {{< element-image
-    name        =  "Illuminations"
-    targetZone  =  "13"
-    viden       = "246651483"
-    vidde       = "246652007"
+    viden       = "252023557"
+    vidde       = "252023139"
     landscape    = "0,70"
-    portrait    = "10,90"
+    portrait    = "20,90"
   >}}
   {{< element-image
-    name        =  "Schaulust"
+    name        =  "Little-Bit-Punk"
+    targetZone  =  "10"
+    viden       = "252023931"
+    vidde       = "252031333"
+    landscape    = "60,63"
+    portrait    = "55,90"
+  >}}
+  {{< element-image
+    name        =  "Plate-Saga"
+    targetZone  =  "5"
+    viden       = "252031447"
+    vidde       = "252024025"
+    landscape    = "5,34"
+    portrait    = "8,30"
+  >}}
+  {{< element-image
+    name        =  "Universal-Love"
+    targetZone  =  "8"
+    viden       = "252024591"
+    vidde       = "252024249"
+    landscape    = "60,30"
+    portrait    = "70,10"
+  >}}
+  {{< element-image
+    name        =  "Glue"
     targetZone  =  "16"
-    viden       = "247995473"
-    vidde       = "247995473"
-    landscape    = "38,48"
-    portrait    = "40,70"
+    viden       = "246652848"
+    vidde       = "246652476"
+    landscape   = "20,60"
+    portrait    = "25,10"
+  >}}
+  {{< element-image
+    name        =  "Mad-World"
+    targetZone  =  "12"
+    viden       = "247668636"
+    vidde       = "247668462"
+    landscape   = "90,0"
+    portrait    = "50,60"
   >}}
 
-    {{< element-text
+
+  {{< element-text
     targetZone  =  "5"
     name        =  "Asher"
     type        = "name"
