@@ -16,6 +16,8 @@ body
   font-family: font-family-main
   font-size: font-size-main
   color COLOR_BLACK_DARK
+  p
+    margin 1em 0
   // *
   //   word-break: break-all;
   //   white-space normal
@@ -34,17 +36,17 @@ h1, h2, h3, h4, h5
     color COLOR_WHITE
     text-shadow 3px 3px 0px rgba(black, 1);
 
-h1
-  font-size 1.3vw
-  +above(3)
-    line-height: 30px
-h2
-  font-size 1.3vw
+// h1
+//   font-size 1em
+//   +above(3)
+//     line-height: 30px
+// h2
+//   font-size 1.3vw
 
-+above(2)
-  h1
-  h2
-    font-size 1.7vw
+// +above(2)
+//   h1
+//   h2
+//     font-size 1.7vw
 // +below(1)
 //   h1
 //     font-size 15vw
@@ -60,36 +62,33 @@ header, nav.nav, footer
   font-family font-family-menu
   font-size font-size-menu
   color white
-  font-size 1vw
+  // font-size 1em
   text-transform uppercase
-  +above(2)
-    font-size 3vw
+  // +above(2)
+  //   font-size 3vw
   a:hover
     color COLOR_GREY
 
-  h1, h2, h3, h4, a
+  h1, h2, h3, h4, h5, h6, a
     font-weight: 100
-    font-size: 4vw
+    // font-size: 1em
     font-family font-family-menu
     vertical-align: middle
     color white
     letter-spacing 0px
-    +above(3)
-      font-size: 2.2vw
-      +above(4)
-        font-size: 1.2vw
-  +above(4)
-    a
-      font-size: 1.2vw !important
+    // +above(3)
+    //   font-size: 2.2vw
+    //   +above(4)
+    //     font-size: 1.2vw
 
-  +above(4)
-    ul
-      font-size 1.6vw
+  // +above(4)
+  //   ul
+  //     font-size 1.6vw
 
-#sub-menu
-  a
-    +above(4)
-      font-size: 1.7vw
+// #sub-menu
+//   a
+//     +above(4)
+//       font-size: 1.7vw
 
 
 .scene-element

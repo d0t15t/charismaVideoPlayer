@@ -31,20 +31,27 @@ header.header, footer
     *
       display inline
       box-sizing: border-box
+      font-size 15px
     > *
+      display inline-block
       position relative
       vertical-align: middle
-      padding 5px 10px 3px 10px
-    h1#site-title
-    h2#page-title
-    h4
-    a
-      line-height: 13px
+      height 19px
+      > *
+        position relative
+        // top 2px
+    #main-menu
+      padding-left 10px
+    #sub-menu
+      padding-right 5px
+
     h1#site-title
       position: relative
-      top -1px
-      margin 0
+      // top -1px
       font-style italic
+      vertical-align: top
+      padding-right: 5px
+      top 1px
       // display none
       // +above(2)
       //   display inline
@@ -56,16 +63,18 @@ header.header, footer
       position fixed
       width 100%
       left 0
-      bottom 0
+      bottom -2px
+      padding-top 1px
       float left
       text-align: center
       font-style italic
       +above(4)
-        top 1px
+        padding-top 0
+        // top 1px
         position relative
         background-color: transparent
-      +above(6)
-        top 7px
+      // +above(6)
+      //   top 7px
 
     ul
       position: relative
@@ -74,10 +83,10 @@ header.header, footer
         float left
         li
           position relative
-          top -1px
+          // top -1px
       &#sub-menu
         position relative
-        top -1px
+        // top -1px
         float right
         text-align: right
         // +above(2)

@@ -1,13 +1,15 @@
 {{ $currentNode := . }}
 
 <ul id="main-menu">
-    <li>
+    <div id="title-wrapper">
         <h1 id="site-title">
             <a href="/credits">
                 {{ .Site.Title }}
             </a>
         </h1>
-    </li>
+    </div>
+    <!-- <li>
+    </li> -->
   {{ range .Site.Menus.main }}
 
   <li class="{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}active-link{{end}}">
