@@ -56,14 +56,6 @@ name = "episode-1-miscommunication"
     portrait    = "10,90"
   >}}
   {{< element-image
-    targetZone  =  "16"
-    name        =  "Hungarian-Rock"
-    viden       = "247983398"
-    vidde       = "247991885"
-    landscape   = "30,30"
-    portrait    = "55,40"
-  >}}
-  {{< element-image
     targetZone  =  "10"
     name        =  "Opening-Credits"
     viden       = "247991650"

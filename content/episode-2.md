@@ -41,13 +41,20 @@ name = "episode-2-psychologistical"
   >}}
   {{< element-image
     name        =  "Schaulust"
-    targetZone  =  "16"
+    targetZone  =  "12"
     viden       = "247995473"
     vidde       = "247995473"
-    landscape    = "38,48"
+    landscape    = "55,40"
     portrait    = "40,70"
   >}}
-
+  {{< element-image
+    targetZone  =  "16"
+    name        =  "Hungarian-Rock"
+    viden       = "247983398"
+    vidde       = "247991885"
+    landscape   = "10,30"
+    portrait    = "55,40"
+  >}}
     {{< element-text
     targetZone  =  "5"
     name        =  "Asher"
