@@ -18,8 +18,8 @@ name = "episode-5-emotions"
   {{< element-image
     name        =  "Little-Bit-Punk"
     targetZone  =  "10"
-    viden       = "252023931"
-    vidde       = "252031333"
+    viden       = "252527613"
+    vidde       = "252527143"
     landscape    = "60,63"
     portrait    = "55,90"
   >}}

@@ -20,7 +20,7 @@ name = "fullscreen-launch"
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee direction="left">No technology exists outside of the social conditions they were born under</marquee>
+  <marquee direction="left">"No technology exists outside of the social conditions they were born under"</marquee>
   <marquee direction="right">"You don't know what you're looking for?"</marquee>
 </div>
 
