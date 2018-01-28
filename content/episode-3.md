@@ -8,6 +8,14 @@ name = "episode-3-understandings"
 
 {{< sE releaseId="3">}}
   {{< element-image
+    name        =  "Harmony"
+    targetZone  =  "4"
+    viden       = "253123555"
+    vidde       = "253123422"
+    landscape    = "90,20"
+    portrait    = "40,60"
+  >}}
+  {{< element-image
     name        =  "Runaway"
     targetZone  =  "6"
     viden       = "247672477"
@@ -39,6 +47,8 @@ name = "episode-3-understandings"
     landscape    = "22,111"
     portrait    = "20,70"
   >}}
+
+
   {{< element-text
     targetZone  =  "5"
     name        =  "Asher"
