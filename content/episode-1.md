@@ -48,14 +48,6 @@ name = "episode-1-miscommunication"
     portrait    = "10,5"
   >}}
   {{< element-image
-    targetZone  =  "13"
-    name        =  "Asher-Laughing"
-    viden       = "247991227"
-    vidde       = "247991016"
-    landscape   = "20,10"
-    portrait    = "10,90"
-  >}}
-  {{< element-image
     targetZone  =  "10"
     name        =  "Opening-Credits"
     viden       = "247991650"

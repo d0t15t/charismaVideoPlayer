@@ -47,6 +47,14 @@ name = "episode-3-understandings"
     landscape    = "22,111"
     portrait    = "20,70"
   >}}
+  {{< element-image
+    targetZone  =  "13"
+    name        =  "Asher-Laughing"
+    viden       = "247991227"
+    vidde       = "247991016"
+    landscape   = "20,10"
+    portrait    = "10,90"
+  >}}
 
 
   {{< element-text
