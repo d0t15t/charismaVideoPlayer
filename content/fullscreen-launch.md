@@ -18,7 +18,7 @@ name = "fullscreen-launch"
 </div>
 <div id="launchpage-scrolling-text">
   <marquee direction="left"></marquee>
-  <marquee direction="right">"Close your eyes, close your eyes, think of nothing tonight."</marquee>
+  <marquee direction="left">"Close your eyes, close your eyes, think of nothing tonight."</marquee>
 </div>
 
 

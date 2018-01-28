@@ -9,25 +9,25 @@ name = "episode-6-haptic"
 {{< sE releaseId="6">}}
   {{< element-image
     name        =  "Fin-Sculpting"
-    targetZone  =  "11"
-    viden       = "252023557"
-    vidde       = "252023139"
-    landscape    = "-50,100"
+    targetZone  =  "4"
+    viden       = "253060073"
+    vidde       = "253060073"
+    landscape    = "20,80"
     portrait    = "20,90"
   >}}
   {{< element-image
     name        =  "Asher-Talking-To-Herself"
     targetZone  =  "10"
-    viden       = "252527613"
-    vidde       = "252527143"
+    viden       = "253059776"
+    vidde       = "253061915"
     landscape    = "60,63"
     portrait    = "55,90"
   >}}
   {{< element-image
     name        =  "Everythings-Alright-Part-2"
     targetZone  =  "6"
-    viden       = "252031447"
-    vidde       = "252024025"
+    viden       = "253114666"
+    vidde       = "253121502"
     landscape    = "5,34"
     portrait    = "8,30"
   >}}
@@ -41,7 +41,7 @@ name = "episode-6-haptic"
   >}}
   {{< element-image
     name        =  "Most-Intimate-Thing"
-    targetZone  =  "4"
+    targetZone  =  "11"
     viden       = "247668941"
     vidde       = "247668783"
     landscape   = "20,60"
@@ -115,6 +115,16 @@ name = "episode-6-haptic"
     vidde       = "247005810"
     landscape   = "10,30"
     portrait    = "10,30"
+    rotate      = "0"
+  >}}
+  {{< element-text
+    targetZone  =  "10"
+    name        =  "Bedrooms"
+    type        = "title"
+    viden       = "253144544"
+    vidde       = "253129389"
+    landscape   = "70,90"
+    portrait    = "80,50"
     rotate      = "0"
   >}}
 {{< /sE >}}

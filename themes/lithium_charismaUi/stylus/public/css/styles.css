@@ -401,7 +401,7 @@ header.header nav *,
 footer nav * {
   display: inline;
   box-sizing: border-box;
-  font-size: 15px;
+  font-size: 18px;
 }
 header.header nav > *,
 footer nav > * {
@@ -409,7 +409,7 @@ footer nav > * {
   position: relative;
   vertical-align: middle;
   height: 22px;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 header.header nav > * > *,
 footer nav > * > * {
@@ -446,7 +446,8 @@ footer nav h2#page-title {
 @media only screen and (min-width: 800px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
-    padding-top: 0;
+    bottom: unset;
+    top: -1px;
     position: relative;
     background-color: transparent;
   }
@@ -665,6 +666,7 @@ footer nav ul li.active-link > a {
   z-index: 1;
 }
 #scene-elements .scene-element {
+  box-sizing: border-box;
   transform-origin: top left;
   position: fixed;
   top: 0;
@@ -679,6 +681,9 @@ footer nav ul li.active-link > a {
   opacity: 1;
 }
 #scene-elements .scene-element.image {
+  border: 1px solid #000;
+}
+#scene-elements .scene-element.image img {
   border: 1px solid #000;
 }
 #scene-elements .scene-element .overlay-gif {
