@@ -1,44 +1,62 @@
 +++
-date = "2017-12-17T21:48:51-07:00"
-title = "Understandings"
-name = "episode-3-understandings"
+date = "2018-01-28T12:05:15+01:00"
+title = "Haptic"
+name = "episode-6-haptic"
 [menu.main]
-  identifier = "episode-3"
+  identifier = "episode-6"
 +++
 
-{{< sE releaseId="3">}}
+{{< sE releaseId="6">}}
   {{< element-image
-    name        =  "Runaway"
-    targetZone  =  "6"
-    viden       = "247672477"
-    vidde       = "247671990"
-    landscape    = "0,70"
+    name        =  "Fin-Sculpting"
+    targetZone  =  "11"
+    viden       = "252023557"
+    vidde       = "252023139"
+    landscape    = "-50,100"
     portrait    = "20,90"
   >}}
   {{< element-image
-    name        =  "Delayed-Process"
-    targetZone  =  "6"
-    viden       = "248047892"
-    vidde       = "248028290"
+    name        =  "Asher-Talking-To-Herself"
+    targetZone  =  "10"
+    viden       = "252527613"
+    vidde       = "252527143"
     landscape    = "60,63"
     portrait    = "55,90"
   >}}
   {{< element-image
-    name        =  "Nowhere-To-Go"
+    name        =  "Everythings-Alright-Part-2"
+    targetZone  =  "6"
+    viden       = "252031447"
+    vidde       = "252024025"
+    landscape    = "5,34"
+    portrait    = "8,30"
+  >}}
+  {{< element-image
+    name        =  "Psychic-Cleanup"
     targetZone  =  "8"
-    viden       = "247642426"
-    vidde       = "247641613"
+    viden       = "252024591"
+    vidde       = "252024249"
     landscape    = "60,30"
     portrait    = "70,10"
   >}}
   {{< element-image
-    name        =  "Telephone"
-    targetZone  =  "12"
-    viden       = "248061451"
-    vidde       = "248060700"
-    landscape    = "22,111"
-    portrait    = "20,70"
+    name        =  "Most-Intimate-Thing"
+    targetZone  =  "4"
+    viden       = "247668941"
+    vidde       = "247668783"
+    landscape   = "20,60"
+    portrait    = "25,10"
   >}}
+  {{< element-image
+    name        =  "Meat"
+    targetZone  =  "12"
+    viden       = "248056442"
+    vidde       = "248056442"
+    landscape   = "90,0"
+    portrait    = "50,60"
+  >}}
+
+
   {{< element-text
     targetZone  =  "5"
     name        =  "Asher"

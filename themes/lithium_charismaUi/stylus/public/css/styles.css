@@ -817,7 +817,7 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-image: url("/images/Augenkrebs.jpg");
+  background-image: url("/images/Episode-6.jpg");
   background-position-x: -11px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -843,6 +843,9 @@ body.dev.grid-active.placement-dev-wrapper-active .target-zone-label {
 }
 #fullscreen-launch-4 .circle a {
   background-image: url("/images/SEEK.jpg") !important;
+}
+#fullscreen-launch-5 .circle a {
+  background-image: url("/images/Augenkrebs.jpg") !important;
 }
 #launchpage-scrolling-text {
   position: relative;
