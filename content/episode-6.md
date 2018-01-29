@@ -34,8 +34,8 @@ name = "episode-6-haptic"
   {{< element-image
     name        =  "Psychic-Cleanup"
     targetZone  =  "8"
-    viden       = "252024591"
-    vidde       = "252024249"
+    viden       = "253062142"
+    vidde       = "253062341"
     landscape    = "60,30"
     portrait    = "70,10"
   >}}
