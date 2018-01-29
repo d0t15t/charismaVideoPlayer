@@ -42,8 +42,8 @@ name = "episode-6-haptic"
   {{< element-image
     name        =  "Most-Intimate-Thing"
     targetZone  =  "4"
-    viden       = "247668941"
-    vidde       = "247668783"
+    viden       = "248118704"
+    vidde       = "248118211"
     landscape   = "20,60"
     portrait    = "25,10"
   >}}
