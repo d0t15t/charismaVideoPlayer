@@ -117,4 +117,14 @@ name = "episode-3-understandings"
     portrait    = "10,30"
     rotate      = "0"
   >}}
+  {{< element-text
+    targetZone  =  "7"
+    name        =  "Bedrooms"
+    type        = "title"
+    viden       = "253144544"
+    vidde       = "253129389"
+    landscape   = "80,35"
+    portrait    = "80,50"
+    rotate      = "0"
+  >}}
 {{< /sE >}}
