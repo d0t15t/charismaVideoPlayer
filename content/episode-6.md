@@ -9,10 +9,10 @@ name = "episode-6-haptic"
 {{< sE releaseId="6">}}
   {{< element-image
     name        =  "Fin-Sculpting"
-    targetZone  =  "4"
+    targetZone  =  "15"
     viden       = "253060073"
     vidde       = "253060073"
-    landscape    = "20,80"
+    landscape    = "20,30"
     portrait    = "20,90"
   >}}
   {{< element-image
@@ -41,7 +41,7 @@ name = "episode-6-haptic"
   >}}
   {{< element-image
     name        =  "Most-Intimate-Thing"
-    targetZone  =  "11"
+    targetZone  =  "4"
     viden       = "247668941"
     vidde       = "247668783"
     landscape   = "20,60"

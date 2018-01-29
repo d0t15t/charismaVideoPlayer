@@ -9,10 +9,10 @@ name = "episode-3-understandings"
 {{< sE releaseId="3">}}
   {{< element-image
     name        =  "Harmony"
-    targetZone  =  "4"
+    targetZone  =  "9"
     viden       = "253123555"
     vidde       = "253123422"
-    landscape    = "90,20"
+    landscape    = "0,40"
     portrait    = "40,60"
   >}}
   {{< element-image
@@ -25,7 +25,7 @@ name = "episode-3-understandings"
   >}}
   {{< element-image
     name        =  "Delayed-Process"
-    targetZone  =  "6"
+    targetZone  =  "4"
     viden       = "248047892"
     vidde       = "248028290"
     landscape    = "60,63"
@@ -48,7 +48,7 @@ name = "episode-3-understandings"
     portrait    = "20,70"
   >}}
   {{< element-image
-    targetZone  =  "13"
+    targetZone  =  "15"
     name        =  "Asher-Laughing"
     viden       = "247991227"
     vidde       = "247991016"

@@ -49,10 +49,10 @@ name = "episode-5-emotions"
   >}}
   {{< element-image
     name        =  "Mad-World"
-    targetZone  =  "12"
+    targetZone  =  "14"
     viden       = "247668636"
     vidde       = "247668462"
-    landscape   = "90,0"
+    landscape   = "120,0"
     portrait    = "50,60"
   >}}
 

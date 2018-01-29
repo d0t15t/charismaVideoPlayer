@@ -40,7 +40,7 @@ name = "episode-1-miscommunication"
     portrait    = "0,40"
   >}}
   {{< element-image
-    targetZone  =  "8"
+    targetZone  =  "15"
     name        =  "Micro_bondage"
     viden       = "247979076"
     vidde       = "247978158"
