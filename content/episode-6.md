@@ -118,12 +118,12 @@ name = "episode-6-haptic"
     rotate      = "0"
   >}}
   {{< element-text
-    targetZone  =  "10"
+    targetZone  =  "7"
     name        =  "Bedrooms"
     type        = "title"
     viden       = "253144544"
     vidde       = "253129389"
-    landscape   = "70,90"
+    landscape   = "80,35"
     portrait    = "80,50"
     rotate      = "0"
   >}}
