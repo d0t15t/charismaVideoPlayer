@@ -93,7 +93,7 @@ name = "episode-1-miscommunication"
     vidde       = "246654535"
     landscape   = "90,80"
     portrait    = "760,100"
-    rotate      = "45"
+    rotate      = "-45"
   >}}
   {{< element-text
     targetZone  =  "7"
