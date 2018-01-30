@@ -1,15 +1,6 @@
-gridSide = 10px
-
 header
   transition all 600ms
   position relative
-  // top -30px
-  // +above(2)
-  //   top -30px
-  // +below(1)
-  //   top -40px
-  // &.active
-  //   top 0
 
 body#credits
   header
@@ -31,13 +22,18 @@ header.header, footer
     *
       display inline
       box-sizing: border-box
-      font-size 18px
+      font-size 15px
+      +above(2)
+        font-size 18px
+
     > *
       display inline-block
       position relative
       vertical-align: middle
       height 22px
-      margin-top 2px
+      margin-top 4px
+      +above(2)
+        margin-top 2px
       > *
         position relative
         // top 2px
@@ -48,17 +44,10 @@ header.header, footer
 
     h1#site-title
       position: relative
-      // top -1px
       font-style italic
       vertical-align: top
       padding-right: 5px
       top 1px
-      // display none
-      // +above(2)
-      //   display inline
-      //   top -1.5px
-      // +above(4)
-      //   top -2.5px
     h2#page-title
       background black
       position fixed
@@ -72,29 +61,19 @@ header.header, footer
       +above(4)
         bottom unset
         top -1px
-        // top 1px
         position relative
         background-color: transparent
-      // +above(6)
-      //   top 7px
 
     ul
       position: relative
-      // height h
       &#main-menu
         float left
         li
           position relative
-          // top -1px
       &#sub-menu
         position relative
-        // top -1px
         float right
         text-align: right
-        // +above(2)
-        //   top -2px
-        // +above(4)
-        //   top -5px
       +above(3)
         padding 0 10px 0 15px
       li
@@ -103,15 +82,10 @@ header.header, footer
         &.active-link
           > a
             text-decoration: underline
-            // border-bottom 2px solid white
 
 +above(4)
   header nav
     > *
-      width 33% !important
-
-// +above(4)
-//   header.header, footer
-//     nav.nav
-//       > *
-        // height h + 5px
+      width 35% !important
+    h2
+      width 30% !important

@@ -401,7 +401,13 @@ header.header nav *,
 footer nav * {
   display: inline;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 15px;
+}
+@media only screen and (min-width: 400px) {
+  header.header nav *,
+  footer nav * {
+    font-size: 18px;
+  }
 }
 header.header nav > *,
 footer nav > * {
@@ -409,7 +415,13 @@ footer nav > * {
   position: relative;
   vertical-align: middle;
   height: 22px;
-  margin-top: 2px;
+  margin-top: 4px;
+}
+@media only screen and (min-width: 400px) {
+  header.header nav > *,
+  footer nav > * {
+    margin-top: 2px;
+  }
 }
 header.header nav > * > *,
 footer nav > * > * {
@@ -487,7 +499,10 @@ footer nav ul li.active-link > a {
 }
 @media only screen and (min-width: 800px) {
   header nav > * {
-    width: 33% !important;
+    width: 35% !important;
+  }
+  header nav h2 {
+    width: 30% !important;
   }
 }
 #master-video-player {
