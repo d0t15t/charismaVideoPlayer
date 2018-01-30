@@ -70,12 +70,6 @@ title = "Credits"
     </p>
 
     <p>
-    Additional Music<br>
-    Lithalsa<br>
-    Godmother
-    </p>
-
-    <p>
     Set Assistant<br>
     Michele Majidi
     </p>
@@ -89,7 +83,7 @@ title = "Credits"
     Music by<br>
     Lithalsa<br>
     Aciel Martinez Pol<br>
-    Joey Hansom
+    Godmother
     </p>
 
     <p>
