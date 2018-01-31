@@ -681,13 +681,14 @@ footer nav ul li.active-link > a {
   z-index: 1;
 }
 #scene-elements .scene-element {
-  box-sizing: border-box;
+  box-sizing: content-box;
   transform-origin: top left;
   position: fixed;
   top: 0;
   left: 0;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-size: 100% 100%;
   background-position: center center;
   cursor: pointer;
   opacity: 0;

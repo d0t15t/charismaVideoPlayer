@@ -277,16 +277,16 @@ function bounceInside($e, s, array, i) {
  */
 function thumbnailSize() {
   var t = {
-    w: '170px', h: '127.5px'
+    w: '170px', h: '136px'
   };
   if (window.innerWidth > 600) {
     var t = {
-      w: '200px', h: '150px'
+      w: '200px', h: '160px'
     };
   }
   if (window.innerWidth > 800) {
     var t = {
-      w: '290px', h: '220px'
+      w: '300px', h: '240px'
     };
   }
   return t;
