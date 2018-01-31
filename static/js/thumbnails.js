@@ -32,7 +32,7 @@ $(document).ready(function(){
         // Bounce in space.
         setTimeout(function(){
           var sides = loadSides();
-          bounceInside($b, sides.pop(), sides, 0);
+          bounceInside($b, sides.pop(), sides);
         }, numberBetween(1300, 1600));
       });
       // Text
@@ -197,6 +197,7 @@ function distanceCalc(x1, x2, y1, y2) {
 function durationCalc(x1, x2, y1, y2) {
   var d = distanceCalc(x1, x2, y1, y2);
   var speed = 70 * d;
+  // var speed = 2 * d;
   // console.log(d);
   return speed;
 }
@@ -208,7 +209,7 @@ function durationCalc(x1, x2, y1, y2) {
  * @param {*} array
  * @param {*} i
  */
-function bounceInside($e, s, array, i) {
+function bounceInside($e, s, array) {
   if (array.length == 0) {
     array = shuffle(loadSides());
     s = array.pop();
@@ -242,15 +243,16 @@ function bounceInside($e, s, array, i) {
       y2 = offset.top + r;
       break;
   }
-  var easing = i == 0 ? 'linear' : 'linear';
+  // var easing = i == 0 ? 'linear' : 'linear';
   // var easing = i == 0 ? 'easeInSine' : 'linear';
-  i++;
+  // i++;
   $e.velocity({
-    translateX: [x2, x1],
-    translateY: [y2, y1],
+    translateX: x2,
+    translateY: y2
   }, {
     'duration': durationCalc(x1, x2, y1, y2) / $e.attr('scale'),
-    'easing': easing,
+    // 'easing': easing,
+    'easing': 'linear',
     complete: function() {
       bounceInside($e, array.pop(), array);
     }
@@ -258,13 +260,17 @@ function bounceInside($e, s, array, i) {
   $e.hover(function(){
     $e.velocity("stop", true);
   }, function(){
-    bounceInside($e, array.pop(), array);
+    var sides = loadSides();
+    bounceInside($e, sides.pop(), sides);
+    // bounceInside($e, array.pop(), array);
   });
+
   $(window).focus(function() {
     setTimeout(function(){
-      bounceInside($e, array.pop(), array);
+      var sides = loadSides();
+      bounceInside($e, sides.pop(), sides);
+      // bounceInside($e, array.pop(), array);
     }, numberBetween(1300, 1600));
-
   });
 
   $(window).blur(function() {
