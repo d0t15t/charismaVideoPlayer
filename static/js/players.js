@@ -85,7 +85,6 @@ $(document).ready(function(){
       var $parent = $('#' + $activePlayer.attr('parent'));
       setTimeout(function(){
         $('#' + $activePlayer.attr('parent'))
-          .effect('shake')
           .addClass('fadeOut');
         removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
       }, delay);
