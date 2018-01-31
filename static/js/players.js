@@ -83,13 +83,17 @@ $(document).ready(function(){
         }, delay);
       }
       var $parent = $('#' + $activePlayer.attr('parent'));
+
       setTimeout(function(){
-        $('#' + $activePlayer.attr('parent'))
-          .addClass('fadeOut');
-        removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
+        $('#' + $activePlayer.attr('parent')).addClass('fadeOut');
+        if ($parent.hasClass('image')) {
+          removeStopped($('#' + $activePlayer.attr('parent')), $activePlayer);
+        }
+        else {
+          $activePlayer.removeClass('active').children().remove();
+        }
       }, delay);
-      if ($parent.hasClass('image')) {
-      }
+
     }, 500);
   }
 
