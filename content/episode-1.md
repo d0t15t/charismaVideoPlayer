@@ -8,7 +8,7 @@ name = "episode-1-miscommunication"
 
 {{< sE releaseId="1">}}
   {{< element-image
-    targetZone  =  "4"
+    targetZone  =  "8"
     name        =  "Joke"
     viden       = "247980818"
     vidde       = "247980064"
@@ -28,7 +28,7 @@ name = "episode-1-miscommunication"
     name        =  "Miscommunication"
     viden       = "245579568"
     vidde       = "245734969"
-    landscape   = "100,30"
+    landscape   = "50,30"
     portrait    = "65,30"
   >}}
   {{< element-image
