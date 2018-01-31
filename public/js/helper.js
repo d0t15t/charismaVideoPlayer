@@ -51,3 +51,10 @@ $(document).ready(function(){
 
 });
 
+// if ((navigator.userAgent.match(/iPhone/)) || (navigator.userAgent.match(/iPod/))) {
+//   alert("we've got an iDevice, Scotty");
+// }
+
+// if (navigator.userAgent.match(/Android/)) {
+//   alert("Droid me baby");
+// }
