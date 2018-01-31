@@ -122,7 +122,7 @@ name = "episode-1-miscommunication"
     viden       = "253386335"
     vidde       = "253386054"
     landscape   = "80,35"
-    portrait    = "80,50"
+    portrait    = "50,50"
     rotate      = "0"
   >}}
 {{< /sE >}}
