@@ -38,7 +38,7 @@ $(document).ready(function(){
   if (window.location.pathname == '/') {
     // console.log(d.e.releaseId);
     $('h2#page-title').text(d.e.title);
-    $('#main-menu li').last().addClass('active-link');
+    $('#main-menu li').first().addClass('active-link');
     // eq(d.e.releaseId).addClass('active-link');
   }
 
