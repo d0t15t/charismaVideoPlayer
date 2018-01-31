@@ -143,6 +143,7 @@ $(document).ready(function(){
   /**
    * Init Grid
    */
+
   function initGrid() {
 
     // Wrapper
@@ -329,6 +330,7 @@ $(document).ready(function(){
       .attr('fill', 'none')
       .attr('stroke-width', '1');
   }
+
   function initSvgGrid_simple(base, direction) {
     $('#grid-svg').remove();
     var id = 'grid-svg';
@@ -341,11 +343,13 @@ $(document).ready(function(){
     $wr.css({
       'height': ($wr.height() + ($wr.height() / 7)) + 'px',
     });
-    $wr.velocity({
-      'opacity': 1
-    }, {
-      duration: 1000
-    });
+    setTimeout(function(){
+      $wr.velocity({
+        'opacity': 1
+      }, {
+        duration: 1200
+      });
+    }, 300);
     if (window.innerWidth > window.innerHeight) {
     }
 
@@ -355,6 +359,7 @@ $(document).ready(function(){
   }
   initGrid();
   initSvgGrid_simple(baseSide, direction);
+
 
   $(window).resize(function(){
     initGrid();
