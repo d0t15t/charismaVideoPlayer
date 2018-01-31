@@ -277,7 +277,7 @@ function bounceInside($e, s, array, i) {
  */
 function thumbnailSize() {
   var t = {
-    w: '200px', h: '150px'
+    w: '170px', h: '127.5px'
   };
   if (window.innerWidth > 600) {
     var t = {

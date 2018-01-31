@@ -698,9 +698,6 @@ footer nav ul li.active-link > a {
 #scene-elements .scene-element.image {
   border: 1px solid #000;
 }
-#scene-elements .scene-element.image img {
-  border: 1px solid #000;
-}
 #scene-elements .scene-element .overlay-gif {
   width: 100%;
   height: 100%;
