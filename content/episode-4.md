@@ -64,7 +64,7 @@ name = "episode-4-seek"
     viden       = "245581039"
     vidde       = "245580437"
     landscape    = "85,50"
-    portrait    = "60,60"
+    portrait    = "58,60"
     rotate      = "0"
   >}}
   {{< element-text
@@ -74,7 +74,7 @@ name = "episode-4-seek"
     viden       = "245582230"
     vidde       = "245581683"
     landscape   = "0,65"
-    portrait    = "25,70"
+    portrait    = "28,70"
     rotate      = "-90"
   >}}
   {{< element-text
@@ -94,7 +94,7 @@ name = "episode-4-seek"
     viden       = "246655234"
     vidde       = "246654535"
     landscape   = "90,80"
-    portrait    = "760,100"
+    portrait    = "58,105"
     rotate      = "-45"
   >}}
   {{< element-text
