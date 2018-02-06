@@ -32,14 +32,14 @@ $(document).ready(function(){
         // Bounce in space.
         setTimeout(function(){
           var sides = loadSides();
-          bounceInside($b, sides.pop(), sides);
+          bounceInside($b, sides);
 
           $b.hover(function(){
             $b.velocity("stop", true);
             $b.velocity('finish', true);
           }, function(){
             var sides = loadSides();
-            bounceInside($b, sides.pop(), sides);
+            bounceInside($b, sides);
           });
 
           $(window).blur(function() {
@@ -50,7 +50,7 @@ $(document).ready(function(){
           $(window).focus(function() {
             setTimeout(function(){
               var sides = loadSides();
-              bounceInside($b, sides.pop(), sides);
+              bounceInside($b, sides);
             }, numberBetween(1300, 1600));
           });
 
@@ -71,7 +71,9 @@ $(document).ready(function(){
         }, numberBetween(700, 1300));
       });
     };
+
     functionOne().done( functionTwo() );
+
   });
 
 });
@@ -214,6 +216,15 @@ function distanceCalc(x1, x2, y1, y2) {
   return Math.sqrt( a*a + b*b );
 }
 
+/**
+ * Animation duration calculator - based on the distance between the points,
+ * calculate the duration so that relative speed is always the same.
+ *
+ * @param {*} x1
+ * @param {*} x2
+ * @param {*} y1
+ * @param {*} y2
+ */
 function durationCalc(x1, x2, y1, y2) {
   var d = distanceCalc(x1, x2, y1, y2);
   var speed = 70 * d;
@@ -222,18 +233,18 @@ function durationCalc(x1, x2, y1, y2) {
 }
 
 /**
+ * Bounce orbit main function.
  *
- * @param {*}
- * @param {*} s
- * @param {*} array
- * @param {*} i
+ * @param {*} $e    DOM Element
+ * @param {*} array sides array
  */
-function bounceInside($e, s, array) {
+function bounceInside($e, array) {
+
+  // reload sides array if nessary
   if (array.length == 0) {
     array = shuffle(loadSides());
-    s = array.pop();
   }
-
+  s = array.pop();
   var $tz = $('[segment=' + $e.attr('target-zone') + ']');
   var offset = $tz.offset();
   var W = $tz.outerWidth();
@@ -270,7 +281,7 @@ function bounceInside($e, s, array) {
     'duration': durationCalc(x1, x2, y1, y2) / $e.attr('scale'),
     'easing': 'linear',
     complete: function() {
-      bounceInside($e, array.pop(), array);
+      bounceInside($e, array);
     }
   });
 }
