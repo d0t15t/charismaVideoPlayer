@@ -33,6 +33,27 @@ $(document).ready(function(){
         setTimeout(function(){
           var sides = loadSides();
           bounceInside($b, sides.pop(), sides);
+
+          $b.hover(function(){
+            $b.velocity("stop", true);
+            $b.velocity('finish', true);
+          }, function(){
+            var sides = loadSides();
+            bounceInside($b, sides.pop(), sides);
+          });
+
+          $(window).blur(function() {
+            $b.velocity("stop", true);
+            $b.velocity('finish', true);
+          });
+
+          $(window).focus(function() {
+            setTimeout(function(){
+              var sides = loadSides();
+              bounceInside($b, sides.pop(), sides);
+            }, numberBetween(1300, 1600));
+          });
+
         }, numberBetween(1300, 1600));
       });
       // Text
@@ -193,12 +214,10 @@ function distanceCalc(x1, x2, y1, y2) {
   return Math.sqrt( a*a + b*b );
 }
 
-
 function durationCalc(x1, x2, y1, y2) {
   var d = distanceCalc(x1, x2, y1, y2);
   var speed = 70 * d;
   // var speed = 2 * d;
-  // console.log(d);
   return speed;
 }
 
@@ -214,7 +233,7 @@ function bounceInside($e, s, array) {
     array = shuffle(loadSides());
     s = array.pop();
   }
-  // var s = array.pop();
+
   var $tz = $('[segment=' + $e.attr('target-zone') + ']');
   var offset = $tz.offset();
   var W = $tz.outerWidth();
@@ -243,38 +262,16 @@ function bounceInside($e, s, array) {
       y2 = offset.top + r;
       break;
   }
-  // var easing = i == 0 ? 'linear' : 'linear';
-  // var easing = i == 0 ? 'easeInSine' : 'linear';
-  // i++;
+
   $e.velocity({
     translateX: x2,
     translateY: y2
   }, {
     'duration': durationCalc(x1, x2, y1, y2) / $e.attr('scale'),
-    // 'easing': easing,
     'easing': 'linear',
     complete: function() {
       bounceInside($e, array.pop(), array);
     }
-  });
-  $e.hover(function(){
-    $e.velocity("stop", true);
-  }, function(){
-    var sides = loadSides();
-    bounceInside($e, sides.pop(), sides);
-    // bounceInside($e, array.pop(), array);
-  });
-
-  $(window).focus(function() {
-    setTimeout(function(){
-      var sides = loadSides();
-      bounceInside($e, sides.pop(), sides);
-      // bounceInside($e, array.pop(), array);
-    }, numberBetween(1300, 1600));
-  });
-
-  $(window).blur(function() {
-    $e.velocity("stop", true);
   });
 }
 
