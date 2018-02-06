@@ -20,7 +20,6 @@ $(document).ready(function(){
   var lang = window.navigator.userLanguage || window.navigator.language;
   if(window.location.hash) {
     lang = window.location.hash == '#de' ? 'de-DE' : 'en-GB';
-    console.log('lang with hash = ' + lang);
   }
   menuLinksLanguageUpdate(lang);
 
@@ -42,7 +41,6 @@ $(document).ready(function(){
     window.navigator.userLanguage = lang;
     window.navigator.language = lang;
     menuLinksLanguageUpdate(lang);
-    console.log(lang);
   });
 
   function menuLinksLanguageUpdate(lang) {
@@ -63,10 +61,8 @@ $(document).ready(function(){
 
   // Home page set active link as default latest episode
   if (window.location.pathname == '/') {
-    // console.log(d.e.releaseId);
     $('h2#page-title').text(d.e.title);
     $('#main-menu li').first().addClass('active-link');
-    // eq(d.e.releaseId).addClass('active-link');
   }
 
   // back button

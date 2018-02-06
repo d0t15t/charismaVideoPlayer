@@ -47,9 +47,7 @@ $(document).ready(function(){
       var $trigger = $(this);
       $trigger.click(function(){
         var activeLang = $('.lang-link.active-link').children().attr('lang');
-        console.log(activeLang);
         var vid = activeLang == 'en-GB' ? $trigger.attr('viden') : $trigger.attr('vidde');
-        console.log(vid);
         var player  = initPlayer(vid);
         player.on('ended', function(data) {
           closeVideoPlayer();
