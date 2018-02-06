@@ -42,14 +42,16 @@ disqusShortname = ""
 
 [[menu.sub]]
     name = "EN"
-    url = "#"
+    url = "#en"
     identifier = "en-link"
     weight = -50
+    post = "en-GB"
 [[menu.sub]]
     name = "DE"
-    url = "#"
+    url = "#de"
     identifier = "de-link"
     weight = -49
+    post = "de-DE"
 
 [params]
     description = "Independent web series, a sitcom produced by artists Sarah M. Harrison and Wojciech Kosma."

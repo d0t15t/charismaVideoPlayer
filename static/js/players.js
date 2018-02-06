@@ -46,8 +46,10 @@ $(document).ready(function(){
     $('.scene-element').each(function(i, e){
       var $trigger = $(this);
       $trigger.click(function(){
-        var activeLang = $('.lang-link.active-link').attr('lang');
-        var vid = activeLang == 'en' ? $trigger.attr('viden') : $trigger.attr('vidde');
+        var activeLang = $('.lang-link.active-link').children().attr('lang');
+        console.log(activeLang);
+        var vid = activeLang == 'en-GB' ? $trigger.attr('viden') : $trigger.attr('vidde');
+        console.log(vid);
         var player  = initPlayer(vid);
         player.on('ended', function(data) {
           closeVideoPlayer();

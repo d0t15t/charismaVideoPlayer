@@ -30,7 +30,7 @@
 
 <ul id="sub-menu">
   {{ range .Site.Menus.sub }}
-  <li id="{{ .Identifier }}"><a href="{{ .URL }}">{{ .Name }}</a></li>
+  <li id="{{ .Identifier }}"><a href="{{ .URL }}" lang="{{ .Post }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>
 

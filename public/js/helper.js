@@ -17,24 +17,51 @@ $(document).ready(function(){
   var germans = [
     'de-AT', 'de-DE', 'de-LI', 'de-LU', 'de-CH',
   ];
-  var lng = window.navigator.userLanguage || window.navigator.language;
+  var lang = window.navigator.userLanguage || window.navigator.language;
+  if(window.location.hash) {
+    lang = window.location.hash == '#de' ? 'de-DE' : 'en-GB';
+    console.log('lang with hash = ' + lang);
+  }
+  menuLinksLanguageUpdate(lang);
 
-  if (germans.indexOf(lng) != -1) {
-    $('#de-link').attr('active-link', '');
+  // Set active menu link based on browser language.
+  if (germans.indexOf(lang) != -1) {
+    $('#de-link').attr('active-link', '').addClass('active-link');
   }
   else
-    $('#en-link').addClass('active-link');
+    $('#en-link').attr('active-link', '').addClass('active-link');
   $('#de-link, #en-link').each(function(){
-    $(this).attr('lang', $(this).attr('id').replace('-link', '')).addClass('lang-link');
+    $(this).addClass('lang-link');
   });
 
+  // Language menu controls.
   $('#de-link, #en-link').click(function(){
     $('#de-link, #en-link').removeClass('active-link');
     $(this).addClass('active-link');
+    var lang = $(this).children().attr('lang');
+    window.navigator.userLanguage = lang;
+    window.navigator.language = lang;
+    menuLinksLanguageUpdate(lang);
+    console.log(lang);
   });
 
-  // Home page set active link as default latest episode
+  function menuLinksLanguageUpdate(lang) {
+    var $links = $('#main-menu > li a');
+    $links.each(function(){
+      var $link = $(this);
+      var link = $link.attr('href');
+      // update hash value
+      var index = link.indexOf('#');
+      if ( index != -1) {
+        link = link.slice(0, index);
+      }
+      var langShort = lang.substr(0, 2);
+      $link.attr('href', link + '#' + langShort);
+      window.location.hash = langShort;
+    });
+  }
 
+  // Home page set active link as default latest episode
   if (window.location.pathname == '/') {
     // console.log(d.e.releaseId);
     $('h2#page-title').text(d.e.title);
@@ -47,7 +74,6 @@ $(document).ready(function(){
     e.preventDefault();
     history.go(-1);
   });
-
 
 });
 
