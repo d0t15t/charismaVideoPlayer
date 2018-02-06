@@ -455,7 +455,7 @@ footer nav h2#page-title {
   text-align: center;
   font-style: italic;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1050px) {
   header.header nav h2#page-title,
   footer nav h2#page-title {
     bottom: unset;
@@ -497,7 +497,7 @@ header.header nav ul li.active-link > a,
 footer nav ul li.active-link > a {
   text-decoration: underline;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1050px) {
   header nav > * {
     width: 35% !important;
   }
