@@ -54,6 +54,11 @@ $(document).ready(function(){
         link = link.slice(0, index);
       }
       var langShort = lang.substr(0, 2);
+      if (
+        langShort != 'en'
+        || langShort != 'de'
+      )
+        langShort == 'en';
       $link.attr('href', link + '#' + langShort);
       window.location.hash = langShort;
     });
