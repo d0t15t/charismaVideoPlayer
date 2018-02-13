@@ -136,27 +136,3 @@ title = "Credits"
 </div>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-
-<script>
-$(document).ready(function(){
-
-  // function scrollCredits($el){
-  //   $el.animate({
-  //     top: ($el.height() + 500) * -1
-  //   }, 70000, 'linear', function() {
-  //     $el.css({
-  //       'top': $(window).height()
-  //     });
-  //     scrollCredits($($el));
-  //   });
-  // }
-
-  // setTimeout(function(){
-  //   scrollCredits($('#credits-page.info-page'));
-  // }, 2000);
-
-
-
-});
-
-</script>
