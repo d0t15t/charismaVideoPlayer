@@ -2,6 +2,7 @@
 date = "2017-12-10T21:48:51-07:00"
 title = "Psychologistical"
 name = "episode-2-psychologistical"
+thumbnail = "images/meta-2.png"
 [menu.main]
   identifier = "episode-2"
 +++

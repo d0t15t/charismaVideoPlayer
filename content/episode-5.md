@@ -2,6 +2,7 @@
 date = "2018-01-21T18:20:54+01:00"
 title = "Emotions"
 name = "episode-5-emotions"
+thumbnail = "images/meta-5.png"
 [menu.main]
   identifier = "episode-5"
 +++

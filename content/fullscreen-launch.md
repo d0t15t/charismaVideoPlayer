@@ -1,24 +1,25 @@
 +++
-date = "2018-01-27T15:00:27+01:00"
-title = "Episode 6: Haptic"
-name = "fullscreen-launch"
+date = "2017-12-06T21:48:51-07:00"
+title = "Episode 1: Miscommunication"
+name = "fullscreen-launch-1"
+thumbnail = "images/meta-1.png"
 +++
 
 <div id="fullscreen-launch-content" class="center-page no-nav">
   <div class="inner">
     <div class="rounded-logo"></div>
       <div class="circle">
-        <a href="/episode-6" >
+        <a href="/episode-1" >
       </div>
+      <!-- <div class="rounded-enter"></div> -->
     </a>
-    <a class="title" href="/episode-6" >
-    <p>Episode 6: Haptic</p>
+    <a class="title" href="/episode-1" >
+      <img src="/images/Episode-1-title.svg">
+      <!-- <h1 class="headline-style-1">Episode 1: Miscommunication</h1> -->
     </a>
   </div>
 </div>
 <div id="launchpage-scrolling-text">
-  <marquee direction="left"></marquee>
-  <marquee direction="left">"Close your eyes, close your eyes, think of nothing tonight."</marquee>
+  <marquee direction="left">"No adult is an island."</marquee>
+  <marquee direction="right">"What didn't you say?"</marquee>
 </div>
-
-

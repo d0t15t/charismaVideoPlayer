@@ -2,6 +2,7 @@
 date = "2018-01-28T12:23:00+01:00"
 title = "Episode 5: Emotions"
 name = "fullscreen-launch-5"
+thumbnail = "images/meta-5.png"
 +++
 
 <div id="fullscreen-launch-content" class="center-page no-nav">

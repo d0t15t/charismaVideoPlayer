@@ -4,6 +4,7 @@ title = "Charisma"
 theme = "lithium_charismaUi"
 googleAnalytics = ""
 disqusShortname = ""
+thumbnail = "images/meta.png"
 
 [permalinks]
     post = "/:year/:month/:day/:title/"
