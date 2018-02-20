@@ -1,4 +1,4 @@
-baseURL = "charisma.watch"
+baseURL = "/"
 languageCode = "en-us"
 title = "Charisma"
 theme = "lithium_charismaUi"
