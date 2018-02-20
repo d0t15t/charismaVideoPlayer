@@ -2,7 +2,7 @@
 date = "2017-12-06T21:48:51-07:00"
 title = "Episode 1: Miscommunication"
 name = "fullscreen-launch-1"
-thumbnail = "images/meta-1.png"
+thumbnail = "images/meta.png"
 +++
 
 <div id="fullscreen-launch-content" class="center-page no-nav">
