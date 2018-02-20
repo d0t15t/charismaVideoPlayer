@@ -12,12 +12,12 @@
 {{ end }}
 
 {{ if eq .URL "/" }}
-<meta property="og:image" content="http:{{ .Site.BaseURL }}images/meta.png">
+<meta property="og:image" content="http://charisma.watch/images/meta.png">
 {{ else }}
   <meta property="og:type"               content="article" />
 
 {{ if .Params.thumbnail }}
-<meta property="og:image" content="http:{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
+<meta property="og:image" content="http://charisma.watch/{{ .Params.thumbnail }}">
 {{ end }}
 
 
