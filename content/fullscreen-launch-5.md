@@ -1,6 +1,6 @@
 +++
 date = "2018-01-28T12:23:00+01:00"
-title = "Episode 5: Emotions"
+title = "Episode 5: Haptic"
 name = "fullscreen-launch-5"
 thumbnail = "images/meta-5.png"
 +++
@@ -13,7 +13,7 @@ thumbnail = "images/meta-5.png"
       </div>
     </a>
     <a class="title" href="/episode-5" >
-    <p>Episode 5: Emotions</p>
+    <p>Episode 5: Haptic</p>
     </a>
   </div>
 </div>
