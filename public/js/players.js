@@ -2,7 +2,7 @@ function initPlayer(vid) {
   var options = {
     id: vid,
     loop: false,
-    autoplay: true,
+    // autoplay: true,
     width: 640,
     height: 480
   };
@@ -13,7 +13,7 @@ function initPlayer(vid) {
 /**
  * Scene elements - thumbnails & videos.
  */
-$(document).ready(function(){
+$(document).ready(function () {
 
   var wrapper = 'master-video-player-inner';
   var $wr = $('#' + wrapper);
@@ -23,43 +23,43 @@ $(document).ready(function(){
   // initPlayers(d.e, $wr);
 
   var players = [];
-  $('body').imagesLoaded( function() {
+  $('body').imagesLoaded(function () {
     initTriggers(players);
   });
 
   /**
    * Playlist nav
    */
-  $('#playlist').children().click(function(){
-    var parId = ($('.video-player.active').attr('parent'));
-    var parIndex = $('#' + parId).index();
-    var index = parIndex + parseInt($(this).attr('val'));
-    var activePlayerId = $('.video-player.active').attr('id');
-    players[activePlayerId].pause();
-    $('.scene-element').eq(index).click();
-  });
+  // $('#playlist').children().click(function () {
+  //   var parId = ($('.video-player.active').attr('parent'));
+  //   var parIndex = $('#' + parId).index();
+  //   var index = parIndex + parseInt($(this).attr('val'));
+  //   var activePlayerId = $('.video-player.active').attr('id');
+  //   players[activePlayerId].pause();
+  //   $('.scene-element').eq(index).click();
+  // });
 
   /**
    *
    */
   function initTriggers(players) {
-    $('.scene-element').each(function(i, e){
+    $('.scene-element').each(function (i, e) {
       var $trigger = $(this);
-      $trigger.click(function(){
+      $trigger.click(function () {
         var activeLang = $('.lang-link.active-link').children().attr('lang');
         var vid = activeLang == 'en-GB' ? $trigger.attr('viden') : $trigger.attr('vidde');
-        var player  = initPlayer(vid);
-        player.on('ended', function(data) {
+        var player = initPlayer(vid);
+        player.on('ended', function (data) {
           closeVideoPlayer();
         });
         $('body').addClass('video-player-active');
         $('#master-video-player').addClass('active');
-        $.each(players, function(i,e){
+        $.each(players, function (i, e) {
           $('#' + i).removeClass('active');
         });
         $('#' + vid).addClass('active');
         // play
-          player.play();
+        player.pause();
         players.activePlayer = player;
       });
     });
@@ -69,20 +69,20 @@ $(document).ready(function(){
    * Close video player.
    */
   function closeVideoPlayer() {
-    setTimeout(function(){
+    setTimeout(function () {
       var $activePlayer = $('.video-player.active');
-      var activePlayerId = $('.video-player.active').attr('id');
+      // var activePlayerId = $('.video-player.active').attr('id');
       players.activePlayer.pause();
       $('#master-video-player').removeClass('active');
       $('body').removeClass('video-player-active');
       var delay = 500;
       function removeStopped($el) {
-        setTimeout(function(){
+        setTimeout(function () {
           $el.remove();
         }, delay);
       }
       var $parent = $('#' + $activePlayer.attr('parent'));
-      setTimeout(function(){
+      setTimeout(function () {
         $('#' + $activePlayer.attr('parent')).addClass('fadeOut');
         if ($parent.hasClass('image')) {
           removeStopped($('#' + $activePlayer.attr('parent')));
@@ -93,21 +93,21 @@ $(document).ready(function(){
     }, 500);
   }
 
-  $('.video-controls .close, #master-video-player').click(function(){
+  $('.video-controls .close, #master-video-player').click(function () {
     closeVideoPlayer();
   });
 
-  $(document).keyup(function(e) {
+  $(document).keyup(function (e) {
     if (e.keyCode == 27) { // escape key maps to keycode `27`
-       closeVideoPlayer();
+      closeVideoPlayer();
     }
   });
 
 
   // Controller jquery.
-  $('#master-video-player').hover(function(){
+  $('#master-video-player').hover(function () {
     $(this).toggleClass('hover');
-  }, function() {
+  }, function () {
     $(this).toggleClass('hover');
   });
 });
@@ -116,7 +116,7 @@ $(document).ready(function(){
  * Init videos in both languages.
  */
 function initPlayers($wr) {
-  $.each($('.scene-element'), function(){
+  $.each($('.scene-element'), function () {
     var $parent = $(this);
     var vid = $parent.attr('viden');
     $wr.prepend('<div class="video-player"></div>');
